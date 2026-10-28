@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Confidentialité — mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F5F2}
+a{color:#111010}a:hover{color:#C2410C}
+a:focus-visible{outline:2px solid #FF5A1F;outline-offset:2px}
+</style>
+</helmet>
+<div style="width: 390px; background: #F7F5F2; color: #111010; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; line-height: 1.6;">
+<dc-import name="HeaderMobile" active="aucun" count="3" hint-size="100%,110px"></dc-import>
+<article style="padding: 24px 20px 48px; display: flex; flex-direction: column; gap: 28px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<h1 style="margin: 0; font-size: 40px; line-height: 1; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em;">Confidentialité<span style="color: #FF5A1F;">.</span></h1>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">MISE À JOUR · [JJ/MM/AAAA]</span>
+</div>
+<section style="display: flex; flex-direction: column; gap: 8px;">
+<h2 style="margin: 0; font-size: 22px; font-weight: 700;">01 · En résumé</h2>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px;">
+<li style="border: 1px solid #E3DFD9; padding: 12px 14px;"><strong>Aucune inscription.</strong> Ma sélection reste sur votre appareil.</li>
+<li style="border: 1px solid #E3DFD9; padding: 12px 14px;"><strong>Aucune revente.</strong> Vos messages servent uniquement à vous répondre.</li>
+<li style="border: 1px solid #E3DFD9; padding: 12px 14px;"><strong>Vous choisissez.</strong> Clarity ne s'active qu'avec votre accord.</li>
+</ul>
+</section>
+<section style="display: flex; flex-direction: column; gap: 12px; border-top: 1px solid #E3DFD9; padding-top: 20px;">
+<h2 style="margin: 0; font-size: 22px; font-weight: 700;">02 · Données traitées</h2>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="4">
+<dl style="margin: 0; border: 1px solid #111010; padding: 14px; display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 6px 12px; font-size: 14px;">
+<dt style="grid-column: 1 / -1; font-weight: 700; font-size: 16px;">{{r.name}}</dt>
+<dt style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E6862; padding-top: 3px;">DONNÉES</dt><dd style="margin: 0;">{{r.data}}</dd>
+<dt style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E6862; padding-top: 3px;">BASE LÉGALE</dt><dd style="margin: 0;">{{r.base}}</dd>
+<dt style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E6862; padding-top: 3px;">CONSERVATION</dt><dd style="margin: 0;">{{r.keep}}</dd>
+</dl>
+</sc-for>
+</section>
+<section style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #E3DFD9; padding-top: 20px;">
+<h2 style="margin: 0; font-size: 22px; font-weight: 700;">03 · Cookies</h2>
+<p style="margin: 0;">Seul Microsoft Clarity dépose des cookies, et uniquement si vous les acceptez.</p>
+<a href="CookiesMobile.dc.html" style="display: flex; align-items: center; justify-content: center; height: 48px; border: 1px solid #111010; font-weight: 700; text-decoration: none; margin-top: 4px;">Gérer mes cookies</a>
+</section>
+<section style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #E3DFD9; padding-top: 20px;">
+<h2 style="margin: 0; font-size: 22px; font-weight: 700;">04 · Vos droits</h2>
+<p style="margin: 0;">Accès, rectification, effacement : écrivez à [e-mail]. Vous pouvez aussi saisir la CNIL (cnil.fr).</p>
+</section>
+</article>
+<dc-import name="FooterMobile" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":3000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { rows: [
+      { name: 'Formulaire de contact', data: 'Nom, e-mail, objet, message, sélection', base: 'Votre demande', keep: '[X] mois après le dernier échange' },
+      { name: 'Ma sélection', data: 'Identifiants des fiches, sur votre appareil', base: 'Fonctionnement du site', keep: 'Jusqu’à suppression par vous' },
+      { name: 'Matomo (sans cookies)', data: 'Pages vues, IP anonymisée', base: 'Intérêt légitime', keep: '[13] mois' },
+      { name: 'Microsoft Clarity', data: 'Clics, défilement, sessions anonymisées', base: 'Votre consentement', keep: '[À vérifier]' }
+    ] };
+  }
+}
+</script>
+</body>
+</html>

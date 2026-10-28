@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Fiche expertise — SEO</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F5F2}
+a{color:#111010}a:hover{color:#C2410C}
+.ph{background-color:#EFECE7;background-image:repeating-linear-gradient(135deg,rgba(17,16,16,.06) 0 1px,transparent 1px 12px)}
+a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2px}
+.pill{border:1px solid #111010;border-radius:999px;padding:4px 12px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#111010}
+</style>
+</helmet>
+<div style="background: #F7F5F2; color: #111010; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; line-height: 1.6;">
+<dc-import name="Header" active="catalogue" count="{{count}}" hint-size="100%,124px"></dc-import>
+
+<div style="max-width: 1280px; margin: 0 auto; padding: 24px clamp(20px, 5.5vw, 80px) 0;">
+<nav aria-label="Fil d'Ariane" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 48px;">
+<a href="Main.dc.html" style="color: #6E6862;">Accueil</a><span style="color: #6E6862;"> / </span><a href="Catalogue.dc.html" style="color: #6E6862;">Catalogue</a><span style="color: #6E6862;"> / </span><a href="Catalogue.dc.html" style="color: #6E6862;">Expertises</a><span style="color: #6E6862;"> / </span><span aria-current="page">SEO</span>
+</nav>
+<div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end;">
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 20px;">
+<div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">E-02 · EXPERTISE</span>
+<span style="background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">TOP · N°1 DES PLUS DEMANDÉES</span>
+</div>
+<h1 style="margin: 0; font-size: clamp(72px, 12vw, 160px); line-height: 0.85; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.04em;">SEO<span style="color: #FF5A1F;">.</span></h1>
+<p style="margin: 0; font-size: 24px; line-height: 1.4; color: #2B2927; max-width: 32ch;">Rendre un site visible et compréhensible pour les moteurs de recherche.</p>
+</div>
+<aside aria-label="Résumé de l'expertise" style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<div class="ph" style="aspect-ratio: 1 / 1; max-height: 280px; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;">Illustration · 1:1</div>
+<dl style="margin: 0; display: grid; grid-template-columns: 120px minmax(0, 1fr); border-top: 1px solid #111010; font-size: 15px;">
+<dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">PRATIQUÉ DEPUIS</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">[AAAA]</dd>
+<dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">PROJETS LIÉS</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">02 · Mon Kit Solaire, Green Ideas</dd>
+<dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">POSTES VISÉS</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">Chargé e-commerce · Chef de projet digital</dd>
+</dl>
+<button type="button" onClick="{{toggleMain}}" aria-pressed="{{mainPressed}}" style="{{mainBtnStyle}}">{{mainLabelBtn}}</button>
+</aside>
+</div>
+</div>
+
+<!-- Besoins / missions / méthode -->
+<section aria-label="Ce que j'apporte" style="max-width: 1280px; margin: 0 auto; padding: 96px clamp(20px, 5.5vw, 80px) 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
+<div style="border-top: 2px solid #111010; padding-top: 16px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">01</span><h2 style="margin: 0; font-size: 28px; font-weight: 800; font-variation-settings: 'wdth' 108;">Vos besoins</h2><p style="margin: 0; color: #2B2927;">Lorem ipsum dolor sit amet : les situations où cette expertise est utile.</p></div>
+<div style="border-top: 2px solid #111010; padding-top: 16px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">02</span><h2 style="margin: 0; font-size: 28px; font-weight: 800; font-variation-settings: 'wdth' 108;">Mes missions</h2><ul style="margin: 0; padding-left: 18px; color: #2B2927;"><li>Lorem ipsum dolor sit amet</li><li>Consectetur adipiscing elit</li><li>Sed do eiusmod tempor</li></ul></div>
+<div style="border-top: 2px solid #111010; padding-top: 16px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">03</span><h2 style="margin: 0; font-size: 28px; font-weight: 800; font-variation-settings: 'wdth' 108;">Ma méthode</h2>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column;">
+<li style="display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid #E3DFD9;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #C2410C; padding-top: 3px;">ÉTAPE 1</span><span>Lorem ipsum (audit)</span></li>
+<li style="display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid #E3DFD9;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #C2410C; padding-top: 3px;">ÉTAPE 2</span><span>Lorem ipsum</span></li>
+<li style="display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid #E3DFD9;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #C2410C; padding-top: 3px;">ÉTAPE 3</span><span>Lorem ipsum (suivi)</span></li>
+</ol>
+</div>
+</section>
+
+<!-- Outils -->
+<section aria-labelledby="outils" style="max-width: 1280px; margin: 0 auto; padding: 64px clamp(20px, 5.5vw, 80px) 0; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px;">
+<h2 id="outils" style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; color: #6E6862;">OUTILS MAÎTRISÉS</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 8px;"><span class="pill">[Outil 1]</span><span class="pill">[Outil 2]</span><span class="pill">[Outil 3]</span><span class="pill">[Outil 4]</span><span class="pill">[Outil 5]</span></div>
+</section>
+
+<!-- Exemple de mise en application -->
+<section aria-labelledby="exemple" style="background: #EFECE7; margin-top: 96px;">
+<div style="max-width: 1280px; margin: 0 auto; padding: 96px clamp(20px, 5.5vw, 80px);">
+<h2 id="exemple" style="margin: 0 0 32px; font-size: 40px; line-height: 1.1; font-weight: 800; font-variation-settings: 'wdth' 108; letter-spacing: -0.02em; border-bottom: 1px solid #111010; padding-bottom: 16px;">Exemple de mise en application</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 12px; padding-right: 16px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">EN PRATIQUE</span>
+<p style="margin: 0; font-size: 20px; line-height: 1.5;">Lorem ipsum dolor sit amet : comment cette expertise a été appliquée dans un projet réel, en 2 à 3 lignes.</p>
+</div>
+<sc-for list="{{projets}}" as="item" hint-placeholder-count="2">
+<article style="display: flex; flex-direction: column; background: #F7F5F2; border: 1px solid #E3DFD9;">
+<div class="ph" style="aspect-ratio: 16 / 9; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;">Visuel projet · 16:9</div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">{{item.id}} · PROJET</span>
+<h3 style="margin: 0; font-size: 20px; line-height: 1.25; font-weight: 700;">{{item.title}}</h3>
+<div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px;">
+<a href="FicheProjet.dc.html" style="font-weight: 700; font-size: 14px; text-underline-offset: 4px;">Voir →</a>
+<button type="button" onClick="{{item.toggle}}" aria-pressed="{{item.pressed}}" style="{{item.btnStyle}}">{{item.label}}</button>
+</div>
+</div>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<nav aria-label="Expertises voisines" style="border-bottom: 1px solid #E3DFD9; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));">
+<a href="#" style="padding: 32px clamp(20px, 5.5vw, 80px); border-right: 1px solid #E3DFD9; text-decoration: none; display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">← PRÉCÉDENT · E-01</span><span style="font-size: 24px; font-weight: 700;">E-commerce</span></a>
+<a href="#" style="padding: 32px clamp(20px, 5.5vw, 80px); text-decoration: none; display: flex; flex-direction: column; gap: 4px; align-items: flex-end; text-align: right;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">E-03 · SUIVANT →</span><span style="font-size: 24px; font-weight: 700;">Marketing digital</span></a>
+</nav>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sel: ['P-02', 'E-02'] };
+  }
+  toggle(id) {
+    const sel = this.state.sel;
+    this.setState({ sel: sel.indexOf(id) === -1 ? sel.concat([id]) : sel.filter((x) => x !== id) });
+  }
+  renderVals() {
+    const sel = this.state.sel;
+    const has = (id) => sel.indexOf(id) !== -1;
+    const mainOn = has('E-02');
+    return {
+      count: sel.length,
+      mainPressed: mainOn ? 'true' : 'false',
+      mainLabelBtn: mainOn ? '✓ Dans votre sélection' : '+ Ajouter à ma sélection',
+      mainBtnStyle: 'height: 56px; font: 700 16px Archivo, sans-serif; cursor: pointer; border: 1px solid #111010; transition: background 160ms ease-out, color 160ms ease-out;' + (mainOn ? ' background: #111010; color: #F7F5F2;' : ' background: #FF5A1F; color: #111010; border-color: #FF5A1F;'),
+      toggleMain: () => this.toggle('E-02'),
+      projets: [
+        { id: 'P-01', title: 'Mon Kit Solaire' },
+        { id: 'P-02', title: 'Green Ideas / Market Shop' }
+      ].map((x) => Object.assign({}, x, {
+        pressed: has(x.id) ? 'true' : 'false',
+        label: has(x.id) ? '✓ Ajouté' : '+ Ajouter',
+        btnStyle: 'height: 44px; padding: 0 14px; font: 600 14px Archivo, sans-serif; cursor: pointer; border: 1px solid #111010;' + (has(x.id) ? ' background: #111010; color: #F7F5F2;' : ' background: transparent; color: #111010;'),
+        toggle: () => this.toggle(x.id)
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

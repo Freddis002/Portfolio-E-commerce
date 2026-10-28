@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Header mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; position: relative; z-index: 8; background: #F7F5F2; color: #111010; font-family: 'Archivo', system-ui, sans-serif;">
+<div style="background: #111010; color: #F7F5F2; padding: 10px 20px; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;">Ouvert aux opportunités · CDI · Arras <a href="APropos.dc.html" style="color: #FF5A1F; text-decoration: none;">→</a></div>
+<header style="border-bottom: 1px solid #E3DFD9; height: 64px; padding: 0 8px 0 20px; display: flex; align-items: center; justify-content: space-between; background: #F7F5F2;">
+<a href="AccueilMobile.dc.html" style="font-weight: 850; font-variation-settings: 'wdth' 112; font-size: 18px; letter-spacing: -0.02em; text-decoration: none; color: #111010;">NOM PRÉNOM<span style="color: #FF5A1F;">.</span></a>
+<div style="display: flex; align-items: center;">
+<a href="SelectionMobile.dc.html" aria-label="Ma sélection, {{count}} éléments" style="width: 44px; height: 44px; display: grid; place-items: center; position: relative; color: #111010;">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+<span style="{{countStyle}}">{{count}}</span>
+</a>
+<button type="button" onClick="{{toggleMenu}}" aria-expanded="{{expanded}}" aria-label="{{menuLabel}}" style="width: 44px; height: 44px; display: grid; place-items: center; background: none; border: 0; color: #111010; cursor: pointer;">
+<sc-if value="{{closed}}" hint-placeholder-val="{{true}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></sc-if>
+<sc-if value="{{open}}" hint-placeholder-val="{{false}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></sc-if>
+</button>
+</div>
+</header>
+<sc-if value="{{open}}" hint-placeholder-val="{{false}}">
+<nav aria-label="Menu" style="position: absolute; left: 0; right: 0; top: 100%; background: #F7F5F2; border-bottom: 2px solid #111010; padding: 8px 20px 24px; display: flex; flex-direction: column;">
+<sc-for list="{{links}}" as="l" hint-placeholder-count="4">
+<a href="{{l.href}}" aria-current="{{l.current}}" style="{{l.style}}"><span>{{l.label}}</span><span aria-hidden="true">→</span></a>
+</sc-for>
+<a href="SelectionMobile.dc.html" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid #E3DFD9; text-decoration: none; color: #111010; font-size: 24px; font-weight: 800; font-variation-settings: 'wdth' 108;"><span>Ma sélection</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500;">({{count}})</span></a>
+<a href="#" style="margin-top: 20px; display: flex; align-items: center; justify-content: center; height: 48px; border: 1px solid #111010; color: #111010; font-weight: 700; text-decoration: none;">Télécharger le CV (PDF)</a>
+</nav>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["accueil","catalogue","apropos","contact","selection","aucun"],"default":"catalogue"},"count":{"editor":"int","default":3,"min":0,"max":13},"$preview":{"width":390,"height":110}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { open: false };
+  }
+  renderVals() {
+    const active = this.props.active ?? 'catalogue';
+    const count = Number(this.props.count ?? 3);
+    const open = this.state.open;
+    const defs = [
+      { key: 'accueil', label: 'Accueil', href: 'AccueilMobile.dc.html' },
+      { key: 'catalogue', label: 'Catalogue', href: 'CatalogueMobile.dc.html' },
+      { key: 'apropos', label: 'À propos', href: 'AProposMobile.dc.html' },
+      { key: 'contact', label: 'Contact', href: 'ContactMobile.dc.html' }
+    ];
+    return {
+      count, open, closed: !open,
+      expanded: open ? 'true' : 'false',
+      menuLabel: open ? 'Fermer le menu' : 'Ouvrir le menu',
+      toggleMenu: () => this.setState({ open: !open }),
+      links: defs.map((d) => ({
+        label: d.label, href: d.href,
+        current: d.key === active ? 'page' : 'false',
+        style: 'display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid #E3DFD9; text-decoration: none; color: ' + (d.key === active ? '#C2410C' : '#111010') + '; font-size: 24px; font-weight: 800; font-variation-settings: \'wdth\' 108;'
+      })),
+      countStyle: 'position: absolute; top: 2px; right: 0; display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 999px; font-family: IBM Plex Mono, monospace; font-size: 11px; font-weight: 600; ' + (count > 0 ? 'background: #FF5A1F; color: #111010;' : 'background: #E3DFD9; color: #2B2927;')
+    };
+  }
+}
+</script>
+</body>
+</html>

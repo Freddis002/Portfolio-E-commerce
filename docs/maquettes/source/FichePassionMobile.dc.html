@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Fiche passion — mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F5F2}
+a{color:#111010}a:hover{color:#C2410C}
+.ph{background-color:#EFECE7;background-image:repeating-linear-gradient(135deg,rgba(17,16,16,.06) 0 1px,transparent 1px 12px)}
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail>*{scroll-snap-align:start}
+a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2px}
+</style>
+</helmet>
+<div style="width: 390px; background: #F7F5F2; color: #111010; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; line-height: 1.6; position: relative;">
+<dc-import name="HeaderMobile" active="catalogue" count="{{count}}" hint-size="100%,110px"></dc-import>
+
+<nav aria-label="Fil d'Ariane" style="padding: 16px 20px 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><a href="CatalogueMobile.dc.html" style="color: #6E6862;">← Catalogue / Passions</a></nav>
+
+<div class="ph" style="margin: 0 20px; aspect-ratio: 4 / 5; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; letter-spacing: 0.08em;">PHOTO PERSONNELLE · 4:5</div>
+
+<section style="padding: 20px 20px 0; display: flex; flex-direction: column; gap: 14px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">H-01 · PASSION</span>
+<h1 style="margin: 0; font-size: 44px; line-height: 0.95; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em;">Photo&#173;graphie<span style="color: #FF5A1F;">.</span></h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.4; color: #2B2927;">Observation, créativité, composition et sens du détail.</p>
+<p style="margin: 0; color: #2B2927;">Lorem ipsum dolor sit amet : depuis quand, quel type de photo, ce qui me plaît.</p>
+<dl style="margin: 0; display: grid; grid-template-columns: 136px minmax(0, 1fr); border-top: 1px solid #111010; font-size: 15px;">
+<dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">DEPUIS</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">[AAAA]</dd>
+<dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">TERRAIN DE JEU</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">[Lorem]</dd>
+<dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">LIEN MÉTIER</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">Visuels produits</dd>
+</dl>
+</section>
+
+<section aria-labelledby="gal" style="padding: 40px 20px 0;">
+<div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #111010; padding-bottom: 12px; margin-bottom: 16px;">
+<h2 id="gal" style="margin: 0; font-size: 28px; font-weight: 800; font-variation-settings: 'wdth' 108;">Galerie</h2>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;">06 PHOTOS</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px;">
+<div class="ph" style="aspect-ratio: 1 / 1; grid-column: 1 / -1;"></div>
+<div class="ph" style="aspect-ratio: 1 / 1;"></div>
+<div class="ph" style="aspect-ratio: 1 / 1;"></div>
+<div class="ph" style="aspect-ratio: 1 / 1;"></div>
+<div class="ph" style="aspect-ratio: 1 / 1;"></div>
+<div class="ph" style="aspect-ratio: 2 / 1; grid-column: 1 / -1; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;">[LIEU, AAAA] · LÉGENDES SOUS CHAQUE PHOTO</div>
+</div>
+</section>
+
+<section aria-labelledby="apport" style="background: #111010; color: #F7F5F2; margin-top: 40px; padding: 40px 20px; display: flex; flex-direction: column; gap: 16px;">
+<h2 id="apport" style="margin: 0; font-size: 28px; line-height: 1.1; font-weight: 800; font-variation-settings: 'wdth' 108;">Ce que ça m'apporte au travail</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.45;">Lorem ipsum dolor sit amet : le sens du détail au service des visuels produits.</p>
+<a href="FicheExpertiseMobile.dc.html" style="color: #F7F5F2; font-weight: 700;">Voir l'expertise E-commerce →</a>
+</section>
+
+<section aria-labelledby="autres" style="padding: 40px 0 0;">
+<h2 id="autres" style="margin: 0 20px 16px; font-size: 24px; font-weight: 800; font-variation-settings: 'wdth' 108; border-bottom: 1px solid #111010; padding-bottom: 12px;">Autres passions</h2>
+<div class="rail" style="padding: 0 20px 4px;">
+<sc-for list="{{autres}}" as="item" hint-placeholder-count="3">
+<article style="flex: 0 0 200px; display: flex; flex-direction: column; gap: 8px;">
+<div class="ph" style="aspect-ratio: 1 / 1;"></div>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;">{{item.id}}</span>
+<h3 style="margin: 0; font-size: 17px; font-weight: 700;">{{item.title}}</h3>
+<button type="button" onClick="{{item.toggle}}" aria-pressed="{{item.pressed}}" style="{{item.btnStyle}}">{{item.label}}</button>
+</article>
+</sc-for>
+</div>
+</section>
+
+<nav aria-label="Passions voisines" style="margin-top: 40px; border-top: 1px solid #E3DFD9;">
+<a href="#" style="display: flex; flex-direction: column; padding: 16px 20px; border-bottom: 1px solid #E3DFD9; text-decoration: none;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; letter-spacing: 0.08em;">← PRÉCÉDENT · H-04</span><span style="font-size: 18px; font-weight: 700;">Poker</span></a>
+<a href="#" style="display: flex; flex-direction: column; align-items: flex-end; padding: 16px 20px; border-bottom: 1px solid #E3DFD9; text-decoration: none;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; letter-spacing: 0.08em;">H-02 · SUIVANT →</span><span style="font-size: 18px; font-weight: 700;">Trail / randonnée</span></a>
+</nav>
+
+<dc-import name="FooterMobile" hint-size="100%,560px"></dc-import>
+
+<div style="position: sticky; bottom: 0; z-index: 6; background: #F7F5F2; border-top: 1px solid #111010; padding: 12px 20px;">
+<button type="button" onClick="{{toggleMain}}" aria-pressed="{{mainPressed}}" style="{{mainBtnStyle}}">{{mainLabelBtn}}</button>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":4300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sel: ['P-02', 'E-02', 'H-04'] };
+  }
+  toggle(id) {
+    const s = this.state.sel;
+    this.setState({ sel: s.indexOf(id) === -1 ? s.concat([id]) : s.filter((x) => x !== id) });
+  }
+  renderVals() {
+    const sel = this.state.sel;
+    const has = (id) => sel.indexOf(id) !== -1;
+    const mainOn = has('H-01');
+    return {
+      count: sel.length,
+      autres: [
+        { id: 'H-02', title: 'Trail / randonnée' },
+        { id: 'H-03', title: 'CrossFit' },
+        { id: 'H-04', title: 'Poker' }
+      ].map((x) => Object.assign({}, x, {
+        pressed: has(x.id) ? 'true' : 'false',
+        label: has(x.id) ? '✓ Ajouté' : '+ Ajouter',
+        btnStyle: 'height: 44px; font: 600 14px Archivo, sans-serif; cursor: pointer; border: 1px solid #111010;' + (has(x.id) ? ' background: #111010; color: #F7F5F2;' : ' background: transparent; color: #111010;'),
+        toggle: () => this.toggle(x.id)
+      })),
+      mainPressed: mainOn ? 'true' : 'false',
+      mainLabelBtn: mainOn ? '✓ Dans votre sélection' : '+ Ajouter à ma sélection',
+      mainBtnStyle: 'width: 100%; height: 52px; font: 700 16px Archivo, sans-serif; cursor: pointer; border: 1px solid #111010;' + (mainOn ? ' background: #111010; color: #F7F5F2;' : ' background: #FF5A1F; color: #111010; border-color: #FF5A1F;'),
+      toggleMain: () => this.toggle('H-01')
+    };
+  }
+}
+</script>
+</body>
+</html>

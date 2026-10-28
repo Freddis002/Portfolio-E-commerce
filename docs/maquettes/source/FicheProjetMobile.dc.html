@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Fiche projet — mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F5F2}
+a{color:#111010}a:hover{color:#C2410C}
+.ph{background-color:#EFECE7;background-image:repeating-linear-gradient(135deg,rgba(17,16,16,.06) 0 1px,transparent 1px 12px)}
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail>*{scroll-snap-align:start}
+details>summary{list-style:none;cursor:pointer}
+details>summary::-webkit-details-marker{display:none}
+details[open] .chev{transform:rotate(180deg)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #FF5A1F;outline-offset:2px}
+.pill{border:1px solid #111010;border-radius:999px;padding:2px 10px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#111010}
+</style>
+</helmet>
+<div style="width: 390px; background: #F7F5F2; color: #111010; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; line-height: 1.6; position: relative;">
+<dc-import name="HeaderMobile" active="catalogue" count="{{count}}" hint-size="100%,110px"></dc-import>
+
+<nav aria-label="Fil d'Ariane" style="padding: 16px 20px 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><a href="CatalogueMobile.dc.html" style="color: #6E6862;">← Catalogue / Projets</a></nav>
+
+<div class="rail" style="padding: 0 20px;">
+<sc-for list="{{slides}}" as="s" hint-placeholder-count="4">
+<div class="ph" style="flex: 0 0 350px; aspect-ratio: 16 / 10; position: relative; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;"><span>{{s.label}}</span><span style="position: absolute; bottom: 10px; right: 10px; background: #111010; color: #F7F5F2; font-size: 11px; padding: 3px 7px;">{{s.n}} / 04</span></div>
+</sc-for>
+</div>
+
+<section style="padding: 20px 20px 0; display: flex; flex-direction: column; gap: 14px;">
+<div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">P-01 · PROJET · [ANNÉE]</span>
+<span style="background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 6px;">NOUVEAU</span>
+</div>
+<h1 style="margin: 0; font-size: 40px; line-height: 1; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em;">Mon Kit Solaire<span style="color: #FF5A1F;">.</span></h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.5; color: #2B2927;">Lorem ipsum dolor sit amet : problème → réalisation, en une phrase.</p>
+<ul aria-label="Rôle et outils" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px;">
+<li class="pill" style="background: #111010; color: #F7F5F2;">[Rôle]</li><li class="pill">[Outil 1]</li><li class="pill">[Outil 2]</li><li class="pill">[Outil 3]</li>
+</ul>
+<dl style="margin: 4px 0 0; display: grid; grid-template-columns: 112px minmax(0, 1fr); border-top: 1px solid #111010; font-size: 15px;">
+<dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">CATÉGORIE</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">Projet · E-commerce</dd>
+<dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">CONTEXTE</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">[Pro / perso]</dd>
+<dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">DURÉE</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">[AAAA] · [durée]</dd>
+</dl>
+<a href="#" style="display: flex; align-items: center; justify-content: center; height: 48px; border: 1px solid #111010; color: #111010; font-weight: 700; text-decoration: none;">Voir le site en ligne ↗</a>
+</section>
+
+<!-- Récit en accordéons -->
+<section aria-labelledby="recit" style="padding: 40px 20px 0;">
+<h2 id="recit" style="margin: 0 0 8px; font-size: 28px; font-weight: 800; font-variation-settings: 'wdth' 108; border-bottom: 1px solid #111010; padding-bottom: 12px;">Le projet</h2>
+<sc-for list="{{recit}}" as="r" hint-placeholder-count="4">
+<details open="{{r.open}}" style="border-bottom: 1px solid #E3DFD9;">
+<summary style="display: flex; align-items: center; gap: 12px; min-height: 56px; font-size: 20px; font-weight: 700;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; font-weight: 400;">{{r.n}}</span><span style="flex-grow: 1;">{{r.title}}</span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111010" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="transition: transform 160ms ease-out;"><path d="m6 9 6 6 6-6"/></svg></summary>
+<p style="margin: 0 0 16px; color: #2B2927;">{{r.text}}</p>
+</details>
+</sc-for>
+</section>
+
+<section aria-labelledby="res" style="background: #EFECE7; margin-top: 40px; padding: 40px 20px; display: flex; flex-direction: column; gap: 12px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">05 · RÉSULTATS</span>
+<h2 id="res" style="margin: 0; font-size: 28px; font-weight: 800; font-variation-settings: 'wdth' 108;">Résultats</h2>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px;">
+<div style="border: 1px dashed #6E6862; padding: 14px 10px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 28px; line-height: 1;">—</div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #6E6862; letter-spacing: 0.06em;">KPI 1</div></div>
+<div style="border: 1px dashed #6E6862; padding: 14px 10px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 28px; line-height: 1;">—</div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #6E6862; letter-spacing: 0.06em;">KPI 2</div></div>
+<div style="border: 1px dashed #6E6862; padding: 14px 10px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 28px; line-height: 1;">—</div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #6E6862; letter-spacing: 0.06em;">KPI 3</div></div>
+</div>
+<p style="margin: 0; font-size: 14px; color: #2B2927;">Résultats vérifiables uniquement. Section masquée si vide.</p>
+</section>
+
+<section style="padding: 40px 20px 0; display: flex; flex-direction: column; gap: 12px;">
+<h2 style="margin: 0; font-size: 22px; font-weight: 800; font-variation-settings: 'wdth' 108;">Expertises mobilisées</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 8px;"><a class="pill" href="FicheExpertiseMobile.dc.html" style="padding: 8px 14px; text-decoration: none;">E-01 · E-commerce →</a><a class="pill" href="FicheExpertiseMobile.dc.html" style="padding: 8px 14px; text-decoration: none;">E-02 · SEO →</a></div>
+</section>
+
+<section aria-labelledby="xs" style="padding: 40px 0 0; display: flex; flex-direction: column; gap: 16px;">
+<h2 id="xs" style="margin: 0 20px; font-size: 24px; font-weight: 800; font-variation-settings: 'wdth' 108; border-bottom: 1px solid #111010; padding-bottom: 12px;">Souvent sélectionné avec</h2>
+<div class="rail" style="padding: 0 20px 4px;">
+<sc-for list="{{xsell}}" as="item" hint-placeholder-count="3">
+<article style="flex: 0 0 240px; border: 1px solid #E3DFD9; display: flex; flex-direction: column;">
+<div class="ph" style="aspect-ratio: 16 / 9;"></div>
+<div style="padding: 14px; display: flex; flex-direction: column; gap: 6px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862; text-transform: uppercase;">{{item.id}} · {{item.cat}}</span>
+<h3 style="margin: 0; font-size: 17px; line-height: 1.25; font-weight: 700;">{{item.title}}</h3>
+<button type="button" onClick="{{item.toggle}}" aria-pressed="{{item.pressed}}" style="{{item.btnStyle}}">{{item.label}}</button>
+</div>
+</article>
+</sc-for>
+</div>
+</section>
+
+<nav aria-label="Projets voisins" style="margin-top: 40px; border-top: 1px solid #E3DFD9;">
+<a href="#" style="display: flex; flex-direction: column; padding: 16px 20px; border-bottom: 1px solid #E3DFD9; text-decoration: none;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; letter-spacing: 0.08em;">← PRÉCÉDENT · P-04</span><span style="font-size: 18px; font-weight: 700;">Chti Poker Club</span></a>
+<a href="#" style="display: flex; flex-direction: column; align-items: flex-end; padding: 16px 20px; border-bottom: 1px solid #E3DFD9; text-decoration: none;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; letter-spacing: 0.08em;">P-02 · SUIVANT →</span><span style="font-size: 18px; font-weight: 700;">Green Ideas / Market Shop</span></a>
+</nav>
+
+<dc-import name="FooterMobile" hint-size="100%,560px"></dc-import>
+
+<!-- Barre d'ajout collante (fiche produit mobile) -->
+<div style="position: sticky; bottom: 0; z-index: 6; background: #F7F5F2; border-top: 1px solid #111010; padding: 12px 20px; display: flex; flex-direction: column; gap: 6px;">
+<button type="button" onClick="{{toggleMain}}" aria-pressed="{{mainPressed}}" style="{{mainBtnStyle}}">{{mainLabelBtn}}</button>
+<span role="status" style="text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #6E6862;">{{status}}</span>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":4600}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sel: ['P-02', 'E-02'] };
+  }
+  toggle(id) {
+    const s = this.state.sel;
+    this.setState({ sel: s.indexOf(id) === -1 ? s.concat([id]) : s.filter((x) => x !== id) });
+  }
+  renderVals() {
+    const sel = this.state.sel;
+    const has = (id) => sel.indexOf(id) !== -1;
+    const mainOn = has('P-01');
+    return {
+      count: sel.length,
+      slides: ['Visuel principal · 16:10', 'Capture 2', 'Capture 3', 'Capture 4'].map((label, i) => ({ label, n: '0' + (i + 1) })),
+      recit: [
+        { n: '01', title: 'Contexte', text: "Lorem ipsum dolor sit amet : l'entreprise, son marché, la situation de départ.", open: true },
+        { n: '02', title: 'Problématique', text: 'Lorem ipsum dolor sit amet : le problème à résoudre.', open: false },
+        { n: '03', title: 'Mon rôle', text: 'Lorem ipsum dolor sit amet : périmètre, responsabilités.', open: false },
+        { n: '04', title: 'Ma démarche', text: 'Lorem ipsum dolor sit amet : étapes clés, choix et arbitrages.', open: false }
+      ],
+      xsell: [
+        { id: 'E-01', cat: 'Expertise', title: 'E-commerce' },
+        { id: 'E-02', cat: 'Expertise', title: 'SEO' },
+        { id: 'P-02', cat: 'Projet', title: 'Green Ideas / Market Shop' }
+      ].map((x) => Object.assign({}, x, {
+        pressed: has(x.id) ? 'true' : 'false',
+        label: has(x.id) ? '✓ Ajouté' : '+ Ajouter',
+        btnStyle: 'height: 44px; font: 600 14px Archivo, sans-serif; cursor: pointer; border: 1px solid #111010;' + (has(x.id) ? ' background: #111010; color: #F7F5F2;' : ' background: transparent; color: #111010;'),
+        toggle: () => this.toggle(x.id)
+      })),
+      mainPressed: mainOn ? 'true' : 'false',
+      mainLabelBtn: mainOn ? '✓ Dans votre sélection' : '+ Ajouter à ma sélection',
+      mainBtnStyle: 'height: 52px; font: 700 16px Archivo, sans-serif; cursor: pointer; border: 1px solid #111010;' + (mainOn ? ' background: #111010; color: #F7F5F2;' : ' background: #FF5A1F; color: #111010; border-color: #FF5A1F;'),
+      toggleMain: () => this.toggle('P-01'),
+      status: mainOn ? 'AJOUTÉ · ' + sel.length + ' ÉLÉMENT(S) DANS VOTRE SÉLECTION' : 'AUCUNE INSCRIPTION · GARDÉ SUR CET APPAREIL'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Page introuvable — mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F5F2}
+a{color:#111010}a:hover{color:#C2410C}
+a:focus-visible{outline:2px solid #FF5A1F;outline-offset:2px}
+</style>
+</helmet>
+<div style="width: 390px; background: #F7F5F2; color: #111010; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; line-height: 1.6;">
+<dc-import name="HeaderMobile" active="aucun" count="3" hint-size="100%,110px"></dc-import>
+<section style="padding: 48px 20px; display: flex; flex-direction: column; gap: 18px;">
+<span style="align-self: flex-start; background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">RÉF. 404 · RUPTURE DE STOCK</span>
+<h1 style="margin: 0; font-size: 44px; line-height: 0.95; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em;">Cette page n'est plus en rayon<span style="color: #FF5A1F;">.</span></h1>
+<p style="margin: 0; font-size: 18px; color: #2B2927;">Le lien est peut-être ancien ou mal saisi. Le reste du catalogue est bien disponible.</p>
+<a href="CatalogueMobile.dc.html" style="display: flex; align-items: center; justify-content: center; height: 48px; background: #FF5A1F; color: #111010; font-weight: 700; text-decoration: none;">Retour au catalogue →</a>
+<a href="AccueilMobile.dc.html" style="display: flex; align-items: center; justify-content: center; height: 48px; border: 1px solid #111010; font-weight: 700; text-decoration: none;">Accueil</a>
+<nav aria-label="Les plus demandées" style="margin-top: 16px; border-top: 1px solid #111010;">
+<span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862; padding: 10px 0;">LES PLUS DEMANDÉES</span>
+<a href="FicheExpertiseMobile.dc.html" style="display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid #E3DFD9; text-decoration: none; font-weight: 700;"><span>SEO</span><span>→</span></a>
+<a href="FicheExpertiseMobile.dc.html" style="display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid #E3DFD9; text-decoration: none; font-weight: 700;"><span>E-commerce</span><span>→</span></a>
+<a href="FicheProjetMobile.dc.html" style="display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid #E3DFD9; border-bottom: 1px solid #E3DFD9; text-decoration: none; font-weight: 700;"><span>Green Ideas / Market Shop</span><span>→</span></a>
+</nav>
+</section>
+<dc-import name="FooterMobile" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1700}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Footer mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<footer style="width: 100%; background: #111010; color: #F7F5F2; font-family: 'Archivo', system-ui, sans-serif; font-size: 15px; line-height: 1.6; padding: 40px 20px 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<span style="font-weight: 850; font-variation-settings: 'wdth' 112; font-size: 24px; letter-spacing: -0.02em;">NOM PRÉNOM<span style="color: #FF5A1F;">.</span></span>
+<span style="color: #D9D4CD;">Lorem ipsum : positionnement. Arras (62), Hauts-de-France.</span>
+</div>
+<nav aria-label="Pied de page" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 16px;">
+<a href="CatalogueMobile.dc.html" style="color: #F7F5F2; padding: 8px 0;">Catalogue</a>
+<a href="AProposMobile.dc.html" style="color: #F7F5F2; padding: 8px 0;">À propos</a>
+<a href="SelectionMobile.dc.html" style="color: #F7F5F2; padding: 8px 0;">Ma sélection</a>
+<a href="ContactMobile.dc.html" style="color: #F7F5F2; padding: 8px 0;">Contact</a>
+</nav>
+<div style="display: flex; flex-direction: column; gap: 4px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #B8B2AA;">ME TROUVER</span>
+<span>[E-mail à compléter]</span>
+<a href="#" style="color: #F7F5F2;">[LinkedIn à compléter] ↗</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 20px; border-top: 1px solid #2B2927; padding-top: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 11px;">
+<a href="MentionsLegalesMobile.dc.html" style="color: #B8B2AA; padding: 6px 0;">Mentions légales</a>
+<a href="ConfidentialiteMobile.dc.html" style="color: #B8B2AA; padding: 6px 0;">Confidentialité</a>
+<a href="CookiesMobile.dc.html" style="color: #B8B2AA; padding: 6px 0;">Gérer les cookies</a>
+<span style="color: #B8B2AA; padding: 6px 0;">© 2026</span>
+</div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":560}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

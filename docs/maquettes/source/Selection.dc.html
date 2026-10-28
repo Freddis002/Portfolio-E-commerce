@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Ma sélection</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F5F2}
+a{color:#111010}a:hover{color:#C2410C}
+.ph{background-color:#EFECE7;background-image:repeating-linear-gradient(135deg,rgba(17,16,16,.06) 0 1px,transparent 1px 12px)}
+a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2px}
+.btn-primary:hover{background:#111010 !important;color:#FF5A1F !important}
+.rm:hover{background:#111010;color:#F7F5F2}
+</style>
+</helmet>
+<div style="background: #F7F5F2; color: #111010; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; line-height: 1.6;">
+<dc-import name="Header" active="selection" count="{{count}}" hint-size="100%,124px"></dc-import>
+
+<div style="max-width: 1280px; margin: 0 auto; padding: 32px clamp(20px, 5.5vw, 80px) 96px; display: flex; flex-direction: column; gap: 40px;">
+
+<!-- Étapes -->
+<ol aria-label="Étapes" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; max-width: 640px;">
+<li aria-current="step" style="border-top: 3px solid #111010; padding-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; font-weight: 600;">01 SÉLECTION</li>
+<li style="border-top: 3px solid #E3DFD9; padding-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">02 COORDONNÉES</li>
+<li style="border-top: 3px solid #E3DFD9; padding-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">03 ENVOI</li>
+</ol>
+
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<span role="status" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #6E6862;">{{countLabel}}</span>
+<h1 style="margin: 0; font-size: clamp(40px, 5vw, 64px); line-height: 1; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em;">Ma sélection<span style="color: #FF5A1F;">.</span></h1>
+</div>
+
+<!-- État vide -->
+<sc-if value="{{isEmpty}}" hint-placeholder-val="{{false}}">
+<div style="border: 1px solid #E3DFD9; padding: 64px 40px; display: flex; flex-direction: column; align-items: flex-start; gap: 20px; max-width: 760px;">
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#111010" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+<h2 style="margin: 0; font-size: 32px; line-height: 1.15; font-weight: 800; font-variation-settings: 'wdth' 108;">Votre sélection est vide</h2>
+<p style="margin: 0; font-size: 18px; color: #2B2927; max-width: 52ch;">Parcourez le catalogue et cliquez sur « + Ajouter » sur les projets, expertises ou passions qui vous intéressent. Vous pourrez ensuite m'écrire avec votre sélection.</p>
+<a class="btn-primary" href="Catalogue.dc.html" style="display: inline-flex; align-items: center; height: 48px; padding: 0 24px; background: #FF5A1F; color: #111010; font-weight: 700; text-decoration: none; transition: background 160ms ease-out, color 160ms ease-out;">Explorer le catalogue →</a>
+</div>
+</sc-if>
+
+<!-- État rempli -->
+<sc-if value="{{hasItems}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start;">
+<div style="flex: 999 1 600px; min-width: 0;">
+<ul style="list-style: none; margin: 0; padding: 0; border-top: 1px solid #111010;">
+<sc-for list="{{items}}" as="item" hint-placeholder-count="3">
+<li style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; padding: 20px 0; border-bottom: 1px solid #E3DFD9;">
+<div class="ph" style="width: 96px; height: 96px; flex: none; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;">1:1</div>
+<div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 4px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">{{item.id}} · {{item.cat}}</span>
+<h2 style="margin: 0; font-size: 22px; line-height: 1.2; font-weight: 700;">{{item.title}}</h2>
+<p style="margin: 0; font-size: 15px; color: #2B2927;">{{item.desc}}</p>
+</div>
+<div style="display: flex; align-items: center; gap: 16px;">
+<a href="{{item.href}}" style="font-weight: 700; font-size: 14px; text-underline-offset: 4px;">Voir →</a>
+<button type="button" class="rm" onClick="{{item.remove}}" aria-label="{{item.aria}}" style="height: 44px; padding: 0 14px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #111010; background: transparent; color: #111010; font: 600 14px 'Archivo', sans-serif; cursor: pointer; transition: background 160ms ease-out, color 160ms ease-out;">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Retirer</button>
+</div>
+</li>
+</sc-for>
+</ul>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 16px; flex-wrap: wrap;">
+<a href="Catalogue.dc.html" style="font-weight: 700; text-underline-offset: 4px;">← Continuer l'exploration</a>
+<button type="button" onClick="{{clearAll}}" style="background: none; border: 0; padding: 0; font: 500 14px 'Archivo', sans-serif; color: #6E6862; text-decoration: underline; text-underline-offset: 4px; cursor: pointer;">Vider la sélection</button>
+</div>
+</div>
+
+<aside aria-label="Récapitulatif" style="flex: 1 1 340px; min-width: 0; border: 1px solid #111010; padding: 28px; display: flex; flex-direction: column; gap: 16px;">
+<h2 style="margin: 0; font-size: 24px; font-weight: 800; font-variation-settings: 'wdth' 108;">Récapitulatif</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; font-size: 15px;">
+<dt style="padding: 8px 0; border-bottom: 1px solid #E3DFD9;">Projets</dt><dd style="margin: 0; padding: 8px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace;">{{nP}}</dd>
+<dt style="padding: 8px 0; border-bottom: 1px solid #E3DFD9;">Expertises</dt><dd style="margin: 0; padding: 8px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace;">{{nE}}</dd>
+<dt style="padding: 8px 0; border-bottom: 1px solid #111010;">Passions</dt><dd style="margin: 0; padding: 8px 0; border-bottom: 1px solid #111010; font-family: 'IBM Plex Mono', monospace;">{{nH}}</dd>
+<dt style="padding: 12px 0 0; font-weight: 700; font-size: 18px;">Total</dt><dd style="margin: 0; padding: 12px 0 0; font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 18px;">{{count2}}</dd>
+</dl>
+<sc-if value="{{isMixed}}" hint-placeholder-val="{{true}}">
+<p style="margin: 0; background: #FFE1D3; color: #111010; padding: 12px 14px; font-size: 14px;">Une sélection variée : de quoi nourrir un premier échange.</p>
+</sc-if>
+<a class="btn-primary" href="Contact.dc.html" style="display: flex; align-items: center; justify-content: center; height: 56px; background: #FF5A1F; color: #111010; font-weight: 700; font-size: 16px; text-decoration: none; transition: background 160ms ease-out, color 160ms ease-out;">Parlons-en →</a>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #6E6862;">
+<li>✓ Aucune inscription</li>
+<li>✓ Message prérempli, modifiable avant l'envoi</li>
+<li>✓ Sélection gardée sur cet appareil uniquement</li>
+</ul>
+</aside>
+</div>
+</sc-if>
+
+<!-- Vous aimerez aussi -->
+<section aria-labelledby="aussi" style="padding-top: 48px;">
+<h2 id="aussi" style="margin: 0 0 24px; font-size: 28px; font-weight: 800; font-variation-settings: 'wdth' 108; border-bottom: 1px solid #111010; padding-bottom: 12px;">Vous aimerez aussi</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+<sc-for list="{{suggest}}" as="s" hint-placeholder-count="4">
+<article style="display: flex; flex-direction: column; gap: 8px;">
+<div class="ph" style="aspect-ratio: 16 / 9;"></div>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">{{s.id}} · {{s.cat}}</span>
+<h3 style="margin: 0; font-size: 18px; font-weight: 700; line-height: 1.25;">{{s.title}}</h3>
+<button type="button" onClick="{{s.toggle}}" aria-pressed="{{s.pressed}}" style="{{s.btnStyle}}">{{s.label}}</button>
+</article>
+</sc-for>
+</div>
+</section>
+
+</div>
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"etat":{"editor":"enum","options":["Rempli","Vide"],"default":"Rempli"},"$preview":{"width":1440,"height":1900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sel: ['P-02', 'E-02', 'H-04'] };
+  }
+  renderVals() {
+    const all = {
+      'P-01': { cat: 'PROJET', k: 'P', title: 'Mon Kit Solaire', desc: 'Lorem ipsum : problème → réalisation.', href: 'FicheProjet.dc.html' },
+      'P-02': { cat: 'PROJET', k: 'P', title: 'Green Ideas / Market Shop', desc: 'Lorem ipsum : problème → réalisation.', href: 'FicheProjet.dc.html' },
+      'P-03': { cat: 'PROJET', k: 'P', title: 'Les Petits Paniers', desc: 'Lorem ipsum : problème → réalisation.', href: 'FicheProjet.dc.html' },
+      'E-01': { cat: 'EXPERTISE', k: 'E', title: 'E-commerce', desc: 'Concevoir, structurer et faire évoluer une boutique en ligne.', href: 'FicheExpertise.dc.html' },
+      'E-02': { cat: 'EXPERTISE', k: 'E', title: 'SEO', desc: 'Rendre un site visible et compréhensible pour les moteurs de recherche.', href: 'FicheExpertise.dc.html' },
+      'E-04': { cat: 'EXPERTISE', k: 'E', title: 'Data & Analytics', desc: 'Mesurer, analyser et orienter les décisions.', href: 'FicheExpertise.dc.html' },
+      'H-01': { cat: 'PASSION', k: 'H', title: 'Photographie', desc: 'Observation, créativité, composition et sens du détail.', href: 'FichePassion.dc.html' },
+      'H-04': { cat: 'PASSION', k: 'H', title: 'Poker', desc: 'Stratégie, analyse, décision et gestion de l’incertitude.', href: 'FichePassion.dc.html' }
+    };
+    const sel = (this.props.etat ?? 'Rempli') === 'Vide' ? [] : this.state.sel;
+    const items = sel.map((id) => Object.assign({ id }, all[id], {
+      aria: 'Retirer ' + all[id].title + ' de ma sélection',
+      remove: () => this.setState({ sel: this.state.sel.filter((x) => x !== id) })
+    }));
+    const n = (k) => String(items.filter((i) => i.k === k).length).padStart(2, '0');
+    const kinds = ['P', 'E', 'H'].filter((k) => items.some((i) => i.k === k)).length;
+    const count = items.length;
+    const toggle = (id) => () => {
+      const s = this.state.sel;
+      this.setState({ sel: s.indexOf(id) === -1 ? s.concat([id]) : s.filter((x) => x !== id) });
+    };
+    const suggest = ['E-01', 'P-01', 'H-01', 'E-04'].map((id) => {
+      const on = sel.indexOf(id) !== -1;
+      return { id, cat: all[id].cat, title: all[id].title, pressed: on ? 'true' : 'false', label: on ? '✓ Ajouté' : '+ Ajouter',
+        btnStyle: 'align-self: flex-start; height: 44px; padding: 0 14px; font: 600 14px Archivo, sans-serif; cursor: pointer; border: 1px solid #111010;' + (on ? ' background: #111010; color: #F7F5F2;' : ' background: transparent; color: #111010;'),
+        toggle: toggle(id) };
+    });
+    return {
+      count, count2: String(count).padStart(2, '0'),
+      countLabel: count === 0 ? 'AUCUN ÉLÉMENT' : String(count).padStart(2, '0') + ' ÉLÉMENT' + (count > 1 ? 'S' : ''),
+      isEmpty: count === 0, hasItems: count > 0, isMixed: kinds === 3,
+      items, nP: n('P'), nE: n('E'), nH: n('H'), suggest,
+      clearAll: () => this.setState({ sel: [] })
+    };
+  }
+}
+</script>
+</body>
+</html>
