@@ -1,0 +1,88 @@
+[
+  {
+    "ref": "H-01",
+    "slug": "photographie",
+    "titre": "Photographie",
+    "categorie": "passion",
+    "accroche": "Observation, créativité, composition et sens du détail.",
+    "pratiqueeDepuis": "[AAAA]",
+    "terrainDeJeu": "[Lorem : terrain de jeu]",
+    "lienMetier": "[Lorem : lien avec le métier]",
+    "badges": {
+      "nouveau": false,
+      "top": false
+    },
+    "classement": null,
+    "ordre": 1,
+    "liens": {
+      "projets": [],
+      "expertises": [],
+      "passions": []
+    }
+  },
+  {
+    "ref": "H-02",
+    "slug": "trail-randonnee",
+    "titre": "Trail / randonnée",
+    "categorie": "passion",
+    "accroche": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "pratiqueeDepuis": "[AAAA]",
+    "terrainDeJeu": "[Lorem : terrain de jeu]",
+    "lienMetier": "[Lorem : lien avec le métier]",
+    "badges": {
+      "nouveau": false,
+      "top": false
+    },
+    "classement": null,
+    "ordre": 2,
+    "liens": {
+      "projets": [],
+      "expertises": [],
+      "passions": []
+    }
+  },
+  {
+    "ref": "H-03",
+    "slug": "crossfit",
+    "titre": "CrossFit",
+    "categorie": "passion",
+    "accroche": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "pratiqueeDepuis": "[AAAA]",
+    "terrainDeJeu": "[Lorem : terrain de jeu]",
+    "lienMetier": "[Lorem : lien avec le métier]",
+    "badges": {
+      "nouveau": false,
+      "top": false
+    },
+    "classement": null,
+    "ordre": 3,
+    "liens": {
+      "projets": [],
+      "expertises": [],
+      "passions": []
+    }
+  },
+  {
+    "ref": "H-04",
+    "slug": "poker",
+    "titre": "Poker",
+    "categorie": "passion",
+    "accroche": "Stratégie, analyse, décision et gestion de l’incertitude.",
+    "pratiqueeDepuis": "[AAAA]",
+    "terrainDeJeu": "[Lorem : terrain de jeu]",
+    "lienMetier": "[Lorem : lien avec le métier]",
+    "badges": {
+      "nouveau": false,
+      "top": false
+    },
+    "classement": null,
+    "ordre": 4,
+    "liens": {
+      "projets": [
+        "P-04"
+      ],
+      "expertises": [],
+      "passions": []
+    }
+  }
+]

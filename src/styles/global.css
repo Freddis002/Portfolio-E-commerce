@@ -1,0 +1,50 @@
+/* Base commune à toutes les pages, construite sur les tokens */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-fond);
+  color: var(--color-texte);
+  font-family: var(--font-sans);
+  font-size: var(--text-corps);
+  font-weight: var(--weight-texte);
+  line-height: var(--leading-corps);
+}
+
+a {
+  color: var(--color-texte);
+}
+
+a:hover {
+  color: var(--color-lien-survol);
+}
+
+:focus-visible {
+  outline: var(--focus-largeur) solid var(--color-focus);
+  outline-offset: var(--focus-decalage);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

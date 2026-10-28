@@ -33,6 +33,10 @@ En cas de conflit : maquettes > charte > wireframes > ce fichier.
 - Couleurs : Noir Encre #111010, Orange Signal #FF5A1F, Blanc Papier #F7F5F2, Graphite #2B2927,
   Pierre #6E6862, Ligne #E3DFD9, Surface #EFECE7, Orange Brûlé #C2410C, Orange Pâle #FFE1D3,
   Succès #1F7A4A, Erreur #C8102E
+- Couleurs complémentaires validées (tokens dans src/styles/tokens.css) :
+  #D9D4CD texte secondaire sur Noir Encre, #B8B2AA texte tertiaire sur Noir Encre
+  (Pierre n'atteint pas le contraste AA sur noir), #FFFFFF fond des champs de formulaire
+- Badges NOUVEAU et TOP : fond Orange Pâle, texte Orange Brûlé
 - Répartition 60 % Blanc Papier / 30 % Noir Encre / 10 % orange maximum
 - Un seul bouton orange par écran (fond orange, texte noir ; survol : fond noir, texte orange)
 - Jamais de texte blanc sur orange ; texte orange sur fond clair = Orange Brûlé

@@ -1,0 +1,26 @@
+# Dépendances
+node_modules/
+
+# Builds
+/build/
+/.react-router/
+dist/
+
+# Environnement (ne jamais versionner de secret)
+.env
+.env.*
+!.env.example
+
+# Journaux et caches
+*.log
+npm-debug.log*
+.vite/
+.cache/
+
+# Système et éditeurs
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/*
+!.vscode/extensions.json
