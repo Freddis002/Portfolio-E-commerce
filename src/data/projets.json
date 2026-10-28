@@ -1,0 +1,115 @@
+[
+  {
+    "ref": "P-01",
+    "slug": "mon-kit-solaire",
+    "titre": "Mon Kit Solaire",
+    "entreprise": "Green Ideas",
+    "categorie": "projet",
+    "accroche": "Lorem ipsum dolor sit amet : problème → démarche → résultat.",
+    "role": "[Rôle]",
+    "outils": [
+      "[Outil 1]",
+      "[Outil 2]",
+      "[Outil 3]"
+    ],
+    "siteEnLigne": "https://www.monkitsolaire.fr/",
+    "badges": {
+      "nouveau": true,
+      "top": false
+    },
+    "classement": null,
+    "ordre": 1,
+    "liens": {
+      "projets": [],
+      "expertises": [
+        "E-01",
+        "E-02"
+      ],
+      "passions": []
+    }
+  },
+  {
+    "ref": "P-02",
+    "slug": "mon-grossiste-auto",
+    "titre": "Mon Grossiste Auto",
+    "entreprise": "Market Shop",
+    "categorie": "projet",
+    "accroche": "Lorem ipsum dolor sit amet : problème → démarche → résultat.",
+    "role": "[Rôle]",
+    "outils": [
+      "[Outil 1]",
+      "[Outil 2]",
+      "[Outil 3]"
+    ],
+    "siteEnLigne": "[À COMPLÉTER]",
+    "badges": {
+      "nouveau": false,
+      "top": true
+    },
+    "classement": null,
+    "ordre": 2,
+    "liens": {
+      "projets": [],
+      "expertises": [
+        "E-02"
+      ],
+      "passions": []
+    }
+  },
+  {
+    "ref": "P-03",
+    "slug": "les-petits-paniers",
+    "titre": "Les Petits Paniers",
+    "entreprise": "[À COMPLÉTER]",
+    "categorie": "projet",
+    "accroche": "Lorem ipsum dolor sit amet : problème → démarche → résultat.",
+    "role": "[Rôle]",
+    "outils": [
+      "[Outil 1]",
+      "[Outil 2]",
+      "[Outil 3]"
+    ],
+    "siteEnLigne": "[À COMPLÉTER]",
+    "badges": {
+      "nouveau": true,
+      "top": false
+    },
+    "classement": null,
+    "ordre": 3,
+    "_commentaire": "À COMPLÉTER : expertises mobilisées par ce projet (liens.expertises)",
+    "liens": {
+      "projets": [],
+      "expertises": [],
+      "passions": []
+    }
+  },
+  {
+    "ref": "P-04",
+    "slug": "chti-poker-club",
+    "titre": "Chti Poker Club",
+    "entreprise": "[À COMPLÉTER]",
+    "categorie": "projet",
+    "accroche": "Lorem ipsum dolor sit amet : problème → démarche → résultat.",
+    "role": "[Rôle]",
+    "outils": [
+      "[Outil 1]",
+      "[Outil 2]",
+      "[Outil 3]"
+    ],
+    "siteEnLigne": "[À COMPLÉTER]",
+    "badges": {
+      "nouveau": false,
+      "top": false
+    },
+    "classement": null,
+    "ordre": 4,
+    "_commentaire": "À COMPLÉTER : expertises mobilisées par ce projet (liens.expertises)",
+    "liens": {
+      "projets": [],
+      "expertises": [],
+      "passions": [
+        "H-04"
+      ]
+    }
+  }
+]

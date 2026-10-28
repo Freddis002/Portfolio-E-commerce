@@ -1,0 +1,130 @@
+[
+  {
+    "ref": "E-01",
+    "slug": "e-commerce",
+    "titre": "E-commerce",
+    "categorie": "expertise",
+    "accroche": "Concevoir, structurer et faire évoluer une boutique en ligne.",
+    "role": "[Rôle]",
+    "outils": [
+      "[Outil 1]",
+      "[Outil 2]",
+      "[Outil 3]"
+    ],
+    "badges": {
+      "nouveau": false,
+      "top": true
+    },
+    "classement": 2,
+    "ordre": 1,
+    "liens": {
+      "projets": [
+        "P-01"
+      ],
+      "expertises": [],
+      "passions": []
+    }
+  },
+  {
+    "ref": "E-02",
+    "slug": "seo",
+    "titre": "SEO",
+    "categorie": "expertise",
+    "accroche": "Rendre un site visible et compréhensible pour les moteurs de recherche.",
+    "role": "[Rôle]",
+    "outils": [
+      "[Outil 1]",
+      "[Outil 2]",
+      "[Outil 3]"
+    ],
+    "badges": {
+      "nouveau": false,
+      "top": true
+    },
+    "classement": 1,
+    "ordre": 2,
+    "liens": {
+      "projets": [
+        "P-01",
+        "P-02"
+      ],
+      "expertises": [],
+      "passions": []
+    }
+  },
+  {
+    "ref": "E-03",
+    "slug": "marketing-digital",
+    "titre": "Marketing digital",
+    "categorie": "expertise",
+    "accroche": "Attirer, convertir et fidéliser sur les canaux numériques.",
+    "role": "[Rôle]",
+    "outils": [
+      "[Outil 1]",
+      "[Outil 2]",
+      "[Outil 3]"
+    ],
+    "badges": {
+      "nouveau": false,
+      "top": false
+    },
+    "classement": 3,
+    "ordre": 3,
+    "_commentaire": "À COMPLÉTER : projets qui mettent en application cette expertise (liens.projets)",
+    "liens": {
+      "projets": [],
+      "expertises": [],
+      "passions": []
+    }
+  },
+  {
+    "ref": "E-04",
+    "slug": "data-analytics",
+    "titre": "Data & Analytics",
+    "categorie": "expertise",
+    "accroche": "Mesurer, analyser et orienter les décisions.",
+    "role": "[Rôle]",
+    "outils": [
+      "[Outil 1]",
+      "[Outil 2]",
+      "[Outil 3]"
+    ],
+    "badges": {
+      "nouveau": true,
+      "top": false
+    },
+    "classement": 4,
+    "ordre": 4,
+    "_commentaire": "À COMPLÉTER : projets qui mettent en application cette expertise (liens.projets)",
+    "liens": {
+      "projets": [],
+      "expertises": [],
+      "passions": []
+    }
+  },
+  {
+    "ref": "E-05",
+    "slug": "web",
+    "titre": "Web",
+    "categorie": "expertise",
+    "accroche": "Créer et maintenir des sites clairs et efficaces.",
+    "role": "[Rôle]",
+    "outils": [
+      "[Outil 1]",
+      "[Outil 2]",
+      "[Outil 3]"
+    ],
+    "badges": {
+      "nouveau": true,
+      "top": false
+    },
+    "classement": 5,
+    "ordre": 5,
+    "_commentaire": "À COMPLÉTER : projets qui mettent en application cette expertise (liens.projets)",
+    "liens": {
+      "projets": [],
+      "expertises": [],
+      "passions": []
+    }
+  }
+]

@@ -1,0 +1,145 @@
+/*
+ * Design tokens — Charte graphique v3
+ * Valeurs relevées dans docs/maquettes/source/*.dc.html (référence prioritaire)
+ * et docs/charte/Charte_Graphique_v3.pdf.
+ *
+ * Points de rupture (non utilisables en variables CSS dans @media) :
+ *   - 1024 px : menu burger, filtres du catalogue au-dessus des résultats
+ *   -  900 px : grilles de cartes en 2 colonnes
+ *   -  600 px : grilles en 1 colonne
+ */
+
+:root {
+  /* ---------- Couleurs : palette de la charte ---------- */
+  --color-noir: #111010;          /* Noir Encre : texte, fonds immersifs */
+  --color-orange: #ff5a1f;        /* Orange Signal : action, focus (jamais en texte sur clair) */
+  --color-blanc: #f7f5f2;         /* Blanc Papier : fond principal */
+  --color-graphite: #2b2927;      /* texte long */
+  --color-pierre: #6e6862;        /* texte secondaire, labels */
+  --color-ligne: #e3dfd9;         /* bordures */
+  --color-surface: #efece7;       /* cartes, emplacements d'image */
+  --color-orange-brule: #c2410c;  /* texte / lien orange sur fond clair */
+  --color-orange-pale: #ffe1d3;   /* fond des badges NOUVEAU / TOP */
+  --color-succes: #1f7a4a;
+  --color-erreur: #c8102e;
+
+  /* ---------- Couleurs complémentaires validées (issues des maquettes) ---------- */
+  /*
+   * Sur fond Noir Encre, Pierre (#6E6862) n'offre que 3,5:1 : insuffisant pour
+   * du texte (WCAG AA exige 4,5:1). Ces deux gris clairs le remplacent :
+   *   - secondaire (#D9D4CD, 12,9:1) : texte courant sur noir (footer, accroches)
+   *   - tertiaire  (#B8B2AA,  9,0:1) : labels mono, métadonnées, mentions sur noir
+   */
+  --color-texte-secondaire-sur-noir: #d9d4cd;
+  --color-texte-tertiaire-sur-noir: #b8b2aa;
+  /*
+   * Fond des champs de formulaire : le blanc pur détache le champ du fond
+   * Blanc Papier et signale clairement la zone de saisie (texte noir : 19:1).
+   */
+  --color-fond-champ: #ffffff;
+
+  /* ---------- Effets ---------- */
+  --color-voile: rgba(17, 16, 16, 0.45);   /* voile derrière les panneaux (cookies, filtres) */
+  --color-hachure: rgba(17, 16, 16, 0.06); /* rayures des emplacements d'image */
+
+  /* ---------- Rôles (à utiliser de préférence dans les composants) ---------- */
+  --color-fond: var(--color-blanc);
+  --color-texte: var(--color-noir);
+  --color-texte-long: var(--color-graphite);
+  --color-texte-secondaire: var(--color-pierre);
+  --color-lien-survol: var(--color-orange-brule);
+  --color-action: var(--color-orange);
+  --color-focus: var(--color-orange);
+
+  /* ---------- Familles ---------- */
+  --font-sans: "Archivo Variable", "Archivo", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* ---------- Graisses ---------- */
+  --weight-display: 850;  /* Display et H1 */
+  --weight-titre: 800;    /* H2, titres de cartes mises en avant */
+  --weight-bold: 700;     /* H3, boutons, libellés forts */
+  --weight-semibold: 600; /* boutons d'ajout, badges, compteur */
+  --weight-interface: 500;
+  --weight-texte: 400;
+
+  /* ---------- Chasse (axe wdth d'Archivo) ---------- */
+  /* Usage : font-variation-settings: "wdth" var(--wdth-display); */
+  --wdth-display: 112;  /* Display, H1, logotype */
+  --wdth-titre: 108;    /* H2 et titres de section */
+  --wdth-normal: 100;
+
+  /* ---------- Échelle typographique (mobile → desktop) ---------- */
+  --text-display: clamp(48px, 7vw, 96px);
+  --text-h1: clamp(40px, 5vw, 64px);   /* maquettes : 40 px en mobile (charte : 36) */
+  --text-h2: clamp(28px, 3.5vw, 40px);
+  --text-h3: clamp(20px, 2vw, 24px);
+  --text-corps-l: clamp(18px, 1.6vw, 20px);
+  --text-corps: 16px;
+  --text-petit: 14px;                  /* textes d'interface, descriptions de cartes */
+  --text-label: clamp(12px, 1vw, 13px); /* Label mono 13 / 12 */
+  --text-mono-s: 12px;                 /* références, fil d'Ariane */
+  --text-mono-xs: 11px;                /* badges, pastilles */
+
+  /* ---------- Interlignages ---------- */
+  --leading-display: 0.9;
+  --leading-h1: 1;
+  --leading-h2: 1.1;
+  --leading-h3: 1.25;
+  --leading-corps: 1.6;
+  --leading-serre: 1.3;
+
+  /* ---------- Approches (letter-spacing) ---------- */
+  --tracking-display: -0.03em; /* Display et H1 */
+  --tracking-titre: -0.02em;   /* H2 */
+  --tracking-label: 0.08em;    /* labels mono en capitales */
+  --tracking-pastille: 0.06em; /* pastilles rôle / outils */
+
+  /* ---------- Espacements (base 8) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* ---------- Grille et mise en page ---------- */
+  --page-max: 1280px;
+  --page-marge: clamp(20px, 5.5vw, 80px); /* 20 px mobile → 80 px desktop */
+  --gouttiere: 24px;
+  --colonnes: 12; /* 8 en tablette, 4 en mobile */
+
+  /* ---------- Hauteurs de contrôles ---------- */
+  --hauteur-bouton: 48px;        /* bouton standard */
+  --hauteur-bouton-s: 44px;      /* ajout rapide, tri, cible tactile minimale */
+  --hauteur-bouton-l: 56px;      /* « Ajouter à ma sélection » sur les fiches */
+  --hauteur-champ: 52px;
+  --hauteur-compteur: 22px;      /* pastille du compteur de sélection */
+
+  /* ---------- Formes ---------- */
+  --radius: 0;
+  --radius-pastille: 999px;
+  --bordure: 1px solid var(--color-ligne);
+  --bordure-forte: 1px solid var(--color-noir);
+  --ombre: none;
+
+  /* ---------- Mouvement ---------- */
+  --duree: 160ms;
+  --easing: ease-out;
+  --transition: var(--duree) var(--easing);
+
+  /* ---------- Focus clavier ---------- */
+  --focus-largeur: 2px;
+  --focus-decalage: 2px;
+}
+
+/* Animations neutralisées si l'utilisateur l'a demandé à son système */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duree: 0ms;
+  }
+}

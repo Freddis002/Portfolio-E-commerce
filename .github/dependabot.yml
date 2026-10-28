@@ -1,0 +1,30 @@
+# Mises à jour automatiques des dépendances (pull requests hebdomadaires)
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    groups:
+      # React Router et ses paquets évoluent ensemble
+      react-router:
+        patterns:
+          - "react-router"
+          - "@react-router/*"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+    ignore:
+      # Le brief impose React Router v7 : pas de passage automatique en v8
+      - dependency-name: "react-router"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@react-router/*"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"

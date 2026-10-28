@@ -1,0 +1,14 @@
+/*
+ * Polices auto-hébergées (paquets Fontsource, copiés dans le build par Vite).
+ * Aucun appel à Google Fonts : meilleur pour la vie privée et le RGPD.
+ *
+ * Archivo variable avec les deux axes : graisse (wght 100–900)
+ * et chasse (wdth 62–125). Famille déclarée : "Archivo Variable".
+ * Seul le sous-ensemble utile est téléchargé, grâce à unicode-range.
+ */
+@import "@fontsource-variable/archivo/wdth.css";
+
+/* IBM Plex Mono : 400 (texte), 500 (labels), 600 (badges, compteurs) */
+@import "@fontsource/ibm-plex-mono/latin-400.css";
+@import "@fontsource/ibm-plex-mono/latin-500.css";
+@import "@fontsource/ibm-plex-mono/latin-600.css";
