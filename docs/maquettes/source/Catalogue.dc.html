@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Catalogue — desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F5F2}
+a{color:#111010}a:hover{color:#C2410C}
+.ph{background-color:#EFECE7;background-image:repeating-linear-gradient(135deg,rgba(17,16,16,.06) 0 1px,transparent 1px 12px)}
+.navlink{text-decoration:none}
+.navlink:hover{text-decoration:underline;text-underline-offset:6px}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid #FF5A1F;outline-offset:2px}
+.pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.pgrid .feat{grid-column:span 2;grid-row:span 2}
+.pgrid .wide{grid-column:span 2}
+.hgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+@media (max-width:900px){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.hgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.pgrid{grid-template-columns:minmax(0,1fr)}.pgrid .feat,.pgrid .wide{grid-column:auto;grid-row:auto}}
+.chk{width:20px;height:20px;accent-color:#111010;margin:0}
+@media (max-width:1023px){.filters{max-width:none !important;flex-basis:100% !important;display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px}.filters>div:first-child{grid-column:1/-1}}
+</style>
+</helmet>
+<div style="background: #F7F5F2; color: #111010; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; line-height: 1.6;">
+
+<dc-import name="Header" active="catalogue" count="{{count}}" hint-size="100%,124px"></dc-import>
+
+<!-- En-tête de catégorie -->
+<section style="max-width: 1280px; margin: 0 auto; padding: 32px clamp(20px, 5.5vw, 80px) 40px; display: flex; flex-direction: column; gap: 16px;">
+<nav aria-label="Fil d'Ariane" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;">
+<a href="Main.dc.html" style="color: #6E6862;">Accueil</a><span style="color: #6E6862;"> / </span><span aria-current="page">Catalogue</span>
+</nav>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 640px;">
+<h1 style="margin: 0; font-size: clamp(40px, 5vw, 64px); line-height: 1; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em;">Catalogue<span style="color: #FF5A1F;">.</span></h1>
+<p style="margin: 0; font-size: 18px; color: #2B2927;">Projets, expertises et passions. Ajoutez ce qui vous intéresse à votre sélection pour en parler ensuite.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid #E3DFD9; min-width: 0;">
+<div style="padding: 12px 20px; border-right: 1px solid #E3DFD9;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 24px; font-weight: 500;">04</div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">PROJETS</div></div>
+<div style="padding: 12px 20px; border-right: 1px solid #E3DFD9;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 24px; font-weight: 500;">05</div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">EXPERTISES</div></div>
+<div style="padding: 12px 20px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 24px; font-weight: 500;">04</div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">PASSIONS</div></div>
+</div>
+</div>
+</section>
+
+<!-- Corps : filtres + résultats -->
+<div style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 5.5vw, 80px) 96px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start;">
+
+<aside class="filters" aria-label="Filtres" style="flex: 1 1 232px; max-width: 280px; display: flex; flex-direction: column; border-top: 1px solid #111010;">
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0;">
+<span style="font-weight: 700; font-size: 18px;">Filtrer</span>
+<button type="button" onClick="{{resetFilters}}" style="background: none; border: 0; padding: 0; font: 500 14px 'Archivo', sans-serif; color: #111010; text-decoration: underline; text-underline-offset: 4px; cursor: pointer;">Tout effacer</button>
+</div>
+<fieldset style="border: 0; border-top: 1px solid #E3DFD9; margin: 0; padding: 16px 0 20px; display: flex; flex-direction: column; gap: 12px;">
+<legend style="float: left; width: 100%; padding: 0 0 4px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">CATÉGORIE</legend>
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="3">
+<label style="display: flex; align-items: center; gap: 12px; font-size: 15px; cursor: pointer; min-height: 28px;">
+<input class="chk" type="checkbox" checked="{{c.on}}" onChange="{{c.toggle}}">
+<span style="flex-grow: 1;">{{c.label}}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">{{c.n}}</span>
+</label>
+</sc-for>
+</fieldset>
+<fieldset style="border: 0; border-top: 1px solid #E3DFD9; margin: 0; padding: 16px 0 20px; display: flex; flex-direction: column; gap: 12px;">
+<legend style="float: left; width: 100%; padding: 0 0 4px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">OUTILS</legend>
+<label style="display: flex; align-items: center; gap: 12px; font-size: 15px; min-height: 28px;"><input class="chk" type="checkbox"><span style="flex-grow: 1;">[Outil 1]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">0X</span></label>
+<label style="display: flex; align-items: center; gap: 12px; font-size: 15px; min-height: 28px;"><input class="chk" type="checkbox"><span style="flex-grow: 1;">[Outil 2]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">0X</span></label>
+<label style="display: flex; align-items: center; gap: 12px; font-size: 15px; min-height: 28px;"><input class="chk" type="checkbox"><span style="flex-grow: 1;">[Outil 3]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">0X</span></label>
+<button type="button" style="align-self: flex-start; background: none; border: 0; padding: 0; font: 500 14px 'Archivo', sans-serif; color: #111010; text-decoration: underline; text-underline-offset: 4px; cursor: pointer;">+ Voir plus</button>
+</fieldset>
+<fieldset style="border: 0; border-top: 1px solid #E3DFD9; margin: 0; padding: 16px 0 20px; display: flex; flex-direction: column; gap: 12px;">
+<legend style="float: left; width: 100%; padding: 0 0 4px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">CONTEXTE</legend>
+<label style="display: flex; align-items: center; gap: 12px; font-size: 15px; min-height: 28px;"><input class="chk" type="checkbox"><span style="flex-grow: 1;">Professionnel</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">0X</span></label>
+<label style="display: flex; align-items: center; gap: 12px; font-size: 15px; min-height: 28px;"><input class="chk" type="checkbox"><span style="flex-grow: 1;">Personnel</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">0X</span></label>
+</fieldset>
+<fieldset style="border: 0; border-top: 1px solid #E3DFD9; border-bottom: 1px solid #E3DFD9; margin: 0; padding: 16px 0 20px; display: flex; flex-direction: column; gap: 12px;">
+<legend style="float: left; width: 100%; padding: 0 0 4px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">ANNÉE</legend>
+<label style="display: flex; align-items: center; gap: 12px; font-size: 15px; min-height: 28px;"><input class="chk" type="checkbox"><span style="flex-grow: 1;">[AAAA]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">0X</span></label>
+<label style="display: flex; align-items: center; gap: 12px; font-size: 15px; min-height: 28px;"><input class="chk" type="checkbox"><span style="flex-grow: 1;">[AAAA]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">0X</span></label>
+</fieldset>
+</aside>
+
+<div style="flex: 999 1 600px; min-width: 0; display: flex; flex-direction: column; gap: 48px;">
+
+<!-- Barre d'outils -->
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid #111010; border-bottom: 1px solid #E3DFD9; padding: 12px 0;">
+<span role="status" style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em;">{{resultCount}} RÉSULTATS</span>
+<div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+<label style="display: flex; align-items: center; gap: 8px; font-size: 14px;">
+<span style="color: #6E6862;">Trier par</span>
+<select style="height: 44px; padding: 0 12px; border: 1px solid #111010; border-radius: 0; background: #F7F5F2; font: 500 14px 'Archivo', sans-serif; color: #111010;">
+<option>Pertinence</option>
+<option>Plus récents</option>
+<option>Plus demandés</option>
+</select>
+</label>
+<div role="group" aria-label="Affichage" style="display: flex;">
+<button type="button" aria-pressed="true" aria-label="Vue grille" style="width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #111010; background: #111010; color: #F7F5F2; cursor: pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button>
+<button type="button" aria-pressed="false" aria-label="Vue liste" style="width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #111010; border-left: 0; background: transparent; color: #111010; cursor: pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg></button>
+</div>
+</div>
+</div>
+
+<!-- Projets : vitrine -->
+<sc-if value="{{showP}}" hint-placeholder-val="{{true}}">
+<section aria-labelledby="g-p" style="display: flex; flex-direction: column; gap: 20px;">
+<div style="display: flex; align-items: baseline; gap: 12px;"><h2 id="g-p" style="margin: 0; font-size: 28px; font-weight: 800; font-variation-settings: 'wdth' 108;">Projets</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">04</span></div>
+<div class="pgrid">
+<article class="feat" style="display: flex; flex-direction: column; border: 1px solid #E3DFD9;">
+<div class="ph" style="flex-grow: 1; min-height: 280px; position: relative; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">
+<span>Mockup écran · 16:9</span>
+<span style="position: absolute; top: 12px; left: 12px; background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">TOP</span>
+</div>
+<div style="padding: 24px; display: flex; flex-direction: column; gap: 8px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">{{feat.id}} · PROJET · [ANNÉE]</span>
+<h3 style="margin: 0; font-size: 32px; line-height: 1.1; font-weight: 800; font-variation-settings: 'wdth' 108;">{{feat.title}}</h3>
+<p style="margin: 0; color: #2B2927;">Lorem ipsum dolor sit amet : problème → réalisation.</p>
+<sc-if value="{{showPills}}" hint-placeholder-val="{{true}}">
+<ul aria-label="Rôle et outils" style="list-style: none; margin: 0; padding: 4px 0 0; display: flex; flex-wrap: wrap; gap: 6px;">
+<li style="background: #111010; color: #F7F5F2; border: 1px solid #111010; border-radius: 999px; padding: 2px 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;">{{feat.role}}</li>
+<sc-for list="{{feat.outils}}" as="o" hint-placeholder-count="3"><li style="border: 1px solid #111010; border-radius: 999px; padding: 2px 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;">{{o}}</li></sc-for>
+</ul>
+</sc-if>
+<sc-if value="{{showLine}}" hint-placeholder-val="{{false}}">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #2B2927; line-height: 1.7;"><div><span style="color: #6E6862;">RÔLE ·</span> {{feat.role}}</div><div><span style="color: #6E6862;">OUTILS ·</span> {{feat.outilsTxt}}</div></div>
+</sc-if>
+<sc-if value="{{showSpec}}" hint-placeholder-val="{{false}}">
+<dl style="margin: 4px 0 0; display: grid; grid-template-columns: 96px minmax(0, 1fr); border-top: 1px solid #E3DFD9; font-size: 14px;">
+<dt style="padding: 8px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">RÔLE</dt><dd style="margin: 0; padding: 8px 0; border-bottom: 1px solid #E3DFD9;">{{feat.role}}</dd>
+<dt style="padding: 8px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">OUTILS</dt><dd style="margin: 0; padding: 8px 0; border-bottom: 1px solid #E3DFD9;">{{feat.outilsTxt}}</dd>
+</dl>
+</sc-if>
+<div style="display: flex; justify-content: space-between; align-items: center; padding-top: 8px;">
+<a href="#" style="font-weight: 700; text-underline-offset: 4px;">Voir le projet →</a>
+<button type="button" onClick="{{feat.toggle}}" aria-pressed="{{feat.pressed}}" style="{{feat.btnStyle}}">{{feat.label}}</button>
+</div>
+</div>
+</article>
+<sc-for list="{{projets}}" as="item" hint-placeholder-count="3">
+<article style="display: flex; flex-direction: column; border: 1px solid #E3DFD9;">
+<div class="ph" style="aspect-ratio: 16 / 9; position: relative; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;">
+<span>Visuel projet · 16:9</span>
+<sc-if value="{{item.isNew}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 12px; left: 12px; background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">NOUVEAU</span></sc-if>
+</div>
+<div style="padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">{{item.id}} · PROJET</span>
+<h3 style="margin: 0; font-size: 18px; line-height: 1.25; font-weight: 700;">{{item.title}}</h3>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 6px;">
+<sc-if value="{{showPills}}" hint-placeholder-val="{{true}}">
+<ul aria-label="Rôle et outils" style="list-style: none; margin: 0; padding: 2px 0 0; display: flex; flex-wrap: wrap; gap: 6px;">
+<li style="background: #111010; color: #F7F5F2; border: 1px solid #111010; border-radius: 999px; padding: 1px 8px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;">{{item.role}}</li>
+<sc-for list="{{item.outils}}" as="o" hint-placeholder-count="2"><li style="border: 1px solid #111010; border-radius: 999px; padding: 1px 8px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;">{{o}}</li></sc-for>
+</ul>
+</sc-if>
+<sc-if value="{{showLine}}" hint-placeholder-val="{{false}}">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: #2B2927; line-height: 1.6;"><div><span style="color: #6E6862;">RÔLE ·</span> {{item.role}}</div><div><span style="color: #6E6862;">OUTILS ·</span> {{item.outilsTxt}}</div></div>
+</sc-if>
+<sc-if value="{{showSpec}}" hint-placeholder-val="{{false}}">
+<dl style="margin: 0; display: grid; grid-template-columns: 64px minmax(0, 1fr); border-top: 1px solid #E3DFD9; font-size: 13px;">
+<dt style="padding: 6px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E6862;">RÔLE</dt><dd style="margin: 0; padding: 6px 0; border-bottom: 1px solid #E3DFD9;">{{item.role}}</dd>
+<dt style="padding: 6px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E6862;">OUTILS</dt><dd style="margin: 0; padding: 6px 0; border-bottom: 1px solid #E3DFD9;">{{item.outilsTxt}}</dd>
+</dl>
+</sc-if>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; padding-top: 8px;">
+<a href="#" style="font-weight: 700; font-size: 14px; text-underline-offset: 4px;">Voir →</a>
+<button type="button" onClick="{{item.toggle}}" aria-pressed="{{item.pressed}}" style="{{item.btnStyle}}">{{item.label}}</button>
+</div>
+</div>
+</article>
+</sc-for>
+<a href="#" class="wide" style="background: #111010; color: #F7F5F2; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; text-decoration: none;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #FF5A1F;">01 SÉLECTION → 02 COORDONNÉES → 03 ENVOI</span>
+<span style="font-size: 28px; line-height: 1.15; font-weight: 800; font-variation-settings: 'wdth' 108;">Composez votre sélection, puis parlons-en.</span>
+<span style="font-weight: 700;">Voir ma sélection ({{count}}) →</span>
+</a>
+</div>
+</section>
+</sc-if>
+
+<!-- Expertises : liste numérotée -->
+<sc-if value="{{showE}}" hint-placeholder-val="{{true}}">
+<section aria-labelledby="g-e" style="display: flex; flex-direction: column; gap: 20px;">
+<div style="display: flex; align-items: baseline; gap: 12px;"><h2 id="g-e" style="margin: 0; font-size: 28px; font-weight: 800; font-variation-settings: 'wdth' 108;">Expertises</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">05</span></div>
+<ul style="list-style: none; margin: 0; padding: 0; border-top: 1px solid #111010;">
+<sc-for list="{{expertises}}" as="item" hint-placeholder-count="5">
+<li style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding: 20px 0; border-bottom: 1px solid #E3DFD9;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862; width: 44px;">{{item.id}}</span>
+<div style="flex: 1 1 200px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; min-width: 0;">
+<h3 style="margin: 0; font-size: 24px; line-height: 1.2; font-weight: 800; font-variation-settings: 'wdth' 108;">{{item.title}}</h3>
+<sc-if value="{{item.isTop}}" hint-placeholder-val="{{false}}"><span style="background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">TOP</span></sc-if>
+<sc-if value="{{item.isNew}}" hint-placeholder-val="{{false}}"><span style="background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">NOUVEAU</span></sc-if>
+</div>
+<p style="margin: 0; flex: 2 1 260px; min-width: 0; color: #2B2927; font-size: 15px; line-height: 1.5;">{{item.desc}}</p>
+<a href="#" style="font-weight: 700; font-size: 14px; text-underline-offset: 4px;">Voir →</a>
+<button type="button" onClick="{{item.toggle}}" aria-pressed="{{item.pressed}}" style="{{item.btnStyle}}">{{item.label}}</button>
+</li>
+</sc-for>
+</ul>
+</section>
+</sc-if>
+
+<!-- Passions : grille 1:1 -->
+<sc-if value="{{showH}}" hint-placeholder-val="{{true}}">
+<section aria-labelledby="g-h" style="display: flex; flex-direction: column; gap: 20px;">
+<div style="display: flex; align-items: baseline; gap: 12px;"><h2 id="g-h" style="margin: 0; font-size: 28px; font-weight: 800; font-variation-settings: 'wdth' 108;">Passions</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">04</span></div>
+<div class="hgrid">
+<sc-for list="{{passions}}" as="item" hint-placeholder-count="4">
+<article style="display: flex; flex-direction: column; gap: 10px;">
+<div class="ph" style="aspect-ratio: 1 / 1; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;">Photo personnelle · 1:1</div>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">{{item.id}} · PASSION</span>
+<h3 style="margin: 0; font-size: 18px; line-height: 1.25; font-weight: 700;">{{item.title}}</h3>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<a href="#" style="font-weight: 700; font-size: 14px; text-underline-offset: 4px;">Voir →</a>
+<button type="button" onClick="{{item.toggle}}" aria-pressed="{{item.pressed}}" style="{{item.btnStyle}}">{{item.label}}</button>
+</div>
+</article>
+</sc-for>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{empty}}" hint-placeholder-val="{{false}}">
+<div style="border: 1px dashed #6E6862; padding: 40px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+<span style="font-weight: 700; font-size: 20px;">Aucun résultat avec ces filtres.</span>
+<button type="button" onClick="{{resetFilters}}" style="height: 44px; padding: 0 16px; border: 1px solid #111010; background: transparent; font: 600 14px 'Archivo', sans-serif; cursor: pointer;">Effacer les filtres</button>
+</div>
+</sc-if>
+
+<!-- Récemment consultés -->
+<section aria-labelledby="g-r" style="display: flex; flex-direction: column; gap: 16px; border-top: 1px solid #E3DFD9; padding-top: 32px;">
+<h2 id="g-r" style="margin: 0; font-size: 20px; font-weight: 700;">Récemment consultés</h2>
+<div style="display: flex; gap: 16px; flex-wrap: wrap;">
+<a href="#" style="display: flex; gap: 12px; align-items: center; text-decoration: none; border: 1px solid #E3DFD9; padding: 8px 16px 8px 8px;"><span class="ph" style="width: 48px; height: 48px;"></span><span><span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;">E-02</span><span style="font-weight: 600; font-size: 14px;">SEO</span></span></a>
+<a href="#" style="display: flex; gap: 12px; align-items: center; text-decoration: none; border: 1px solid #E3DFD9; padding: 8px 16px 8px 8px;"><span class="ph" style="width: 48px; height: 48px;"></span><span><span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;">H-04</span><span style="font-weight: 600; font-size: 14px;">Poker</span></span></a>
+</div>
+</section>
+
+</div>
+</div>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+
+<sc-if value="{{showToast}}" hint-placeholder-val="{{false}}">
+<div role="status" style="position: fixed; right: 24px; bottom: 24px; z-index: 10; width: 360px; max-width: calc(100% - 48px); background: #F7F5F2; border: 1px solid #111010; padding: 20px; display: flex; flex-direction: column; gap: 12px;">
+<div style="display: flex; justify-content: space-between; gap: 12px; align-items: baseline;">
+<span style="font-weight: 700;">✓ Ajouté à votre sélection</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">{{count}} élément(s)</span>
+</div>
+<span style="font-size: 15px; color: #2B2927;">{{lastTitle}}</span>
+<div style="display: flex; gap: 12px; flex-wrap: wrap;">
+<button type="button" onClick="{{closeToast}}" style="height: 44px; padding: 0 16px; border: 1px solid #111010; background: transparent; color: #111010; font: 600 14px 'Archivo', sans-serif; cursor: pointer;">Continuer</button>
+<a href="#" style="display: inline-flex; align-items: center; height: 44px; padding: 0 16px; background: #111010; color: #F7F5F2; font-weight: 600; font-size: 14px; text-decoration: none;">Voir ma sélection →</a>
+</div>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"infosProjet":{"editor":"enum","options":["Étiquettes","Ligne texte","Fiche technique"],"default":"Étiquettes","section":"Cartes projet"},"$preview":{"width":1440,"height":3100}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sel: ['P-02', 'E-02', 'H-04'], cats: { P: true, E: true, H: true }, toast: false, last: '' };
+  }
+  toggle(id, title) {
+    const sel = this.state.sel;
+    const on = sel.indexOf(id) === -1;
+    this.setState({ sel: on ? sel.concat([id]) : sel.filter((x) => x !== id), toast: on, last: title });
+    clearTimeout(this._t);
+    if (on) this._t = setTimeout(() => this.setState({ toast: false }), 4000);
+  }
+  decorate(item) {
+    const on = this.state.sel.indexOf(item.id) !== -1;
+    const base = 'height: 44px; padding: 0 14px; font: 600 14px Archivo, sans-serif; cursor: pointer; white-space: nowrap; transition: background 160ms ease-out, color 160ms ease-out; border: 1px solid #111010;';
+    return Object.assign({}, item, {
+      pressed: on ? 'true' : 'false',
+      label: on ? '✓ Ajouté' : '+ Ajouter',
+      btnStyle: base + (on ? ' background: #111010; color: #F7F5F2;' : ' background: transparent; color: #111010;'),
+      toggle: () => this.toggle(item.id, item.title)
+    });
+  }
+  renderVals() {
+    const c = this.state.cats;
+    const setCat = (k) => () => this.setState({ cats: Object.assign({}, c, { [k]: !c[k] }) });
+    const cats = [
+      { label: 'Projets', n: '04', on: c.P, toggle: setCat('P') },
+      { label: 'Expertises', n: '05', on: c.E, toggle: setCat('E') },
+      { label: 'Passions', n: '04', on: c.H, toggle: setCat('H') }
+    ];
+    const anyOn = c.P || c.E || c.H;
+    const showP = c.P || !anyOn ? c.P : false;
+    const resultCount = String((c.P ? 4 : 0) + (c.E ? 5 : 0) + (c.H ? 4 : 0)).padStart(2, '0');
+    const count = this.state.sel.length;
+    const mode = this.props.infosProjet ?? 'Étiquettes';
+    const withMeta = (x) => Object.assign({}, x, { role: '[Rôle]', outils: ['[Outil 1]', '[Outil 2]', '[Outil 3]'], outilsTxt: '[Outil 1], [Outil 2], [Outil 3]' });
+    return {
+      cats,
+      showP: c.P, showE: c.E, showH: c.H, empty: !anyOn,
+      showPills: mode === 'Étiquettes', showLine: mode === 'Ligne texte', showSpec: mode === 'Fiche technique',
+      resultCount,
+      feat: this.decorate(withMeta({ id: 'P-02', title: 'Green Ideas / Market Shop' })),
+      projets: [
+        { id: 'P-01', title: 'Mon Kit Solaire', isNew: true },
+        { id: 'P-03', title: 'Les Petits Paniers', isNew: true },
+        { id: 'P-04', title: 'Chti Poker Club', isNew: false }
+      ].map((x) => this.decorate(withMeta(x))),
+      expertises: [
+        { id: 'E-01', title: 'E-commerce', isTop: true, isNew: false, desc: 'Concevoir, structurer et faire évoluer une boutique en ligne.' },
+        { id: 'E-02', title: 'SEO', isTop: true, isNew: false, desc: 'Rendre un site visible et compréhensible pour les moteurs de recherche.' },
+        { id: 'E-03', title: 'Marketing digital', isTop: false, isNew: false, desc: 'Attirer, convertir et fidéliser sur les canaux numériques.' },
+        { id: 'E-04', title: 'Data & Analytics', isTop: false, isNew: true, desc: 'Mesurer, analyser et orienter les décisions.' },
+        { id: 'E-05', title: 'Web', isTop: false, isNew: true, desc: 'Créer et maintenir des sites clairs et efficaces.' }
+      ].map((x) => this.decorate(x)),
+      passions: [
+        { id: 'H-01', title: 'Photographie' },
+        { id: 'H-02', title: 'Trail / randonnée' },
+        { id: 'H-03', title: 'CrossFit' },
+        { id: 'H-04', title: 'Poker' }
+      ].map((x) => this.decorate(x)),
+      count,
+      countStyle: 'display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; font-family: IBM Plex Mono, monospace; font-size: 12px; font-weight: 600; ' + (count > 0 ? 'background: #FF5A1F; color: #111010;' : 'background: #E3DFD9; color: #2B2927;'),
+      resetFilters: () => this.setState({ cats: { P: true, E: true, H: true } }),
+      showToast: this.state.toast,
+      lastTitle: this.state.last,
+      closeToast: () => this.setState({ toast: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

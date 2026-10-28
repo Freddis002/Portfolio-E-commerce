@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Accueil — mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F5F2}
+a{color:#111010}a:hover{color:#C2410C}
+.ph{background-color:#EFECE7;background-image:repeating-linear-gradient(135deg,rgba(17,16,16,.06) 0 1px,transparent 1px 12px)}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 8px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail>*{scroll-snap-align:start;flex:0 0 280px}
+a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2px}
+</style>
+</helmet>
+<div style="width: 390px; background: #F7F5F2; color: #111010; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; line-height: 1.6; position: relative;">
+
+<dc-import name="HeaderMobile" active="accueil" count="{{count}}" hint-size="100%,110px"></dc-import>
+
+<section style="padding: 32px 20px 40px; display: flex; flex-direction: column; gap: 16px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #C2410C;">Collection 2026 · Basé à Arras</span>
+<h1 style="margin: 0; font-size: 48px; line-height: 0.9; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em;">NOM<br>PRÉNOM<span style="color: #FF5A1F;">.</span></h1>
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #2B2927;">Chargé e-commerce · Marketing &amp; communication · Chef de projet digital</p>
+<p style="margin: 0; font-size: 18px; color: #2B2927;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, en Hauts-de-France.</p>
+<div class="ph" style="aspect-ratio: 4 / 5; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862; letter-spacing: 0.08em; margin: 8px 0;">PORTRAIT · 4:5</div>
+<a href="CatalogueMobile.dc.html" style="display: flex; align-items: center; justify-content: center; height: 48px; background: #FF5A1F; color: #111010; font-weight: 700; text-decoration: none;">Voir mes projets →</a>
+<a href="#" style="display: flex; align-items: center; justify-content: center; height: 48px; border: 1px solid #111010; color: #111010; font-weight: 700; text-decoration: none;">Télécharger le CV (PDF)</a>
+</section>
+
+<ul style="list-style: none; margin: 0; padding: 20px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; border-top: 1px solid #E3DFD9; border-bottom: 1px solid #E3DFD9;">
+<li style="display: flex; flex-direction: column; gap: 4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111010" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span style="font-weight: 700; font-size: 14px; line-height: 1.3;">Basé à Arras</span></li>
+<li style="display: flex; flex-direction: column; gap: 4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111010" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg><span style="font-weight: 700; font-size: 14px; line-height: 1.3;">Mobile Hauts-de-France</span></li>
+<li style="display: flex; flex-direction: column; gap: 4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111010" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4"/><path d="M3 10h18"/></svg><span style="font-weight: 700; font-size: 14px; line-height: 1.3;">Disponibilité : [lorem]</span></li>
+<li style="display: flex; flex-direction: column; gap: 4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111010" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg><span style="font-weight: 700; font-size: 14px; line-height: 1.3;">CV en PDF</span></li>
+</ul>
+
+<section style="padding: 48px 20px 0; display: flex; flex-direction: column; gap: 16px;">
+<h2 style="margin: 0; font-size: 28px; line-height: 1.1; font-weight: 800; font-variation-settings: 'wdth' 108; border-bottom: 1px solid #111010; padding-bottom: 12px;">Explorer par catégorie</h2>
+<a href="CatalogueMobile.dc.html" style="display: flex; align-items: center; gap: 16px; text-decoration: none; color: #111010; border: 1px solid #E3DFD9;"><span class="ph" style="width: 96px; height: 72px; flex: none;"></span><span style="flex-grow: 1;"><span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; letter-spacing: 0.08em;">04 ÉLÉMENTS</span><span style="font-size: 20px; font-weight: 800; font-variation-settings: 'wdth' 108;">Projets</span></span><span style="padding-right: 16px; font-weight: 700;">→</span></a>
+<a href="CatalogueMobile.dc.html" style="display: flex; align-items: center; gap: 16px; text-decoration: none; color: #111010; border: 1px solid #E3DFD9;"><span class="ph" style="width: 96px; height: 72px; flex: none;"></span><span style="flex-grow: 1;"><span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; letter-spacing: 0.08em;">05 ÉLÉMENTS</span><span style="font-size: 20px; font-weight: 800; font-variation-settings: 'wdth' 108;">Expertises</span></span><span style="padding-right: 16px; font-weight: 700;">→</span></a>
+<a href="CatalogueMobile.dc.html" style="display: flex; align-items: center; gap: 16px; text-decoration: none; color: #111010; border: 1px solid #E3DFD9;"><span class="ph" style="width: 96px; height: 72px; flex: none;"></span><span style="flex-grow: 1;"><span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; letter-spacing: 0.08em;">04 ÉLÉMENTS</span><span style="font-size: 20px; font-weight: 800; font-variation-settings: 'wdth' 108;">Passions</span></span><span style="padding-right: 16px; font-weight: 700;">→</span></a>
+</section>
+
+<section style="padding: 48px 0 0; display: flex; flex-direction: column; gap: 16px;">
+<div style="margin: 0 20px; display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #111010; padding-bottom: 12px;">
+<h2 style="margin: 0; font-size: 28px; line-height: 1.1; font-weight: 800; font-variation-settings: 'wdth' 108;">Nouveautés</h2>
+<a href="CatalogueMobile.dc.html" style="font-weight: 700; font-size: 14px;">Tout voir →</a>
+</div>
+<div class="rail">
+<sc-for list="{{nouveautes}}" as="item" hint-placeholder-count="4">
+<article style="display: flex; flex-direction: column; border: 1px solid #E3DFD9;">
+<div class="ph" style="aspect-ratio: 16 / 9; position: relative; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;"><span>{{item.ph}}</span><span style="position: absolute; top: 10px; left: 10px; background: #FFE1D3; color: #C2410C; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 7px;">NOUVEAU</span></div>
+<div style="padding: 16px; display: flex; flex-direction: column; gap: 6px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862; text-transform: uppercase;">{{item.id}} · {{item.cat}}</span>
+<h3 style="margin: 0; font-size: 18px; line-height: 1.25; font-weight: 700;">{{item.title}}</h3>
+<div style="display: flex; justify-content: space-between; align-items: center; padding-top: 8px;">
+<a href="#" style="font-weight: 700; font-size: 14px;">Voir →</a>
+<button type="button" onClick="{{item.toggle}}" aria-pressed="{{item.pressed}}" style="{{item.btnStyle}}">{{item.label}}</button>
+</div>
+</div>
+</article>
+</sc-for>
+</div>
+</section>
+
+<section style="background: #111010; color: #F7F5F2; margin-top: 48px; padding: 48px 20px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #FF5A1F;">Expertises · Sélection du moment</span>
+<h2 style="margin: 8px 0 16px; font-size: 28px; line-height: 1.1; font-weight: 800; font-variation-settings: 'wdth' 108;">Les plus demandées</h2>
+<ol style="list-style: none; margin: 0; padding: 0; border-top: 1px solid #F7F5F2;">
+<sc-for list="{{top}}" as="item" hint-placeholder-count="5">
+<li style="display: flex; align-items: center; gap: 12px; padding: 16px 0; border-bottom: 1px solid #2B2927;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 20px; color: #FF5A1F; width: 32px; flex: none;">{{item.rank}}</span>
+<div style="flex-grow: 1; min-width: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+<h3 style="margin: 0; font-size: 20px; line-height: 1.2; font-weight: 800; font-variation-settings: 'wdth' 108;">{{item.title}}</h3>
+<sc-if value="{{item.isTop}}" hint-placeholder-val="{{false}}"><span style="background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 6px;">TOP</span></sc-if>
+</div>
+<button type="button" onClick="{{item.toggle}}" aria-pressed="{{item.pressed}}" aria-label="{{item.aria}}" style="{{item.iconStyle}}">{{item.icon}}</button>
+</li>
+</sc-for>
+</ol>
+<a href="CatalogueMobile.dc.html" style="display: inline-block; margin-top: 20px; color: #F7F5F2; font-weight: 700; font-size: 15px;">Toutes les expertises →</a>
+</section>
+
+<section style="padding: 48px 20px 0; display: flex; flex-direction: column; gap: 16px;">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #111010; padding-bottom: 12px;">
+<h2 style="margin: 0; font-size: 28px; line-height: 1.1; font-weight: 800; font-variation-settings: 'wdth' 108;">Projets à la une</h2>
+<a href="CatalogueMobile.dc.html" style="font-weight: 700; font-size: 14px;">Tous (04) →</a>
+</div>
+<article style="border: 1px solid #E3DFD9;">
+<div class="ph" style="aspect-ratio: 16 / 9; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;">Mockup écran · 16:9</div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 8px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">{{featured.id}} · PROJET</span>
+<h3 style="margin: 0; font-size: 24px; line-height: 1.15; font-weight: 800; font-variation-settings: 'wdth' 108;">{{featured.title}}</h3>
+<p style="margin: 0; font-size: 15px; color: #2B2927;">Lorem ipsum dolor sit amet : problème → réalisation.</p>
+<ul aria-label="Rôle et outils" style="list-style: none; margin: 0; padding: 4px 0 0; display: flex; flex-wrap: wrap; gap: 6px;">
+<li style="background: #111010; color: #F7F5F2; border: 1px solid #111010; border-radius: 999px; padding: 2px 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;">[Rôle]</li>
+<li style="border: 1px solid #111010; border-radius: 999px; padding: 2px 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;">[Outil 1]</li>
+<li style="border: 1px solid #111010; border-radius: 999px; padding: 2px 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;">[Outil 2]</li>
+<li style="border: 1px solid #111010; border-radius: 999px; padding: 2px 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;">[Outil 3]</li>
+</ul>
+<div style="display: flex; justify-content: space-between; align-items: center; padding-top: 8px;">
+<a href="#" style="font-weight: 700; font-size: 14px;">Voir le projet →</a>
+<button type="button" onClick="{{featured.toggle}}" aria-pressed="{{featured.pressed}}" style="{{featured.btnStyle}}">{{featured.label}}</button>
+</div>
+</div>
+</article>
+</section>
+
+<section style="padding: 48px 20px 0; display: flex; flex-direction: column; gap: 16px;">
+<a href="CatalogueMobile.dc.html" style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #EFECE7; text-decoration: none; color: #111010;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">PASSIONS</span>
+<span style="font-size: 24px; line-height: 1.15; font-weight: 800; font-variation-settings: 'wdth' 108;">Au-delà du bureau</span>
+<span style="font-weight: 700; font-size: 15px;">Découvrir les passions →</span>
+</a>
+<a href="#" style="display: flex; flex-direction: column; gap: 8px; padding: 24px; border: 1px solid #111010; text-decoration: none; color: #111010;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">À PROPOS</span>
+<span style="font-size: 24px; line-height: 1.15; font-weight: 800; font-variation-settings: 'wdth' 108;">Lorem ipsum, accroche personnelle</span>
+<span style="font-weight: 700; font-size: 15px;">Voir mon parcours →</span>
+</a>
+</section>
+
+<section style="padding: 64px 20px 48px; display: flex; flex-direction: column; gap: 20px;">
+<h2 style="margin: 0; font-size: 40px; line-height: 1; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em;">Un projet ? Parlons-en<span style="color: #FF5A1F;">.</span></h2>
+<a href="#" style="display: flex; align-items: center; justify-content: center; height: 48px; background: #111010; color: #F7F5F2; font-weight: 700; text-decoration: none;">Me contacter →</a>
+</section>
+
+<dc-import name="FooterMobile" hint-size="100%,560px"></dc-import>
+
+<!-- Barre de sélection collante -->
+<div style="position: sticky; bottom: 0; z-index: 6; background: #F7F5F2; border-top: 1px solid #111010; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+<span role="status" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em;">{{toastText}}</span>
+<a href="#" style="display: inline-flex; align-items: center; height: 44px; padding: 0 16px; background: #111010; color: #F7F5F2; font-weight: 700; font-size: 14px; text-decoration: none;">Ma sélection ({{count}}) →</a>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":6200}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sel: ['P-02', 'E-02'], last: '' };
+  }
+  toggle(id, title) {
+    const sel = this.state.sel;
+    const on = sel.indexOf(id) === -1;
+    this.setState({ sel: on ? sel.concat([id]) : sel.filter((x) => x !== id), last: on ? '✓ ' + title + ' ajouté' : '' });
+  }
+  decorate(item, dark) {
+    const on = this.state.sel.indexOf(item.id) !== -1;
+    const base = 'height: 44px; padding: 0 14px; font: 600 14px Archivo, sans-serif; cursor: pointer; white-space: nowrap; border: 1px solid #111010;';
+    const icon = 'width: 44px; height: 44px; flex: none; display: grid; place-items: center; font: 600 18px Archivo, sans-serif; cursor: pointer; border: 1px solid #F7F5F2;';
+    return Object.assign({}, item, {
+      pressed: on ? 'true' : 'false',
+      label: on ? '✓ Ajouté' : '+ Ajouter',
+      btnStyle: base + (on ? ' background: #111010; color: #F7F5F2;' : ' background: transparent; color: #111010;'),
+      icon: on ? '✓' : '+',
+      aria: (on ? 'Retirer ' : 'Ajouter ') + item.title + (on ? ' de ma sélection' : ' à ma sélection'),
+      iconStyle: icon + (on ? ' background: #F7F5F2; color: #111010;' : ' background: transparent; color: #F7F5F2;'),
+      toggle: () => this.toggle(item.id, item.title)
+    });
+  }
+  renderVals() {
+    const count = this.state.sel.length;
+    return {
+      nouveautes: [
+        { id: 'P-01', cat: 'Projet', title: 'Mon Kit Solaire', ph: 'Visuel projet · 16:9' },
+        { id: 'E-04', cat: 'Expertise', title: 'Data & Analytics', ph: 'Illustration · 16:9' },
+        { id: 'P-03', cat: 'Projet', title: 'Les Petits Paniers', ph: 'Visuel projet · 16:9' },
+        { id: 'E-05', cat: 'Expertise', title: 'Web', ph: 'Illustration · 16:9' }
+      ].map((x) => this.decorate(x)),
+      top: [
+        { rank: '01', id: 'E-02', title: 'SEO', isTop: true },
+        { rank: '02', id: 'E-01', title: 'E-commerce', isTop: true },
+        { rank: '03', id: 'E-03', title: 'Marketing digital', isTop: false },
+        { rank: '04', id: 'E-04', title: 'Data & Analytics', isTop: false },
+        { rank: '05', id: 'E-05', title: 'Web', isTop: false }
+      ].map((x) => this.decorate(x, true)),
+      featured: this.decorate({ id: 'P-02', title: 'Green Ideas / Market Shop' }),
+      count,
+      countStyle: 'position: absolute; top: 2px; right: 0; display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 999px; font-family: IBM Plex Mono, monospace; font-size: 11px; font-weight: 600; ' + (count > 0 ? 'background: #FF5A1F; color: #111010;' : 'background: #E3DFD9; color: #2B2927;'),
+      toastText: this.state.last || (count + ' ÉLÉMENT(S) SÉLECTIONNÉ(S)')
+    };
+  }
+}
+</script>
+</body>
+</html>

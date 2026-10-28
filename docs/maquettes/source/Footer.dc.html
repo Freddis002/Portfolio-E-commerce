@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Footer</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<footer style="width: 100%; background: #111010; color: #F7F5F2; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; line-height: 1.6;">
+<div style="max-width: 1280px; margin: 0 auto; padding: 64px clamp(20px, 5.5vw, 80px) 32px; display: flex; flex-direction: column; gap: 48px;">
+<div style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between;">
+<div style="flex: 2 1 320px; display: flex; flex-direction: column; gap: 12px;">
+<span style="font-weight: 850; font-variation-settings: 'wdth' 112; font-size: 28px; letter-spacing: -0.02em;">NOM PRÉNOM<span style="color: #FF5A1F;">.</span></span>
+<span style="color: #D9D4CD; max-width: 40ch;">Lorem ipsum : positionnement en une ligne. Arras, Hauts-de-France.</span>
+</div>
+<nav aria-label="Pied de page" style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 8px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #B8B2AA;">NAVIGATION</span>
+<a href="Catalogue.dc.html" style="color: #F7F5F2;">Catalogue</a>
+<a href="APropos.dc.html" style="color: #F7F5F2;">À propos</a>
+<a href="Selection.dc.html" style="color: #F7F5F2;">Ma sélection</a>
+<a href="Contact.dc.html" style="color: #F7F5F2;">Contact</a>
+</nav>
+<div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 8px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #B8B2AA;">ME TROUVER</span>
+<span>[E-mail à compléter]</span>
+<a href="#" style="color: #F7F5F2;">[LinkedIn à compléter] ↗</a>
+<span>Arras (62), Hauts-de-France</span>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; border-top: 1px solid #2B2927; padding-top: 24px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #B8B2AA;">
+<span>© 2026 NOM PRÉNOM</span>
+<div style="display: flex; flex-wrap: wrap; gap: 24px;">
+<a href="MentionsLegales.dc.html" style="color: #B8B2AA;">Mentions légales</a>
+<a href="Confidentialite.dc.html" style="color: #B8B2AA;">Confidentialité</a>
+<a href="Cookies.dc.html" style="color: #B8B2AA;">Gérer les cookies</a>
+</div>
+</div>
+</div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":420}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Bandeau cookies</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#111010}a:hover{color:#C2410C}
+.ph{background-color:#EFECE7;background-image:repeating-linear-gradient(135deg,rgba(17,16,16,.06) 0 1px,transparent 1px 12px)}
+a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2px}
+.cbtn:hover{background:#2B2927 !important;color:#F7F5F2 !important}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; position: relative; overflow: hidden; background: #F7F5F2; color: #111010; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; line-height: 1.6;">
+
+<!-- Page en arrière-plan (évocation) -->
+<div aria-hidden="true" style="position: absolute; inset: 0; display: flex; flex-direction: column;">
+<div style="height: 40px; background: #111010;"></div>
+<div style="height: 80px; border-bottom: 1px solid #E3DFD9; display: flex; align-items: center; padding: 0 80px; font-weight: 850; font-variation-settings: 'wdth' 112; font-size: 22px;">NOM PRÉNOM<span style="color: #FF5A1F;">.</span></div>
+<div style="display: flex; gap: 48px; padding: 64px 80px;">
+<div style="flex: 2; display: flex; flex-direction: column; gap: 24px; justify-content: flex-end;"><div style="font-size: 96px; line-height: 0.9; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em;">NOM<br>PRÉNOM<span style="color: #FF5A1F;">.</span></div></div>
+<div class="ph" style="flex: 1; height: 460px;"></div>
+</div>
+</div>
+
+<sc-if value="{{showBanner}}" hint-placeholder-val="{{true}}">
+<section role="dialog" aria-modal="false" aria-labelledby="ck-title" style="position: absolute; left: 0; right: 0; bottom: 0; background: #F7F5F2; border-top: 2px solid #111010; padding: 28px 80px; display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: center; justify-content: space-between;">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 6px;">
+<h2 id="ck-title" style="margin: 0; font-size: 20px; font-weight: 700;">Vos choix de cookies</h2>
+<p style="margin: 0; font-size: 15px; color: #2B2927; max-width: 72ch;">La mesure d'audience Matomo fonctionne sans cookies. Avec votre accord, Microsoft Clarity m'aide aussi à comprendre comment le site est parcouru (clics, défilement). <a href="Confidentialite.dc.html">En savoir plus</a></p>
+</div>
+<div style="display: flex; gap: 12px; flex-wrap: wrap;">
+<button type="button" onClick="{{openPanel}}" style="height: 48px; padding: 0 20px; background: transparent; border: 0; font: 600 15px 'Archivo', sans-serif; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; color: #111010;">Personnaliser</button>
+<button type="button" class="cbtn" onClick="{{refuse}}" style="height: 48px; min-width: 160px; padding: 0 20px; background: #111010; color: #F7F5F2; border: 1px solid #111010; font: 700 15px 'Archivo', sans-serif; cursor: pointer;">Tout refuser</button>
+<button type="button" class="cbtn" onClick="{{accept}}" style="height: 48px; min-width: 160px; padding: 0 20px; background: #111010; color: #F7F5F2; border: 1px solid #111010; font: 700 15px 'Archivo', sans-serif; cursor: pointer;">Tout accepter</button>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{showPanel}}" hint-placeholder-val="{{false}}">
+<div style="position: absolute; inset: 0; background: rgba(17,16,16,0.45); display: grid; place-items: center;">
+<section role="dialog" aria-modal="true" aria-labelledby="pn-title" style="width: 560px; background: #F7F5F2; border: 1px solid #111010; display: flex; flex-direction: column;">
+<div style="padding: 24px 28px; border-bottom: 1px solid #111010; display: flex; justify-content: space-between; align-items: center;">
+<h2 id="pn-title" style="margin: 0; font-size: 24px; font-weight: 800; font-variation-settings: 'wdth' 108;">Personnaliser</h2>
+<button type="button" onClick="{{closePanel}}" aria-label="Fermer" style="width: 44px; height: 44px; display: grid; place-items: center; background: none; border: 0; cursor: pointer; color: #111010;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+</div>
+<div style="padding: 8px 28px;">
+<div style="display: flex; gap: 16px; justify-content: space-between; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid #E3DFD9;">
+<div><strong>Mesure d'audience · Matomo</strong><p style="margin: 2px 0 0; font-size: 14px; color: #2B2927;">Sans cookies, IP anonymisée. Exemptée de consentement.</p></div>
+<span style="flex: none; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #1F7A4A; padding-top: 4px;">✓ TOUJOURS ACTIF</span>
+</div>
+<div style="display: flex; gap: 16px; justify-content: space-between; align-items: flex-start; padding: 16px 0;">
+<div><strong>Analyse de navigation · Microsoft Clarity</strong><p style="margin: 2px 0 0; font-size: 14px; color: #2B2927;">Clics, défilement et sessions anonymisées. Dépose des cookies.</p></div>
+<button type="button" role="switch" aria-checked="{{clarityChecked}}" aria-label="Activer Microsoft Clarity" onClick="{{toggleClarity}}" style="{{switchStyle}}"><span style="{{knobStyle}}"></span></button>
+</div>
+<span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862; padding-bottom: 12px;">{{clarityLabel}}</span>
+</div>
+<div style="padding: 20px 28px; border-top: 1px solid #111010; display: flex; justify-content: flex-end; gap: 12px;">
+<button type="button" onClick="{{save}}" style="height: 48px; padding: 0 24px; background: #111010; color: #F7F5F2; border: 1px solid #111010; font: 700 15px 'Archivo', sans-serif; cursor: pointer;">Enregistrer mes choix</button>
+</div>
+</section>
+</div>
+</sc-if>
+
+<sc-if value="{{showDone}}" hint-placeholder-val="{{false}}">
+<div role="status" style="position: absolute; left: 80px; bottom: 32px; background: #111010; color: #F7F5F2; padding: 14px 20px; display: flex; gap: 20px; align-items: center;">
+<span>{{doneText}}</span>
+<button type="button" onClick="{{reset}}" style="background: none; border: 0; color: #FF5A1F; font: 600 14px 'Archivo', sans-serif; cursor: pointer; text-decoration: underline; text-underline-offset: 4px;">Gérer les cookies</button>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { view: 'banner', clarity: false, done: '' };
+  }
+  renderVals() {
+    const v = this.state.view;
+    const on = this.state.clarity;
+    return {
+      showBanner: v === 'banner', showPanel: v === 'panel', showDone: v === 'done',
+      openPanel: () => this.setState({ view: 'panel' }),
+      closePanel: () => this.setState({ view: 'banner' }),
+      accept: () => this.setState({ view: 'done', clarity: true, done: 'Choix enregistré : Clarity activé.' }),
+      refuse: () => this.setState({ view: 'done', clarity: false, done: 'Choix enregistré : Clarity désactivé.' }),
+      save: () => this.setState({ view: 'done', done: on ? 'Choix enregistré : Clarity activé.' : 'Choix enregistré : Clarity désactivé.' }),
+      reset: () => this.setState({ view: 'panel' }),
+      toggleClarity: () => this.setState({ clarity: !on }),
+      clarityChecked: on ? 'true' : 'false',
+      clarityLabel: on ? 'CLARITY · ACTIVÉ' : 'CLARITY · DÉSACTIVÉ',
+      doneText: this.state.done,
+      switchStyle: 'flex: none; width: 52px; height: 30px; border-radius: 999px; border: 1px solid #111010; padding: 3px; cursor: pointer; display: flex; transition: background 160ms ease-out; ' + (on ? 'background: #111010; justify-content: flex-end;' : 'background: #E3DFD9; justify-content: flex-start;'),
+      knobStyle: 'width: 22px; height: 22px; border-radius: 999px; display: block; ' + (on ? 'background: #FF5A1F;' : 'background: #F7F5F2; border: 1px solid #111010; box-sizing: border-box;')
+    };
+  }
+}
+</script>
+</body>
+</html>
