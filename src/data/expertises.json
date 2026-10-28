@@ -6,11 +6,24 @@
     "categorie": "expertise",
     "accroche": "Concevoir, structurer et faire évoluer une boutique en ligne.",
     "role": "[Rôle]",
-    "outils": ["[Outil 1]", "[Outil 2]", "[Outil 3]"],
-    "badges": { "nouveau": false, "top": true },
+    "outils": [
+      "[Outil 1]",
+      "[Outil 2]",
+      "[Outil 3]"
+    ],
+    "badges": {
+      "nouveau": false,
+      "top": true
+    },
     "classement": 2,
     "ordre": 1,
-    "liens": { "projets": ["P-01"], "expertises": [], "passions": [] }
+    "liens": {
+      "projets": [
+        "P-01"
+      ],
+      "expertises": [],
+      "passions": []
+    }
   },
   {
     "ref": "E-02",
@@ -19,11 +32,25 @@
     "categorie": "expertise",
     "accroche": "Rendre un site visible et compréhensible pour les moteurs de recherche.",
     "role": "[Rôle]",
-    "outils": ["[Outil 1]", "[Outil 2]", "[Outil 3]"],
-    "badges": { "nouveau": false, "top": true },
+    "outils": [
+      "[Outil 1]",
+      "[Outil 2]",
+      "[Outil 3]"
+    ],
+    "badges": {
+      "nouveau": false,
+      "top": true
+    },
     "classement": 1,
     "ordre": 2,
-    "liens": { "projets": ["P-01", "P-02"], "expertises": [], "passions": [] }
+    "liens": {
+      "projets": [
+        "P-01",
+        "P-02"
+      ],
+      "expertises": [],
+      "passions": []
+    }
   },
   {
     "ref": "E-03",
@@ -32,11 +59,23 @@
     "categorie": "expertise",
     "accroche": "Attirer, convertir et fidéliser sur les canaux numériques.",
     "role": "[Rôle]",
-    "outils": ["[Outil 1]", "[Outil 2]", "[Outil 3]"],
-    "badges": { "nouveau": false, "top": false },
+    "outils": [
+      "[Outil 1]",
+      "[Outil 2]",
+      "[Outil 3]"
+    ],
+    "badges": {
+      "nouveau": false,
+      "top": false
+    },
     "classement": 3,
     "ordre": 3,
-    "liens": { "projets": [], "expertises": [], "passions": [] }
+    "_commentaire": "À COMPLÉTER : projets qui mettent en application cette expertise (liens.projets)",
+    "liens": {
+      "projets": [],
+      "expertises": [],
+      "passions": []
+    }
   },
   {
     "ref": "E-04",
@@ -45,11 +84,23 @@
     "categorie": "expertise",
     "accroche": "Mesurer, analyser et orienter les décisions.",
     "role": "[Rôle]",
-    "outils": ["[Outil 1]", "[Outil 2]", "[Outil 3]"],
-    "badges": { "nouveau": true, "top": false },
+    "outils": [
+      "[Outil 1]",
+      "[Outil 2]",
+      "[Outil 3]"
+    ],
+    "badges": {
+      "nouveau": true,
+      "top": false
+    },
     "classement": 4,
     "ordre": 4,
-    "liens": { "projets": [], "expertises": [], "passions": [] }
+    "_commentaire": "À COMPLÉTER : projets qui mettent en application cette expertise (liens.projets)",
+    "liens": {
+      "projets": [],
+      "expertises": [],
+      "passions": []
+    }
   },
   {
     "ref": "E-05",
@@ -58,10 +109,22 @@
     "categorie": "expertise",
     "accroche": "Créer et maintenir des sites clairs et efficaces.",
     "role": "[Rôle]",
-    "outils": ["[Outil 1]", "[Outil 2]", "[Outil 3]"],
-    "badges": { "nouveau": true, "top": false },
+    "outils": [
+      "[Outil 1]",
+      "[Outil 2]",
+      "[Outil 3]"
+    ],
+    "badges": {
+      "nouveau": true,
+      "top": false
+    },
     "classement": 5,
     "ordre": 5,
-    "liens": { "projets": [], "expertises": [], "passions": [] }
+    "_commentaire": "À COMPLÉTER : projets qui mettent en application cette expertise (liens.projets)",
+    "liens": {
+      "projets": [],
+      "expertises": [],
+      "passions": []
+    }
   }
 ]

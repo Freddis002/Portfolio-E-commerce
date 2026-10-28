@@ -76,6 +76,7 @@
     },
     "classement": null,
     "ordre": 3,
+    "_commentaire": "À COMPLÉTER : expertises mobilisées par ce projet (liens.expertises)",
     "liens": {
       "projets": [],
       "expertises": [],
@@ -102,6 +103,7 @@
     },
     "classement": null,
     "ordre": 4,
+    "_commentaire": "À COMPLÉTER : expertises mobilisées par ce projet (liens.expertises)",
     "liens": {
       "projets": [],
       "expertises": [],
