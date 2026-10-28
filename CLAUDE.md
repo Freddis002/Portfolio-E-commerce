@@ -8,7 +8,9 @@ Lecteurs : recruteurs et managers qui doivent juger le profil en moins d'une min
 Le propriétaire reprend React après une pause : explique tes choix simplement.
 
 Trois catégories, 13 éléments, chacun avec une fiche façon page produit :
-- Projets (P-01 à P-04) : Mon Kit Solaire, Green Ideas / Market Shop, Les Petits Paniers, Chti Poker Club
+- Projets (P-01 à P-04) : Mon Kit Solaire, Mon Grossiste Auto, Les Petits Paniers, Chti Poker Club
+  (les maquettes nomment encore P-02 « Green Ideas / Market Shop » : nom obsolète, utiliser Mon Grossiste Auto.
+  Entreprises à citer sur les fiches : Green Ideas pour Mon Kit Solaire, Market Shop pour Mon Grossiste Auto)
 - Expertises (E-01 à E-05) : E-commerce, SEO, Marketing digital, Data & Analytics, Web
 - Passions (H-01 à H-04) : Photographie, Trail / randonnée, CrossFit, Poker
 
