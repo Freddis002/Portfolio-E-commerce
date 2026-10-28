@@ -1,0 +1,146 @@
+/*
+ * Boutons — charte p. 9
+ * Les sélecteurs [data-etat] servent uniquement au styleguide,
+ * pour afficher un état (survol, actif) sans interaction.
+ */
+
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-5);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-size: var(--text-corps);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+}
+
+.bouton--m {
+  height: var(--hauteur-bouton);
+}
+
+.bouton--s {
+  height: var(--hauteur-bouton-s);
+  padding: 0 var(--space-4);
+  font-size: var(--text-petit);
+}
+
+/* Primaire : fond orange, texte noir → survol fond noir, texte orange */
+.bouton--primaire {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: var(--color-noir);
+}
+.bouton--primaire:hover,
+.bouton--primaire[data-etat="survol"] {
+  background: var(--color-noir);
+  border-color: var(--color-noir);
+  color: var(--color-orange);
+}
+.bouton--primaire:active,
+.bouton--primaire[data-etat="actif"] {
+  background: var(--color-graphite);
+  border-color: var(--color-graphite);
+  color: var(--color-orange);
+}
+
+/* Secondaire : fond noir, texte blanc → survol Graphite */
+.bouton--secondaire {
+  background: var(--color-noir);
+  border-color: var(--color-noir);
+  color: var(--color-blanc);
+}
+.bouton--secondaire:hover,
+.bouton--secondaire[data-etat="survol"] {
+  background: var(--color-graphite);
+  border-color: var(--color-graphite);
+  color: var(--color-blanc);
+}
+.bouton--secondaire:active,
+.bouton--secondaire[data-etat="actif"] {
+  background: var(--color-noir);
+  border-color: var(--color-orange);
+  color: var(--color-blanc);
+}
+
+/* Contour : bordure noire → survol fond noir */
+.bouton--contour {
+  background: transparent;
+  border-color: var(--color-noir);
+  color: var(--color-noir);
+}
+.bouton--contour:hover,
+.bouton--contour[data-etat="survol"] {
+  background: var(--color-noir);
+  color: var(--color-blanc);
+}
+.bouton--contour:active,
+.bouton--contour[data-etat="actif"] {
+  background: var(--color-graphite);
+  border-color: var(--color-graphite);
+  color: var(--color-blanc);
+}
+
+/* Lien texte : souligné → survol Orange Brûlé, soulignement orange */
+.bouton--lien {
+  height: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-noir);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+.bouton--lien:hover,
+.bouton--lien[data-etat="survol"] {
+  color: var(--color-orange-brule);
+  text-decoration-color: var(--color-orange-brule);
+}
+.bouton--lien:active,
+.bouton--lien[data-etat="actif"] {
+  color: var(--color-noir);
+}
+
+/* Sur fond Noir Encre */
+.bouton--contour.bouton--sur-noir {
+  border-color: var(--color-blanc);
+  color: var(--color-blanc);
+}
+.bouton--contour.bouton--sur-noir:hover,
+.bouton--contour.bouton--sur-noir[data-etat="survol"] {
+  background: var(--color-blanc);
+  color: var(--color-noir);
+}
+.bouton--lien.bouton--sur-noir {
+  color: var(--color-blanc);
+}
+.bouton--lien.bouton--sur-noir:hover,
+.bouton--lien.bouton--sur-noir[data-etat="survol"] {
+  color: var(--color-orange);
+  text-decoration-color: var(--color-orange);
+}
+
+/* Désactivé : aplat Surface, texte Pierre, aucune réaction au survol */
+.bouton:disabled,
+.bouton[aria-disabled="true"] {
+  background: var(--color-surface);
+  border-color: var(--color-ligne);
+  color: var(--color-pierre);
+  cursor: not-allowed;
+}
+.bouton--lien:disabled,
+.bouton--lien[aria-disabled="true"] {
+  background: none;
+  text-decoration-color: var(--color-ligne);
+}

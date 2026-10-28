@@ -1,0 +1,109 @@
+/* Pied de page — maquette Footer.dc.html */
+
+.pied {
+  background: var(--color-noir);
+  color: var(--color-blanc);
+}
+
+.pied a {
+  color: var(--color-blanc);
+  text-underline-offset: 4px;
+}
+
+.pied a:hover {
+  color: var(--color-orange);
+}
+
+.pied__interieur {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+}
+
+.pied__haut {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-7);
+}
+
+.pied__marque {
+  flex: 2 1 320px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.pied__accroche {
+  margin: 0;
+  max-width: 40ch;
+  color: var(--color-texte-secondaire-sur-noir);
+}
+
+.pied__colonne {
+  flex: 1 1 180px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.pied__titre {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-s);
+  font-weight: var(--weight-texte);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-texte-tertiaire-sur-noir);
+}
+
+.pied__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.pied__bas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-graphite);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-s);
+  color: var(--color-texte-tertiaire-sur-noir);
+}
+
+.pied__legal {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+
+.pied__legal a,
+.pied__bouton-lien {
+  color: var(--color-texte-tertiaire-sur-noir);
+}
+
+.pied__bouton-lien {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.pied__bouton-lien:hover {
+  color: var(--color-orange);
+}

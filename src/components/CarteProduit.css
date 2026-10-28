@@ -1,0 +1,144 @@
+/* Cartes du catalogue — maquettes Main et Catalogue */
+
+.carte {
+  display: flex;
+  flex-direction: column;
+  border: var(--bordure);
+  background: var(--color-fond);
+  min-width: 0;
+}
+
+.carte__badges {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.carte__corps {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5) 20px 20px;
+}
+
+.carte__titre {
+  margin: 0;
+  font-size: 20px;
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-h3);
+}
+
+.carte__texte {
+  margin: 0;
+  flex-grow: 1;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-texte-secondaire);
+}
+
+.carte__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding-top: var(--space-3);
+}
+
+.carte__voir {
+  font-size: 15px;
+  font-weight: var(--weight-bold);
+  text-underline-offset: 4px;
+}
+
+/* ---------- Vitrine : projet à la une ---------- */
+.carte--vitrine .carte__corps {
+  gap: var(--space-3);
+  padding: 28px;
+}
+
+.carte--vitrine .carte__titre {
+  font-size: var(--text-h2);
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-titre);
+  letter-spacing: var(--tracking-titre);
+  line-height: var(--leading-h2);
+}
+
+.carte--vitrine .carte__texte {
+  flex-grow: 0;
+  max-width: 56ch;
+  font-size: var(--text-corps-l);
+  color: var(--color-texte-long);
+}
+
+.carte--vitrine .carte__actions {
+  justify-content: flex-start;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* ---------- Ligne : liste compacte ---------- */
+.carte--ligne {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+  padding: 20px 0;
+  border: 0;
+  border-bottom: var(--bordure);
+  background: transparent;
+}
+
+.carte--ligne .carte__ref {
+  width: 44px;
+}
+
+.carte__titre-groupe {
+  flex: 1 1 200px;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.carte--ligne .carte__titre {
+  font-size: var(--text-h3);
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-titre);
+  line-height: 1.2;
+}
+
+.carte--ligne .carte__texte {
+  flex: 2 1 260px;
+  min-width: 0;
+  color: var(--color-texte-long);
+}
+
+.carte--ligne .carte__actions {
+  margin-left: auto;
+  padding-top: 0;
+  gap: var(--space-5);
+}
+
+/* Ligne sur fond Noir Encre (« Les plus demandées ») */
+.carte--sombre {
+  border-bottom-color: var(--color-graphite);
+  color: var(--color-blanc);
+}
+
+.carte--sombre .carte__ref {
+  color: var(--color-texte-tertiaire-sur-noir);
+}
+
+.carte--sombre .carte__texte {
+  color: var(--color-texte-secondaire-sur-noir);
+}
+
+.carte--sombre .carte__voir {
+  color: var(--color-blanc);
+}
+
+.carte--sombre .carte__voir:hover {
+  color: var(--color-orange);
+}

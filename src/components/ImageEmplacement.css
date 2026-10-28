@@ -1,0 +1,40 @@
+.image-emplacement {
+  position: relative;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: var(--space-3);
+  background-color: var(--color-surface);
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--color-hachure) 0 1px,
+    transparent 1px 12px
+  );
+  color: var(--color-texte-secondaire);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-s);
+  letter-spacing: var(--tracking-pastille);
+  text-align: center;
+}
+
+.image-emplacement--remplir {
+  height: 100%;
+  min-height: 280px;
+}
+
+.image-emplacement--sombre {
+  background-color: var(--color-noir);
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--color-graphite) 0 1px,
+    transparent 1px 12px
+  );
+  color: var(--color-texte-tertiaire-sur-noir);
+}
+
+/* Éléments superposés (badge, référence) : coin haut gauche */
+.image-emplacement > :not(.image-emplacement__legende) {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+}

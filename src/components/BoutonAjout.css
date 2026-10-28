@@ -1,0 +1,104 @@
+/*
+ * Bouton d'ajout : « + Ajouter » → « ✓ Ajouté » (fond Noir Encre).
+ * Le changement d'état est porté par le symbole ET le texte, jamais par la couleur seule.
+ */
+
+.bouton-ajout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 14px;
+  border: 1px solid var(--color-noir);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--color-noir);
+  font-family: var(--font-sans);
+  font-size: var(--text-petit);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+}
+
+.bouton-ajout--s {
+  height: var(--hauteur-bouton-s);
+}
+
+.bouton-ajout:hover,
+.bouton-ajout[data-etat="survol"] {
+  background: var(--color-noir);
+  color: var(--color-blanc);
+}
+
+.bouton-ajout:active,
+.bouton-ajout[data-etat="actif"] {
+  background: var(--color-graphite);
+  border-color: var(--color-graphite);
+  color: var(--color-blanc);
+}
+
+/* Ajouté : fond noir, texte blanc */
+.bouton-ajout--ajoute {
+  background: var(--color-noir);
+  color: var(--color-blanc);
+}
+.bouton-ajout--ajoute:hover,
+.bouton-ajout--ajoute[data-etat="survol"] {
+  background: var(--color-graphite);
+  border-color: var(--color-graphite);
+}
+
+/* Retirer : contour, survol avec bordure et texte Erreur */
+.bouton-ajout--retirer:hover,
+.bouton-ajout--retirer[data-etat="survol"] {
+  background: transparent;
+  border-color: var(--color-erreur);
+  color: var(--color-erreur);
+}
+
+/* Taille L : bouton principal des fiches, pleine largeur, 56 px */
+.bouton-ajout--l {
+  width: 100%;
+  height: var(--hauteur-bouton-l);
+  font-size: var(--text-corps);
+  font-weight: var(--weight-bold);
+}
+.bouton-ajout--l:not(.bouton-ajout--ajoute) {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: var(--color-noir);
+}
+.bouton-ajout--l:not(.bouton-ajout--ajoute):hover,
+.bouton-ajout--l:not(.bouton-ajout--ajoute)[data-etat="survol"] {
+  background: var(--color-noir);
+  border-color: var(--color-noir);
+  color: var(--color-orange);
+}
+
+/* Sur fond Noir Encre (liste « Les plus demandées ») */
+.bouton-ajout--sur-noir {
+  border-color: var(--color-blanc);
+  color: var(--color-blanc);
+}
+.bouton-ajout--sur-noir:hover,
+.bouton-ajout--sur-noir[data-etat="survol"],
+.bouton-ajout--sur-noir.bouton-ajout--ajoute {
+  background: var(--color-blanc);
+  color: var(--color-noir);
+}
+.bouton-ajout--sur-noir.bouton-ajout--ajoute:hover {
+  background: var(--color-ligne);
+  border-color: var(--color-ligne);
+}
+
+.bouton-ajout:disabled {
+  background: var(--color-surface);
+  border-color: var(--color-ligne);
+  color: var(--color-pierre);
+  cursor: not-allowed;
+}

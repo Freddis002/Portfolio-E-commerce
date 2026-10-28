@@ -1,0 +1,94 @@
+/* Champs — charte p. 9 et maquette Contact.dc.html */
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.champ__label {
+  font-size: 15px;
+  font-weight: var(--weight-semibold);
+}
+
+.champ__aide {
+  margin: 0;
+  font-size: var(--text-petit);
+  color: var(--color-texte-secondaire);
+}
+
+.champ__saisie {
+  width: 100%;
+  min-height: var(--hauteur-champ);
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-pierre);
+  border-radius: var(--radius);
+  background: var(--color-fond-champ);
+  color: var(--color-texte);
+  font-family: var(--font-sans);
+  font-size: var(--text-corps);
+  transition: border-color var(--transition);
+}
+
+textarea.champ__saisie {
+  padding: 14px var(--space-4);
+  line-height: var(--leading-corps);
+  resize: vertical;
+}
+
+.champ__saisie::placeholder {
+  color: var(--color-pierre);
+}
+
+.champ__saisie:hover,
+.champ__saisie[data-etat="survol"] {
+  border-color: var(--color-noir);
+}
+
+/* Focus : bordure noire + contour orange (règle globale :focus-visible) */
+.champ__saisie:focus,
+.champ__saisie[data-etat="focus"] {
+  border-color: var(--color-noir);
+  outline: var(--focus-largeur) solid var(--color-focus);
+  outline-offset: var(--focus-decalage);
+}
+
+/* Erreur : bordure 2 px Erreur */
+.champ__saisie--erreur,
+.champ__saisie--erreur:hover {
+  border: 2px solid var(--color-erreur);
+}
+
+/* Validé : bordure Succès */
+.champ__saisie--valide,
+.champ__saisie--valide:hover {
+  border-color: var(--color-succes);
+}
+
+.champ__saisie:disabled {
+  border-color: var(--color-ligne);
+  background: var(--color-surface);
+  color: var(--color-pierre);
+  cursor: not-allowed;
+}
+
+.champ__message {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-petit);
+  font-weight: var(--weight-semibold);
+}
+
+.champ__message svg {
+  flex: none;
+}
+
+.champ__message--erreur {
+  color: var(--color-erreur);
+}
+
+.champ__message--valide {
+  color: var(--color-succes);
+}

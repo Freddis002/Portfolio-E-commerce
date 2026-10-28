@@ -1,0 +1,57 @@
+.voisins {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: var(--bordure);
+  border-bottom: var(--bordure);
+}
+
+.voisins__lien {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-6) var(--page-marge);
+  color: var(--color-texte);
+  text-decoration: none;
+  transition: background-color var(--transition);
+}
+
+.voisins__lien:first-child {
+  border-right: var(--bordure);
+}
+
+.voisins__lien--suivant {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.voisins__lien:hover {
+  color: var(--color-texte);
+  background: var(--color-surface);
+}
+
+.voisins__lien:hover .voisins__titre {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.voisins__titre {
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-h3);
+}
+
+@media (max-width: 599px) {
+  .voisins__lien {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .voisins__titre {
+    font-size: 17px;
+  }
+
+  .voisins__lien .label-mono {
+    font-size: var(--text-mono-xs);
+    letter-spacing: var(--tracking-pastille);
+    white-space: nowrap;
+  }
+}

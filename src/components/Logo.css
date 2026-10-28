@@ -1,0 +1,25 @@
+.logo {
+  font-weight: var(--weight-display);
+  font-variation-settings: "wdth" var(--wdth-display);
+  letter-spacing: var(--tracking-titre);
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+}
+
+a.logo:hover {
+  color: inherit;
+}
+
+.logo--s {
+  font-size: 18px;
+}
+
+.logo--m {
+  font-size: 22px;
+}
+
+.logo--l {
+  font-size: 28px;
+}

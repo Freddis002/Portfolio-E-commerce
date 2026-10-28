@@ -1,0 +1,37 @@
+.reassurance {
+  border-top: var(--bordure);
+  border-bottom: var(--bordure);
+}
+
+.reassurance__liste {
+  list-style: none;
+  margin-block: 0;
+  padding-block: var(--space-5);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-5);
+}
+
+.reassurance__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.reassurance__icone {
+  flex: none;
+}
+
+.reassurance__titre {
+  margin: 0;
+  font-size: 15px;
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-serre);
+}
+
+.reassurance__texte {
+  margin: 0;
+  font-size: var(--text-petit);
+  line-height: 1.4;
+  color: var(--color-texte-secondaire);
+}

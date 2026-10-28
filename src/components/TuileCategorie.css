@@ -1,0 +1,48 @@
+.tuile {
+  display: flex;
+  flex-direction: column;
+  border: var(--bordure);
+  background: var(--color-fond);
+  color: var(--color-texte);
+  text-decoration: none;
+  transition: border-color var(--transition);
+}
+
+.tuile:hover {
+  color: var(--color-texte);
+  border-color: var(--color-noir);
+}
+
+.tuile__pied {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: 20px var(--space-5);
+}
+
+.tuile__textes {
+  display: flex;
+  flex-direction: column;
+}
+
+.tuile__titre {
+  margin: 0;
+  font-size: 28px;
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-titre);
+  line-height: 1.2;
+}
+
+.tuile__cta {
+  font-size: 15px;
+  font-weight: var(--weight-bold);
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+
+.tuile:hover .tuile__cta {
+  color: var(--color-orange-brule);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

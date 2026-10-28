@@ -1,0 +1,287 @@
+/* En-tête global — maquettes Header.dc.html et HeaderMobile.dc.html */
+
+.entete {
+  position: relative;
+  z-index: 8;
+  background: var(--color-fond);
+  color: var(--color-texte);
+}
+
+/* ---------- Barre d'annonce ---------- */
+.entete__annonce {
+  margin: 0;
+  padding: 10px var(--page-marge);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-1) var(--space-4);
+  background: var(--color-noir);
+  color: var(--color-blanc);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-s);
+  letter-spacing: var(--tracking-label);
+  line-height: 1.4;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.entete__annonce-lien {
+  color: var(--color-orange);
+  text-decoration: none;
+}
+
+.entete__annonce-lien:hover {
+  color: var(--color-orange);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ---------- Barre principale ---------- */
+.entete__barre {
+  position: relative;
+  border-bottom: var(--bordure);
+}
+
+.entete__interieur {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+
+.entete__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  font-size: 15px;
+  font-weight: var(--weight-interface);
+}
+
+.entete__liens {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--space-6);
+}
+
+.entete__lien {
+  color: var(--color-texte);
+  text-decoration: none;
+  text-underline-offset: 6px;
+}
+
+.entete__lien:hover {
+  color: var(--color-texte);
+  text-decoration: underline;
+}
+
+/* Page courante : soulignement épais (pas seulement une couleur) */
+.entete__lien[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+/* Bouton Ma sélection */
+.entete__selection {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: var(--hauteur-bouton-s);
+  padding: 0 var(--space-4);
+  border: var(--bordure-forte);
+  color: var(--color-texte);
+  text-decoration: none;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.entete__selection:hover {
+  background: var(--color-noir);
+  color: var(--color-blanc);
+}
+
+.entete__selection[aria-current="page"] {
+  background: var(--color-noir);
+  color: var(--color-blanc);
+}
+
+/* Compteur : neutre à 0, orange dès 1 */
+.compteur {
+  display: inline-grid;
+  place-items: center;
+  min-width: var(--hauteur-compteur);
+  height: var(--hauteur-compteur);
+  padding: 0 6px;
+  border-radius: var(--radius-pastille);
+  background: var(--color-ligne);
+  color: var(--color-graphite);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-s);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+}
+
+.compteur--actif {
+  background: var(--color-orange);
+  color: var(--color-noir);
+}
+
+/* Burger : masqué en desktop */
+.entete__burger {
+  display: none;
+  width: var(--hauteur-bouton-s);
+  height: var(--hauteur-bouton-s);
+  place-items: center;
+  padding: 0;
+  border: var(--bordure-forte);
+  background: none;
+  color: var(--color-texte);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.entete__burger:hover,
+.entete__burger[aria-expanded="true"] {
+  background: var(--color-noir);
+  color: var(--color-blanc);
+}
+
+/* ---------- Menu déroulant (sous 1024 px) ---------- */
+.entete__menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: var(--color-fond);
+  border-bottom: 2px solid var(--color-noir);
+}
+
+.entete__menu[hidden] {
+  display: none;
+}
+
+.entete__menu-liens {
+  list-style: none;
+  margin: 0;
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-5);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--space-6);
+}
+
+.entete__menu-lien {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4) 0;
+  border-bottom: var(--bordure);
+  color: var(--color-texte);
+  text-decoration: none;
+  font-size: var(--text-h3);
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-titre);
+}
+
+.entete__menu-lien:hover,
+.entete__menu-lien[aria-current="page"] {
+  color: var(--color-orange-brule);
+}
+
+.entete__menu-lien[aria-current="page"] span:first-child {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+.entete__menu-compteur {
+  font-family: var(--font-mono);
+  font-size: var(--text-petit);
+  font-weight: var(--weight-interface);
+}
+
+.entete__menu-cv {
+  grid-column: 1 / -1;
+  margin-top: var(--space-5);
+}
+
+.entete__menu-cv .bouton {
+  width: 100%;
+}
+
+/* ---------- Tablette : < 1024 px ---------- */
+@media (max-width: 1023px) {
+  .entete__liens,
+  .entete__selection-texte {
+    display: none;
+  }
+
+  .entete__nav {
+    gap: var(--space-2);
+  }
+
+  .entete__burger {
+    display: grid;
+  }
+}
+
+/* ---------- Mobile : < 600 px ---------- */
+@media (max-width: 599px) {
+  .entete__annonce {
+    padding: 10px var(--space-5);
+    font-size: var(--text-mono-xs);
+    letter-spacing: var(--tracking-pastille);
+  }
+
+  .entete__annonce-region {
+    display: none;
+  }
+
+  .entete__interieur {
+    height: 64px;
+    padding-right: var(--space-2);
+  }
+
+  .entete__interieur .logo {
+    font-size: 18px;
+  }
+
+  .entete__nav {
+    gap: 0;
+  }
+
+  /* Icône seule, compteur en pastille sur l'icône */
+  .entete__selection {
+    position: relative;
+    width: var(--hauteur-bouton-s);
+    padding: 0;
+    justify-content: center;
+    border: 0;
+  }
+
+  .entete__selection .compteur {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 var(--space-1);
+    font-size: var(--text-mono-xs);
+  }
+
+  .entete__burger,
+  .entete__burger:hover,
+  .entete__burger[aria-expanded="true"] {
+    border: 0;
+    background: none;
+    color: var(--color-texte);
+  }
+
+  .entete__menu-liens {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

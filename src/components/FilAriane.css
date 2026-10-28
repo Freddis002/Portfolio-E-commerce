@@ -1,0 +1,28 @@
+.fil-ariane__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-s);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+/* Séparateur « / » ajouté en CSS : non lu par les lecteurs d'écran */
+.fil-ariane__item + .fil-ariane__item::before {
+  content: "/";
+  content: "/" / "";
+  padding: 0 var(--space-2);
+  color: var(--color-texte-secondaire);
+}
+
+.fil-ariane a {
+  color: var(--color-texte-secondaire);
+  text-underline-offset: 3px;
+}
+
+.fil-ariane a:hover {
+  color: var(--color-orange-brule);
+}

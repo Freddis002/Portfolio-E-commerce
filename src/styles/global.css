@@ -39,6 +39,40 @@ img {
   display: block;
 }
 
+/* Conteneur de page : 1280 px max, marges 20 → 80 px */
+.conteneur {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--page-marge);
+}
+
+/* Texte lu par les lecteurs d'écran mais invisible à l'écran */
+.visuellement-cache {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Label mono : références, dates, compteurs */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-s);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-texte-secondaire);
+}
+
+/* Point orange final des H1 et du logo */
+.point-final {
+  color: var(--color-orange);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

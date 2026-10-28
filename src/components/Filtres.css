@@ -1,0 +1,80 @@
+/* Filtres à cocher — maquette Catalogue.dc.html */
+
+.filtres-groupe {
+  margin: 0;
+  padding: var(--space-4) 0 20px;
+  border: 0;
+  border-top: var(--bordure);
+  min-width: 0;
+}
+
+.filtres-groupe__legende {
+  float: left;
+  width: 100%;
+  padding: 0 0 var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-s);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-texte-secondaire);
+}
+
+.filtres-groupe__options {
+  clear: both;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.case-filtre {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 28px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.case-filtre__case {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  flex: none;
+  accent-color: var(--color-noir);
+  cursor: pointer;
+}
+
+.case-filtre__label {
+  flex-grow: 1;
+  text-underline-offset: 4px;
+}
+
+.case-filtre:hover .case-filtre__label,
+.case-filtre__case[data-etat="survol"] + .case-filtre__label {
+  text-decoration: underline;
+}
+
+.case-filtre__nombre {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-s);
+  color: var(--color-texte-secondaire);
+}
+
+/* Option sans résultat : grisée et non cliquable */
+.case-filtre--inactif {
+  color: var(--color-texte-secondaire);
+  cursor: not-allowed;
+}
+
+.case-filtre--inactif .case-filtre__case {
+  cursor: not-allowed;
+}
+
+.case-filtre--inactif:hover .case-filtre__label {
+  text-decoration: none;
+}
+
+.case-filtre__case[data-etat="focus"] {
+  outline: var(--focus-largeur) solid var(--color-focus);
+  outline-offset: var(--focus-decalage);
+}

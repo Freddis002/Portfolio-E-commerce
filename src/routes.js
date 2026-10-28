@@ -12,6 +12,8 @@ export default [
   route("contact", "routes/contact.jsx"),
   route("mentions-legales", "routes/mentions-legales.jsx"),
   route("confidentialite", "routes/confidentialite.jsx"),
+  // Page interne des composants (noindex, hors sitemap)
+  route("styleguide", "routes/styleguide.jsx"),
   // Toute autre URL : page introuvable
   route("*", "routes/404.jsx"),
 ];
