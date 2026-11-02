@@ -84,6 +84,7 @@
 .sg-sombre [data-etat="focus"] {
   outline: var(--focus-largeur) solid var(--color-focus);
   outline-offset: var(--focus-decalage);
+  box-shadow: var(--focus-anneau);
 }
 
 /* Démo du compteur : toujours en version desktop, quelle que soit la largeur */

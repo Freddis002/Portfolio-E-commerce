@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { elements, trouverParRef } from "../data/catalogue";
-import Header, { CompteurSelection } from "../components/Header";
-import Footer from "../components/Footer";
+import { CompteurSelection } from "../components/Header";
+import { useSelection } from "../lib/selection";
 import Bouton from "../components/Bouton";
 import BoutonAjout from "../components/BoutonAjout";
 import { Badge, Pastilles } from "../components/Etiquettes";
@@ -77,18 +77,14 @@ function Exemple({ label, children, large = false }) {
 }
 
 export default function Styleguide() {
-  const [selection, setSelection] = useState(["P-02", "E-02"]);
+  // Vraie sélection du site : le compteur du header suit les ajouts
+  const { refs: selection, contient: estAjoute, basculer: basculerElement } = useSelection();
   const [notif, setNotif] = useState(null);
   const [panneau, setPanneau] = useState(false);
   const [filtres, setFiltres] = useState({ projet: true, expertise: true, passion: false });
   const [tri, setTri] = useState("pertinence");
 
-  const estAjoute = (ref) => selection.includes(ref);
-  const basculer = (element) => () => {
-    const ajout = !estAjoute(element.ref);
-    setSelection((s) => (ajout ? [...s, element.ref] : s.filter((r) => r !== element.ref)));
-    if (ajout) setNotif(element.titre);
-  };
+  const basculer = (element) => () => basculerElement(element);
 
   const p01 = trouverParRef("P-01");
   const p02 = trouverParRef("P-02");
@@ -101,9 +97,7 @@ export default function Styleguide() {
 
   return (
     <>
-      <Header count={selection.length} />
-
-      <main>
+      <main id="contenu">
       <div className="sg conteneur">
         <header className="sg-intro">
           <FilAriane items={[{ label: "Accueil", to: "/" }, { label: "Styleguide" }]} />
@@ -442,8 +436,6 @@ export default function Styleguide() {
         </Section>
       </div>
       </main>
-
-      <Footer />
 
       <PanneauLateral
         ouvert={panneau}

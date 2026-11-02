@@ -36,6 +36,7 @@
 .tri__select[data-etat="focus"] {
   outline: var(--focus-largeur) solid var(--color-focus);
   outline-offset: var(--focus-decalage);
+  box-shadow: var(--focus-anneau);
 }
 
 .tri__select:disabled {

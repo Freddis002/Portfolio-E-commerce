@@ -50,6 +50,13 @@
   --color-lien-survol: var(--color-orange-brule);
   --color-action: var(--color-orange);
   --color-focus: var(--color-orange);
+  /*
+   * Anneau intérieur du focus : Orange Signal sur Blanc Papier n'offre que
+   * 2,9:1 (WCAG demande 3:1). Un anneau Noir Encre comble l'espace entre
+   * l'élément et le contour orange : le focus reste orange à l'œil et le
+   * contraste est assuré par le noir. C'est un aplat, pas une ombre.
+   */
+  --color-focus-anneau: var(--color-noir);
 
   /* ---------- Familles ---------- */
   --font-sans: "Archivo Variable", "Archivo", system-ui, sans-serif;
@@ -135,6 +142,7 @@
   /* ---------- Focus clavier ---------- */
   --focus-largeur: 2px;
   --focus-decalage: 2px;
+  --focus-anneau: 0 0 0 var(--focus-decalage) var(--color-focus-anneau);
 }
 
 /* Animations neutralisées si l'utilisateur l'a demandé à son système */

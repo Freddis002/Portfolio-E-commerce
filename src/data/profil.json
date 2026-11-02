@@ -1,0 +1,36 @@
+{
+  "_commentaire": "Textes de présentation communs aux pages. À COMPLÉTER : nom, prénom, accroches, domaine du site.",
+  "prenom": "PRÉNOM",
+  "nom": "NOM",
+  "siteUrl": "https://www.domaine-a-completer.fr",
+  "ville": "Arras",
+  "departement": "62",
+  "region": "Hauts-de-France",
+  "postes": [
+    "Chargé e-commerce",
+    "Marketing & communication",
+    "Chef de projet digital"
+  ],
+  "accueil": {
+    "surtitre": "Collection 2026 · Basé à Arras",
+    "accroche": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore, en Hauts-de-France.",
+    "referenceVisuel": "Réf. NP-2026",
+    "reassurance": [
+      { "icone": "lieu", "titre": "Basé à Arras", "texte": "Lorem ipsum dolor sit amet" },
+      { "icone": "mobilite", "titre": "Mobile en Hauts-de-France", "texte": "Lorem ipsum dolor sit amet" },
+      { "icone": "disponibilite", "titre": "Disponibilité : [lorem]", "texte": "CDI · temps plein" },
+      { "icone": "cv", "titre": "CV en PDF", "texte": "Téléchargement direct" }
+    ],
+    "passions": {
+      "titre": "Au-delà du bureau",
+      "texte": "Lorem ipsum dolor sit amet."
+    },
+    "aPropos": {
+      "titre": "Lorem ipsum, accroche personnelle",
+      "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Basé à Arras."
+    }
+  },
+  "catalogue": {
+    "introduction": "Projets, expertises et passions. Ajoutez ce qui vous intéresse à votre sélection pour en parler ensuite."
+  }
+}

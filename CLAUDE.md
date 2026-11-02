@@ -38,7 +38,7 @@ En cas de conflit : maquettes > charte > wireframes > ce fichier.
 - Couleurs complémentaires validées (tokens dans src/styles/tokens.css) :
   #D9D4CD texte secondaire sur Noir Encre, #B8B2AA texte tertiaire sur Noir Encre
   (Pierre n'atteint pas le contraste AA sur noir), #FFFFFF fond des champs de formulaire
-- Badges NOUVEAU et TOP : fond Orange Pâle, texte Orange Brûlé
+- Badges NOUVEAU et TOP : fond Orange Pâle, texte Noir Encre (Orange Brûlé sur Orange Pâle = 4,2:1, sous le seuil AA)
 - Répartition 60 % Blanc Papier / 30 % Noir Encre / 10 % orange maximum
 - Un seul bouton orange par écran (fond orange, texte noir ; survol : fond noir, texte orange)
 - Jamais de texte blanc sur orange ; texte orange sur fond clair = Orange Brûlé
@@ -49,7 +49,7 @@ En cas de conflit : maquettes > charte > wireframes > ce fichier.
 - Espacements 4 8 12 16 24 32 48 64 96 128 ; rayon 0 (999 pour pastilles et compteur)
 - Bordures 1 px #E3DFD9, aucune ombre, transitions 160 ms ease-out
 - Icônes Lucide 20/24 px, trait 1,5 ; flèche → pour la navigation
-- Focus clavier : contour 2 px Orange Signal décalé de 2 px
+- Focus clavier : contour 2 px Orange Signal décalé de 2 px, espace comblé par un anneau Noir Encre (contraste 3:1)
 - Point orange sur chaque H1 de page ; un état ne repose jamais sur la couleur seule
 
 ## Codes e-commerce

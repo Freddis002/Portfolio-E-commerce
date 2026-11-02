@@ -1,0 +1,28 @@
+/* Barre de sélection mobile — maquettes AccueilMobile et CatalogueMobile */
+
+.barre-selection {
+  display: none;
+}
+
+@media (max-width: 599px) {
+  .barre-selection {
+    position: sticky;
+    bottom: 0;
+    z-index: 6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-5);
+    border-top: var(--bordure-forte);
+    background: var(--color-fond);
+  }
+}
+
+.barre-selection__texte {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-s);
+  letter-spacing: var(--tracking-pastille);
+  text-transform: uppercase;
+}

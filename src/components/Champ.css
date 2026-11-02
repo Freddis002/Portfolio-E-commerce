@@ -51,6 +51,7 @@ textarea.champ__saisie {
   border-color: var(--color-noir);
   outline: var(--focus-largeur) solid var(--color-focus);
   outline-offset: var(--focus-decalage);
+  box-shadow: var(--focus-anneau);
 }
 
 /* Erreur : bordure 2 px Erreur */

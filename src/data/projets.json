@@ -13,6 +13,8 @@
       "[Outil 3]"
     ],
     "siteEnLigne": "https://www.monkitsolaire.fr/",
+    "annee": "[AAAA]",
+    "contexte": "professionnel",
     "badges": {
       "nouveau": true,
       "top": false
@@ -42,6 +44,8 @@
       "[Outil 3]"
     ],
     "siteEnLigne": "[À COMPLÉTER]",
+    "annee": "[AAAA]",
+    "contexte": "professionnel",
     "badges": {
       "nouveau": false,
       "top": true
@@ -70,6 +74,8 @@
       "[Outil 3]"
     ],
     "siteEnLigne": "[À COMPLÉTER]",
+    "annee": "[AAAA]",
+    "contexte": "professionnel",
     "badges": {
       "nouveau": true,
       "top": false
@@ -97,6 +103,8 @@
       "[Outil 3]"
     ],
     "siteEnLigne": "[À COMPLÉTER]",
+    "annee": "[AAAA]",
+    "contexte": "professionnel",
     "badges": {
       "nouveau": false,
       "top": false

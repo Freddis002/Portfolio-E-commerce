@@ -1,0 +1,251 @@
+/* Accueil — maquettes Main.dc.html (desktop) et AccueilMobile.dc.html */
+
+.accueil__section {
+  padding-top: var(--space-9);
+}
+
+/* ---------- Catégories ---------- */
+.accueil__tuiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+/* ---------- Nouveautés ---------- */
+.accueil__nouveautes {
+  list-style: none;
+  margin-block: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-5);
+}
+
+.accueil__nouveautes > li {
+  display: flex;
+}
+
+.accueil__nouveautes .carte {
+  flex-grow: 1;
+}
+
+/* ---------- Les plus demandées (fond Noir Encre) ---------- */
+.accueil__sombre {
+  margin-top: var(--space-9);
+  padding-block: var(--space-9);
+  background: var(--color-noir);
+  color: var(--color-blanc);
+}
+
+.accueil__classement {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.accueil__classement .carte--ligne {
+  gap: var(--space-4) var(--space-6);
+  padding: 28px 0;
+}
+
+.accueil__classement .carte__titre {
+  font-size: clamp(20px, 2.4vw, 32px);
+  line-height: 1.1;
+}
+
+/* ---------- Projets à la une ---------- */
+.accueil__projets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+}
+
+.accueil__vedette {
+  flex: 999 1 560px;
+  min-width: 0;
+  display: flex;
+}
+
+.accueil__vedette .carte {
+  flex-grow: 1;
+}
+
+.accueil__autres-projets {
+  flex: 1 1 320px;
+  min-width: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--bordure);
+}
+
+/* ---------- Bannières secondaires ---------- */
+.accueil__decouvrir {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-5);
+}
+
+.promo {
+  display: flex;
+  color: var(--color-texte);
+  text-decoration: none;
+  transition: border-color var(--transition);
+}
+
+.promo:hover {
+  color: var(--color-texte);
+}
+
+.promo--passions {
+  flex-wrap: wrap;
+  background: var(--color-surface);
+}
+
+.promo--a-propos {
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding: 40px;
+  border: var(--bordure-forte);
+}
+
+.promo__texte {
+  flex: 1 1 220px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+
+.promo__textes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.promo__titre {
+  margin: 0;
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-titre);
+  letter-spacing: var(--tracking-titre);
+  line-height: 1.1;
+}
+
+.promo__corps {
+  margin: 0;
+  max-width: 44ch;
+  color: var(--color-texte-long);
+}
+
+.promo__cta {
+  font-weight: var(--weight-bold);
+  transition: color var(--transition);
+}
+
+.promo:hover .promo__cta {
+  color: var(--color-orange-brule);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.promo__mosaique {
+  flex: 1 1 200px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-1);
+  padding: var(--space-1);
+}
+
+/* Petits carrés hachurés : la légende n'y tiendrait pas */
+.promo__mosaique .image-emplacement__legende {
+  display: none;
+}
+
+/* ---------- Contact ---------- */
+.accueil__contact {
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-9);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-6);
+}
+
+.accueil__contact-textes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.accueil__contact-titre {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: var(--weight-display);
+  font-variation-settings: "wdth" var(--wdth-display);
+  letter-spacing: var(--tracking-display);
+  line-height: 1;
+}
+
+/* ---------- Mobile : < 600 px ---------- */
+@media (max-width: 599px) {
+  .accueil__section {
+    padding-top: var(--space-7);
+  }
+
+  .accueil__tuiles {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-3);
+  }
+
+  /* Rail horizontal : on fait glisser les cartes */
+  .accueil__nouveautes {
+    /* relative : les textes cachés des cartes restent dans le rail */
+    position: relative;
+    display: flex;
+    gap: var(--space-4);
+    padding-bottom: var(--space-2);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .accueil__nouveautes > li {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+  }
+
+  .accueil__sombre {
+    margin-top: var(--space-7);
+    padding-block: var(--space-7);
+  }
+
+  .accueil__classement .carte--ligne {
+    padding: var(--space-4) 0;
+  }
+
+  /* Seule la vitrine reste, comme sur la maquette mobile */
+  .accueil__autres-projets {
+    display: none;
+  }
+
+  .promo__texte,
+  .promo--a-propos {
+    padding: var(--space-5);
+  }
+
+  .promo__mosaique {
+    display: none;
+  }
+
+  .accueil__contact {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-7);
+  }
+
+  .accueil__contact .bouton {
+    width: 100%;
+  }
+}

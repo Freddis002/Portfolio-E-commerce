@@ -102,3 +102,23 @@
   color: var(--color-pierre);
   cursor: not-allowed;
 }
+
+/* Compact : sur mobile, symbole seul dans un carré de 44 px (texte lu
+   par les lecteurs d'écran) — listes d'expertises */
+@media (max-width: 599px) {
+  .bouton-ajout--compact {
+    width: var(--hauteur-bouton-s);
+    padding: 0;
+    font-size: var(--text-corps-l);
+  }
+
+  .bouton-ajout--compact .bouton-ajout__texte {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}

@@ -17,9 +17,10 @@ export function GroupeFiltres({ legende, children }) {
  * Case native (accessible au clavier et aux lecteurs d'écran), teintée Noir Encre.
  * - checked / onChange : état contrôlé par le parent
  * - nombre : résultats pour ce filtre ; 0 → option désactivée
+ *   (sauf si elle est cochée : on doit toujours pouvoir la décocher)
  */
 export function CaseFiltre({ label, nombre, checked = false, onChange, disabled, ...reste }) {
-  const inactif = disabled ?? nombre === 0;
+  const inactif = disabled ?? (nombre === 0 && !checked);
   return (
     <label className={`case-filtre ${inactif ? "case-filtre--inactif" : ""}`}>
       <input

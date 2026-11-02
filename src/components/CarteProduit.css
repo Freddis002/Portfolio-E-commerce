@@ -142,3 +142,142 @@
 .carte--sombre .carte__voir:hover {
   color: var(--color-orange);
 }
+
+/* Rang (« Les plus demandées ») : grand chiffre mono orange sur noir */
+.carte__rang {
+  width: 48px;
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: var(--weight-interface);
+  line-height: 1;
+  color: var(--color-orange-brule);
+}
+
+.carte--sombre .carte__rang {
+  color: var(--color-orange);
+}
+
+/* Les actions restent en bas de carte, même sans accroche */
+.carte:not(.carte--ligne) .carte__actions {
+  margin-top: auto;
+}
+
+/* Visuel qui occupe la hauteur libre (vitrine du catalogue) */
+.carte--image-remplie .image-emplacement {
+  flex-grow: 1;
+  height: auto;
+}
+
+/* ---------- Mini : vignette 1:1 + texte ---------- */
+.carte--mini {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-4);
+  padding: 20px 0;
+  border: 0;
+  border-bottom: var(--bordure);
+  background: transparent;
+}
+
+.carte--mini .carte__vignette {
+  flex: none;
+  width: 112px;
+}
+
+.carte--mini .carte__corps {
+  padding: 0;
+  gap: var(--space-1);
+}
+
+.carte--mini .carte__actions {
+  justify-content: flex-start;
+  gap: var(--space-3);
+  padding-top: 6px;
+}
+
+.carte--mini .carte__voir {
+  font-size: var(--text-petit);
+}
+
+/* ---------- Carré : passions, visuel 1:1 sans cadre ---------- */
+.carte--carre {
+  border: 0;
+  background: transparent;
+}
+
+.carte--carre .carte__corps {
+  padding: 10px 0 0;
+  gap: 6px;
+}
+
+.carte--carre .carte__titre {
+  font-size: 18px;
+}
+
+.carte--carre .carte__voir {
+  font-size: var(--text-petit);
+}
+
+@media (max-width: 599px) {
+  .carte--ligne {
+    flex-wrap: nowrap;
+    gap: var(--space-3);
+    padding: var(--space-4) 0;
+  }
+
+  .carte--ligne .carte__ref {
+    width: auto;
+    flex: none;
+  }
+
+  .carte--ligne .carte__rang {
+    width: 32px;
+    flex: none;
+    font-size: 20px;
+  }
+
+  .carte--sombre .carte__ref {
+    display: none;
+  }
+
+  .carte--ligne .carte__titre-groupe {
+    flex: 1 1 auto;
+    gap: var(--space-2);
+  }
+
+  .carte--ligne .carte__titre {
+    font-size: 20px;
+  }
+
+  /* Sur mobile, la liste se lit en une ligne : accroche et « Voir » masqués,
+     le titre reste accessible via le bouton et la fiche */
+  .carte--ligne .carte__texte,
+  .carte--ligne .carte__voir {
+    display: none;
+  }
+
+  .carte--ligne .carte__actions {
+    flex: none;
+  }
+
+  .carte--carre .carte__actions,
+  .carte--standard .carte__actions {
+    flex-wrap: wrap;
+  }
+}
+
+/* Titre-lien des lignes : même aspect que le titre, souligné au survol */
+.carte__titre-lien {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 6px;
+}
+
+.carte__titre-lien:hover {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.carte--sombre .carte__titre-lien:hover {
+  color: var(--color-orange);
+}

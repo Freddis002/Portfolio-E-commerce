@@ -38,7 +38,8 @@ export default function ImageEmplacement({
           ? { "aria-hidden": true }
           : { role: "img", "aria-label": `Emplacement d'image : ${type}, format ${ratio}` })}
       >
-        {type} · {ratio}
+        {/* type vide : ratio seul (petites vignettes) */}
+        {type ? `${type} · ${ratio}` : ratio}
       </span>
       {children}
     </div>

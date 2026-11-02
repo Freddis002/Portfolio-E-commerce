@@ -5,7 +5,7 @@ export function meta() {
 
 export default function Page() {
   return (
-    <main>
+    <main id="contenu">
       <h1>Confidentialité</h1>
     </main>
   );

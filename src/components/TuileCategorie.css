@@ -46,3 +46,44 @@
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+
+/* Tablette : le « Voir → » passe à la ligne si le titre prend la place */
+@media (max-width: 1023px) {
+  .tuile__pied {
+    flex-wrap: wrap;
+    padding: var(--space-4);
+  }
+
+  .tuile__titre {
+    font-size: var(--text-h3);
+  }
+}
+
+/* Mobile : tuile en ligne, vignette 96 × 72 à gauche */
+@media (max-width: 599px) {
+  .tuile {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .tuile .image-emplacement {
+    flex: none;
+    width: 96px;
+    padding: 0;
+  }
+
+  .tuile .image-emplacement__legende {
+    display: none;
+  }
+
+  .tuile__pied {
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .tuile__titre {
+    font-size: var(--text-h3);
+  }
+}
