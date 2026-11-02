@@ -200,7 +200,7 @@ class Component extends DCLogic {
     const setCat = (k) => () => this.setState({ cats: Object.assign({}, c, { [k]: !c[k] }) });
     const anyOn = c.P || c.E || c.H;
     const count = this.state.sel.length;
-    const featBase = this.decorate({ id: 'P-02', title: 'Green Ideas / Market Shop' });
+    const featBase = this.decorate({ id: 'P-02', title: 'Mon Grossiste Auto' });
     featBase.btnStyle = featBase.btnStyle.replace('width: 100%; ', '');
     return {
       cats: [

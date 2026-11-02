@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Carnet de route — mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F5F2}
+a{color:#111010}a:hover{color:#C2410C}
+.ph{background-color:#EFECE7;background-image:repeating-linear-gradient(135deg,rgba(17,16,16,.06) 0 1px,transparent 1px 12px)}
+a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2px}
+.pin{position:absolute;padding:0;border:0;background:none;cursor:pointer;width:36px;height:36px;display:grid;place-items:center}
+.carte{transition:transform 480ms cubic-bezier(.2,.7,.2,1)}
+@keyframes monte{from{transform:translateY(100%)}to{transform:none}}
+.sheet{animation:monte 260ms cubic-bezier(.2,.8,.2,1) both}
+@keyframes pop{0%{transform:scale(.4);opacity:0}100%{transform:scale(1);opacity:1}}
+.pop{animation:pop 280ms cubic-bezier(.2,.8,.2,1.2) both}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div style="width: 390px; background: #F7F5F2; color: #111010; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; line-height: 1.6; position: relative;">
+<dc-import name="HeaderMobile" active="catalogue" count="{{count}}" hint-size="100%,110px"></dc-import>
+
+<section style="padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 12px;">
+<nav aria-label="Fil d'Ariane" style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><a href="CatalogueMobile.dc.html" style="color: #6E6862;">← Catalogue / Passions</a></nav>
+<h1 style="margin: 0; font-size: 44px; line-height: 0.95; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em;">Carnet de route<span style="color: #FF5A1F;">.</span></h1>
+<p style="margin: 0; font-size: 17px; color: #2B2927;">Lorem ipsum : les voyages et les lieux photographiés, au départ d'Arras.</p>
+<dl style="margin: 4px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid #E3DFD9;">
+<div style="padding: 8px 10px; border-right: 1px solid #E3DFD9;"><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: #6E6862;">LIEUX</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 16px;">07</dd></div>
+<div style="padding: 8px 10px; border-right: 1px solid #E3DFD9;"><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: #6E6862;">PAYS</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 16px;">05</dd></div>
+<div style="padding: 8px 10px; border-right: 1px solid #E3DFD9;"><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: #6E6862;">PHOTOS</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 16px;">[XXX]</dd></div>
+<div style="padding: 8px 10px;"><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: #6E6862;">DEPUIS</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 16px;">[AAAA]</dd></div>
+</dl>
+</section>
+
+<div style="padding: 10px 20px; border-top: 1px solid #111010; border-bottom: 1px solid #E3DFD9; display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center;">
+<div role="group" aria-label="Filtrer par destination" style="display: flex; gap: 6px;">
+<sc-for list="{{filtres}}" as="f" hint-placeholder-count="2">
+<button type="button" onClick="{{f.toggle}}" aria-pressed="{{f.pressed}}" style="{{f.style}}"><span aria-hidden="true" style="{{f.markStyle}}"></span>{{f.label}}</button>
+</sc-for>
+</div>
+<div role="group" aria-label="Zone affichée" style="display: flex;">
+<sc-for list="{{zones}}" as="z" hint-placeholder-count="2">
+<button type="button" onClick="{{z.pick}}" aria-pressed="{{z.pressed}}" style="{{z.style}}">{{z.label}}</button>
+</sc-for>
+</div>
+</div>
+
+<div style="position: relative; overflow: hidden; background: #EFECE7; border-bottom: 1px solid #E3DFD9; height: 300px; display: flex; align-items: center;">
+<div class="carte" style="{{carteStyle}}">
+<img src="/_blob/47711d06433ad49888f3bc2abfac6d15" alt="" style="display: block; width: 100%; height: auto;">
+<sc-for list="{{pins}}" as="p" hint-placeholder-count="9">
+<button type="button" class="pin" onClick="{{p.pick}}" aria-pressed="{{p.pressed}}" aria-label="{{p.aria}}" style="{{p.pos}}"><span class="pop" style="display: block; animation-delay: {{p.delay}};"><span style="{{p.shape}}"></span></span></button>
+</sc-for>
+</div>
+<span style="position: absolute; left: 10px; bottom: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; background: #F7F5F2; border: 1px solid #E3DFD9; padding: 3px 6px;">{{nbVisibles}} LIEUX · TOUCHEZ UN REPÈRE</span>
+</div>
+
+<section aria-labelledby="tous" style="padding: 32px 20px 40px;">
+<h2 id="tous" style="margin: 0 0 8px; font-size: 26px; font-weight: 800; font-variation-settings: 'wdth' 108; border-bottom: 1px solid #111010; padding-bottom: 10px;">Tous les lieux</h2>
+<ul style="list-style: none; margin: 0; padding: 0;">
+<sc-for list="{{liste}}" as="l" hint-placeholder-count="9">
+<li>
+<button type="button" onClick="{{l.pick}}" style="width: 100%; display: flex; align-items: center; gap: 12px; padding: 12px 0; border: 0; border-bottom: 1px solid #E3DFD9; background: none; cursor: pointer; text-align: left; font: inherit; color: #111010;">
+<span style="{{l.mark}}"></span>
+<span style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column;"><span style="font-weight: 700;">{{l.name}}</span><span style="font-size: 14px; color: #2B2927;">{{l.pays}} · [AAAA]</span></span>
+<span aria-hidden="true" style="font-weight: 700;">→</span>
+</button>
+</li>
+</sc-for>
+</ul>
+</section>
+
+<dc-import name="FooterMobile" hint-size="100%,560px"></dc-import>
+
+<!-- Fiche du lieu en panneau du bas -->
+<sc-if value="{{unLieu}}" hint-placeholder-val="{{true}}">
+<section aria-label="Fiche du lieu" aria-live="polite" class="sheet" style="position: sticky; bottom: 0; z-index: 7; background: #F7F5F2; border-top: 2px solid #111010; padding: 14px 20px 18px; display: flex; flex-direction: column; gap: 10px;">
+<div style="display: flex; gap: 12px; align-items: flex-start;">
+<div class="ph" style="width: 84px; height: 84px; flex: none;"></div>
+<div style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E6862;">{{sel.id}} · {{sel.typeMaj}} · [AAAA]</span>
+<span style="font-size: 22px; line-height: 1.15; font-weight: 800; font-variation-settings: 'wdth' 108;">{{sel.name}}</span>
+<span style="font-size: 14px; color: #2B2927;">{{sel.pays}} · [X] photos</span>
+</div>
+<button type="button" onClick="{{fermer}}" aria-label="Fermer la fiche" style="width: 44px; height: 44px; flex: none; display: grid; place-items: center; background: none; border: 0; cursor: pointer; color: #111010; margin: -8px -10px 0 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px;">
+<a href="FichePassionMobile.dc.html" style="display: flex; align-items: center; justify-content: center; height: 48px; border: 1px solid #111010; font-weight: 700; font-size: 14px; text-decoration: none;">Voir les photos</a>
+<button type="button" onClick="{{toggleSel}}" aria-pressed="{{selPressed}}" style="{{selBtnStyle}}">{{selBtnLabel}}</button>
+</div>
+</section>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":3200}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sel: 'L-05', photo: true, trail: true, zone: 'europe', panier: ['P-02', 'E-02'] };
+  }
+  renderVals() {
+    const s = this.state;
+    const all = [
+      { id: 'L-00', name: 'Arras', pays: 'France · point de départ', zone: 'france', type: 'depart', x: 50.64, y: 15.23 },
+      { id: 'L-01', name: 'Étretat', pays: 'France · Normandie', zone: 'france', type: 'voyage', x: 50.05, y: 15.62 },
+      { id: 'L-02', name: 'Lyon', pays: 'France · Auvergne-Rhône-Alpes', zone: 'france', type: 'voyage', x: 51.15, y: 18.32 },
+      { id: 'L-03', name: 'Valence', pays: 'France · Drôme', zone: 'france', type: 'voyage', x: 51.16, y: 18.91 },
+      { id: 'L-04', name: 'Espagne', pays: '[Villes visitées]', zone: 'etranger', type: 'voyage', x: 49.09, y: 22.32 },
+      { id: 'L-05', name: 'Irlande', pays: '[Villes visitées]', zone: 'etranger', type: 'voyage', x: 48.28, y: 13.33 },
+      { id: 'L-06', name: 'Pays-Bas', pays: '[Villes visitées]', zone: 'etranger', type: 'voyage', x: 51.19, y: 13.98 },
+      { id: 'L-07', name: 'Vietnam', pays: '[Villes visitées]', zone: 'etranger', type: 'voyage', x: 78.9, y: 41.59 }
+    ];
+    const Z = { monde: { z: 1, x: 50, y: 50 }, europe: { z: 6.5, x: 50.4, y: 17.5 }, france: { z: 18, x: 50.6, y: 17.2 } }[s.zone];
+    const zoom = Z.z;
+    const visible = (l) => l.type === 'depart' || (l.zone === 'france' && s.photo) || (l.zone === 'etranger' && s.trail);
+    const vis = all.filter(visible);
+    const typeMaj = { depart: 'DÉPART', voyage: 'VOYAGE' };
+    const shape = (t, on, size) => {
+      const b = 'display: block; box-sizing: border-box; ';
+      if (t === 'depart') return b + 'width: ' + (size - 2) + 'px; height: ' + (size - 2) + 'px; background: #111010; border: 3px solid ' + (on ? '#FF5A1F' : '#111010') + ';';
+      const fill = on ? '#111010' : '#FF5A1F';
+      const ring = on ? ' outline: 3px solid #FF5A1F; outline-offset: 2px;' : '';
+      return b + 'width: ' + size + 'px; height: ' + size + 'px; border-radius: 999px; background: ' + fill + '; border: 2px solid #111010;' + ring;
+    };
+    const cur = all.find((l) => l.id === s.sel && visible(l));
+    const inPanier = cur && s.panier.indexOf(cur.id) !== -1;
+    const chip = (on, label, toggle, mark) => ({
+      label, pressed: on ? 'true' : 'false', toggle,
+      style: 'display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid #111010; cursor: pointer; font: 600 13px Archivo, sans-serif; ' + (on ? 'background: #111010; color: #F7F5F2;' : 'background: transparent; color: #111010;'),
+      markStyle: mark + (on ? ' background: #FF5A1F;' : ' background: transparent;')
+    });
+    const zoneBtn = (key, label) => ({
+      label, pressed: s.zone === key ? 'true' : 'false', pick: () => this.setState({ zone: key }),
+      style: 'height: 36px; padding: 0 10px; border: 1px solid #111010; margin-left: -1px; cursor: pointer; font: 600 13px Archivo, sans-serif; ' + (s.zone === key ? 'background: #111010; color: #F7F5F2;' : 'background: transparent; color: #111010;')
+    });
+    return {
+      count: s.panier.length,
+      filtres: [
+        chip(s.photo, 'France', () => this.setState({ photo: !s.photo }), 'width: 10px; height: 10px; border-radius: 999px; border: 2px solid currentColor; box-sizing: border-box;'),
+        chip(s.trail, 'Étranger', () => this.setState({ trail: !s.trail }), 'width: 10px; height: 10px; border-radius: 999px; border: 2px solid currentColor; box-sizing: border-box;')
+      ],
+      zones: [zoneBtn('monde', 'Monde'), zoneBtn('europe', 'Europe'), zoneBtn('france', 'France')],
+      nbVisibles: String(vis.length).padStart(2, '0'),
+      carteStyle: 'position: relative; width: 100%; transform-origin: ' + Z.x + '% ' + Z.y + '%; transform: translate(' + (zoom > 1 ? (50 - Z.x) : 0) + '%, ' + (zoom > 1 ? (50 - Z.y) : 0) + '%) scale(' + zoom + ');',
+      pins: vis.map((l, i) => ({
+        pressed: l.id === s.sel ? 'true' : 'false',
+        aria: l.name + ', ' + l.pays + ' (' + typeMaj[l.type].toLowerCase() + ')',
+        pos: 'left: ' + l.x + '%; top: ' + l.y + '%; transform: translate(-50%, -50%) scale(' + (1 / zoom) + '); z-index: ' + (l.id === s.sel ? 3 : 2) + ';',
+        shape: shape(l.type, l.id === s.sel, 16),
+        delay: (i * 40) + 'ms',
+        pick: () => this.setState({ sel: l.id })
+      })),
+      unLieu: !!cur,
+      sel: cur ? Object.assign({}, cur, { typeMaj: typeMaj[cur.type] }) : { id: '', name: '', pays: '', typeMaj: '' },
+      fermer: () => this.setState({ sel: null }),
+      selPressed: inPanier ? 'true' : 'false',
+      selBtnLabel: inPanier ? '✓ Ajouté' : '+ Ajouter',
+      selBtnStyle: 'height: 48px; font: 700 15px Archivo, sans-serif; cursor: pointer; border: 1px solid #111010;' + (inPanier ? ' background: #111010; color: #F7F5F2;' : ' background: #FF5A1F; color: #111010; border-color: #FF5A1F;'),
+      toggleSel: () => { if (!cur) return; const p = s.panier; this.setState({ panier: inPanier ? p.filter((x) => x !== cur.id) : p.concat([cur.id]) }); },
+      liste: all.map((l) => Object.assign({}, l, {
+        mark: shape(l.type, false, 14) + ' flex: none; margin: 0 4px;',
+        pick: () => this.setState({ sel: l.id, photo: s.photo || l.type === 'photo', trail: s.trail || l.type === 'trail', zone: l.zone === 'france' ? 'france' : (l.x > 40 && l.x < 60 && l.y < 30 ? 'europe' : 'monde') })
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

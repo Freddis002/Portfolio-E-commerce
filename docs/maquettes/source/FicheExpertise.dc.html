@@ -38,7 +38,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2p
 <div class="ph" style="aspect-ratio: 1 / 1; max-height: 280px; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;">Illustration · 1:1</div>
 <dl style="margin: 0; display: grid; grid-template-columns: 120px minmax(0, 1fr); border-top: 1px solid #111010; font-size: 15px;">
 <dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">PRATIQUÉ DEPUIS</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">[AAAA]</dd>
-<dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">PROJETS LIÉS</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">02 · Mon Kit Solaire, Green Ideas</dd>
+<dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">PROJETS LIÉS</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">02 · Mon Kit Solaire, Mon Grossiste Auto</dd>
 <dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">POSTES VISÉS</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">Chargé e-commerce · Chef de projet digital</dd>
 </dl>
 <button type="button" onClick="{{toggleMain}}" aria-pressed="{{mainPressed}}" style="{{mainBtnStyle}}">{{mainLabelBtn}}</button>
@@ -121,7 +121,7 @@ class Component extends DCLogic {
       toggleMain: () => this.toggle('E-02'),
       projets: [
         { id: 'P-01', title: 'Mon Kit Solaire' },
-        { id: 'P-02', title: 'Green Ideas / Market Shop' }
+        { id: 'P-02', title: 'Mon Grossiste Auto' }
       ].map((x) => Object.assign({}, x, {
         pressed: has(x.id) ? 'true' : 'false',
         label: has(x.id) ? '✓ Ajouté' : '+ Ajouter',
