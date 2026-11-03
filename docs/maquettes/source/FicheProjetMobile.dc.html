@@ -38,7 +38,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #FF
 <section style="padding: 20px 20px 0; display: flex; flex-direction: column; gap: 14px;">
 <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
 <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">P-01 · PROJET · [ANNÉE]</span>
-<span style="background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 6px;">NOUVEAU</span>
+<span style="background: #FFE1D3; color: #111010; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 6px;">NOUVEAU</span>
 </div>
 <h1 style="margin: 0; font-size: 40px; line-height: 1; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em;">Mon Kit Solaire<span style="color: #FF5A1F;">.</span></h1>
 <p style="margin: 0; font-size: 18px; line-height: 1.5; color: #2B2927;">Lorem ipsum dolor sit amet : problème → réalisation, en une phrase.</p>
@@ -47,6 +47,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #FF
 </ul>
 <dl style="margin: 4px 0 0; display: grid; grid-template-columns: 112px minmax(0, 1fr); border-top: 1px solid #111010; font-size: 15px;">
 <dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">CATÉGORIE</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">Projet · E-commerce</dd>
+<dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">ENTREPRISE</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">Green Ideas</dd>
 <dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">CONTEXTE</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">[Pro / perso]</dd>
 <dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">DURÉE</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">[AAAA] · [durée]</dd>
 </dl>
@@ -98,7 +99,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #FF
 
 <nav aria-label="Projets voisins" style="margin-top: 40px; border-top: 1px solid #E3DFD9;">
 <a href="#" style="display: flex; flex-direction: column; padding: 16px 20px; border-bottom: 1px solid #E3DFD9; text-decoration: none;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; letter-spacing: 0.08em;">← PRÉCÉDENT · P-04</span><span style="font-size: 18px; font-weight: 700;">Chti Poker Club</span></a>
-<a href="#" style="display: flex; flex-direction: column; align-items: flex-end; padding: 16px 20px; border-bottom: 1px solid #E3DFD9; text-decoration: none;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; letter-spacing: 0.08em;">P-02 · SUIVANT →</span><span style="font-size: 18px; font-weight: 700;">Green Ideas / Market Shop</span></a>
+<a href="#" style="display: flex; flex-direction: column; align-items: flex-end; padding: 16px 20px; border-bottom: 1px solid #E3DFD9; text-decoration: none;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; letter-spacing: 0.08em;">P-02 · SUIVANT →</span><span style="font-size: 18px; font-weight: 700;">Mon Grossiste Auto</span></a>
 </nav>
 
 <dc-import name="FooterMobile" hint-size="100%,560px"></dc-import>
@@ -136,7 +137,7 @@ class Component extends DCLogic {
       xsell: [
         { id: 'E-01', cat: 'Expertise', title: 'E-commerce' },
         { id: 'E-02', cat: 'Expertise', title: 'SEO' },
-        { id: 'P-02', cat: 'Projet', title: 'Green Ideas / Market Shop' }
+        { id: 'P-02', cat: 'Projet', title: 'Mon Grossiste Auto' }
       ].map((x) => Object.assign({}, x, {
         pressed: has(x.id) ? 'true' : 'false',
         label: has(x.id) ? '✓ Ajouté' : '+ Ajouter',

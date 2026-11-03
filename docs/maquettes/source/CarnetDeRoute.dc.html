@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Carnet de route — desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F7F5F2}
+a{color:#111010}a:hover{color:#C2410C}
+.ph{background-color:#EFECE7;background-image:repeating-linear-gradient(135deg,rgba(17,16,16,.06) 0 1px,transparent 1px 12px)}
+a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2px}
+.pin{position:absolute;padding:0;border:0;background:none;cursor:pointer;width:32px;height:32px;display:grid;place-items:center;transition:transform 200ms ease-out}
+.pin .lbl{position:absolute;bottom:calc(100% + 2px);left:50%;transform:translateX(-50%);white-space:nowrap;background:#111010;color:#F7F5F2;font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.06em;padding:3px 7px;opacity:0;pointer-events:none;transition:opacity 160ms ease-out}
+.pin:hover .lbl,.pin:focus-visible .lbl,.pin[aria-pressed="true"] .lbl{opacity:1}
+.carte{transition:transform 480ms cubic-bezier(.2,.7,.2,1)}
+@keyframes entreeA{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes entreeB{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.pan-a{animation:entreeA 240ms ease-out both}
+.pan-b{animation:entreeB 240ms ease-out both}
+@keyframes pop{0%{transform:scale(.4);opacity:0}100%{transform:scale(1);opacity:1}}
+.pop{animation:pop 280ms cubic-bezier(.2,.8,.2,1.2) both}
+.row:hover{background:#EFECE7}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div style="background: #F7F5F2; color: #111010; font-family: 'Archivo', system-ui, sans-serif; font-size: 16px; line-height: 1.6;">
+<dc-import name="Header" active="catalogue" count="{{count}}" hint-size="100%,124px"></dc-import>
+
+<section style="max-width: 1280px; margin: 0 auto; padding: 32px clamp(20px, 5.5vw, 80px) 32px; display: flex; flex-direction: column; gap: 16px;">
+<nav aria-label="Fil d'Ariane" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;">
+<a href="Main.dc.html" style="color: #6E6862;">Accueil</a><span style="color: #6E6862;"> / </span><a href="Catalogue.dc.html" style="color: #6E6862;">Catalogue</a><span style="color: #6E6862;"> / </span><a href="Catalogue.dc.html" style="color: #6E6862;">Passions</a><span style="color: #6E6862;"> / </span><span aria-current="page">Carnet de route</span>
+</nav>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 48px;">
+<div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 12px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">H-02 VOYAGES · H-01 PHOTOGRAPHIE</span>
+<h1 style="margin: 0; font-size: clamp(48px, 6vw, 88px); line-height: 0.95; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em;">Carnet de route<span style="color: #FF5A1F;">.</span></h1>
+<p style="margin: 0; font-size: 20px; color: #2B2927; max-width: 52ch;">Lorem ipsum dolor sit amet : les voyages et les lieux photographiés, au départ d'Arras.</p>
+</div>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid #E3DFD9;">
+<div style="padding: 12px 20px; border-right: 1px solid #E3DFD9;"><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">LIEUX</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 24px;">12</dd></div>
+<div style="padding: 12px 20px; border-right: 1px solid #E3DFD9;"><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">PAYS</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 24px;">05</dd></div>
+<div style="padding: 12px 20px; border-right: 1px solid #E3DFD9;"><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">PHOTOS</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 24px;">[XXX]</dd></div>
+<div style="padding: 12px 20px;"><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">DEPUIS</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 24px;">[AAAA]</dd></div>
+</dl>
+</div>
+</section>
+
+<!-- Barre d'outils -->
+<div style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 5.5vw, 80px);">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid #111010; border-bottom: 1px solid #E3DFD9; padding: 12px 0;">
+<div role="group" aria-label="Filtrer par destination" style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+<sc-for list="{{filtres}}" as="f" hint-placeholder-count="2">
+<button type="button" onClick="{{f.toggle}}" aria-pressed="{{f.pressed}}" style="{{f.style}}"><span aria-hidden="true" style="{{f.markStyle}}"></span>{{f.label}}<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; opacity: .7;">{{f.n}}</span></button>
+</sc-for>
+</div>
+<div style="display: flex; align-items: center; gap: 16px;">
+<span role="status" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em;">{{nbVisibles}} LIEUX</span>
+<div role="group" aria-label="Zone affichée" style="display: flex;">
+<sc-for list="{{zones}}" as="z" hint-placeholder-count="2">
+<button type="button" onClick="{{z.pick}}" aria-pressed="{{z.pressed}}" style="{{z.style}}">{{z.label}}</button>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Carte + fiche du lieu -->
+<div style="max-width: 1280px; margin: 0 auto; padding: 24px clamp(20px, 5.5vw, 80px) 0; display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch;">
+<div style="flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 12px;">
+<div style="position: relative; overflow: hidden; background: #EFECE7; border: 1px solid #E3DFD9; flex-grow: 1; display: flex; align-items: center;">
+<div class="carte" style="{{carteStyle}}; width: 100%;">
+<img src="/_blob/47711d06433ad49888f3bc2abfac6d15" alt="" style="display: block; width: 100%; height: auto;">
+<sc-for list="{{pins}}" as="p" hint-placeholder-count="9">
+<button type="button" class="pin" onClick="{{p.pick}}" aria-pressed="{{p.pressed}}" aria-label="{{p.aria}}" style="{{p.pos}}">
+<span class="pop" style="display: block; animation-delay: {{p.delay}};"><span style="{{p.shape}}"></span></span>
+<span class="lbl">{{p.name}}</span>
+</button>
+</sc-for>
+</div>
+<div style="position: absolute; left: 12px; bottom: 12px; display: flex; gap: 14px; flex-wrap: wrap; background: #F7F5F2; border: 1px solid #E3DFD9; padding: 6px 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em;">
+<span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; background: #111010;"></span>DÉPART</span>
+<span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; border-radius: 999px; background: #FF5A1F; box-sizing: border-box; border: 2px solid #111010;"></span>VOYAGE</span>
+</div>
+</div>
+<p style="margin: 0; font-size: 13px; color: #6E6862;">Années, villes et photos à compléter. Projection Equal Earth, données Natural Earth.</p>
+</div>
+
+<aside aria-label="Fiche du lieu" aria-live="polite" style="flex: 1 1 340px; min-width: 0; border: 1px solid #111010; display: flex; flex-direction: column;">
+<sc-if value="{{aucun}}" hint-placeholder-val="{{false}}">
+<div style="padding: 32px; display: flex; flex-direction: column; gap: 12px; justify-content: center; flex-grow: 1;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">FICHE DU LIEU</span>
+<span style="font-size: 24px; font-weight: 800; font-variation-settings: 'wdth' 108; line-height: 1.2;">Choisissez un repère sur la carte.</span>
+<span style="color: #2B2927;">Ou parcourez la liste de tous les lieux plus bas.</span>
+</div>
+</sc-if>
+<sc-if value="{{unLieu}}" hint-placeholder-val="{{true}}">
+<div class="{{panClass}}" style="display: flex; flex-direction: column; flex-grow: 1;">
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px;">
+<div class="ph" style="grid-column: 1 / -1; aspect-ratio: 16 / 10; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;">PHOTO 01 · 16:10</div>
+<div class="ph" style="aspect-ratio: 1 / 1;"></div>
+<div class="ph" style="aspect-ratio: 1 / 1;"></div>
+<div class="ph" style="aspect-ratio: 1 / 1; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;"><span>+ {{sel.plus}} PHOTOS</span></div>
+</div>
+<div style="padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">{{sel.id}} · {{sel.typeMaj}} · [AAAA]</span>
+<h2 style="margin: 0; font-size: 32px; line-height: 1.1; font-weight: 800; font-variation-settings: 'wdth' 108;">{{sel.name}}</h2>
+<span style="font-size: 15px; color: #2B2927;">{{sel.pays}}</span>
+<p style="margin: 0; color: #2B2927; font-size: 15px;">Lorem ipsum dolor sit amet : ce que vous y avez vu, photographié ou parcouru.</p>
+<div style="display: flex; gap: 8px; flex-wrap: wrap;">
+<a href="FichePassion.dc.html" style="border: 1px solid #111010; border-radius: 999px; padding: 2px 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-decoration: none;">{{sel.passionRef}} →</a>
+</div>
+<div style="flex-grow: 1;"></div>
+<button type="button" onClick="{{toggleSel}}" aria-pressed="{{selPressed}}" style="{{selBtnStyle}}">{{selBtnLabel}}</button>
+<div style="display: flex; justify-content: space-between;">
+<button type="button" onClick="{{prev}}" style="background: none; border: 0; padding: 8px 0; font: 600 14px 'Archivo', sans-serif; cursor: pointer; color: #111010;">← Lieu précédent</button>
+<button type="button" onClick="{{next}}" style="background: none; border: 0; padding: 8px 0; font: 600 14px 'Archivo', sans-serif; cursor: pointer; color: #111010;">Lieu suivant →</button>
+</div>
+</div>
+</div>
+</sc-if>
+</aside>
+</div>
+
+<!-- Liste accessible de tous les lieux -->
+<section aria-labelledby="tous" style="max-width: 1280px; margin: 0 auto; padding: 64px clamp(20px, 5.5vw, 80px) 96px;">
+<h2 id="tous" style="margin: 0 0 16px; font-size: 32px; font-weight: 800; font-variation-settings: 'wdth' 108; border-bottom: 1px solid #111010; padding-bottom: 12px;">Tous les lieux</h2>
+<ul style="list-style: none; margin: 0; padding: 0;">
+<sc-for list="{{liste}}" as="l" hint-placeholder-count="9">
+<li class="row" style="display: grid; grid-template-columns: 64px minmax(0, 1.4fr) minmax(0, 1fr) 140px 90px 120px; gap: 16px; align-items: center; padding: 14px 8px; border-bottom: 1px solid #E3DFD9;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">{{l.id}}</span>
+<span style="font-weight: 700;">{{l.name}}</span>
+<span style="color: #2B2927;">{{l.pays}}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em;">{{l.typeMaj}}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">[AAAA]</span>
+<button type="button" onClick="{{l.pick}}" style="justify-self: end; background: none; border: 0; padding: 6px 0; font: 700 14px 'Archivo', sans-serif; cursor: pointer; color: #111010; text-decoration: underline; text-underline-offset: 4px;">Voir sur la carte →</button>
+</li>
+</sc-for>
+</ul>
+</section>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2700}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sel: 'L-07', photo: true, trail: true, zone: 'monde', anim: 0, panier: ['P-02', 'E-02'] };
+  }
+  lieux() {
+    return [
+      { id: 'L-00', name: 'Arras', pays: 'France · point de départ', zone: 'france', type: 'depart', x: 50.64, y: 15.23 },
+      { id: 'L-01', name: 'Étretat', pays: 'France · Normandie', zone: 'france', type: 'voyage', x: 50.05, y: 15.62 },
+      { id: 'L-02', name: 'Lyon', pays: 'France · Auvergne-Rhône-Alpes', zone: 'france', type: 'voyage', x: 51.15, y: 18.32 },
+      { id: 'L-03', name: 'Valence', pays: 'France · Drôme', zone: 'france', type: 'voyage', x: 51.16, y: 18.91 },
+      { id: 'L-04', name: 'Séville', pays: 'Espagne · Andalousie', zone: 'etranger', type: 'voyage', x: 48.5, y: 24.42 },
+      { id: 'L-05', name: 'Dublin', pays: 'Irlande', zone: 'etranger', type: 'voyage', x: 48.61, y: 13.24 },
+      { id: 'L-06', name: 'Amsterdam', pays: 'Pays-Bas', zone: 'etranger', type: 'voyage', x: 51.1, y: 13.87 },
+      { id: 'L-07', name: 'Hanoï', pays: 'Vietnam · Nord', zone: 'etranger', type: 'voyage', x: 78.46, y: 37.41 },
+      { id: 'L-08', name: 'Hué', pays: 'Vietnam · Centre', zone: 'etranger', type: 'voyage', x: 79.3, y: 41.21 },
+      { id: 'L-09', name: 'Da Nang', pays: 'Vietnam · Centre', zone: 'etranger', type: 'voyage', x: 79.5, y: 41.55 },
+      { id: 'L-10', name: 'Kon Tum', pays: 'Vietnam · Hauts plateaux', zone: 'etranger', type: 'voyage', x: 79.55, y: 42.98 },
+      { id: 'L-11', name: 'Nha Trang', pays: 'Vietnam · Centre-Sud', zone: 'etranger', type: 'voyage', x: 80.0, y: 44.76 },
+      { id: 'L-12', name: 'Hô Chi Minh-Ville', pays: 'Vietnam · Sud', zone: 'etranger', type: 'voyage', x: 79.37, y: 45.96 }
+    ];
+  }
+  pick(id) { this.setState({ sel: id, anim: this.state.anim + 1 }); }
+  renderVals() {
+    const s = this.state;
+    const Z = { monde: { z: 1, x: 50, y: 50 }, europe: { z: 3.4, x: 49.8, y: 18.8 }, france: { z: 9, x: 50.6, y: 17.2 }, vietnam: { z: 12, x: 79.2, y: 41.7 } }[s.zone];
+    const zoom = Z.z;
+    const all = this.lieux();
+    const visible = (l) => l.type === 'depart' || (l.zone === 'france' && s.photo) || (l.zone === 'etranger' && s.trail);
+    const vis = all.filter(visible);
+    const typeMaj = { depart: 'DÉPART', voyage: 'VOYAGE' };
+    const shape = (l, on) => {
+      const base = 'display: block; box-sizing: border-box; transition: transform 160ms ease-out; ';
+      if (l.type === 'depart') return base + 'width: 16px; height: 16px; background: #111010; border: 3px solid ' + (on ? '#FF5A1F' : '#111010') + ';';
+      const fill = on ? '#111010' : '#FF5A1F';
+      const ring = on ? 'outline: 3px solid #FF5A1F; outline-offset: 2px;' : '';
+      return base + 'width: 18px; height: 18px; border-radius: 999px; background: ' + fill + '; border: 2px solid #111010;' + ring;
+    };
+    const pins = vis.map((l, i) => ({
+      name: l.name,
+      pressed: l.id === s.sel ? 'true' : 'false',
+      aria: l.name + ', ' + l.pays + ' (' + typeMaj[l.type].toLowerCase() + ')',
+      pos: 'left: ' + l.x + '%; top: ' + l.y + '%; transform: translate(-50%, -50%) scale(' + (1 / zoom) + '); z-index: ' + (l.id === s.sel ? 3 : 2) + ';',
+      shape: shape(l, l.id === s.sel),
+      delay: (i * 40) + 'ms',
+      pick: () => this.pick(l.id)
+    }));
+    const cur = all.find((l) => l.id === s.sel && visible(l));
+    const idx = vis.findIndex((l) => cur && l.id === cur.id);
+    const step = (d) => () => { if (!vis.length) return; const j = ((idx < 0 ? 0 : idx) + d + vis.length) % vis.length; this.pick(vis[j].id); };
+    const inPanier = cur && s.panier.indexOf(cur.id) !== -1;
+    const chip = (on, label, n, toggle, mark) => ({
+      label, n, pressed: on ? 'true' : 'false', toggle,
+      style: 'display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #111010; cursor: pointer; font: 600 14px Archivo, sans-serif; ' + (on ? 'background: #111010; color: #F7F5F2;' : 'background: transparent; color: #111010;'),
+      markStyle: mark + (on ? ' background: #FF5A1F;' : ' background: transparent;')
+    });
+    const zoneBtn = (key, label) => ({
+      label, pressed: s.zone === key ? 'true' : 'false', pick: () => this.setState({ zone: key }),
+      style: 'height: 40px; padding: 0 16px; border: 1px solid #111010; margin-left: -1px; cursor: pointer; font: 600 14px Archivo, sans-serif; ' + (s.zone === key ? 'background: #111010; color: #F7F5F2;' : 'background: transparent; color: #111010;')
+    });
+    return {
+      count: s.panier.length,
+      filtres: [
+        chip(s.photo, 'France', '03', () => this.setState({ photo: !s.photo }), 'width: 12px; height: 12px; border-radius: 999px; border: 2px solid currentColor; box-sizing: border-box;'),
+        chip(s.trail, 'Étranger', '09', () => this.setState({ trail: !s.trail }), 'width: 10px; height: 10px; border-radius: 999px; border: 2px solid currentColor; box-sizing: border-box;')
+      ],
+      zones: [zoneBtn('monde', 'Monde'), zoneBtn('europe', 'Europe'), zoneBtn('france', 'France'), zoneBtn('vietnam', 'Vietnam')],
+      nbVisibles: String(vis.filter((l) => l.type !== 'depart').length).padStart(2, '0'),
+      carteStyle: 'position: relative; width: 100%; transform-origin: ' + Z.x + '% ' + Z.y + '%; transform: translate(' + (zoom > 1 ? (50 - Z.x) : 0) + '%, ' + (zoom > 1 ? (50 - Z.y) : 0) + '%) scale(' + zoom + ');',
+      pins,
+      aucun: !cur, unLieu: !!cur,
+      panClass: s.anim % 2 ? 'pan-a' : 'pan-b',
+      sel: cur ? Object.assign({}, cur, {
+        typeMaj: typeMaj[cur.type],
+        plus: cur.type === 'depart' ? '[X]' : '[X]',
+        passionRef: 'H-02 · VOYAGES'
+      }) : { id: '', name: '', pays: '', typeMaj: '', plus: '', passionRef: '' },
+      selPressed: inPanier ? 'true' : 'false',
+      selBtnLabel: inPanier ? '✓ Dans votre sélection' : '+ Ajouter à ma sélection',
+      selBtnStyle: 'height: 52px; font: 700 16px Archivo, sans-serif; cursor: pointer; border: 1px solid #111010; transition: background 160ms ease-out, color 160ms ease-out;' + (inPanier ? ' background: #111010; color: #F7F5F2;' : ' background: #FF5A1F; color: #111010; border-color: #FF5A1F;'),
+      toggleSel: () => { if (!cur) return; const p = s.panier; this.setState({ panier: inPanier ? p.filter((x) => x !== cur.id) : p.concat([cur.id]) }); },
+      prev: step(-1), next: step(1),
+      liste: all.map((l) => Object.assign({}, l, { typeMaj: typeMaj[l.type], pick: () => { this.setState({ photo: true, trail: true, zone: (l.x > 70 ? 'vietnam' : l.zone === 'france' ? 'france' : 'europe') }); this.pick(l.id); } }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -88,7 +88,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2p
 
 <nav aria-label="Passions voisines" style="margin-top: 96px; border-top: 1px solid #E3DFD9; border-bottom: 1px solid #E3DFD9; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));">
 <a href="#" style="padding: 32px clamp(20px, 5.5vw, 80px); border-right: 1px solid #E3DFD9; text-decoration: none; display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">← PRÉCÉDENT · H-04</span><span style="font-size: 24px; font-weight: 700;">Poker</span></a>
-<a href="#" style="padding: 32px clamp(20px, 5.5vw, 80px); text-decoration: none; display: flex; flex-direction: column; gap: 4px; align-items: flex-end; text-align: right;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">H-02 · SUIVANT →</span><span style="font-size: 24px; font-weight: 700;">Trail / randonnée</span></a>
+<a href="#" style="padding: 32px clamp(20px, 5.5vw, 80px); text-decoration: none; display: flex; flex-direction: column; gap: 4px; align-items: flex-end; text-align: right;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">H-02 · SUIVANT →</span><span style="font-size: 24px; font-weight: 700;">Voyages</span></a>
 </nav>
 
 <dc-import name="Footer" hint-size="100%,420px"></dc-import>
@@ -116,7 +116,7 @@ class Component extends DCLogic {
       toggleMain: () => this.toggle('H-01'),
       photos: [1, 2, 3, 4, 5, 6].map((n) => ({ cap: 'PHOTO 0' + n + ' · [LIEU, AAAA] · 1:1' })),
       autres: [
-        { id: 'H-02', title: 'Trail / randonnée' },
+        { id: 'H-02', title: 'Voyages' },
         { id: 'H-03', title: 'CrossFit' },
         { id: 'H-04', title: 'Poker' }
       ].map((x) => Object.assign({}, x, {

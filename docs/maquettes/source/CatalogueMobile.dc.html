@@ -51,7 +51,7 @@ Filtrer ({{activeCount}})
 <section style="display: flex; flex-direction: column; gap: 16px;">
 <div style="display: flex; align-items: baseline; gap: 8px;"><h2 style="margin: 0; font-size: 24px; font-weight: 800; font-variation-settings: 'wdth' 108;">Projets</h2><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;">04</span></div>
 <article style="border: 1px solid #E3DFD9;">
-<div class="ph" style="aspect-ratio: 16 / 9; position: relative; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;"><span>Mockup écran · 16:9</span><span style="position: absolute; top: 10px; left: 10px; background: #FFE1D3; color: #C2410C; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 7px;">TOP</span></div>
+<div class="ph" style="aspect-ratio: 16 / 9; position: relative; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;"><span>Mockup écran · 16:9</span><span style="position: absolute; top: 10px; left: 10px; background: #FFE1D3; color: #111010; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 7px;">TOP</span></div>
 <div style="padding: 16px; display: flex; flex-direction: column; gap: 6px;">
 <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">{{feat.id}} · PROJET</span>
 <h3 style="margin: 0; font-size: 22px; line-height: 1.15; font-weight: 800; font-variation-settings: 'wdth' 108;">{{feat.title}}</h3>
@@ -70,7 +70,7 @@ Filtrer ({{activeCount}})
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
 <sc-for list="{{projets}}" as="item" hint-placeholder-count="3">
 <article style="display: flex; flex-direction: column; gap: 8px;">
-<div class="ph" style="aspect-ratio: 1 / 1; position: relative;"><sc-if value="{{item.isNew}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 8px; left: 8px; background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 6px;">NOUVEAU</span></sc-if></div>
+<div class="ph" style="aspect-ratio: 1 / 1; position: relative;"><sc-if value="{{item.isNew}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 8px; left: 8px; background: #FFE1D3; color: #111010; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 6px;">NOUVEAU</span></sc-if></div>
 <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">{{item.id}}</span>
 <h3 style="margin: 0; font-size: 16px; line-height: 1.25; font-weight: 700;">{{item.title}}</h3>
 <div style="flex-grow: 1;">
@@ -94,7 +94,7 @@ Filtrer ({{activeCount}})
 <sc-for list="{{expertises}}" as="item" hint-placeholder-count="5">
 <li style="display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid #E3DFD9;">
 <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; width: 36px; flex: none;">{{item.id}}</span>
-<a href="#" style="flex-grow: 1; min-width: 0; text-decoration: none; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;"><span style="font-size: 18px; font-weight: 800; font-variation-settings: 'wdth' 108;">{{item.title}}</span><sc-if value="{{item.isTop}}" hint-placeholder-val="{{false}}"><span style="background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 6px;">TOP</span></sc-if></a>
+<a href="#" style="flex-grow: 1; min-width: 0; text-decoration: none; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;"><span style="font-size: 18px; font-weight: 800; font-variation-settings: 'wdth' 108;">{{item.title}}</span><sc-if value="{{item.isTop}}" hint-placeholder-val="{{false}}"><span style="background: #FFE1D3; color: #111010; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 6px;">TOP</span></sc-if></a>
 <button type="button" onClick="{{item.toggle}}" aria-pressed="{{item.pressed}}" aria-label="{{item.aria}}" style="{{item.iconStyle}}">{{item.icon}}</button>
 </li>
 </sc-for>
@@ -200,7 +200,7 @@ class Component extends DCLogic {
     const setCat = (k) => () => this.setState({ cats: Object.assign({}, c, { [k]: !c[k] }) });
     const anyOn = c.P || c.E || c.H;
     const count = this.state.sel.length;
-    const featBase = this.decorate({ id: 'P-02', title: 'Green Ideas / Market Shop' });
+    const featBase = this.decorate({ id: 'P-02', title: 'Mon Grossiste Auto' });
     featBase.btnStyle = featBase.btnStyle.replace('width: 100%; ', '');
     return {
       cats: [
@@ -226,7 +226,7 @@ class Component extends DCLogic {
       ].map((x) => this.decorate(x)),
       passions: [
         { id: 'H-01', title: 'Photographie' },
-        { id: 'H-02', title: 'Trail / randonnée' },
+        { id: 'H-02', title: 'Voyages' },
         { id: 'H-03', title: 'CrossFit' },
         { id: 'H-04', title: 'Poker' }
       ].map((x) => this.decorate(x)),

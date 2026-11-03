@@ -20,12 +20,15 @@ Captures pleine page, avec les polices Archivo et IBM Plex Mono.
 | Confidentialité | [desktop/10-confidentialite.png](desktop/10-confidentialite.png) | [tablette/10-confidentialite.png](tablette/10-confidentialite.png) | [mobile/10-confidentialite.png](mobile/10-confidentialite.png) |
 | 404 | [desktop/11-404.png](desktop/11-404.png) | [tablette/11-404.png](tablette/11-404.png) | [mobile/11-404.png](mobile/11-404.png) |
 | Bandeau cookies | [desktop/12-bandeau-cookies.png](desktop/12-bandeau-cookies.png) | — | [mobile/12-bandeau-cookies.png](mobile/12-bandeau-cookies.png) |
+| Carnet de route | [desktop/13-carnet-de-route.png](desktop/13-carnet-de-route.png) | [tablette/13-carnet-de-route.png](tablette/13-carnet-de-route.png) | [mobile/13-carnet-de-route.png](mobile/13-carnet-de-route.png) |
 
 La tablette utilise les pages desktop, qui sont fluides : sous 1024 px, le menu passe en burger et les filtres du catalogue passent au-dessus des résultats.
 
 ## Sources
 
 `source/` contient les maquettes au format Design Component (`.dc.html`) : du HTML avec les styles en ligne et la logique des interactions. Elles servent à lire les valeurs exactes (tailles, espacements, couleurs) et les états interactifs ; elles ne sont pas du code à reprendre tel quel. Les fichiers `*Mobile.dc.html` sont les versions 390 px. `Header` et `Footer` sont les composants partagés.
+
+`monde.svg` est le fond de carte du Carnet de route (données Natural Earth, domaine public ; projection Equal Earth, Antarctique retiré). Dans `CarnetDeRoute*.dc.html`, il est référencé par l'adresse `/_blob/47711d06433ad49888f3bc2abfac6d15` du canevas : dans le site, utiliser `public/carte/monde.svg`. Les positions des repères (`x`, `y` en % de la carte) sont calculées depuis latitude/longitude avec la même projection.
 
 ## États à reproduire
 
@@ -35,5 +38,6 @@ La tablette utilise les pages desktop, qui sont fluides : sous 1024 px, le menu 
 - Contact : initial, erreurs (bordure et message Erreur #C8102E), envoyé.
 - Bandeau cookies : bandeau, panneau Personnaliser, confirmation.
 - Mobile : bouton « Ajouter à ma sélection » fixé en bas des fiches, sections dépliables, panneau de filtres.
+- Carnet de route : 12 villes et Arras (départ), clic sur un repère (repère actif noir avec anneau orange), filtres France / Étranger, zoom Monde / Europe / France / Vietnam, fiche du lieu (panneau à droite en desktop, panneau bas en mobile), ajout à Ma sélection.
 
 Contenus en lorem ipsum et emplacements d'image hachurés (type de visuel + ratio) : à remplacer par les contenus réels.
