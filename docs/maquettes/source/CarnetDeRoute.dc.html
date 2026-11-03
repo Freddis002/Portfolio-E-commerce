@@ -38,7 +38,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2p
 </nav>
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 48px;">
 <div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 12px;">
-<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">H-01 PHOTOGRAPHIE · VOYAGES</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">H-02 VOYAGES · H-01 PHOTOGRAPHIE</span>
 <h1 style="margin: 0; font-size: clamp(48px, 6vw, 88px); line-height: 0.95; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em;">Carnet de route<span style="color: #FF5A1F;">.</span></h1>
 <p style="margin: 0; font-size: 20px; color: #2B2927; max-width: 52ch;">Lorem ipsum dolor sit amet : les voyages et les lieux photographiés, au départ d'Arras.</p>
 </div>
@@ -218,7 +218,7 @@ class Component extends DCLogic {
       sel: cur ? Object.assign({}, cur, {
         typeMaj: typeMaj[cur.type],
         plus: cur.type === 'depart' ? '[X]' : '[X]',
-        passionRef: 'H-01 · PHOTOGRAPHIE'
+        passionRef: 'H-02 · VOYAGES'
       }) : { id: '', name: '', pays: '', typeMaj: '', plus: '', passionRef: '' },
       selPressed: inPanier ? 'true' : 'false',
       selBtnLabel: inPanier ? '✓ Dans votre sélection' : '+ Ajouter à ma sélection',

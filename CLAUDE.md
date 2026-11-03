@@ -11,7 +11,8 @@ Trois catégories, 13 éléments, chacun avec une fiche façon page produit :
 - Projets (P-01 à P-04) : Mon Kit Solaire, Mon Grossiste Auto, Les Petits Paniers, Chti Poker Club
   (entreprises à citer sur les fiches : Green Ideas pour Mon Kit Solaire, Market Shop pour Mon Grossiste Auto)
 - Expertises (E-01 à E-05) : E-commerce, SEO, Marketing digital, Data & Analytics, Web
-- Passions (H-01 à H-04) : Photographie, Trail / randonnée, CrossFit, Poker
+- Passions (H-01 à H-04) : Photographie, Voyages, CrossFit, Poker
+  (H-02 Voyages remplace l'ancienne passion Trail / randonnée ; sa page phare est le Carnet de route)
 
 « Ma sélection » = panier simulé (aucun achat) : le visiteur ajoute des éléments,
 puis envoie un message de contact prérempli avec sa sélection.

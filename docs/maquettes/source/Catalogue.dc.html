@@ -115,7 +115,7 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{ou
 <article class="feat" style="display: flex; flex-direction: column; border: 1px solid #E3DFD9;">
 <div class="ph" style="flex-grow: 1; min-height: 280px; position: relative; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862;">
 <span>Mockup écran · 16:9</span>
-<span style="position: absolute; top: 12px; left: 12px; background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">TOP</span>
+<span style="position: absolute; top: 12px; left: 12px; background: #FFE1D3; color: #111010; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">TOP</span>
 </div>
 <div style="padding: 24px; display: flex; flex-direction: column; gap: 8px;">
 <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">{{feat.id}} · PROJET · [ANNÉE]</span>
@@ -146,7 +146,7 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{ou
 <article style="display: flex; flex-direction: column; border: 1px solid #E3DFD9;">
 <div class="ph" style="aspect-ratio: 16 / 9; position: relative; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;">
 <span>Visuel projet · 16:9</span>
-<sc-if value="{{item.isNew}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 12px; left: 12px; background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">NOUVEAU</span></sc-if>
+<sc-if value="{{item.isNew}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 12px; left: 12px; background: #FFE1D3; color: #111010; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">NOUVEAU</span></sc-if>
 </div>
 <div style="padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1;">
 <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">{{item.id}} · PROJET</span>
@@ -194,8 +194,8 @@ a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{ou
 <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862; width: 44px;">{{item.id}}</span>
 <div style="flex: 1 1 200px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; min-width: 0;">
 <h3 style="margin: 0; font-size: 24px; line-height: 1.2; font-weight: 800; font-variation-settings: 'wdth' 108;">{{item.title}}</h3>
-<sc-if value="{{item.isTop}}" hint-placeholder-val="{{false}}"><span style="background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">TOP</span></sc-if>
-<sc-if value="{{item.isNew}}" hint-placeholder-val="{{false}}"><span style="background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">NOUVEAU</span></sc-if>
+<sc-if value="{{item.isTop}}" hint-placeholder-val="{{false}}"><span style="background: #FFE1D3; color: #111010; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">TOP</span></sc-if>
+<sc-if value="{{item.isNew}}" hint-placeholder-val="{{false}}"><span style="background: #FFE1D3; color: #111010; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">NOUVEAU</span></sc-if>
 </div>
 <p style="margin: 0; flex: 2 1 260px; min-width: 0; color: #2B2927; font-size: 15px; line-height: 1.5;">{{item.desc}}</p>
 <a href="#" style="font-weight: 700; font-size: 14px; text-underline-offset: 4px;">Voir →</a>
@@ -320,7 +320,7 @@ class Component extends DCLogic {
       ].map((x) => this.decorate(x)),
       passions: [
         { id: 'H-01', title: 'Photographie' },
-        { id: 'H-02', title: 'Trail / randonnée' },
+        { id: 'H-02', title: 'Voyages' },
         { id: 'H-03', title: 'CrossFit' },
         { id: 'H-04', title: 'Poker' }
       ].map((x) => this.decorate(x)),
