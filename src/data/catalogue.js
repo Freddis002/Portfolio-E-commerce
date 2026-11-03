@@ -1,6 +1,7 @@
 import projets from "./projets.json";
 import expertises from "./expertises.json";
 import passions from "./passions.json";
+import voyages from "./voyages.json";
 
 // Point d'accès unique aux 13 éléments du catalogue
 export const elements = [...projets, ...expertises, ...passions];
@@ -21,8 +22,30 @@ export function trouverParSlug(categorie, slug) {
   return elements.find((e) => e.categorie === categorie && e.slug === slug);
 }
 
+/*
+ * Lieux du Carnet de route (voyages.json). Ils ne font pas partie du catalogue
+ * (ni filtres ni compteurs), mais on peut les ajouter à « Ma sélection » :
+ * ils reçoivent donc les mêmes champs de base que les éléments (ref, titre…).
+ */
+export const CHEMIN_CARNET = "/passions/carnet-de-route";
+
+export const lieux = voyages.map((l) => ({
+  ...l,
+  ref: l.id,
+  titre: l.nom,
+  categorie: "lieu",
+  accroche: l.texte,
+}));
+
+export const typesLieu = { depart: "Départ", voyage: "Voyage" };
+
+// « France · Normandie », « Irlande »
+export function situationLieu(lieu) {
+  return [lieu.pays, lieu.region].filter(Boolean).join(" · ");
+}
+
 export function trouverParRef(ref) {
-  return elements.find((e) => e.ref === ref);
+  return elements.find((e) => e.ref === ref) ?? lieux.find((l) => l.ref === ref);
 }
 
 export function elementsDe(categorie) {
@@ -30,7 +53,9 @@ export function elementsDe(categorie) {
 }
 
 // URL de la fiche d'un élément, ex. /projets/mon-kit-solaire
+// (un lieu s'ouvre dans le Carnet de route : /passions/carnet-de-route?lieu=L-03)
 export function urlElement(element) {
+  if (element.categorie === "lieu") return `${CHEMIN_CARNET}?lieu=${element.ref}`;
   return `/${categories[element.categorie].chemin}/${element.slug}`;
 }
 

@@ -1,0 +1,418 @@
+[
+  {
+    "id": "L-00",
+    "slug": "arras",
+    "nom": "Arras",
+    "pays": "France",
+    "region": "Hauts-de-France",
+    "type": "depart",
+    "zone": "france",
+    "annee": "[AAAA]",
+    "latitude": 50.291,
+    "longitude": 2.7775,
+    "texte": "Lorem ipsum dolor sit amet : le point de départ, ce que la ville représente.",
+    "photos": [
+      {
+        "fichier": null,
+        "legende": "[Légende photo 01 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 02 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 03 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 04 : à compléter]"
+      }
+    ],
+    "passion": "H-02"
+  },
+  {
+    "id": "L-01",
+    "slug": "etretat",
+    "nom": "Étretat",
+    "pays": "France",
+    "region": "Normandie",
+    "type": "voyage",
+    "zone": "france",
+    "annee": "[AAAA]",
+    "latitude": 49.7071,
+    "longitude": 0.205,
+    "texte": "Lorem ipsum dolor sit amet : ce que vous y avez vu, photographié ou parcouru.",
+    "photos": [
+      {
+        "fichier": null,
+        "legende": "[Légende photo 01 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 02 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 03 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 04 : à compléter]"
+      }
+    ],
+    "passion": "H-02"
+  },
+  {
+    "id": "L-02",
+    "slug": "lyon",
+    "nom": "Lyon",
+    "pays": "France",
+    "region": "Auvergne-Rhône-Alpes",
+    "type": "voyage",
+    "zone": "france",
+    "annee": "[AAAA]",
+    "latitude": 45.764,
+    "longitude": 4.8357,
+    "texte": "Lorem ipsum dolor sit amet : ce que vous y avez vu, photographié ou parcouru.",
+    "photos": [
+      {
+        "fichier": null,
+        "legende": "[Légende photo 01 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 02 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 03 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 04 : à compléter]"
+      }
+    ],
+    "passion": "H-02"
+  },
+  {
+    "id": "L-03",
+    "slug": "valence",
+    "nom": "Valence",
+    "pays": "France",
+    "region": "Drôme",
+    "type": "voyage",
+    "zone": "france",
+    "annee": "[AAAA]",
+    "latitude": 44.9334,
+    "longitude": 4.8924,
+    "texte": "Lorem ipsum dolor sit amet : ce que vous y avez vu, photographié ou parcouru.",
+    "photos": [
+      {
+        "fichier": null,
+        "legende": "[Légende photo 01 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 02 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 03 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 04 : à compléter]"
+      }
+    ],
+    "passion": "H-02"
+  },
+  {
+    "id": "L-04",
+    "slug": "seville",
+    "nom": "Séville",
+    "pays": "Espagne",
+    "region": "Andalousie",
+    "type": "voyage",
+    "zone": "etranger",
+    "annee": "[AAAA]",
+    "latitude": 37.3891,
+    "longitude": -5.9845,
+    "texte": "Lorem ipsum dolor sit amet : ce que vous y avez vu, photographié ou parcouru.",
+    "photos": [
+      {
+        "fichier": null,
+        "legende": "[Légende photo 01 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 02 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 03 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 04 : à compléter]"
+      }
+    ],
+    "passion": "H-02"
+  },
+  {
+    "id": "L-05",
+    "slug": "dublin",
+    "nom": "Dublin",
+    "pays": "Irlande",
+    "region": null,
+    "type": "voyage",
+    "zone": "etranger",
+    "annee": "[AAAA]",
+    "latitude": 53.3498,
+    "longitude": -6.2603,
+    "texte": "Lorem ipsum dolor sit amet : ce que vous y avez vu, photographié ou parcouru.",
+    "photos": [
+      {
+        "fichier": null,
+        "legende": "[Légende photo 01 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 02 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 03 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 04 : à compléter]"
+      }
+    ],
+    "passion": "H-02"
+  },
+  {
+    "id": "L-06",
+    "slug": "amsterdam",
+    "nom": "Amsterdam",
+    "pays": "Pays-Bas",
+    "region": null,
+    "type": "voyage",
+    "zone": "etranger",
+    "annee": "[AAAA]",
+    "latitude": 52.3676,
+    "longitude": 4.9041,
+    "texte": "Lorem ipsum dolor sit amet : ce que vous y avez vu, photographié ou parcouru.",
+    "photos": [
+      {
+        "fichier": null,
+        "legende": "[Légende photo 01 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 02 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 03 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 04 : à compléter]"
+      }
+    ],
+    "passion": "H-02"
+  },
+  {
+    "id": "L-07",
+    "slug": "hanoi",
+    "nom": "Hanoï",
+    "pays": "Vietnam",
+    "region": "Nord",
+    "type": "voyage",
+    "zone": "etranger",
+    "annee": "[AAAA]",
+    "latitude": 21.0278,
+    "longitude": 105.8342,
+    "texte": "Lorem ipsum dolor sit amet : ce que vous y avez vu, photographié ou parcouru.",
+    "photos": [
+      {
+        "fichier": null,
+        "legende": "[Légende photo 01 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 02 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 03 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 04 : à compléter]"
+      }
+    ],
+    "passion": "H-02"
+  },
+  {
+    "id": "L-08",
+    "slug": "hue",
+    "nom": "Hué",
+    "pays": "Vietnam",
+    "region": "Centre",
+    "type": "voyage",
+    "zone": "etranger",
+    "annee": "[AAAA]",
+    "latitude": 16.4637,
+    "longitude": 107.5909,
+    "texte": "Lorem ipsum dolor sit amet : ce que vous y avez vu, photographié ou parcouru.",
+    "photos": [
+      {
+        "fichier": null,
+        "legende": "[Légende photo 01 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 02 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 03 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 04 : à compléter]"
+      }
+    ],
+    "passion": "H-02"
+  },
+  {
+    "id": "L-09",
+    "slug": "da-nang",
+    "nom": "Da Nang",
+    "pays": "Vietnam",
+    "region": "Centre",
+    "type": "voyage",
+    "zone": "etranger",
+    "annee": "[AAAA]",
+    "latitude": 16.0544,
+    "longitude": 108.2022,
+    "texte": "Lorem ipsum dolor sit amet : ce que vous y avez vu, photographié ou parcouru.",
+    "photos": [
+      {
+        "fichier": null,
+        "legende": "[Légende photo 01 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 02 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 03 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 04 : à compléter]"
+      }
+    ],
+    "passion": "H-02"
+  },
+  {
+    "id": "L-10",
+    "slug": "kon-tum",
+    "nom": "Kon Tum",
+    "pays": "Vietnam",
+    "region": "Hauts plateaux",
+    "type": "voyage",
+    "zone": "etranger",
+    "annee": "[AAAA]",
+    "latitude": 14.3497,
+    "longitude": 108.0005,
+    "texte": "Lorem ipsum dolor sit amet : ce que vous y avez vu, photographié ou parcouru.",
+    "photos": [
+      {
+        "fichier": null,
+        "legende": "[Légende photo 01 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 02 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 03 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 04 : à compléter]"
+      }
+    ],
+    "passion": "H-02"
+  },
+  {
+    "id": "L-11",
+    "slug": "nha-trang",
+    "nom": "Nha Trang",
+    "pays": "Vietnam",
+    "region": "Centre-Sud",
+    "type": "voyage",
+    "zone": "etranger",
+    "annee": "[AAAA]",
+    "latitude": 12.2388,
+    "longitude": 109.1967,
+    "texte": "Lorem ipsum dolor sit amet : ce que vous y avez vu, photographié ou parcouru.",
+    "photos": [
+      {
+        "fichier": null,
+        "legende": "[Légende photo 01 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 02 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 03 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 04 : à compléter]"
+      }
+    ],
+    "passion": "H-02"
+  },
+  {
+    "id": "L-12",
+    "slug": "ho-chi-minh-ville",
+    "nom": "Hô Chi Minh-Ville",
+    "pays": "Vietnam",
+    "region": "Sud",
+    "type": "voyage",
+    "zone": "etranger",
+    "annee": "[AAAA]",
+    "latitude": 10.8231,
+    "longitude": 106.6297,
+    "texte": "Lorem ipsum dolor sit amet : ce que vous y avez vu, photographié ou parcouru.",
+    "photos": [
+      {
+        "fichier": null,
+        "legende": "[Légende photo 01 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 02 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 03 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 04 : à compléter]"
+      }
+    ],
+    "passion": "H-02"
+  }
+]
