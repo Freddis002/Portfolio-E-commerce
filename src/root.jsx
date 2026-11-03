@@ -10,7 +10,8 @@ import {
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BarreSelection from "./components/BarreSelection";
-import { SelectionProvider, useSelection } from "./lib/selection";
+import NotificationSelection from "./components/NotificationSelection";
+import { useSelection } from "./lib/selection";
 
 import "./styles/fonts.css";
 import "./styles/tokens.css";
@@ -31,15 +32,14 @@ export function Layout({ children }) {
         <Links />
       </head>
       <body>
-        <SelectionProvider>
-          <a href="#contenu" className="lien-evitement">
-            Aller au contenu
-          </a>
-          <Entete />
-          {children}
-          <Footer />
-          <Barre />
-        </SelectionProvider>
+        <a href="#contenu" className="lien-evitement">
+          Aller au contenu
+        </a>
+        <Entete />
+        {children}
+        <Footer />
+        <Barre />
+        <NotificationSelection />
         <ScrollRestoration />
         <Scripts />
       </body>
