@@ -32,7 +32,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2p
 <h1 style="margin: 0; font-size: 44px; line-height: 0.95; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em;">Carnet de route<span style="color: #FF5A1F;">.</span></h1>
 <p style="margin: 0; font-size: 17px; color: #2B2927;">Lorem ipsum : les voyages et les lieux photographiés, au départ d'Arras.</p>
 <dl style="margin: 4px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid #E3DFD9;">
-<div style="padding: 8px 10px; border-right: 1px solid #E3DFD9;"><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: #6E6862;">LIEUX</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 16px;">07</dd></div>
+<div style="padding: 8px 10px; border-right: 1px solid #E3DFD9;"><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: #6E6862;">LIEUX</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 16px;">12</dd></div>
 <div style="padding: 8px 10px; border-right: 1px solid #E3DFD9;"><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: #6E6862;">PAYS</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 16px;">05</dd></div>
 <div style="padding: 8px 10px; border-right: 1px solid #E3DFD9;"><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: #6E6862;">PHOTOS</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 16px;">[XXX]</dd></div>
 <div style="padding: 8px 10px;"><dt style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: #6E6862;">DEPUIS</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 16px;">[AAAA]</dd></div>
@@ -112,12 +112,17 @@ class Component extends DCLogic {
       { id: 'L-01', name: 'Étretat', pays: 'France · Normandie', zone: 'france', type: 'voyage', x: 50.05, y: 15.62 },
       { id: 'L-02', name: 'Lyon', pays: 'France · Auvergne-Rhône-Alpes', zone: 'france', type: 'voyage', x: 51.15, y: 18.32 },
       { id: 'L-03', name: 'Valence', pays: 'France · Drôme', zone: 'france', type: 'voyage', x: 51.16, y: 18.91 },
-      { id: 'L-04', name: 'Espagne', pays: '[Villes visitées]', zone: 'etranger', type: 'voyage', x: 49.09, y: 22.32 },
-      { id: 'L-05', name: 'Irlande', pays: '[Villes visitées]', zone: 'etranger', type: 'voyage', x: 48.28, y: 13.33 },
-      { id: 'L-06', name: 'Pays-Bas', pays: '[Villes visitées]', zone: 'etranger', type: 'voyage', x: 51.19, y: 13.98 },
-      { id: 'L-07', name: 'Vietnam', pays: '[Villes visitées]', zone: 'etranger', type: 'voyage', x: 78.9, y: 41.59 }
+      { id: 'L-04', name: 'Séville', pays: 'Espagne · Andalousie', zone: 'etranger', type: 'voyage', x: 48.5, y: 24.42 },
+      { id: 'L-05', name: 'Dublin', pays: 'Irlande', zone: 'etranger', type: 'voyage', x: 48.61, y: 13.24 },
+      { id: 'L-06', name: 'Amsterdam', pays: 'Pays-Bas', zone: 'etranger', type: 'voyage', x: 51.1, y: 13.87 },
+      { id: 'L-07', name: 'Hanoï', pays: 'Vietnam · Nord', zone: 'etranger', type: 'voyage', x: 78.46, y: 37.41 },
+      { id: 'L-08', name: 'Hué', pays: 'Vietnam · Centre', zone: 'etranger', type: 'voyage', x: 79.3, y: 41.21 },
+      { id: 'L-09', name: 'Da Nang', pays: 'Vietnam · Centre', zone: 'etranger', type: 'voyage', x: 79.5, y: 41.55 },
+      { id: 'L-10', name: 'Kon Tum', pays: 'Vietnam · Hauts plateaux', zone: 'etranger', type: 'voyage', x: 79.55, y: 42.98 },
+      { id: 'L-11', name: 'Nha Trang', pays: 'Vietnam · Centre-Sud', zone: 'etranger', type: 'voyage', x: 80.0, y: 44.76 },
+      { id: 'L-12', name: 'Hô Chi Minh-Ville', pays: 'Vietnam · Sud', zone: 'etranger', type: 'voyage', x: 79.37, y: 45.96 }
     ];
-    const Z = { monde: { z: 1, x: 50, y: 50 }, europe: { z: 6.5, x: 50.4, y: 17.5 }, france: { z: 18, x: 50.6, y: 17.2 } }[s.zone];
+    const Z = { monde: { z: 1, x: 50, y: 50 }, europe: { z: 6.5, x: 49.8, y: 18.8 }, france: { z: 18, x: 50.6, y: 17.2 }, vietnam: { z: 18, x: 79.2, y: 41.7 } }[s.zone];
     const zoom = Z.z;
     const visible = (l) => l.type === 'depart' || (l.zone === 'france' && s.photo) || (l.zone === 'etranger' && s.trail);
     const vis = all.filter(visible);
@@ -146,8 +151,8 @@ class Component extends DCLogic {
         chip(s.photo, 'France', () => this.setState({ photo: !s.photo }), 'width: 10px; height: 10px; border-radius: 999px; border: 2px solid currentColor; box-sizing: border-box;'),
         chip(s.trail, 'Étranger', () => this.setState({ trail: !s.trail }), 'width: 10px; height: 10px; border-radius: 999px; border: 2px solid currentColor; box-sizing: border-box;')
       ],
-      zones: [zoneBtn('monde', 'Monde'), zoneBtn('europe', 'Europe'), zoneBtn('france', 'France')],
-      nbVisibles: String(vis.length).padStart(2, '0'),
+      zones: [zoneBtn('monde', 'Monde'), zoneBtn('europe', 'Europe'), zoneBtn('france', 'France'), zoneBtn('vietnam', 'Vietnam')],
+      nbVisibles: String(vis.filter((l) => l.type !== 'depart').length).padStart(2, '0'),
       carteStyle: 'position: relative; width: 100%; transform-origin: ' + Z.x + '% ' + Z.y + '%; transform: translate(' + (zoom > 1 ? (50 - Z.x) : 0) + '%, ' + (zoom > 1 ? (50 - Z.y) : 0) + '%) scale(' + zoom + ');',
       pins: vis.map((l, i) => ({
         pressed: l.id === s.sel ? 'true' : 'false',
@@ -166,7 +171,7 @@ class Component extends DCLogic {
       toggleSel: () => { if (!cur) return; const p = s.panier; this.setState({ panier: inPanier ? p.filter((x) => x !== cur.id) : p.concat([cur.id]) }); },
       liste: all.map((l) => Object.assign({}, l, {
         mark: shape(l.type, false, 14) + ' flex: none; margin: 0 4px;',
-        pick: () => this.setState({ sel: l.id, photo: s.photo || l.type === 'photo', trail: s.trail || l.type === 'trail', zone: l.zone === 'france' ? 'france' : (l.x > 40 && l.x < 60 && l.y < 30 ? 'europe' : 'monde') })
+        pick: () => this.setState({ sel: l.id, photo: s.photo || l.type === 'photo', trail: s.trail || l.type === 'trail', zone: (l.x > 70 ? 'vietnam' : l.zone === 'france' ? 'france' : 'europe') })
       }))
     };
   }

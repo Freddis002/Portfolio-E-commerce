@@ -38,6 +38,6 @@ La tablette utilise les pages desktop, qui sont fluides : sous 1024 px, le menu 
 - Contact : initial, erreurs (bordure et message Erreur #C8102E), envoyé.
 - Bandeau cookies : bandeau, panneau Personnaliser, confirmation.
 - Mobile : bouton « Ajouter à ma sélection » fixé en bas des fiches, sections dépliables, panneau de filtres.
-- Carnet de route : clic sur un repère (repère actif noir avec anneau orange), filtres France / Étranger, zoom Monde / Europe / France, fiche du lieu (panneau à droite en desktop, panneau bas en mobile), ajout à Ma sélection.
+- Carnet de route : 12 villes et Arras (départ), clic sur un repère (repère actif noir avec anneau orange), filtres France / Étranger, zoom Monde / Europe / France / Vietnam, fiche du lieu (panneau à droite en desktop, panneau bas en mobile), ajout à Ma sélection.
 
 Contenus en lorem ipsum et emplacements d'image hachurés (type de visuel + ratio) : à remplacer par les contenus réels.
