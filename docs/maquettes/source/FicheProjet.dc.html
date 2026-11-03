@@ -32,7 +32,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2p
 <div style="flex: 999 1 600px; min-width: 0; display: flex; flex-direction: column; gap: 12px;">
 <div class="ph" style="aspect-ratio: 16 / 10; position: relative; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6E6862; letter-spacing: 0.06em;">
 <span>{{mainLabel}}</span>
-<span style="position: absolute; top: 16px; left: 16px; background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">NOUVEAU</span>
+<span style="position: absolute; top: 16px; left: 16px; background: #FFE1D3; color: #111010; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px;">NOUVEAU</span>
 <span style="position: absolute; bottom: 16px; right: 16px; background: #111010; color: #F7F5F2; font-family: 'IBM Plex Mono', monospace; font-size: 11px; padding: 4px 8px;">{{imgIndex}} / 04</span>
 </div>
 <div role="group" aria-label="Choisir une image" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px;">
@@ -50,6 +50,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2p
 <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">EN BREF</span>
 <dl style="margin: 0; display: grid; grid-template-columns: 112px minmax(0, 1fr); border-top: 1px solid #111010; font-size: 15px;">
 <dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">CATÉGORIE</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">Projet · E-commerce</dd>
+<dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">ENTREPRISE</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">Green Ideas</dd>
 <dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">RÔLE</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">[Rôle]</dd>
 <dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">CONTEXTE</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">[Professionnel / personnel]</dd>
 <dt style="padding: 10px 0; border-bottom: 1px solid #E3DFD9; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862;">ANNÉE</dt><dd style="margin: 0; padding: 10px 0; border-bottom: 1px solid #E3DFD9;">[AAAA] · [durée]</dd>
@@ -134,7 +135,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2p
 <!-- Précédent / suivant -->
 <nav aria-label="Projets voisins" style="margin-top: 96px; border-top: 1px solid #E3DFD9; border-bottom: 1px solid #E3DFD9; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));">
 <a href="#" style="padding: 32px clamp(20px, 5.5vw, 80px); border-right: 1px solid #E3DFD9; text-decoration: none; display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">← PRÉCÉDENT · P-04</span><span style="font-size: 24px; font-weight: 700;">Chti Poker Club</span></a>
-<a href="#" style="padding: 32px clamp(20px, 5.5vw, 80px); text-decoration: none; display: flex; flex-direction: column; gap: 4px; align-items: flex-end; text-align: right;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">P-02 · SUIVANT →</span><span style="font-size: 24px; font-weight: 700;">Green Ideas / Market Shop</span></a>
+<a href="#" style="padding: 32px clamp(20px, 5.5vw, 80px); text-decoration: none; display: flex; flex-direction: column; gap: 4px; align-items: flex-end; text-align: right;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862;">P-02 · SUIVANT →</span><span style="font-size: 24px; font-weight: 700;">Mon Grossiste Auto</span></a>
 </nav>
 
 <dc-import name="Footer" hint-size="100%,420px"></dc-import>
@@ -180,7 +181,7 @@ class Component extends DCLogic {
     const xsell = [
       { id: 'E-01', cat: 'Expertise', title: 'E-commerce', ph: 'Illustration · 16:9', href: 'FicheExpertise.dc.html' },
       { id: 'E-02', cat: 'Expertise', title: 'SEO', ph: 'Illustration · 16:9', href: 'FicheExpertise.dc.html' },
-      { id: 'P-02', cat: 'Projet', title: 'Green Ideas / Market Shop', ph: 'Visuel projet · 16:9', href: '#' }
+      { id: 'P-02', cat: 'Projet', title: 'Mon Grossiste Auto', ph: 'Visuel projet · 16:9', href: '#' }
     ].map((x) => Object.assign({}, x, {
       pressed: has(x.id) ? 'true' : 'false',
       label: has(x.id) ? '✓ Ajouté' : '+ Ajouter',

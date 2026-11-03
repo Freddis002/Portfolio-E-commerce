@@ -76,7 +76,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2p
 
 <nav aria-label="Passions voisines" style="margin-top: 40px; border-top: 1px solid #E3DFD9;">
 <a href="#" style="display: flex; flex-direction: column; padding: 16px 20px; border-bottom: 1px solid #E3DFD9; text-decoration: none;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; letter-spacing: 0.08em;">← PRÉCÉDENT · H-04</span><span style="font-size: 18px; font-weight: 700;">Poker</span></a>
-<a href="#" style="display: flex; flex-direction: column; align-items: flex-end; padding: 16px 20px; border-bottom: 1px solid #E3DFD9; text-decoration: none;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; letter-spacing: 0.08em;">H-02 · SUIVANT →</span><span style="font-size: 18px; font-weight: 700;">Trail / randonnée</span></a>
+<a href="#" style="display: flex; flex-direction: column; align-items: flex-end; padding: 16px 20px; border-bottom: 1px solid #E3DFD9; text-decoration: none;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862; letter-spacing: 0.08em;">H-02 · SUIVANT →</span><span style="font-size: 18px; font-weight: 700;">Voyages</span></a>
 </nav>
 
 <dc-import name="FooterMobile" hint-size="100%,560px"></dc-import>
@@ -103,7 +103,7 @@ class Component extends DCLogic {
     return {
       count: sel.length,
       autres: [
-        { id: 'H-02', title: 'Trail / randonnée' },
+        { id: 'H-02', title: 'Voyages' },
         { id: 'H-03', title: 'CrossFit' },
         { id: 'H-04', title: 'Poker' }
       ].map((x) => Object.assign({}, x, {

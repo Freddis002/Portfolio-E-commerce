@@ -56,7 +56,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2p
 <div class="rail">
 <sc-for list="{{nouveautes}}" as="item" hint-placeholder-count="4">
 <article style="display: flex; flex-direction: column; border: 1px solid #E3DFD9;">
-<div class="ph" style="aspect-ratio: 16 / 9; position: relative; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;"><span>{{item.ph}}</span><span style="position: absolute; top: 10px; left: 10px; background: #FFE1D3; color: #C2410C; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 7px;">NOUVEAU</span></div>
+<div class="ph" style="aspect-ratio: 16 / 9; position: relative; display: grid; place-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E6862;"><span>{{item.ph}}</span><span style="position: absolute; top: 10px; left: 10px; background: #FFE1D3; color: #111010; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 7px;">NOUVEAU</span></div>
 <div style="padding: 16px; display: flex; flex-direction: column; gap: 6px;">
 <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862; text-transform: uppercase;">{{item.id}} · {{item.cat}}</span>
 <h3 style="margin: 0; font-size: 18px; line-height: 1.25; font-weight: 700;">{{item.title}}</h3>
@@ -79,7 +79,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #FF5A1F;outline-offset:2p
 <span style="font-family: 'IBM Plex Mono', monospace; font-size: 20px; color: #FF5A1F; width: 32px; flex: none;">{{item.rank}}</span>
 <div style="flex-grow: 1; min-width: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
 <h3 style="margin: 0; font-size: 20px; line-height: 1.2; font-weight: 800; font-variation-settings: 'wdth' 108;">{{item.title}}</h3>
-<sc-if value="{{item.isTop}}" hint-placeholder-val="{{false}}"><span style="background: #FFE1D3; color: #C2410C; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 6px;">TOP</span></sc-if>
+<sc-if value="{{item.isTop}}" hint-placeholder-val="{{false}}"><span style="background: #FFE1D3; color: #111010; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; padding: 3px 6px;">TOP</span></sc-if>
 </div>
 <button type="button" onClick="{{item.toggle}}" aria-pressed="{{item.pressed}}" aria-label="{{item.aria}}" style="{{item.iconStyle}}">{{item.icon}}</button>
 </li>
@@ -182,7 +182,7 @@ class Component extends DCLogic {
         { rank: '04', id: 'E-04', title: 'Data & Analytics', isTop: false },
         { rank: '05', id: 'E-05', title: 'Web', isTop: false }
       ].map((x) => this.decorate(x, true)),
-      featured: this.decorate({ id: 'P-02', title: 'Green Ideas / Market Shop' }),
+      featured: this.decorate({ id: 'P-02', title: 'Mon Grossiste Auto' }),
       count,
       countStyle: 'position: absolute; top: 2px; right: 0; display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 999px; font-family: IBM Plex Mono, monospace; font-size: 11px; font-weight: 600; ' + (count > 0 ? 'background: #FF5A1F; color: #111010;' : 'background: #E3DFD9; color: #2B2927;'),
       toastText: this.state.last || (count + ' ÉLÉMENT(S) SÉLECTIONNÉ(S)')
