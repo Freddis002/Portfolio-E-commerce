@@ -1,0 +1,484 @@
+/* Fiches projet, expertise et passion — maquettes Fiche*.dc.html */
+
+/* ---------- Zone produit ---------- */
+.fiche__haut {
+  padding-top: var(--space-5);
+}
+
+.fiche__haut .fil-ariane {
+  padding-bottom: var(--space-5);
+}
+
+.fiche__produit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-7);
+}
+
+.fiche__visuel {
+  flex: 999 1 600px;
+  min-width: 0;
+}
+
+.fiche__resume {
+  flex: 1 1 380px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fiche__reference {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.fiche__titre {
+  margin: 0;
+  font-size: clamp(40px, 4.5vw, 64px);
+  font-weight: var(--weight-display);
+  font-variation-settings: "wdth" var(--wdth-display);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-h1);
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.fiche__accroche {
+  margin: 0;
+  font-size: var(--text-corps-l);
+  line-height: 1.5;
+  color: var(--color-texte-long);
+}
+
+.fiche__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.fiche__actions .bouton {
+  width: 100%;
+}
+
+.fiche__note {
+  margin: 0;
+  font-size: var(--text-petit);
+  color: var(--color-texte-secondaire);
+}
+
+/* ---------- Sections ---------- */
+.fiche__section {
+  padding-top: var(--space-9);
+}
+
+.fiche__h2 {
+  margin: 0;
+  font-size: var(--text-h2);
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-titre);
+  letter-spacing: var(--tracking-titre);
+  line-height: var(--leading-h2);
+}
+
+.fiche__h3 {
+  margin: 0 0 var(--space-5);
+  font-size: 28px;
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-titre);
+  line-height: 1.2;
+}
+
+.fiche__colonnes {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.fiche__colonnes--4 {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.fiche__colonnes--3 {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* Lien vers une fiche en forme de pastille (expertises mobilisées) */
+.fiche__liens-pastilles {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.pastille-lien {
+  display: inline-block;
+  padding: 6px var(--space-3);
+  border: var(--bordure-forte);
+  border-radius: var(--radius-pastille);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  letter-spacing: var(--tracking-pastille);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.pastille-lien:hover {
+  background: var(--color-noir);
+  color: var(--color-blanc);
+}
+
+/* ---------- Projet ---------- */
+.fiche__resultats {
+  margin-top: var(--space-9);
+  padding-block: var(--space-8);
+  background: var(--color-surface);
+}
+
+.fiche__resultats-interieur {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+.fiche__resultats-interieur .label-mono {
+  margin: 0 0 var(--space-2);
+}
+
+.fiche__kpis {
+  flex: 2 1 480px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-4);
+}
+
+.fiche__kpi {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border: var(--bordure-forte);
+}
+
+.fiche__kpi-valeur {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: var(--weight-interface);
+}
+
+.fiche__images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-7);
+}
+
+.fiche__images-galerie {
+  flex: 999 1 560px;
+  min-width: 0;
+}
+
+.fiche__captures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.fiche__mobilises {
+  flex: 1 1 260px;
+}
+
+.fiche__mobilises .fiche__h3 {
+  font-size: var(--text-h3);
+}
+
+/* ---------- Expertise ---------- */
+.fiche__intro {
+  flex: 999 1 560px;
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--space-4);
+}
+
+.fiche__produit--expertise .fiche__resume {
+  flex: 1 1 320px;
+  max-width: 400px;
+}
+
+.fiche__titre--geant {
+  font-size: clamp(56px, 9vw, 144px);
+  line-height: 0.95;
+}
+
+.fiche__produit--expertise .fiche__accroche {
+  max-width: 28ch;
+  font-size: clamp(20px, 2vw, 24px);
+}
+
+.fiche__illustration {
+  max-height: 280px;
+}
+
+.fiche__puces {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.fiche__etapes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fiche__etapes li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: 10px 0;
+  border-bottom: var(--bordure);
+  color: var(--color-texte);
+}
+
+.fiche__etapes li:first-child {
+  padding-top: 0;
+}
+
+.fiche__etape-numero {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-orange-brule);
+}
+
+.fiche__outils {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-5);
+  margin-top: var(--space-7);
+}
+
+.fiche__outils-titre {
+  margin: 0;
+  font-weight: var(--weight-texte);
+}
+
+.fiche__application {
+  margin-top: var(--space-9);
+  padding-block: var(--space-9);
+  background: var(--color-surface);
+}
+
+.fiche__application-grille {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+}
+
+.fiche__application-texte {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+
+.fiche__application-texte .label-mono {
+  margin: 0 0 var(--space-3);
+}
+
+.fiche__application-cartes {
+  flex: 2 1 520px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-5);
+}
+
+.fiche__application-cartes > li {
+  display: flex;
+}
+
+.fiche__application-cartes .carte {
+  flex-grow: 1;
+}
+
+/* ---------- Passion ---------- */
+.fiche__produit--passion {
+  align-items: stretch;
+}
+
+.fiche__produit--passion .fiche__resume {
+  flex: 1 1 420px;
+  justify-content: flex-end;
+}
+
+.fiche__produit--passion .fiche__visuel {
+  flex: 1 1 420px;
+}
+
+.fiche__description {
+  margin: 0;
+  max-width: 52ch;
+  font-size: 15px;
+}
+
+.fiche__photos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.fiche__photo {
+  margin: 0;
+}
+
+.fiche__photo .image-emplacement__legende {
+  display: none;
+}
+
+.fiche__photo figcaption {
+  margin-top: var(--space-2);
+  font-size: var(--text-mono-xs);
+}
+
+.fiche__apport {
+  margin-top: var(--space-9);
+  padding-block: var(--space-9);
+  background: var(--color-noir);
+  color: var(--color-blanc);
+}
+
+.fiche__apport-interieur {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-7);
+}
+
+.fiche__apport .fiche__h2 {
+  flex: 1 1 280px;
+}
+
+.fiche__apport-texte {
+  flex: 2 1 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.fiche__apport-texte p {
+  margin: 0;
+  font-size: var(--text-corps-l);
+  line-height: 1.5;
+  color: var(--color-texte-secondaire-sur-noir);
+}
+
+.fiche__apport-lien {
+  color: var(--color-blanc);
+  font-weight: var(--weight-bold);
+  text-underline-offset: 4px;
+}
+
+.fiche__apport-lien:hover {
+  color: var(--color-orange);
+}
+
+.fiche__autres {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+/* ---------- Tablette ---------- */
+@media (max-width: 900px) {
+  .fiche__photos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .fiche__produit--expertise .fiche__resume {
+    max-width: none;
+  }
+}
+
+/* ---------- Mobile : < 600 px ---------- */
+@media (max-width: 599px) {
+  .fiche__produit {
+    gap: var(--space-5);
+  }
+
+  /* Le bouton d'ajout passe dans la barre collée en bas de l'écran */
+  .fiche__ajout {
+    display: none;
+  }
+
+  .fiche__note {
+    display: none;
+  }
+
+  .fiche__section {
+    padding-top: var(--space-7);
+  }
+
+  /* Sections dépliables empilées */
+  .fiche__colonnes {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .fiche__titre--geant {
+    font-size: clamp(48px, 15vw, 64px);
+  }
+
+  .fiche__illustration {
+    max-height: none;
+  }
+
+  .fiche__outils {
+    margin-top: var(--space-5);
+  }
+
+  .fiche__captures {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fiche__photos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+
+  .fiche__resultats,
+  .fiche__application,
+  .fiche__apport {
+    margin-top: var(--space-7);
+    padding-block: var(--space-7);
+  }
+
+  .fiche__autres {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5) var(--space-4);
+  }
+
+  /* Passion : la photo passe au-dessus du texte */
+  .fiche__produit--passion .fiche__visuel {
+    order: -1;
+  }
+}

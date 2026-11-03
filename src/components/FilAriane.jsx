@@ -4,11 +4,12 @@ import "./FilAriane.css";
 /**
  * Fil d'Ariane. Le dernier élément est la page courante (non cliquable).
  * - items : [{ label, to }] ; le dernier n'a pas besoin de « to »
+ * - court : sur mobile, n’affiche que les niveaux intermédiaires (fiches)
  * (Le JSON-LD BreadcrumbList sera ajouté à l'étape SEO à partir des mêmes items.)
  */
-export default function FilAriane({ items }) {
+export default function FilAriane({ items, court = false }) {
   return (
-    <nav className="fil-ariane" aria-label="Fil d'Ariane">
+    <nav className={`fil-ariane ${court ? "fil-ariane--court" : ""}`} aria-label="Fil d'Ariane">
       <ol className="fil-ariane__liste">
         {items.map((item, i) => {
           const dernier = i === items.length - 1;

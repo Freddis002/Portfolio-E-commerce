@@ -12,18 +12,15 @@ import {
   filtrer,
   trier,
   tris,
-  trouverParRef,
-  urlElement,
 } from "../data/catalogue";
 import { useSelection } from "../lib/selection";
-import { fichesVues } from "../lib/stockage";
 import { metaPage } from "../lib/seo";
 import Bouton from "../components/Bouton";
 import CarteProduit from "../components/CarteProduit";
 import FilAriane from "../components/FilAriane";
 import { CaseFiltre, GroupeFiltres } from "../components/Filtres";
-import ImageEmplacement from "../components/ImageEmplacement";
 import PanneauLateral from "../components/PanneauLateral";
+import RecemmentConsultes from "../components/RecemmentConsultes";
 import PointFinal from "../components/PointFinal";
 import SelecteurTri from "../components/SelecteurTri";
 import "./catalogue.css";
@@ -100,7 +97,6 @@ export default function Catalogue() {
   const etat = lireUrl(pret ? params : new URLSearchParams());
   const [panneauOuvert, setPanneauOuvert] = useState(false);
   const { contient, basculer, count } = useSelection();
-  const vues = fichesVues.utiliser();
 
   // replace : les filtres ne remplissent pas l'historique du bouton Retour
   const mettreAJour = (changement) =>
@@ -287,26 +283,7 @@ export default function Catalogue() {
           )}
 
           {/* Récemment consultés (rempli par les fiches) */}
-          {vues.length > 0 && (
-            <section className="catalogue__vus" aria-labelledby="cat-vus">
-              <h2 id="cat-vus" className="catalogue__vus-titre">
-                Récemment consultés
-              </h2>
-              <ul className="catalogue__vus-liste">
-                {vues.map(trouverParRef).map((e) => (
-                  <li key={e.ref}>
-                    <Link to={urlElement(e)} className="catalogue__vu">
-                      <ImageEmplacement type={categories[e.categorie].visuel} ratio="1:1" decoratif />
-                      <span>
-                        <span className="catalogue__vu-ref">{e.ref}</span>
-                        <span className="catalogue__vu-titre">{e.titre}</span>
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
+          <RecemmentConsultes />
         </div>
       </div>
 

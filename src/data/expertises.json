@@ -11,6 +11,20 @@
       "[Outil 2]",
       "[Outil 3]"
     ],
+    "pratiqueeDepuis": "[AAAA]",
+    "postesVises": "[Postes visés : à compléter]",
+    "besoins": "Lorem ipsum dolor sit amet : les situations où cette expertise est utile.",
+    "missions": [
+      "Lorem ipsum dolor sit amet",
+      "Consectetur adipiscing elit",
+      "Sed do eiusmod tempor"
+    ],
+    "methode": [
+      "Lorem ipsum (audit)",
+      "Lorem ipsum",
+      "Lorem ipsum (suivi)"
+    ],
+    "exemple": "Lorem ipsum dolor sit amet : comment cette expertise a été appliquée dans un projet réel, en 2 à 3 lignes.",
     "badges": {
       "nouveau": false,
       "top": true
@@ -37,6 +51,20 @@
       "[Outil 2]",
       "[Outil 3]"
     ],
+    "pratiqueeDepuis": "[AAAA]",
+    "postesVises": "[Postes visés : à compléter]",
+    "besoins": "Lorem ipsum dolor sit amet : les situations où cette expertise est utile.",
+    "missions": [
+      "Lorem ipsum dolor sit amet",
+      "Consectetur adipiscing elit",
+      "Sed do eiusmod tempor"
+    ],
+    "methode": [
+      "Lorem ipsum (audit)",
+      "Lorem ipsum",
+      "Lorem ipsum (suivi)"
+    ],
+    "exemple": "Lorem ipsum dolor sit amet : comment cette expertise a été appliquée dans un projet réel, en 2 à 3 lignes.",
     "badges": {
       "nouveau": false,
       "top": true
@@ -64,6 +92,20 @@
       "[Outil 2]",
       "[Outil 3]"
     ],
+    "pratiqueeDepuis": "[AAAA]",
+    "postesVises": "[Postes visés : à compléter]",
+    "besoins": "Lorem ipsum dolor sit amet : les situations où cette expertise est utile.",
+    "missions": [
+      "Lorem ipsum dolor sit amet",
+      "Consectetur adipiscing elit",
+      "Sed do eiusmod tempor"
+    ],
+    "methode": [
+      "Lorem ipsum (audit)",
+      "Lorem ipsum",
+      "Lorem ipsum (suivi)"
+    ],
+    "exemple": "Lorem ipsum dolor sit amet : comment cette expertise a été appliquée dans un projet réel, en 2 à 3 lignes.",
     "badges": {
       "nouveau": false,
       "top": false
@@ -89,6 +131,20 @@
       "[Outil 2]",
       "[Outil 3]"
     ],
+    "pratiqueeDepuis": "[AAAA]",
+    "postesVises": "[Postes visés : à compléter]",
+    "besoins": "Lorem ipsum dolor sit amet : les situations où cette expertise est utile.",
+    "missions": [
+      "Lorem ipsum dolor sit amet",
+      "Consectetur adipiscing elit",
+      "Sed do eiusmod tempor"
+    ],
+    "methode": [
+      "Lorem ipsum (audit)",
+      "Lorem ipsum",
+      "Lorem ipsum (suivi)"
+    ],
+    "exemple": "Lorem ipsum dolor sit amet : comment cette expertise a été appliquée dans un projet réel, en 2 à 3 lignes.",
     "badges": {
       "nouveau": true,
       "top": false
@@ -114,6 +170,20 @@
       "[Outil 2]",
       "[Outil 3]"
     ],
+    "pratiqueeDepuis": "[AAAA]",
+    "postesVises": "[Postes visés : à compléter]",
+    "besoins": "Lorem ipsum dolor sit amet : les situations où cette expertise est utile.",
+    "missions": [
+      "Lorem ipsum dolor sit amet",
+      "Consectetur adipiscing elit",
+      "Sed do eiusmod tempor"
+    ],
+    "methode": [
+      "Lorem ipsum (audit)",
+      "Lorem ipsum",
+      "Lorem ipsum (suivi)"
+    ],
+    "exemple": "Lorem ipsum dolor sit amet : comment cette expertise a été appliquée dans un projet réel, en 2 à 3 lignes.",
     "badges": {
       "nouveau": true,
       "top": false

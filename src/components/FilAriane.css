@@ -26,3 +26,20 @@
 .fil-ariane a:hover {
   color: var(--color-orange-brule);
 }
+
+/*
+ * Version courte sur mobile (fiches) : « ← Catalogue / Projets ».
+ * Accueil et page courante sont masqués à l'écran (le H1 suit juste après).
+ */
+@media (max-width: 599px) {
+  .fil-ariane--court .fil-ariane__item:first-child,
+  .fil-ariane--court .fil-ariane__item:last-child {
+    display: none;
+  }
+
+  .fil-ariane--court .fil-ariane__item:nth-child(2)::before {
+    content: "← ";
+    content: "← " / "";
+    padding: 0;
+  }
+}

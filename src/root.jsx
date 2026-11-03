@@ -11,6 +11,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BarreSelection from "./components/BarreSelection";
 import NotificationSelection from "./components/NotificationSelection";
+import PageIntrouvable from "./components/PageIntrouvable";
 import { useSelection } from "./lib/selection";
 
 import "./styles/fonts.css";
@@ -65,9 +66,11 @@ export default function App() {
 // Affiché si une page lève une erreur (ex. fiche introuvable)
 export function ErrorBoundary({ error }) {
   const introuvable = isRouteErrorResponse(error) && error.status === 404;
+  if (introuvable) return <PageIntrouvable />;
   return (
-    <main id="contenu">
-      <h1>{introuvable ? "Page introuvable" : "Erreur"}</h1>
+    <main id="contenu" className="conteneur">
+      <h1>Erreur</h1>
+      <p>Un problème est survenu. Rechargez la page ou revenez à l'accueil.</p>
     </main>
   );
 }

@@ -15,6 +15,15 @@
     "siteEnLigne": "https://www.monkitsolaire.fr/",
     "annee": "[AAAA]",
     "contexte": "professionnel",
+    "duree": "[durée]",
+    "recit": {
+      "contexte": "Lorem ipsum dolor sit amet : l’entreprise, son marché, la situation de départ.",
+      "problematique": "Lorem ipsum dolor sit amet : le problème à résoudre, en une phrase.",
+      "role": "Lorem ipsum dolor sit amet : périmètre, responsabilités, interlocuteurs.",
+      "demarche": "Lorem ipsum dolor sit amet : étapes clés, choix et arbitrages."
+    },
+    "_resultats": "Uniquement des résultats réels et vérifiables, ex. { \"valeur\": \"…\", \"libelle\": \"…\" }. Liste vide = section masquée.",
+    "resultats": [],
     "badges": {
       "nouveau": true,
       "top": false
@@ -46,6 +55,15 @@
     "siteEnLigne": "[À COMPLÉTER]",
     "annee": "[AAAA]",
     "contexte": "professionnel",
+    "duree": "[durée]",
+    "recit": {
+      "contexte": "Lorem ipsum dolor sit amet : l’entreprise, son marché, la situation de départ.",
+      "problematique": "Lorem ipsum dolor sit amet : le problème à résoudre, en une phrase.",
+      "role": "Lorem ipsum dolor sit amet : périmètre, responsabilités, interlocuteurs.",
+      "demarche": "Lorem ipsum dolor sit amet : étapes clés, choix et arbitrages."
+    },
+    "_resultats": "Uniquement des résultats réels et vérifiables, ex. { \"valeur\": \"…\", \"libelle\": \"…\" }. Liste vide = section masquée.",
+    "resultats": [],
     "badges": {
       "nouveau": false,
       "top": true
@@ -76,6 +94,15 @@
     "siteEnLigne": "[À COMPLÉTER]",
     "annee": "[AAAA]",
     "contexte": "professionnel",
+    "duree": "[durée]",
+    "recit": {
+      "contexte": "Lorem ipsum dolor sit amet : l’entreprise, son marché, la situation de départ.",
+      "problematique": "Lorem ipsum dolor sit amet : le problème à résoudre, en une phrase.",
+      "role": "Lorem ipsum dolor sit amet : périmètre, responsabilités, interlocuteurs.",
+      "demarche": "Lorem ipsum dolor sit amet : étapes clés, choix et arbitrages."
+    },
+    "_resultats": "Uniquement des résultats réels et vérifiables, ex. { \"valeur\": \"…\", \"libelle\": \"…\" }. Liste vide = section masquée.",
+    "resultats": [],
     "badges": {
       "nouveau": true,
       "top": false
@@ -105,6 +132,15 @@
     "siteEnLigne": "[À COMPLÉTER]",
     "annee": "[AAAA]",
     "contexte": "personnel",
+    "duree": "[durée]",
+    "recit": {
+      "contexte": "Lorem ipsum dolor sit amet : l’entreprise, son marché, la situation de départ.",
+      "problematique": "Lorem ipsum dolor sit amet : le problème à résoudre, en une phrase.",
+      "role": "Lorem ipsum dolor sit amet : périmètre, responsabilités, interlocuteurs.",
+      "demarche": "Lorem ipsum dolor sit amet : étapes clés, choix et arbitrages."
+    },
+    "_resultats": "Uniquement des résultats réels et vérifiables, ex. { \"valeur\": \"…\", \"libelle\": \"…\" }. Liste vide = section masquée.",
+    "resultats": [],
     "badges": {
       "nouveau": false,
       "top": false

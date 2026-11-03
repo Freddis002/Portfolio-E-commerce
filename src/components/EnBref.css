@@ -1,0 +1,39 @@
+/* Bloc « En bref » — maquettes FicheProjet, FicheExpertise, FichePassion */
+
+.en-bref {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.en-bref__titre {
+  margin: 0;
+}
+
+.en-bref__liste {
+  margin: 0;
+  border-top: var(--bordure-forte);
+  font-size: 15px;
+}
+
+.en-bref__ligne {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: var(--space-2);
+  padding: 10px 0;
+  border-bottom: var(--bordure);
+}
+
+.en-bref__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  letter-spacing: var(--tracking-label);
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--color-texte-secondaire);
+}
+
+.en-bref__valeur {
+  margin: 0;
+  min-width: 0;
+}

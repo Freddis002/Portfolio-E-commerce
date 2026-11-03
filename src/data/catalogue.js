@@ -138,3 +138,37 @@ export function compterOption(cle, valeur, filtres) {
     (e) => correspond(e, filtres, cle) && facettes[cle].valeurs(e).includes(valeur),
   ).length;
 }
+
+/* ---------- Liens entre éléments (fiches) ---------- */
+
+const refsLiees = (e) => [
+  ...(e.liens?.projets ?? []),
+  ...(e.liens?.expertises ?? []),
+  ...(e.liens?.passions ?? []),
+];
+
+/**
+ * Éléments liés à un élément, dans les deux sens : ceux qu'il cite dans
+ * « liens », et ceux qui le citent (ex. SEO ← Mon Kit Solaire).
+ * - categorie : pour ne garder qu'une catégorie (ex. "projet")
+ */
+export function elementsLies(element, categorie) {
+  const refs = new Set(refsLiees(element));
+  for (const e of elements) {
+    if (refsLiees(e).includes(element.ref)) refs.add(e.ref);
+  }
+  refs.delete(element.ref);
+  return elements.filter(
+    (e) => refs.has(e.ref) && (!categorie || e.categorie === categorie),
+  );
+}
+
+// Fiches précédente et suivante dans la catégorie (en boucle)
+export function voisins(element) {
+  const liste = elementsDe(element.categorie).sort((a, b) => a.ordre - b.ordre);
+  const i = liste.findIndex((e) => e.ref === element.ref);
+  return {
+    precedent: liste[(i - 1 + liste.length) % liste.length],
+    suivant: liste[(i + 1) % liste.length],
+  };
+}

@@ -1,0 +1,88 @@
+/* Sections de récit — colonnes en desktop, accordéon sur mobile */
+
+.depliable {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: 2px solid var(--color-noir);
+}
+
+.depliable__titre {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-h3);
+}
+
+.depliable__numero {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-s);
+  font-weight: var(--weight-texte);
+  color: var(--color-texte-secondaire);
+}
+
+.depliable__contenu {
+  color: var(--color-texte-long);
+}
+
+.depliable__contenu > :first-child {
+  margin-top: 0;
+}
+
+.depliable__contenu > :last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Mobile : accordéon ---------- */
+.depliable--mobile {
+  gap: 0;
+  padding-top: 0;
+  border-top: 0;
+  border-bottom: var(--bordure);
+}
+
+.depliable--mobile .depliable__entete {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 56px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.depliable--mobile .depliable__entete::-webkit-details-marker {
+  display: none;
+}
+
+.depliable--mobile .depliable__titre {
+  flex-grow: 1;
+  flex-direction: row;
+  align-items: baseline;
+  gap: var(--space-3);
+  font-size: 20px;
+}
+
+/* Chevron dessiné en CSS (bordures), tourné quand la section est ouverte */
+.depliable--mobile .depliable__entete::after {
+  content: "";
+  flex: none;
+  width: 10px;
+  height: 10px;
+  margin-right: var(--space-1);
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform var(--transition);
+}
+
+.depliable--mobile[open] .depliable__entete::after {
+  transform: translateY(3px) rotate(-135deg);
+}
+
+.depliable--mobile .depliable__contenu {
+  padding-bottom: var(--space-4);
+}

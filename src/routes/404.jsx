@@ -1,12 +1,13 @@
-// Page provisoire : affiche seulement le nom de la route
+import PageIntrouvable from "../components/PageIntrouvable";
+
+// Page 404 : jamais indexée
 export function meta() {
-  return [{ title: "Page introuvable" }];
+  return [
+    { title: "Page introuvable" },
+    { name: "robots", content: "noindex" },
+  ];
 }
 
 export default function Page() {
-  return (
-    <main id="contenu">
-      <h1>Page introuvable</h1>
-    </main>
-  );
+  return <PageIntrouvable />;
 }
