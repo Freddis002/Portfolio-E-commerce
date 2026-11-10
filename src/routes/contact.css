@@ -143,8 +143,10 @@
   overflow: hidden;
 }
 
+/* Desktop : mention à gauche, bouton à droite (le bouton est premier dans le HTML) */
 .contact__envoi {
   display: flex;
+  flex-direction: row-reverse;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
@@ -262,7 +264,7 @@
   }
 
   .contact__envoi {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
   .contact__envoi .bouton {

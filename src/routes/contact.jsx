@@ -265,10 +265,7 @@ export default function Contact() {
               </div>
 
               <div className="contact__envoi">
-                <p id="contact-rgpd" className="contact__rgpd">
-                  * Champs obligatoires. Vos données servent uniquement à vous répondre et ne sont
-                  jamais revendues. <Link to="/confidentialite">Politique de confidentialité</Link>
-                </p>
+                {/* Bouton d’abord dans le HTML : ordre de tabulation = ordre visuel sur mobile */}
                 <Bouton type="submit" disabled={statut === "envoi"} aria-busy={statut === "envoi"}>
                   {statut === "envoi" ? (
                     "Envoi en cours…"
@@ -278,6 +275,10 @@ export default function Contact() {
                     </>
                   )}
                 </Bouton>
+                <p id="contact-rgpd" className="contact__rgpd">
+                  * Champs obligatoires. Vos données servent uniquement à vous répondre et ne sont
+                  jamais revendues. <Link to="/confidentialite">Politique de confidentialité</Link>
+                </p>
               </div>
             </form>
           )}

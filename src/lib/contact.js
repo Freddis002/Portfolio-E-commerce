@@ -1,12 +1,15 @@
 /*
  * Échanges avec le script d'envoi public/api/contact.php (hébergement OVH).
  *
- * En développement (npm run dev), PHP n'est pas disponible : les réponses
- * sont simulées. Pour tester un échec, écrivez « #erreur » dans le message.
+ * En local (npm run dev ou npm run preview), PHP n'est pas disponible : les
+ * réponses sont simulées. Pour tester un échec, écrivez « #erreur » dans le
+ * message. En ligne, l'adresse n'est jamais localhost : le vrai script répond.
  */
 
 const ADRESSE = "/api/contact.php";
-const SIMULATION = import.meta.env.DEV;
+const SIMULATION =
+  import.meta.env.DEV ||
+  (typeof window !== "undefined" && ["localhost", "127.0.0.1"].includes(window.location.hostname));
 const attendre = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const ECHEC_RESEAU = {
