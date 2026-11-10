@@ -19,6 +19,23 @@ import "./styles/fonts.css";
 import "./styles/tokens.css";
 import "./styles/global.css";
 
+// Adresses des fichiers de police (même fichier que celui chargé par fonts.css)
+import policeArchivo from "@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2?url";
+import policeMono from "@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2?url";
+
+/*
+ * Préchargement des deux polices du haut de page : le navigateur les
+ * télécharge dès la lecture du <head>, sans attendre le CSS. Le texte
+ * s'affiche plus vite dans la bonne police (moins de « saut » de mise en page).
+ */
+export function links() {
+  return [
+    { rel: "preload", href: policeArchivo, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+    { rel: "preload", href: policeMono, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+    { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+  ];
+}
+
 // Pages sans barre de sélection mobile : le parcours de contact,
 // et les fiches (qui auront leur propre bouton d'ajout fixé en bas)
 const SANS_BARRE = /^\/(selection|contact|projets|expertises|passions)(\/|$)/;

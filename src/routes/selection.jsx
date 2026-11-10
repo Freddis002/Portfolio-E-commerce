@@ -24,15 +24,13 @@ import PointFinal from "../components/PointFinal";
 import "./selection.css";
 
 export function meta() {
-  return [
-    ...metaPage({
-      titre: `Ma sélection · ${profil.nom} ${profil.prenom}`,
-      description: "Votre sélection de projets, expertises et passions, à envoyer avec un message.",
-      chemin: "/selection",
-    }),
+  return metaPage({
+    titre: `Ma sélection · ${profil.nom} ${profil.prenom}`,
+    description: "Votre sélection de projets, expertises et passions, à envoyer avec un message.",
+    chemin: "/selection",
     // Page propre à chaque visiteur : rien à indexer
-    { name: "robots", content: "noindex" },
-  ];
+    robots: "noindex",
+  });
 }
 
 // Lignes du récapitulatif (les lieux du Carnet de route n'apparaissent que s'il y en a)

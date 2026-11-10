@@ -1,11 +1,12 @@
 {
-  "_commentaire": "Textes de présentation communs aux pages. À COMPLÉTER : nom, prénom, accroches, domaine du site.",
+  "_commentaire": "Textes de présentation communs aux pages. À COMPLÉTER : nom, prénom, accroches, LinkedIn, domaine du site. siteUrl est la SEULE adresse du site : elle alimente URL canoniques, partage, JSON-LD, sitemap, robots.txt et llms.txt.",
   "prenom": "PRÉNOM",
   "nom": "NOM",
   "siteUrl": "https://www.domaine-a-completer.fr",
   "ville": "Arras",
   "departement": "62",
   "region": "Hauts-de-France",
+  "linkedin": "[LinkedIn à compléter : https://www.linkedin.com/in/…]",
   "postes": [
     "Chargé e-commerce",
     "Marketing & communication",
@@ -13,13 +14,29 @@
   ],
   "accueil": {
     "surtitre": "Collection 2026 · Basé à Arras",
-    "accroche": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore, en Hauts-de-France.",
+    "accroche": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Basé à Arras, ouvert à un CDI en Hauts-de-France.",
     "referenceVisuel": "Réf. NP-2026",
     "reassurance": [
-      { "icone": "lieu", "titre": "Basé à Arras", "texte": "Lorem ipsum dolor sit amet" },
-      { "icone": "mobilite", "titre": "Mobile en Hauts-de-France", "texte": "Lorem ipsum dolor sit amet" },
-      { "icone": "disponibilite", "titre": "Disponibilité : [lorem]", "texte": "CDI · temps plein" },
-      { "icone": "cv", "titre": "CV en PDF", "texte": "Téléchargement direct" }
+      {
+        "icone": "lieu",
+        "titre": "Basé à Arras",
+        "texte": "Lorem ipsum dolor sit amet"
+      },
+      {
+        "icone": "mobilite",
+        "titre": "Mobile en Hauts-de-France",
+        "texte": "Lorem ipsum dolor sit amet"
+      },
+      {
+        "icone": "disponibilite",
+        "titre": "Disponibilité : [lorem]",
+        "texte": "CDI · temps plein"
+      },
+      {
+        "icone": "cv",
+        "titre": "CV en PDF",
+        "texte": "Téléchargement direct"
+      }
     ],
     "passions": {
       "titre": "Au-delà du bureau",

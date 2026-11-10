@@ -13,24 +13,26 @@
 }
 
 .reassurance__item {
+  min-width: 0;
+}
+
+/* Titre avec son icône ; le détail est aligné sous le texte du titre */
+.reassurance__titre {
   display: flex;
   align-items: flex-start;
   gap: var(--space-3);
-}
-
-.reassurance__icone {
-  flex: none;
-}
-
-.reassurance__titre {
   margin: 0;
   font-size: 15px;
   font-weight: var(--weight-bold);
   line-height: var(--leading-serre);
 }
 
+.reassurance__icone {
+  flex: none;
+}
+
 .reassurance__texte {
-  margin: 0;
+  margin: 0 0 0 calc(24px + var(--space-3));
   font-size: var(--text-petit);
   line-height: 1.4;
   color: var(--color-texte-secondaire);

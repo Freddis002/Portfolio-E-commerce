@@ -3,7 +3,7 @@ import { CalendarDays, FileDown, MapPin, Route } from "lucide-react";
 import profil from "../data/profil.json";
 import { CHEMIN_CARNET, categories, deuxChiffres, elements, elementsDe, trier } from "../data/catalogue";
 import { useSelection } from "../lib/selection";
-import { metaPage } from "../lib/seo";
+import { ldPersonne, ldSiteWeb, metaPage } from "../lib/seo";
 import Banniere from "../components/Banniere";
 import BandeReassurance from "../components/BandeReassurance";
 import Bouton from "../components/Bouton";
@@ -18,9 +18,11 @@ const nomComplet = `${profil.nom} ${profil.prenom}`;
 
 export function meta() {
   return metaPage({
-    titre: `${nomComplet} · Chargé e-commerce et marketing digital à ${profil.ville} (${profil.region})`,
+    titre: `${nomComplet} — Chargé e-commerce & marketing à ${profil.ville}`,
     description: `Portfolio de ${nomComplet}, basé à ${profil.ville} : projets e-commerce, SEO et marketing digital. Ouvert à un CDI en ${profil.region}.`,
     chemin: "/",
+    // La personne et le site, décrits pour Google et les moteurs d'IA
+    jsonLd: [ldSiteWeb(), ldPersonne()],
   });
 }
 

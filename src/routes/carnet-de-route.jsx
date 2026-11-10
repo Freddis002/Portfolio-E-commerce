@@ -13,7 +13,7 @@ import {
 } from "../data/catalogue";
 import { useEstMobile } from "../lib/fiche";
 import { useApresHydratation } from "../lib/hydratation";
-import { metaPage } from "../lib/seo";
+import { ldFilAriane, metaPage, urlAbsolue } from "../lib/seo";
 import CarteVoyages, { ZONES, zoneDuLieu } from "../components/CarteVoyages";
 import FicheLieu, { FicheLieuMobile } from "../components/FicheLieu";
 import FilAriane from "../components/FilAriane";
@@ -35,16 +35,13 @@ const FILTRES = [
 ];
 
 export function meta() {
-  const url = (chemin) => new URL(chemin, profil.siteUrl).href;
-  return [
-    ...metaPage({
-      titre: `Carnet de route : voyages au départ d'${profil.ville} · ${profil.nom} ${profil.prenom}`,
-      description: `Carte des voyages et des lieux photographiés au départ d'${profil.ville} (${profil.region}) : France, Espagne, Irlande, Pays-Bas, Vietnam. Passion H-02 Voyages.`,
-      chemin: CHEMIN_CARNET,
-    }),
+  return metaPage({
+    titre: `Carnet de route : voyages au départ d'${profil.ville} · ${profil.nom} ${profil.prenom}`,
+    description: `Carte des voyages et des lieux photographiés au départ d'${profil.ville} (${profil.region}) : France, Espagne, Irlande, Pays-Bas, Vietnam. Passion H-02 Voyages.`,
+    chemin: CHEMIN_CARNET,
     // Données structurées : la liste des lieux (avec coordonnées) et le fil d'Ariane
-    {
-      "script:ld+json": {
+    jsonLd: [
+      {
         "@context": "https://schema.org",
         "@type": "ItemList",
         name: "Carnet de route",
@@ -52,7 +49,7 @@ export function meta() {
         itemListElement: lieux.map((l, i) => ({
           "@type": "ListItem",
           position: i + 1,
-          url: url(urlElement(l)),
+          url: urlAbsolue(urlElement(l)),
           item: {
             "@type": "Place",
             name: l.nom,
@@ -65,20 +62,9 @@ export function meta() {
           },
         })),
       },
-    },
-    {
-      "script:ld+json": {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: FIL.map((f, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: f.label,
-          item: url(f.to ?? CHEMIN_CARNET),
-        })),
-      },
-    },
-  ];
+      ldFilAriane(FIL, CHEMIN_CARNET),
+    ],
+  });
 }
 
 export default function CarnetDeRoute() {

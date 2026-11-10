@@ -1,9 +1,9 @@
 import { useEffect, useSyncExternalStore } from "react";
 import { data } from "react-router";
 import profil from "../data/profil.json";
-import { categories, trouverParSlug, urlElement } from "../data/catalogue";
+import { categories, elementsLies, trouverParSlug, urlElement } from "../data/catalogue";
 import { fichesVues } from "./stockage";
-import { metaPage } from "./seo";
+import { LIMITE_DESCRIPTION, LIMITE_TITRE, couper, ldFilAriane, ldProjet, metaPage } from "./seo";
 
 /**
  * Loader d'une fiche, exécuté au build (pré-rendu) : retrouve l'élément
@@ -17,15 +17,36 @@ export function chargerFiche(categorie) {
   };
 }
 
-// Balises <head> d'une fiche : « Mon Kit Solaire · Projet · NOM PRÉNOM, Arras »
+/**
+ * Fil d'Ariane d'une fiche : Accueil / Catalogue / Projets / Mon Kit Solaire.
+ * Le même tableau sert au fil affiché (FilAriane) et au JSON-LD.
+ */
+export function filFiche(element) {
+  const cat = categories[element.categorie];
+  return [
+    { label: "Accueil", to: "/" },
+    { label: "Catalogue", to: "/catalogue" },
+    { label: cat.pluriel, to: `/catalogue?cat=${cat.chemin}` },
+    { label: element.titre },
+  ];
+}
+
+// Balises <head> d'une fiche, générées depuis les données (title ≤ 60, description ≤ 155)
 export function metaFiche({ data: element }) {
   if (!element) return [{ title: "Page introuvable" }];
   const libelle = categories[element.categorie].libelle;
-  return metaPage({
-    titre: `${element.titre} · ${libelle} · ${profil.nom} ${profil.prenom}, ${profil.ville}`,
-    description: `${libelle} ${element.ref} : ${element.titre}. ${element.accroche} Portfolio de ${profil.nom} ${profil.prenom}, ${profil.ville} (${profil.region}).`,
-    chemin: urlElement(element),
-  });
+  const chemin = urlElement(element);
+  const nom = `${profil.nom} ${profil.prenom}`;
+  // Titre complet si possible, sinon sans la ville
+  const titreComplet = `${element.titre} · ${libelle} · ${nom}, ${profil.ville}`;
+  const titre = titreComplet.length <= LIMITE_TITRE ? titreComplet : couper(`${element.titre} · ${libelle} · ${nom}`, LIMITE_TITRE);
+  const description = couper(
+    `${libelle} ${element.ref} : ${element.titre}. ${element.accroche} Portfolio de ${nom}, basé à ${profil.ville}.`,
+    LIMITE_DESCRIPTION,
+  );
+  const jsonLd = [ldFilAriane(filFiche(element), chemin)];
+  if (element.categorie === "projet") jsonLd.push(ldProjet(element, chemin, elementsLies(element, "expertise")));
+  return metaPage({ titre, description, chemin, jsonLd });
 }
 
 // Mémorise la fiche ouverte pour « Récemment consultés » (identifiant seulement)

@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { CHEMIN_CARNET, deuxChiffres, elementsDe, elementsLies, lieux, urlElement } from "../data/catalogue";
-import { chargerFiche, metaFiche, useFicheVue } from "../lib/fiche";
+import { chargerFiche, filFiche, metaFiche, useFicheVue } from "../lib/fiche";
 import { useSelection } from "../lib/selection";
 import BasDeFiche from "../components/BasDeFiche";
 import BoutonAjout from "../components/BoutonAjout";
@@ -32,15 +32,7 @@ export default function FichePassion({ loaderData: passion }) {
   return (
     <main id="contenu" className="fiche fiche--passion">
       <div className="fiche__haut conteneur">
-        <FilAriane
-          court
-          items={[
-            { label: "Accueil", to: "/" },
-            { label: "Catalogue", to: "/catalogue" },
-            { label: "Passions", to: "/catalogue?cat=passions" },
-            { label: passion.titre },
-          ]}
-        />
+        <FilAriane court items={filFiche(passion)} />
         <div className="fiche__produit fiche__produit--passion">
           <div className="fiche__resume">
             <p className="fiche__reference label-mono">{passion.ref} · Passion</p>

@@ -7,7 +7,8 @@
     "build": "react-router build",
     "preview": "vite preview --outDir build/client",
     "postbuild": "node scripts/fichiers-seo.mjs",
-    "photos": "node scripts/photos.mjs"
+    "photos": "node scripts/photos.mjs",
+    "image-partage": "node scripts/image-partage.mjs"
   },
   "engines": {
     "node": ">=20"
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@react-router/dev": "7.18.5",
+    "playwright-core": "^1.65.0",
     "sharp": "^0.35.5",
     "vite": "8.3.5"
   }

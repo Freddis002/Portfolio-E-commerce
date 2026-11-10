@@ -1,5 +1,5 @@
 import { deuxChiffres, elementsLies } from "../data/catalogue";
-import { chargerFiche, metaFiche, useFicheVue } from "../lib/fiche";
+import { chargerFiche, filFiche, metaFiche, useFicheVue } from "../lib/fiche";
 import { useSelection } from "../lib/selection";
 import BasDeFiche from "../components/BasDeFiche";
 import BoutonAjout from "../components/BoutonAjout";
@@ -30,15 +30,7 @@ export default function FicheExpertise({ loaderData: expertise }) {
   return (
     <main id="contenu" className="fiche fiche--expertise">
       <div className="fiche__haut conteneur">
-        <FilAriane
-          court
-          items={[
-            { label: "Accueil", to: "/" },
-            { label: "Catalogue", to: "/catalogue" },
-            { label: "Expertises", to: "/catalogue?cat=expertises" },
-            { label: expertise.titre },
-          ]}
-        />
+        <FilAriane court items={filFiche(expertise)} />
         <div className="fiche__produit fiche__produit--expertise">
           <div className="fiche__intro">
             <p className="fiche__reference">

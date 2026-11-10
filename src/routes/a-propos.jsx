@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import profil from "../data/profil.json";
 import aPropos from "../data/a-propos.json";
 import { elementsDe, urlElement } from "../data/catalogue";
-import { metaPage } from "../lib/seo";
+import { ldPageProfil, metaPage } from "../lib/seo";
 import Banniere from "../components/Banniere";
 import Bouton from "../components/Bouton";
 import EnteteSection from "../components/EnteteSection";
@@ -11,9 +11,12 @@ import "./a-propos.css";
 
 export function meta() {
   return metaPage({
-    titre: `À propos · ${profil.nom} ${profil.prenom}, chargé e-commerce et marketing à ${profil.ville}`,
-    description: `Parcours, valeurs et CV de ${profil.nom} ${profil.prenom}, basé à ${profil.ville} et mobile en ${profil.region}. Ouvert à un CDI : e-commerce, marketing & communication, chef de projet digital.`,
+    titre: `À propos · ${profil.nom} ${profil.prenom}, e-commerce à ${profil.ville}`,
+    description: `Parcours, valeurs et CV de ${profil.nom} ${profil.prenom}, basé à ${profil.ville}, mobile en ${profil.region}. Ouvert à un CDI en e-commerce et marketing.`,
     chemin: "/a-propos",
+    type: "profile",
+    // Page de profil : la personne en est le sujet principal
+    jsonLd: [ldPageProfil("/a-propos")],
   });
 }
 

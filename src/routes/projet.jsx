@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { contextes, deuxChiffres, elementsLies, urlElement } from "../data/catalogue";
-import { chargerFiche, metaFiche, useFicheVue } from "../lib/fiche";
+import { chargerFiche, filFiche, metaFiche, useFicheVue } from "../lib/fiche";
 import { useSelection } from "../lib/selection";
 import BasDeFiche from "../components/BasDeFiche";
 import Bouton from "../components/Bouton";
@@ -41,15 +41,7 @@ export default function FicheProjet({ loaderData: projet }) {
     <main id="contenu" className="fiche fiche--projet">
       {/* Zone produit : galerie + résumé */}
       <div className="fiche__haut conteneur">
-        <FilAriane
-          court
-          items={[
-            { label: "Accueil", to: "/" },
-            { label: "Catalogue", to: "/catalogue" },
-            { label: "Projets", to: "/catalogue?cat=projets" },
-            { label: projet.titre },
-          ]}
-        />
+        <FilAriane court items={filFiche(projet)} />
         <div className="fiche__produit">
           <div className="fiche__visuel">
             <GalerieProjet badges={projet.badges} />
