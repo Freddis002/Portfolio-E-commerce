@@ -1,0 +1,275 @@
+/* Contact — maquettes Contact.dc.html et ContactMobile.dc.html */
+
+.contact__haut {
+  padding-top: var(--space-6);
+}
+
+.contact__corps {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-9);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-7) var(--space-8);
+}
+
+/* ---------- Colonne de gauche ---------- */
+.contact__colonne {
+  flex: 1 1 340px;
+  max-width: 485px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.contact__surtitre {
+  margin: 0;
+}
+
+.contact__titre {
+  margin: 0;
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: var(--weight-display);
+  font-variation-settings: "wdth" var(--wdth-display);
+  letter-spacing: var(--tracking-display);
+  line-height: 0.95;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.contact__intro {
+  margin: 0;
+  font-size: var(--text-corps-l);
+  color: var(--color-texte-long);
+}
+
+/* Récapitulatif de la sélection */
+.contact__recap {
+  padding: var(--space-5);
+  border: var(--bordure);
+}
+
+.contact__recap-titre {
+  list-style: none;
+  cursor: pointer;
+}
+
+.contact__recap-titre::-webkit-details-marker {
+  display: none;
+}
+
+.contact__recap-liste {
+  list-style: none;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+}
+
+.contact__recap-liste li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: 10px 0;
+  border-bottom: var(--bordure);
+}
+
+.contact__recap-liste .label-mono {
+  font-size: var(--text-mono-xs);
+}
+
+.contact__recap-vide {
+  margin: var(--space-3) 0 0;
+  color: var(--color-texte-long);
+}
+
+.contact__recap-lien {
+  display: inline-block;
+  margin-top: var(--space-4);
+  font-weight: var(--weight-bold);
+  text-underline-offset: 4px;
+}
+
+.contact__direct p {
+  margin: var(--space-1) 0 0;
+}
+
+.contact__direct .label-mono {
+  margin: 0 0 var(--space-2);
+}
+
+.contact__lieu {
+  color: var(--color-texte-secondaire);
+}
+
+/* ---------- Formulaire ---------- */
+.contact__formulaire {
+  flex: 999 1 480px;
+  min-width: 0;
+}
+
+.contact__formulaire form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.contact__ligne {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+/* Résumé des erreurs : bordure et texte Erreur, icône + texte */
+.contact__alerte {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: 14px var(--space-4);
+  border: 1px solid var(--color-erreur);
+  color: var(--color-erreur);
+  font-weight: var(--weight-semibold);
+}
+
+.contact__alerte:focus {
+  outline-offset: 4px;
+}
+
+/* Champ piège : sorti de l'écran (pas display:none, que certains robots repèrent) */
+.contact__piege {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact__envoi {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4) var(--space-6);
+}
+
+.contact__rgpd {
+  flex: 1 1 280px;
+  max-width: 44ch;
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-texte-secondaire);
+}
+
+.contact__rgpd a {
+  color: var(--color-texte-secondaire);
+  text-underline-offset: 3px;
+}
+
+.contact__envoi .bouton {
+  height: var(--hauteur-bouton-l);
+}
+
+/* ---------- Confirmation (étape 03 Envoi) ---------- */
+.contact__succes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border: var(--bordure-forte);
+}
+
+.contact__succes p {
+  margin: 0;
+  color: var(--color-texte-long);
+}
+
+.contact__succes .contact__succes-etat {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-succes);
+  font-weight: var(--weight-bold);
+}
+
+.contact__succes-titre {
+  margin: 0;
+  font-size: var(--text-h2);
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-titre);
+  letter-spacing: var(--tracking-titre);
+  line-height: var(--leading-h2);
+}
+
+.contact__succes-titre:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.contact__succes-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 599px) {
+  .contact__haut {
+    padding-top: var(--space-4);
+  }
+
+  .contact__corps {
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-7);
+  }
+
+  .contact__colonne {
+    max-width: none;
+  }
+
+  .contact__surtitre,
+  .contact__direct {
+    display: none;
+  }
+
+  .contact__recap {
+    padding: var(--space-4);
+    background: var(--color-fond);
+  }
+
+  /* Chevron du récapitulatif dépliable */
+  .contact__recap-titre {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .contact__recap-titre::after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: translateY(-3px) rotate(45deg);
+    transition: transform var(--transition);
+  }
+
+  .contact__recap[open] .contact__recap-titre::after {
+    transform: translateY(2px) rotate(-135deg);
+  }
+
+  .contact__ligne {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contact__envoi {
+    flex-direction: column-reverse;
+  }
+
+  .contact__envoi .bouton {
+    width: 100%;
+  }
+
+  .contact__succes {
+    padding: var(--space-5);
+  }
+}
