@@ -6,6 +6,8 @@ export default [
   route("catalogue", "routes/catalogue.jsx"),
   route("projets/:slug", "routes/projet.jsx"),
   route("expertises/:slug", "routes/expertise.jsx"),
+  // Adresse fixe : React Router la préfère à passions/:slug
+  route("passions/carnet-de-route", "routes/carnet-de-route.jsx"),
   route("passions/:slug", "routes/passion.jsx"),
   route("a-propos", "routes/a-propos.jsx"),
   route("selection", "routes/selection.jsx"),

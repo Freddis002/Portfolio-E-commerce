@@ -129,6 +129,38 @@
   },
   {
     "id": "L-04",
+    "slug": "le-grau-du-roi",
+    "nom": "Le Grau-du-Roi",
+    "pays": "France",
+    "region": "Occitanie",
+    "type": "voyage",
+    "zone": "france",
+    "annee": "[AAAA]",
+    "latitude": 43.5372,
+    "longitude": 4.1361,
+    "texte": "Lorem ipsum dolor sit amet : ce que vous y avez vu, photographié ou parcouru.",
+    "photos": [
+      {
+        "fichier": null,
+        "legende": "[Légende photo 01 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 02 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 03 : à compléter]"
+      },
+      {
+        "fichier": null,
+        "legende": "[Légende photo 04 : à compléter]"
+      }
+    ],
+    "passion": "H-02"
+  },
+  {
+    "id": "L-05",
     "slug": "seville",
     "nom": "Séville",
     "pays": "Espagne",
@@ -160,7 +192,7 @@
     "passion": "H-02"
   },
   {
-    "id": "L-05",
+    "id": "L-06",
     "slug": "dublin",
     "nom": "Dublin",
     "pays": "Irlande",
@@ -192,7 +224,7 @@
     "passion": "H-02"
   },
   {
-    "id": "L-06",
+    "id": "L-07",
     "slug": "amsterdam",
     "nom": "Amsterdam",
     "pays": "Pays-Bas",
@@ -224,7 +256,7 @@
     "passion": "H-02"
   },
   {
-    "id": "L-07",
+    "id": "L-08",
     "slug": "hanoi",
     "nom": "Hanoï",
     "pays": "Vietnam",
@@ -256,7 +288,7 @@
     "passion": "H-02"
   },
   {
-    "id": "L-08",
+    "id": "L-09",
     "slug": "hue",
     "nom": "Hué",
     "pays": "Vietnam",
@@ -288,7 +320,7 @@
     "passion": "H-02"
   },
   {
-    "id": "L-09",
+    "id": "L-10",
     "slug": "da-nang",
     "nom": "Da Nang",
     "pays": "Vietnam",
@@ -320,7 +352,7 @@
     "passion": "H-02"
   },
   {
-    "id": "L-10",
+    "id": "L-11",
     "slug": "kon-tum",
     "nom": "Kon Tum",
     "pays": "Vietnam",
@@ -352,7 +384,7 @@
     "passion": "H-02"
   },
   {
-    "id": "L-11",
+    "id": "L-12",
     "slug": "nha-trang",
     "nom": "Nha Trang",
     "pays": "Vietnam",
@@ -384,7 +416,7 @@
     "passion": "H-02"
   },
   {
-    "id": "L-12",
+    "id": "L-13",
     "slug": "ho-chi-minh-ville",
     "nom": "Hô Chi Minh-Ville",
     "pays": "Vietnam",

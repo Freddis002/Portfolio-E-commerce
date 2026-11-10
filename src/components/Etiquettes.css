@@ -49,3 +49,22 @@
   padding: 0 var(--space-2);
   font-size: 10px;
 }
+
+/* Lien vers une fiche en forme de pastille (expertises mobilisées, passion liée) */
+.pastille-lien {
+  display: inline-block;
+  padding: 6px var(--space-3);
+  border: var(--bordure-forte);
+  border-radius: var(--radius-pastille);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  letter-spacing: var(--tracking-pastille);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.pastille-lien:hover {
+  background: var(--color-noir);
+  color: var(--color-blanc);
+}

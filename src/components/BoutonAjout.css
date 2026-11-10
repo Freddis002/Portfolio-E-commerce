@@ -122,3 +122,16 @@
     white-space: nowrap;
   }
 }
+
+/* Largeur fixe : passer de « + Ajouter » à « ✓ Ajouté » ne fait pas bouger
+   la carte (ni au chargement de la sélection, ni au clic) */
+.bouton-ajout--s:not(.bouton-ajout--retirer) {
+  min-width: 108px;
+}
+
+@media (max-width: 599px) {
+  /* Version compacte (symbole seul) : carré de 44 px */
+  .bouton-ajout--compact.bouton-ajout--s {
+    min-width: 0;
+  }
+}

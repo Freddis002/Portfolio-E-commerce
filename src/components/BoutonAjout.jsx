@@ -8,6 +8,7 @@ import "./BoutonAjout.css";
  * - taille : "s" (cartes, 44 px) ou "l" (fiches, 56 px, pleine largeur)
  * - surNoir : version pour les fonds Noir Encre
  * - compact : sur mobile, symbole seul (listes)
+ * - court : libellé court « Ajouter / Ajouté » même en taille l (panneau mobile du Carnet)
  * - titre : nom de l'élément, lu par les lecteurs d'écran
  *   (« Ajouter Mon Kit Solaire à ma sélection »)
  *
@@ -21,6 +22,7 @@ export default function BoutonAjout({
   surNoir = false,
   titre,
   compact = false,
+  court = false,
   className = "",
   ...reste
 }) {
@@ -36,6 +38,7 @@ export default function BoutonAjout({
     .filter(Boolean)
     .join(" ");
 
+  const long = taille === "l" && !court;
   let symbole;
   let texte;
   let complement;
@@ -45,12 +48,12 @@ export default function BoutonAjout({
     complement = ` ${titre} de ma sélection`;
   } else if (ajoute) {
     symbole = "✓";
-    texte = taille === "l" ? "Dans votre sélection" : "Ajouté";
+    texte = long ? "Dans votre sélection" : "Ajouté";
     complement = ` : ${titre} est dans votre sélection. Activer pour le retirer`;
   } else {
     symbole = "+";
-    texte = taille === "l" ? "Ajouter à ma sélection" : "Ajouter";
-    complement = taille === "l" ? ` : ${titre}` : ` ${titre} à ma sélection`;
+    texte = long ? "Ajouter à ma sélection" : "Ajouter";
+    complement = long ? ` : ${titre}` : ` ${titre} à ma sélection`;
   }
 
   return (

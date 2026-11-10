@@ -1,0 +1,398 @@
+/* Carnet de route — maquettes CarnetDeRoute.dc.html et CarnetDeRouteMobile.dc.html */
+
+/* ---------- En-tête ---------- */
+.carnet__entete {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.carnet__entete-ligne {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-5) var(--space-7);
+}
+
+.carnet__intro {
+  flex: 1 1 520px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.carnet__passions {
+  margin: 0;
+}
+
+.carnet__passions a {
+  color: var(--color-texte-secondaire);
+  text-underline-offset: 3px;
+}
+
+.carnet__titre {
+  margin: 0;
+  font-size: clamp(48px, 6vw, 88px);
+  font-weight: var(--weight-display);
+  font-variation-settings: "wdth" var(--wdth-display);
+  letter-spacing: var(--tracking-display);
+  line-height: 0.95;
+}
+
+.carnet__texte {
+  margin: 0;
+  max-width: 52ch;
+  font-size: var(--text-corps-l);
+  color: var(--color-texte-long);
+}
+
+.carnet__chiffres {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: var(--bordure);
+}
+
+.carnet__chiffre {
+  padding: var(--space-3) 20px;
+}
+
+.carnet__chiffre + .carnet__chiffre {
+  border-left: var(--bordure);
+}
+
+.carnet__chiffre dt {
+  font-size: var(--text-mono-xs);
+}
+
+.carnet__chiffre dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-h3);
+}
+
+/* ---------- Barre d'outils ---------- */
+.carnet__outils {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+  border-top: var(--bordure-forte);
+  border-bottom: var(--bordure);
+}
+
+/* « Voir sur la carte » fait défiler jusqu'ici, avec un peu d'air au-dessus */
+.carnet__ancre {
+  scroll-margin-top: var(--space-4);
+}
+
+.carnet__filtres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* Pastilles à bascule France / Étranger */
+.carnet__filtre {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 40px;
+  padding: 0 14px;
+  border: var(--bordure-forte);
+  border-radius: var(--radius-pastille);
+  background: transparent;
+  color: var(--color-texte);
+  font-family: var(--font-sans);
+  font-size: var(--text-petit);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.carnet__filtre:hover {
+  background: var(--color-surface);
+}
+
+/* Actif : fond noir ET pastille pleine (l'état ne repose pas que sur la couleur) */
+.carnet__filtre[aria-pressed="true"] {
+  background: var(--color-noir);
+  color: var(--color-blanc);
+}
+
+.carnet__filtre-marque {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-pastille);
+  border: 2px solid currentColor;
+}
+
+.carnet__filtre[aria-pressed="true"] .carnet__filtre-marque {
+  background: var(--color-orange);
+}
+
+.carnet__filtre-nombre {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+}
+
+.carnet__reglages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.carnet__nombre {
+  margin: 0;
+  color: var(--color-texte);
+}
+
+.carnet__zones {
+  display: flex;
+}
+
+.carnet__zone {
+  height: 40px;
+  padding: 0 var(--space-4);
+  border: var(--bordure-forte);
+  background: transparent;
+  color: var(--color-texte);
+  font-family: var(--font-sans);
+  font-size: var(--text-petit);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.carnet__zone + .carnet__zone {
+  border-left: 0;
+}
+
+.carnet__zone:hover {
+  background: var(--color-surface);
+}
+
+.carnet__zone[aria-pressed="true"] {
+  background: var(--color-noir);
+  color: var(--color-blanc);
+}
+
+/* ---------- Carte + fiche ---------- */
+.carnet__corps {
+  padding-top: var(--space-5);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: var(--space-5);
+}
+
+.carnet__carte {
+  flex: 999 1 640px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.carnet__carte .carte-voyages {
+  flex-grow: 1;
+}
+
+.carnet__note {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-texte-secondaire);
+}
+
+.carnet__corps .fiche-lieu {
+  flex: 1 1 340px;
+  min-width: 0;
+}
+
+/* ---------- Tous les lieux ---------- */
+.carnet__liste {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-9);
+}
+
+.carnet__liste-titre {
+  margin: 0 0 var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: var(--bordure-forte);
+  font-size: 32px;
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-titre);
+}
+
+.carnet__lieux {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carnet__lieu {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1.4fr) minmax(0, 1fr) 120px 80px auto;
+  grid-template-areas: "ref nom situation type annee lien";
+  align-items: center;
+  gap: var(--space-4);
+  padding: 14px var(--space-2);
+  border-bottom: var(--bordure);
+  transition: background-color var(--transition);
+}
+
+.carnet__lieu:hover {
+  background: var(--color-surface);
+}
+
+.carnet__lieu-forme {
+  grid-area: forme;
+  display: none;
+}
+
+.carnet__lieu-ref {
+  grid-area: ref;
+}
+
+.carnet__lieu-nom {
+  grid-area: nom;
+  font-weight: var(--weight-bold);
+}
+
+.carnet__lieu-situation {
+  grid-area: situation;
+  color: var(--color-texte-long);
+}
+
+.carnet__lieu-type {
+  grid-area: type;
+  color: var(--color-texte);
+}
+
+.carnet__lieu-annee {
+  grid-area: annee;
+}
+
+.carnet__lieu-annee-mobile {
+  display: none;
+}
+
+.carnet__lieu-lien {
+  grid-area: lien;
+  justify-self: end;
+  font-size: var(--text-petit);
+  font-weight: var(--weight-bold);
+  text-underline-offset: 4px;
+}
+
+/* ---------- Mobile : < 600 px ---------- */
+@media (max-width: 599px) {
+  .carnet__entete {
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-5);
+  }
+
+  .carnet__chiffre {
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .carnet__chiffre dd {
+    font-size: 18px;
+  }
+
+  .carnet__outils {
+    padding-block: var(--space-3);
+  }
+
+  .carnet__reglages {
+    width: 100%;
+  }
+
+  /* Le compteur est déjà donné par les pastilles : place aux zones */
+  .carnet__nombre {
+    display: none;
+  }
+
+  .carnet__zone {
+    padding: 0 10px;
+  }
+
+  /* Carte d'un bord à l'autre, 300 px de haut */
+  .carnet__corps {
+    padding-top: 0;
+    padding-inline: 0;
+  }
+
+  .carnet__carte .carte-voyages {
+    height: 300px;
+    border-inline: 0;
+  }
+
+  .carnet__note {
+    display: none;
+  }
+
+  .carnet__liste {
+    padding-top: var(--space-7);
+  }
+
+  .carnet__liste-titre {
+    font-size: 28px;
+  }
+
+  .carnet__lieu {
+    grid-template-columns: 24px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "forme nom lien"
+      "forme situation lien";
+    column-gap: var(--space-3);
+    row-gap: 0;
+    padding: var(--space-4) 0;
+  }
+
+  .carnet__lieu-forme {
+    display: block;
+    align-self: center;
+  }
+
+  .carnet__lieu-ref,
+  .carnet__lieu-type,
+  .carnet__lieu-annee {
+    display: none;
+  }
+
+  .carnet__lieu-situation {
+    font-size: var(--text-petit);
+  }
+
+  .carnet__lieu-annee-mobile {
+    display: inline;
+  }
+
+  /* Flèche seule : le nom du lieu reste lu par les lecteurs d'écran */
+  .carnet__lieu-lien {
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  .carnet__lieu-lien-texte {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  /* Place occupée par la fiche fixée en bas, pour ne pas masquer le footer */
+  .carnet__espace-fiche {
+    height: 200px;
+  }
+}

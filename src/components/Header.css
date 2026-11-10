@@ -285,3 +285,15 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Pulsation du compteur à chaque ajout ou retrait (160 ms, coupée si
+   l'utilisateur a demandé moins de mouvement : règle globale) */
+.compteur--pulsation {
+  animation: compteur-pulsation var(--duree) var(--easing);
+}
+
+@keyframes compteur-pulsation {
+  50% {
+    transform: scale(1.3);
+  }
+}

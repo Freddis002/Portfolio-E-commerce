@@ -1,0 +1,144 @@
+/* Carte du Carnet de route — maquettes CarnetDeRoute*.dc.html */
+
+.carte-voyages {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+  background: var(--color-surface);
+  border: var(--bordure);
+}
+
+/* Cadre aux proportions de la carte : repères et fond partagent ses % */
+.carte-voyages__cadre {
+  position: relative;
+  width: 100%;
+}
+
+.carte-voyages__calque {
+  width: 100%;
+}
+
+.carte-voyages__fond {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Repères ---------- */
+/*
+ * Zone cliquable de 24 px (minimum WCAG 2.2 AA), forme dessinée au centre.
+ * Pas plus : sinon deux villes proches (Hué et Da Nang) se recouvrent.
+ */
+.repere {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.repere__forme {
+  display: block;
+  box-sizing: border-box;
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+/* Départ : carré noir */
+.repere--depart .repere__forme {
+  width: 16px;
+  height: 16px;
+  background: var(--color-noir);
+  border: 3px solid var(--color-noir);
+}
+
+/* Voyage : rond orange cerclé de noir */
+.repere--voyage .repere__forme {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-pastille);
+  background: var(--color-orange);
+  border: 2px solid var(--color-noir);
+}
+
+/* Actif : fond noir + anneau orange (la forme change, pas seulement la couleur) */
+.repere--voyage[aria-pressed="true"] .repere__forme {
+  background: var(--color-noir);
+  outline: 3px solid var(--color-orange);
+  outline-offset: 2px;
+}
+
+.repere--depart[aria-pressed="true"] .repere__forme {
+  border-color: var(--color-orange);
+}
+
+/* Nom du lieu : visible au survol, au focus et sur le lieu actif */
+.repere__nom {
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 7px;
+  background: var(--color-noir);
+  color: var(--color-blanc);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  font-weight: var(--weight-interface);
+  letter-spacing: var(--tracking-pastille);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.repere:hover .repere__nom,
+.repere:focus-visible .repere__nom,
+.repere[aria-pressed="true"] .repere__nom {
+  opacity: 1;
+}
+
+/* ---------- Légende ---------- */
+.carte-voyages__legende {
+  position: absolute;
+  left: var(--space-3);
+  bottom: var(--space-3);
+  z-index: 4;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 6px 10px;
+  background: var(--color-fond);
+  border: var(--bordure);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  letter-spacing: var(--tracking-pastille);
+  text-transform: uppercase;
+}
+
+.carte-voyages__cle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.repere-mini {
+  width: 12px;
+  height: 12px;
+  box-sizing: border-box;
+}
+
+.repere-mini--depart {
+  background: var(--color-noir);
+}
+
+.repere-mini--voyage {
+  border-radius: var(--radius-pastille);
+  background: var(--color-orange);
+  border: 2px solid var(--color-noir);
+}

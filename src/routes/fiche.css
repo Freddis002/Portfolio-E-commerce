@@ -116,24 +116,6 @@
   gap: var(--space-2);
 }
 
-.pastille-lien {
-  display: inline-block;
-  padding: 6px var(--space-3);
-  border: var(--bordure-forte);
-  border-radius: var(--radius-pastille);
-  font-family: var(--font-mono);
-  font-size: var(--text-mono-xs);
-  letter-spacing: var(--tracking-pastille);
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background-color var(--transition), color var(--transition);
-}
-
-.pastille-lien:hover {
-  background: var(--color-noir);
-  color: var(--color-blanc);
-}
-
 /* ---------- Projet ---------- */
 .fiche__resultats {
   margin-top: var(--space-9);
@@ -480,5 +462,51 @@
   /* Passion : la photo passe au-dessus du texte */
   .fiche__produit--passion .fiche__visuel {
     order: -1;
+  }
+}
+
+/* ---------- Lien vers le Carnet de route (passions Voyages, Photographie) ---------- */
+.fiche__carnet {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-5);
+  padding: 40px;
+  border: var(--bordure-forte);
+  color: var(--color-texte);
+  text-decoration: none;
+  transition: background-color var(--transition);
+}
+
+.fiche__carnet:hover {
+  color: var(--color-texte);
+  background: var(--color-surface);
+}
+
+.fiche__carnet-texte {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.fiche__carnet-texte p {
+  margin: 0;
+  color: var(--color-texte-long);
+}
+
+.fiche__carnet-cta {
+  font-weight: var(--weight-bold);
+  text-underline-offset: 4px;
+}
+
+.fiche__carnet:hover .fiche__carnet-cta {
+  color: var(--color-orange-brule);
+  text-decoration: underline;
+}
+
+@media (max-width: 599px) {
+  .fiche__carnet {
+    padding: var(--space-5);
   }
 }

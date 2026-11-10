@@ -24,3 +24,8 @@ desktop.ini
 .idea/
 .vscode/*
 !.vscode/extensions.json
+
+# Photos originales : elles contiennent souvent la position GPS.
+# « npm run photos » publie dans public/photos/ des copies sans métadonnées.
+/photos-originales/*
+!/photos-originales/LISEZMOI.md

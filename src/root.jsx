@@ -10,9 +10,10 @@ import {
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BarreSelection from "./components/BarreSelection";
-import NotificationSelection from "./components/NotificationSelection";
+import AnnonceSelection from "./components/AnnonceSelection";
+import MiniPanier from "./components/MiniPanier";
 import PageIntrouvable from "./components/PageIntrouvable";
-import { useSelection } from "./lib/selection";
+import { useRetoursSelection, useSelection } from "./lib/selection";
 
 import "./styles/fonts.css";
 import "./styles/tokens.css";
@@ -40,7 +41,8 @@ export function Layout({ children }) {
         {children}
         <Footer />
         <Barre />
-        <NotificationSelection />
+        <MiniPanier />
+        <AnnonceSelection />
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -50,7 +52,8 @@ export function Layout({ children }) {
 
 function Entete() {
   const { count } = useSelection();
-  return <Header count={count} />;
+  const { impulsion } = useRetoursSelection();
+  return <Header count={count} impulsion={impulsion} />;
 }
 
 function Barre() {

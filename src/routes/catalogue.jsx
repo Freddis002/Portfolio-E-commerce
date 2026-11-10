@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router";
 import { LayoutGrid, List, SlidersHorizontal } from "lucide-react";
 import profil from "../data/profil.json";
@@ -13,6 +13,7 @@ import {
   trier,
   tris,
 } from "../data/catalogue";
+import { useApresHydratation } from "../lib/hydratation";
 import { useSelection } from "../lib/selection";
 import { metaPage } from "../lib/seo";
 import Bouton from "../components/Bouton";
@@ -70,22 +71,6 @@ function ecrireUrl(etat) {
   if (etat.tri !== "pertinence") ajouter("tri", [etat.tri]);
   if (etat.vue !== "grille") ajouter("vue", [etat.vue]);
   return parties.length ? `?${parties.join("&")}` : "";
-}
-
-/*
- * Le HTML pré-rendu correspond au catalogue sans filtre. Au premier affichage
- * dans le navigateur, on rend donc d'abord cet état par défaut (sinon React
- * signale une différence avec le HTML), puis on applique les filtres de l'URL.
- * Lors d'une navigation interne, la page est déjà « hydratée » : pas d'attente.
- */
-let dejaHydrate = false;
-function useApresHydratation() {
-  const [pret, setPret] = useState(dejaHydrate);
-  useEffect(() => {
-    dejaHydrate = true;
-    setPret(true);
-  }, []);
-  return pret;
 }
 
 /* ---------- Page ---------- */

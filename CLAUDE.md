@@ -58,6 +58,14 @@ Nouveautés (badge NOUVEAU), Les plus demandées (badge TOP), page catégorie av
 et tri, ajout rapide, mini-panier, bloc « En bref », « Souvent sélectionné avec »,
 « Récemment consultés », parcours 01 Sélection → 02 Coordonnées → 03 Envoi.
 Cartes projet : rôle en pastille noire + outils en pastilles contour.
+Carnet de route (/passions/carnet-de-route, page phare de H-02 Voyages) : carte des lieux
+(src/data/voyages.json, L-00 Arras départ, puis un lieu par ville), fond public/carte/monde.svg en projection Equal Earth
+(src/lib/projection.js, aucun service de carte externe), repères = boutons, filtres France / Étranger,
+zoom Monde / Europe / France / Vietnam, fiche du lieu (panneau à droite, panneau bas sur mobile),
+liste « Tous les lieux » toujours dans le HTML, lieu partageable (?lieu=L-03), chaque lieu ajoutable à
+Ma sélection. Animations Motion sobres (LazyMotion + domAnimation), coupées si prefers-reduced-motion.
+Photos : originaux dans photos-originales/ (hors Git), « npm run photos » publie dans public/photos/
+des WebP/AVIF sans aucune métadonnée (ni EXIF ni GPS).
 Mobile : bouton « Ajouter à ma sélection » fixé en bas des fiches, sections longues dépliables.
 Interdits : recherche, méga-menu, prix, livraison, avis inventés.
 

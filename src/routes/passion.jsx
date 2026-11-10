@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { deuxChiffres, elementsDe, elementsLies, urlElement } from "../data/catalogue";
+import { CHEMIN_CARNET, deuxChiffres, elementsDe, elementsLies, lieux, urlElement } from "../data/catalogue";
 import { chargerFiche, metaFiche, useFicheVue } from "../lib/fiche";
 import { useSelection } from "../lib/selection";
 import BasDeFiche from "../components/BasDeFiche";
@@ -93,6 +93,26 @@ export default function FichePassion({ loaderData: passion }) {
           ))}
         </ul>
       </section>
+
+      {/* Lien vers le Carnet de route (Voyages, Photographie : carnetDeRoute dans passions.json) */}
+      {passion.carnetDeRoute && (
+        <section className="fiche__section conteneur" aria-labelledby="fiche-carnet">
+          <Link to={CHEMIN_CARNET} className="fiche__carnet">
+            <div className="fiche__carnet-texte">
+              <p className="label-mono">
+                Carte · {deuxChiffres(lieux.filter((l) => l.type === "voyage").length)} lieux
+              </p>
+              <h2 id="fiche-carnet" className="fiche__h2">
+                Carnet de route
+              </h2>
+              <p>Les voyages et les lieux photographiés, au départ d'Arras, sur une carte.</p>
+            </div>
+            <span className="fiche__carnet-cta">
+              Ouvrir le carnet de route <span aria-hidden="true">→</span>
+            </span>
+          </Link>
+        </section>
+      )}
 
       {/* Ce que ça m'apporte au travail */}
       <section className="fiche__apport" aria-labelledby="fiche-apport">

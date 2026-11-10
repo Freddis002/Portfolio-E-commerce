@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { CalendarDays, FileDown, MapPin, Route } from "lucide-react";
 import profil from "../data/profil.json";
-import { categories, deuxChiffres, elements, elementsDe, trier } from "../data/catalogue";
+import { CHEMIN_CARNET, categories, deuxChiffres, elements, elementsDe, trier } from "../data/catalogue";
 import { useSelection } from "../lib/selection";
 import { metaPage } from "../lib/seo";
 import Banniere from "../components/Banniere";
@@ -165,7 +165,8 @@ export default function Accueil() {
 
       {/* 7. Bannières secondaires */}
       <section className="accueil__section accueil__decouvrir conteneur" aria-label="À découvrir">
-        <Link to="/catalogue?cat=passions" className="promo promo--passions">
+        {/* Deux liens dans la bannière (un lien ne peut pas en contenir un autre) */}
+        <div className="promo promo--passions">
           <div className="promo__texte">
             <div className="promo__textes">
               <span className="label-mono">
@@ -176,16 +177,21 @@ export default function Accueil() {
                 {passions.map((p) => p.titre).join(", ")}. {accueil.passions.texte}
               </p>
             </div>
-            <span className="promo__cta">
-              Découvrir les passions <span aria-hidden="true">→</span>
-            </span>
+            <div className="promo__liens">
+              <Link to="/catalogue?cat=passions" className="promo__cta">
+                Découvrir les passions <span aria-hidden="true">→</span>
+              </Link>
+              <Link to={CHEMIN_CARNET} className="promo__cta">
+                Voir le carnet de route <span aria-hidden="true">→</span>
+              </Link>
+            </div>
           </div>
           <div className="promo__mosaique" aria-hidden="true">
             {passions.map((p) => (
               <ImageEmplacement key={p.ref} type="Photo" ratio="1:1" decoratif />
             ))}
           </div>
-        </Link>
+        </div>
 
         <Link to="/a-propos" className="promo promo--a-propos">
           <div className="promo__textes">
