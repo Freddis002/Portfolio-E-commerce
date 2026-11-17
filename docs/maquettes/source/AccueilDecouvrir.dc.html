@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Duo 3D final</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#F7F5F2}
+a{color:#111010}
+.carte3d{transition:transform 160ms ease-out, background-color 160ms ease-out}
+.carte3d:focus-visible{outline:2px solid #FF5A1F;outline-offset:2px;box-shadow:0 0 0 4px #111010}
+.btn-contour:hover{background:#111010;color:#F7F5F2}
+.lien:hover{color:#C2410C}
+.apropos:hover .boite,.apropos:focus-visible .boite{transform:rotateX(-10deg) rotateY(-12deg)}
+.apropos:hover .apropos__cta{background:#111010;color:#F7F5F2}
+.apropos:focus-visible{outline:2px solid #FF5A1F;outline-offset:2px}
+@media (prefers-reduced-motion: reduce){.carte3d,.boite{transition:none}}
+</style>
+</helmet>
+<section aria-label="À découvrir" style="width: 1120px; height: 620px; box-sizing: border-box; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; font-family: Archivo, sans-serif; color: #111010; background: #F7F5F2">
+
+  <!-- Passions : jeu de cartes en 3D -->
+  <div style="grid-column: span 7; background: #EFECE7; padding: 40px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start">
+      <h2 style="margin: 0; font-size: 56px; line-height: 0.98; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em">Au-delà<br>du bureau<span style="color: #FF5A1F">.</span></h2>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #6E6862; text-align: right">COLLECTION<br>PASSIONS · 04</span>
+    </div>
+
+    <ul aria-label="Mes passions" style="position: relative; margin: 0; padding: 0; list-style: none; height: 270px; perspective: 1100px; perspective-origin: 50% 40%">
+      <sc-for list="{{cartes}}" as="c" hint-placeholder-count="4">
+        <li style="position: absolute; top: 24px; left: {{c.gauche}}; width: 170px; height: 220px; z-index: {{c.z}}; transform-style: preserve-3d">
+          <a href="#" class="carte3d" onMouseEnter="{{c.choisir}}" onFocus="{{c.choisir}}" style="position: absolute; inset: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; padding: 12px; text-decoration: none; color: #111010; background-color: {{c.fond}}; border: 1px solid #111010; transform: {{c.transform}}; transform-origin: 50% 50%">
+            <span style="display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em"><span>{{c.ref}}</span><span aria-hidden="true">→</span></span>
+            <span aria-hidden="true" style="position: relative; flex-grow: 1; overflow: hidden; border: 1px solid #E3DFD9; background-color: #F7F5F2; background-image: repeating-linear-gradient(135deg, #E3DFD9 0 1px, transparent 1px 12px)">
+              <sc-if value="{{c.carte}}" hint-placeholder-val="{{false}}">
+                <span style="position: absolute; inset: 0; background: #F7F5F2"></span>
+                <span style="position: absolute; left: -130px; top: -14px; width: 324px; height: 142px">
+                  <img src="/_blob/f9c653c98da1052ed9031d9212280015" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+                  <sc-for list="{{lieux}}" as="p" hint-placeholder-count="13">
+                    <span style="position: absolute; left: {{p.x}}; top: {{p.y}}; width: 7px; height: 7px; transform: translate(-50%, -50%); background: {{p.fond}}; border: 1px solid #F7F5F2; border-radius: {{p.rayon}}; box-sizing: border-box"></span>
+                  </sc-for>
+                </span>
+              </sc-if>
+              <sc-if value="{{c.photo}}" hint-placeholder-val="{{true}}">
+                <span style="position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E6862">PHOTO · 1:1</span>
+              </sc-if>
+            </span>
+            <span style="font-size: 20px; font-weight: 800; font-variation-settings: 'wdth' 112; letter-spacing: -0.01em">{{c.titre}}</span>
+          </a>
+        </li>
+      </sc-for>
+    </ul>
+
+    <div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #111010; padding-top: 16px">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862">{{legende}}</span>
+      <a href="#" class="lien" style="font-weight: 700; text-decoration: none; transition: color 160ms ease-out">Ouvrir le carnet de route <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+
+  <!-- À propos : le candidat présenté comme un produit, boîte en 3D -->
+  <a href="#" class="apropos" style="grid-column: span 5; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; padding: 40px; border: 1px solid #111010; background: #F7F5F2; text-decoration: none; color: #111010">
+    <span aria-hidden="true" style="display: flex; justify-content: center; align-items: center; height: 280px; perspective: 900px; background-color: #EFECE7; background-image: repeating-linear-gradient(0deg, #E3DFD9 0 1px, transparent 1px 24px), repeating-linear-gradient(90deg, #E3DFD9 0 1px, transparent 1px 24px)">
+      <span class="boite" style="position: relative; width: 160px; height: 200px; transform-style: preserve-3d; transform: rotateX(-16deg) rotateY(-32deg); transition: transform 160ms ease-out">
+        <span style="position: absolute; inset: 0; box-sizing: border-box; border: 1px solid #111010; background-color: #EFECE7; overflow: hidden; transform: translateZ(35px); display: flex; flex-direction: column; justify-content: space-between; padding: 8px">
+          <img src="/_blob/43ea2257a998741eaa9bce4dafe6fa66" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+          <span style="position: relative; align-self: flex-start; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; background: #F7F5F2; border: 1px solid #111010; padding: 2px 6px">RÉF. NP-2026</span>
+          <span style="position: relative; align-self: stretch; text-align: center; font-size: 14px; font-weight: 800; font-variation-settings: 'wdth' 112; background: #FFE1D3; border: 1px solid #111010; padding: 4px 6px; line-height: 1.05">DISLAIRE<br>FRÉDÉRIC<span style="color: #C2410C">.</span></span>
+        </span>
+        <span style="position: absolute; top: 0; left: 45px; width: 70px; height: 200px; box-sizing: border-box; border: 1px solid #111010; background: #EFECE7; transform: rotateY(90deg) translateZ(80px); display: grid; place-items: center">
+          <span style="writing-mode: vertical-rl; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em">ARRAS · HAUTS-DE-FRANCE</span>
+        </span>
+        <span style="position: absolute; left: 0; top: 65px; width: 160px; height: 70px; box-sizing: border-box; border: 1px solid #111010; background: #F7F5F2; transform: rotateX(90deg) translateZ(100px) rotateZ(180deg); display: grid; place-items: center">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em">COLLECTION 2026</span>
+        </span>
+      </span>
+    </span>
+    <span style="display: flex; flex-direction: column; gap: 12px">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; color: #6E6862">À PROPOS · PARCOURS</span>
+      <span style="font-size: 32px; line-height: 1.05; font-weight: 800; font-variation-settings: 'wdth' 112; letter-spacing: -0.02em">Lorem ipsum, accroche personnelle<span style="color: #FF5A1F">.</span></span>
+      <span style="font-size: 16px; line-height: 1.5; color: #2B2927">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Basé à Arras.</span>
+    </span>
+    <span class="apropos__cta" style="display: flex; justify-content: space-between; align-items: center; min-height: 52px; padding: 0 20px; border: 1px solid #111010; font-weight: 700; font-size: 16px; transition: background 160ms ease-out, color 160ms ease-out">Voir mon parcours <span aria-hidden="true">→</span></span>
+  </a>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1120,"height":620}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const passions = [
+      { ref: 'H-01', titre: 'Photographie', legende: 'H-01 · PHOTOGRAPHIE · [PHOTO À VENIR]' },
+      { ref: 'H-02', titre: 'Voyages', legende: 'H-02 · VOYAGES · 12 LIEUX · 05 PAYS' },
+      { ref: 'H-03', titre: 'CrossFit', legende: 'H-03 · CROSSFIT · [PHOTO À VENIR]' },
+      { ref: 'H-04', titre: 'Poker', legende: 'H-04 · POKER · [PHOTO À VENIR]' }
+    ];
+    const actif = (this.state && this.state.actif) ?? 1;
+    const points = [
+      [50.64, 15.23, true], [50.05, 15.62], [51.15, 18.32], [51.16, 18.91], [48.5, 24.42],
+      [48.61, 13.24], [51.1, 13.87], [78.46, 37.41], [79.3, 41.21], [79.5, 41.55],
+      [79.55, 42.98], [80.0, 44.76], [79.37, 45.96]
+    ];
+    return {
+      cartes: passions.map((p, i) => {
+        const d = i - actif;
+        const transform = d === 0
+          ? 'translateZ(70px) rotateY(0deg) rotateX(0deg)'
+          : 'translateZ(' + (-Math.abs(d) * 30) + 'px) rotateY(' + (d < 0 ? 38 : -38) + 'deg) rotateX(4deg)';
+        return {
+          ...p,
+          gauche: (10 + i * 116) + 'px',
+          z: 10 - Math.abs(d),
+          fond: d === 0 ? '#FFE1D3' : '#F7F5F2',
+          transform,
+          carte: i === 1,
+          photo: i !== 1,
+          choisir: () => this.setState({ actif: i })
+        };
+      }),
+      legende: passions[actif].legende,
+      lieux: points.map(([x, y, depart]) => ({
+        x: x + '%', y: y + '%',
+        fond: depart ? '#111010' : '#FF5A1F',
+        rayon: depart ? '0' : '999px'
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Duo mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#F7F5F2}
+a{color:#111010}
+</style>
+</helmet>
+<section aria-label="À découvrir" style="width: 390px; box-sizing: border-box; padding: 0 20px; display: flex; flex-direction: column; gap: 16px; font-family: Archivo, sans-serif; color: #111010; background: #F7F5F2">
+  <div style="background: #EFECE7; padding: 24px 0 24px 20px; display: flex; flex-direction: column; gap: 20px">
+    <div style="padding-right: 20px; display: flex; flex-direction: column; gap: 8px">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862">COLLECTION PASSIONS · 04</span>
+      <h2 style="margin: 0; font-size: 36px; line-height: 1; font-weight: 850; font-variation-settings: 'wdth' 112; letter-spacing: -0.03em">Au-delà du bureau<span style="color: #FF5A1F">.</span></h2>
+    </div>
+    <ul aria-label="Mes passions" style="margin: 0; padding: 0 20px 0 0; list-style: none; display: flex; flex-direction: column; gap: 8px">
+      <sc-for list="{{cartes}}" as="c" hint-placeholder-count="4">
+        <li>
+          <a href="#" style="min-height: 80px; box-sizing: border-box; display: flex; align-items: center; gap: 14px; padding: 8px 14px 8px 8px; text-decoration: none; background: {{c.fond}}; border: 1px solid #111010">
+            <span aria-hidden="true" style="flex: 0 0 64px; height: 64px; box-sizing: border-box; border: 1px solid #E3DFD9; background-color: #F7F5F2; background-image: repeating-linear-gradient(135deg, #E3DFD9 0 1px, transparent 1px 12px)"></span>
+            <span style="flex-grow: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6E6862">{{c.ref}}</span><span style="font-size: 20px; font-weight: 800; font-variation-settings: 'wdth' 112">{{c.titre}}</span></span>
+            <span aria-hidden="true" style="font-size: 20px">→</span>
+          </a>
+        </li>
+      </sc-for>
+    </ul>
+    <a href="#" style="align-self: flex-start; font-weight: 700; min-height: 44px; display: flex; align-items: center; text-decoration: none">Ouvrir le carnet de route <span aria-hidden="true">&#160;→</span></a>
+  </div>
+
+  <a href="#" style="box-sizing: border-box; border: 1px solid #111010; padding: 20px; display: flex; gap: 16px; align-items: center; text-decoration: none">
+    <img src="/_blob/43ea2257a998741eaa9bce4dafe6fa66" alt="" style="flex: 0 0 104px; width: 104px; height: 130px; box-sizing: border-box; border: 1px solid #111010; object-fit: cover; background: #EFECE7">
+    <span style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #6E6862">À PROPOS · PARCOURS</span>
+      <span style="font-size: 22px; line-height: 1.1; font-weight: 800; font-variation-settings: 'wdth' 112">Lorem ipsum, accroche personnelle<span style="color: #FF5A1F">.</span></span>
+      <span style="font-weight: 700">Voir mon parcours <span aria-hidden="true">→</span></span>
+    </span>
+  </a>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":780}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      cartes: [
+        { ref: 'H-01', titre: 'Photographie', fond: '#F7F5F2' },
+        { ref: 'H-02', titre: 'Voyages', fond: '#FFE1D3' },
+        { ref: 'H-03', titre: 'CrossFit', fond: '#F7F5F2' },
+        { ref: 'H-04', titre: 'Poker', fond: '#F7F5F2' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
