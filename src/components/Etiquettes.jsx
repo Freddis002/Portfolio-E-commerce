@@ -2,10 +2,11 @@ import "./Etiquettes.css";
 
 /**
  * Badge commercial : NOUVEAU ou TOP.
- * Fond Orange Pâle, texte Orange Brûlé, IBM Plex Mono.
+ * Fond Orange Pâle, texte Noir Encre, IBM Plex Mono.
+ * - children : texte personnalisé (ex. « TOP · N°1 des plus demandées »)
  */
-export function Badge({ type = "nouveau" }) {
-  return <span className="badge">{type === "top" ? "TOP" : "NOUVEAU"}</span>;
+export function Badge({ type = "nouveau", children }) {
+  return <span className="badge">{children ?? (type === "top" ? "TOP" : "NOUVEAU")}</span>;
 }
 
 /**

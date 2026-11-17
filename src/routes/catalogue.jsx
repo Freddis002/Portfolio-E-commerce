@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router";
 import { LayoutGrid, List, SlidersHorizontal } from "lucide-react";
 import profil from "../data/profil.json";
@@ -12,18 +12,16 @@ import {
   filtrer,
   trier,
   tris,
-  trouverParRef,
-  urlElement,
 } from "../data/catalogue";
+import { useApresHydratation } from "../lib/hydratation";
 import { useSelection } from "../lib/selection";
-import { fichesVues } from "../lib/stockage";
-import { metaPage } from "../lib/seo";
+import { ldFilAriane, metaPage } from "../lib/seo";
 import Bouton from "../components/Bouton";
 import CarteProduit from "../components/CarteProduit";
 import FilAriane from "../components/FilAriane";
 import { CaseFiltre, GroupeFiltres } from "../components/Filtres";
-import ImageEmplacement from "../components/ImageEmplacement";
 import PanneauLateral from "../components/PanneauLateral";
+import RecemmentConsultes from "../components/RecemmentConsultes";
 import PointFinal from "../components/PointFinal";
 import SelecteurTri from "../components/SelecteurTri";
 import "./catalogue.css";
@@ -31,11 +29,15 @@ import "./catalogue.css";
 export function meta() {
   // L'URL canonique ignore les filtres : /catalogue?cat=projets pointe vers /catalogue
   return metaPage({
-    titre: `Catalogue : projets, expertises et passions · ${profil.nom} ${profil.prenom}, ${profil.ville}`,
-    description: `Projets e-commerce, expertises (SEO, marketing digital, data, web) et passions de ${profil.nom} ${profil.prenom}, basé à ${profil.ville} en ${profil.region}. Filtrez et composez votre sélection.`,
+    titre: `Catalogue : projets, expertises et passions · ${profil.nom} ${profil.prenom}`,
+    description: `Projets e-commerce, expertises (SEO, marketing digital, data, web) et passions de ${profil.nom} ${profil.prenom}, basé à ${profil.ville}. Composez votre sélection.`,
     chemin: "/catalogue",
+    jsonLd: [ldFilAriane(FIL_CATALOGUE, "/catalogue")],
   });
 }
+
+// Fil d'Ariane : affiché en haut de page et déclaré aux moteurs (JSON-LD)
+const FIL_CATALOGUE = [{ label: "Accueil", to: "/" }, { label: "Catalogue" }];
 
 /* ---------- État de la page ↔ paramètres d'URL ---------- */
 
@@ -75,22 +77,6 @@ function ecrireUrl(etat) {
   return parties.length ? `?${parties.join("&")}` : "";
 }
 
-/*
- * Le HTML pré-rendu correspond au catalogue sans filtre. Au premier affichage
- * dans le navigateur, on rend donc d'abord cet état par défaut (sinon React
- * signale une différence avec le HTML), puis on applique les filtres de l'URL.
- * Lors d'une navigation interne, la page est déjà « hydratée » : pas d'attente.
- */
-let dejaHydrate = false;
-function useApresHydratation() {
-  const [pret, setPret] = useState(dejaHydrate);
-  useEffect(() => {
-    dejaHydrate = true;
-    setPret(true);
-  }, []);
-  return pret;
-}
-
 /* ---------- Page ---------- */
 
 export default function Catalogue() {
@@ -100,7 +86,6 @@ export default function Catalogue() {
   const etat = lireUrl(pret ? params : new URLSearchParams());
   const [panneauOuvert, setPanneauOuvert] = useState(false);
   const { contient, basculer, count } = useSelection();
-  const vues = fichesVues.utiliser();
 
   // replace : les filtres ne remplissent pas l'historique du bouton Retour
   const mettreAJour = (changement) =>
@@ -151,7 +136,7 @@ export default function Catalogue() {
     <main id="contenu" className="catalogue">
       {/* En-tête de catégorie */}
       <header className="catalogue__entete conteneur">
-        <FilAriane items={[{ label: "Accueil", to: "/" }, { label: "Catalogue" }]} />
+        <FilAriane items={FIL_CATALOGUE} />
         <div className="catalogue__entete-ligne">
           <div className="catalogue__intro">
             <h1 className="catalogue__titre">
@@ -287,26 +272,7 @@ export default function Catalogue() {
           )}
 
           {/* Récemment consultés (rempli par les fiches) */}
-          {vues.length > 0 && (
-            <section className="catalogue__vus" aria-labelledby="cat-vus">
-              <h2 id="cat-vus" className="catalogue__vus-titre">
-                Récemment consultés
-              </h2>
-              <ul className="catalogue__vus-liste">
-                {vues.map(trouverParRef).map((e) => (
-                  <li key={e.ref}>
-                    <Link to={urlElement(e)} className="catalogue__vu">
-                      <ImageEmplacement type={categories[e.categorie].visuel} ratio="1:1" decoratif />
-                      <span>
-                        <span className="catalogue__vu-ref">{e.ref}</span>
-                        <span className="catalogue__vu-titre">{e.titre}</span>
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
+          <RecemmentConsultes />
         </div>
       </div>
 

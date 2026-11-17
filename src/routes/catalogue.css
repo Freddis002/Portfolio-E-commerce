@@ -294,67 +294,6 @@
   font-weight: var(--weight-bold);
 }
 
-/* Récemment consultés */
-.catalogue__vus {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  padding-top: var(--space-6);
-  border-top: var(--bordure);
-}
-
-.catalogue__vus-titre {
-  margin: 0;
-  font-size: 20px;
-  font-weight: var(--weight-bold);
-}
-
-.catalogue__vus-liste {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4);
-}
-
-.catalogue__vu {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-2) var(--space-4) var(--space-2) var(--space-2);
-  border: var(--bordure);
-  color: var(--color-texte);
-  text-decoration: none;
-  transition: border-color var(--transition);
-}
-
-.catalogue__vu:hover {
-  color: var(--color-texte);
-  border-color: var(--color-noir);
-}
-
-.catalogue__vu .image-emplacement {
-  width: 48px;
-  padding: 0;
-}
-
-.catalogue__vu .image-emplacement__legende {
-  display: none;
-}
-
-.catalogue__vu-ref {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: var(--text-mono-xs);
-  color: var(--color-texte-secondaire);
-}
-
-.catalogue__vu-titre {
-  font-size: var(--text-petit);
-  font-weight: var(--weight-semibold);
-}
-
 /* ---------- Tablette : < 1024 px, filtres au-dessus des résultats ---------- */
 @media (max-width: 1023px) {
   .catalogue__filtres {

@@ -1,0 +1,167 @@
+/* Fiche du lieu — maquettes CarnetDeRoute.dc.html et CarnetDeRouteMobile.dc.html */
+
+.fiche-lieu {
+  display: flex;
+  flex-direction: column;
+  border: var(--bordure-forte);
+}
+
+.fiche-lieu .label-mono {
+  margin: 0;
+}
+
+.fiche-lieu__vide {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  color: var(--color-texte-long);
+}
+
+.fiche-lieu__vide p {
+  margin: 0;
+}
+
+.fiche-lieu__vide-titre {
+  font-size: var(--text-h3);
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-titre);
+  line-height: 1.2;
+  color: var(--color-texte);
+}
+
+.fiche-lieu__contenu {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.fiche-lieu__texte {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px var(--space-5) var(--space-5);
+}
+
+.fiche-lieu__nom {
+  margin: 0;
+  font-size: 32px;
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-titre);
+  line-height: 1.1;
+}
+
+.fiche-lieu__situation,
+.fiche-lieu__description {
+  margin: 0;
+  font-size: 15px;
+  color: var(--color-texte-long);
+}
+
+.fiche-lieu__passion {
+  align-self: flex-start;
+}
+
+.fiche-lieu__espace {
+  flex-grow: 1;
+}
+
+.fiche-lieu__voisins {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fiche-lieu__voisin {
+  padding: var(--space-2) 0;
+  border: 0;
+  background: none;
+  color: var(--color-texte);
+  font-family: var(--font-sans);
+  font-size: var(--text-petit);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+  text-underline-offset: 4px;
+}
+
+.fiche-lieu__voisin:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Mobile : panneau fixé en bas ---------- */
+.fiche-lieu-mobile {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 7;
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr) auto;
+  gap: 10px var(--space-3);
+  padding: 14px var(--space-5) 18px;
+  background: var(--color-fond);
+  border-top: 2px solid var(--color-noir);
+}
+
+.fiche-lieu-mobile .photos-lieu__vignette--seule {
+  align-self: start;
+}
+
+.fiche-lieu-mobile .image-emplacement__legende {
+  display: none;
+}
+
+.fiche-lieu-mobile__texte {
+  min-width: 0;
+}
+
+.fiche-lieu-mobile__texte .label-mono {
+  margin: 0;
+  font-size: var(--text-mono-xs);
+}
+
+.fiche-lieu-mobile__nom {
+  margin: 0;
+  font-size: var(--text-h3);
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-titre);
+  line-height: 1.15;
+}
+
+.fiche-lieu-mobile__situation {
+  margin: 0;
+  font-size: var(--text-petit);
+  color: var(--color-texte-long);
+}
+
+.fiche-lieu-mobile__fermer {
+  width: var(--hauteur-bouton-s);
+  height: var(--hauteur-bouton-s);
+  display: grid;
+  place-items: center;
+  margin: -10px -10px 0 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-texte);
+  cursor: pointer;
+}
+
+.fiche-lieu-mobile__actions {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.fiche-lieu-mobile__actions .bouton {
+  width: 100%;
+}
+
+/* Bouton d'ajout à la hauteur du bouton voisin */
+.fiche-lieu-mobile .fiche-lieu-mobile__ajout {
+  height: var(--hauteur-bouton);
+  font-size: 15px;
+}

@@ -1,0 +1,95 @@
+/* Photos d'un lieu et visionneuse — maquettes CarnetDeRoute*.dc.html */
+
+.photos-lieu {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-1);
+  padding: var(--space-1);
+}
+
+.photos-lieu__vignette {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.photos-lieu__vignette--grande {
+  grid-column: 1 / -1;
+}
+
+.photos-lieu__vignette .image-emplacement {
+  height: 100%;
+}
+
+/* Les petites vignettes n'ont pas la place pour une légende */
+.photos-lieu__vignette:not(.photos-lieu__vignette--grande) .image-emplacement__legende {
+  display: none;
+}
+
+.photos-lieu__plus {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  letter-spacing: var(--tracking-pastille);
+  text-transform: uppercase;
+  color: var(--color-texte-secondaire);
+}
+
+/* ---------- Visionneuse ---------- */
+.visionneuse {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--color-voile);
+}
+
+.visionneuse__photo {
+  width: min(960px, 100%);
+  margin: 0;
+  background: var(--color-fond);
+  border: var(--bordure-forte);
+}
+
+.visionneuse__legende {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-petit);
+}
+
+.visionneuse__commandes {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.visionneuse__bouton {
+  width: var(--hauteur-bouton-s);
+  height: var(--hauteur-bouton-s);
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: var(--bordure-forte);
+  background: var(--color-fond);
+  color: var(--color-texte);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.visionneuse__bouton:hover {
+  background: var(--color-noir);
+  color: var(--color-blanc);
+}

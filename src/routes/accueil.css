@@ -144,10 +144,25 @@
   transition: color var(--transition);
 }
 
-.promo:hover .promo__cta {
+/* Bannière entièrement cliquable (À propos) : le CTA réagit au survol du bloc */
+a.promo:hover .promo__cta,
+a.promo__cta:hover {
   color: var(--color-orange-brule);
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+/* Bannière Passions : deux liens distincts */
+a.promo__cta {
+  color: var(--color-texte);
+  text-decoration: none;
+}
+
+.promo__liens {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
 }
 
 .promo__mosaique {

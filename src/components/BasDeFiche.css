@@ -1,0 +1,40 @@
+.bas-fiche__souvent {
+  padding-top: var(--space-9);
+}
+
+.bas-fiche__cartes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-5);
+}
+
+.bas-fiche__cartes > li {
+  display: flex;
+}
+
+.bas-fiche__cartes .carte {
+  flex-grow: 1;
+}
+
+.bas-fiche__recents {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+}
+
+/* Rien à afficher : pas d'espace vide avant Précédent / Suivant */
+.bas-fiche__recents:empty {
+  padding: var(--space-5) 0 0;
+}
+
+@media (max-width: 599px) {
+  .bas-fiche__souvent {
+    padding-top: var(--space-7);
+  }
+
+  .bas-fiche__recents {
+    padding-block: var(--space-7);
+  }
+}

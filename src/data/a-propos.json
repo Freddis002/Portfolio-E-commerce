@@ -1,0 +1,51 @@
+{
+  "_commentaire": "Page À propos. À COMPLÉTER : accroche, présentation, parcours réel, valeurs, disponibilité.",
+  "surtitre": "À propos · Basé à Arras",
+  "accroche": "Lorem ipsum, accroche personnelle",
+  "presentation": "Lorem ipsum dolor sit amet : parcours, motivations, ce que je recherche. Chargé e-commerce, marketing & communication ou chef de projet digital, en CDI dans les Hauts-de-France.",
+  "infos": [
+    { "label": "Localisation", "valeur": "Arras (62)" },
+    { "label": "Mobilité", "valeur": "Hauts-de-France" },
+    { "label": "Contrat recherché", "valeur": "CDI · temps plein" },
+    { "label": "Disponibilité", "valeur": "[À compléter]" }
+  ],
+  "parcours": [
+    {
+      "periode": "[AAAA — AAAA]",
+      "type": "experience",
+      "intitule": "[Intitulé]",
+      "structure": "[Structure]",
+      "ville": "[Ville]",
+      "texte": "Lorem ipsum dolor sit amet : rôle et réalisations en une ligne."
+    },
+    {
+      "periode": "[AAAA — AAAA]",
+      "type": "experience",
+      "intitule": "[Intitulé]",
+      "structure": "[Structure]",
+      "ville": "[Ville]",
+      "texte": "Lorem ipsum dolor sit amet : rôle et réalisations en une ligne."
+    },
+    {
+      "periode": "[AAAA — AAAA]",
+      "type": "formation",
+      "intitule": "[Intitulé]",
+      "structure": "[Structure]",
+      "ville": "[Ville]",
+      "texte": "Lorem ipsum dolor sit amet : rôle et réalisations en une ligne."
+    },
+    {
+      "periode": "[AAAA — AAAA]",
+      "type": "formation",
+      "intitule": "[Intitulé]",
+      "structure": "[Structure]",
+      "ville": "[Ville]",
+      "texte": "Lorem ipsum dolor sit amet : rôle et réalisations en une ligne."
+    }
+  ],
+  "valeurs": [
+    { "titre": "[Valeur 1]", "texte": "Lorem ipsum dolor sit amet, en une phrase." },
+    { "titre": "[Valeur 2]", "texte": "Lorem ipsum dolor sit amet, en une phrase." },
+    { "titre": "[Valeur 3]", "texte": "Lorem ipsum dolor sit amet, en une phrase." }
+  ]
+}

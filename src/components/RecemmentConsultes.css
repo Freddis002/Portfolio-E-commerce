@@ -1,0 +1,61 @@
+/* « Récemment consultés » — maquette Catalogue.dc.html */
+
+.recents {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-top: var(--space-6);
+  border-top: var(--bordure);
+}
+
+.recents__titre {
+  margin: 0;
+  font-size: 20px;
+  font-weight: var(--weight-bold);
+}
+
+.recents__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.recents__lien {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4) var(--space-2) var(--space-2);
+  border: var(--bordure);
+  color: var(--color-texte);
+  text-decoration: none;
+  transition: border-color var(--transition);
+}
+
+.recents__lien:hover {
+  color: var(--color-texte);
+  border-color: var(--color-noir);
+}
+
+.recents__lien .image-emplacement {
+  width: 48px;
+  padding: 0;
+}
+
+.recents__lien .image-emplacement__legende {
+  display: none;
+}
+
+.recents__ref {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  color: var(--color-texte-secondaire);
+}
+
+.recents__nom {
+  font-size: var(--text-petit);
+  font-weight: var(--weight-semibold);
+}

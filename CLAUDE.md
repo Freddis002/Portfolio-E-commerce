@@ -58,6 +58,14 @@ Nouveautés (badge NOUVEAU), Les plus demandées (badge TOP), page catégorie av
 et tri, ajout rapide, mini-panier, bloc « En bref », « Souvent sélectionné avec »,
 « Récemment consultés », parcours 01 Sélection → 02 Coordonnées → 03 Envoi.
 Cartes projet : rôle en pastille noire + outils en pastilles contour.
+Carnet de route (/passions/carnet-de-route, page phare de H-02 Voyages) : carte des lieux
+(src/data/voyages.json, L-00 Arras départ, puis un lieu par ville), fond public/carte/monde.svg en projection Equal Earth
+(src/lib/projection.js, aucun service de carte externe), repères = boutons, filtres France / Étranger,
+zoom Monde / Europe / France / Vietnam, fiche du lieu (panneau à droite, panneau bas sur mobile),
+liste « Tous les lieux » toujours dans le HTML, lieu partageable (?lieu=L-03), chaque lieu ajoutable à
+Ma sélection. Animations Motion sobres (LazyMotion + domAnimation), coupées si prefers-reduced-motion.
+Photos : originaux dans photos-originales/ (hors Git), « npm run photos » publie dans public/photos/
+des WebP/AVIF sans aucune métadonnée (ni EXIF ni GPS).
 Mobile : bouton « Ajouter à ma sélection » fixé en bas des fiches, sections longues dépliables.
 Interdits : recherche, méga-menu, prix, livraison, avis inventés.
 
@@ -78,6 +86,12 @@ grilles de cartes identiques sans hiérarchie, couleurs hors charte, images gén
 - JSON-LD : Person, ProfilePage, CreativeWork, BreadcrumbList
 - Local : « Arras » et « Hauts-de-France » dans les titres et textes clés, et dans le JSON-LD
 - sitemap.xml, robots.txt (robots d'IA autorisés), llms.txt
+- Mise en œuvre : adresse du site = siteUrl dans src/data/profil.json (seule source) ; balises et JSON-LD
+  via src/lib/seo.js (metaPage, ldPersonne, ldPageProfil, ldProjet, ldFilAriane) ; sitemap, robots.txt
+  et llms.txt écrits après chaque build par scripts/fichiers-seo.mjs, qui fait échouer le build si un
+  title dépasse 60 caractères, une description 155, ou s'il manque canonique, image de partage ou H1 unique
+- Image de partage public/partage.png (1200 × 630) : « npm run image-partage » après tout changement
+  de nom, de postes ou de ville ; vraies photos via le composant Photo (AVIF/WebP, dimensions, lazy)
 
 ## Sécurité et vie privée
 - Aucune clé ou secret dans le code client (les variables VITE_ sont publiques)

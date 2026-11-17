@@ -18,9 +18,15 @@ const CV_URL = "/cv.pdf";
  * Compteur de « Ma sélection » : pastille neutre à 0, orange dès 1.
  * Le nombre est toujours écrit : l'état ne repose pas sur la couleur.
  */
-export function CompteurSelection({ count }) {
+export function CompteurSelection({ count, impulsion = 0 }) {
+  // impulsion change à chaque ajout ou retrait : la clé recrée la pastille,
+  // ce qui rejoue la courte pulsation (160 ms)
   return (
-    <span className={`compteur ${count > 0 ? "compteur--actif" : ""}`} aria-hidden="true">
+    <span
+      key={impulsion}
+      className={`compteur ${count > 0 ? "compteur--actif" : ""} ${impulsion > 0 ? "compteur--pulsation" : ""}`}
+      aria-hidden="true"
+    >
       {count}
     </span>
   );
@@ -29,9 +35,10 @@ export function CompteurSelection({ count }) {
 /**
  * En-tête global : barre d'annonce, logo, navigation, bouton Ma sélection.
  * Sous 1024 px, les liens passent dans un menu déroulant (bouton burger).
+ * - impulsion : compteur des ajouts et retraits (pulsation de la pastille)
  * - count : nombre d'éléments dans la sélection
  */
-export default function Header({ count = 0 }) {
+export default function Header({ count = 0, impulsion = 0 }) {
   const [ouvert, setOuvert] = useState(false);
   const boutonRef = useRef(null);
   const menuId = useId();
@@ -85,7 +92,7 @@ export default function Header({ count = 0 }) {
             <NavLink to="/selection" className="entete__selection" aria-label={libelleSelection}>
               <ShoppingBag size={20} strokeWidth={1.5} aria-hidden="true" />
               <span className="entete__selection-texte">Ma sélection</span>
-              <CompteurSelection count={count} />
+              <CompteurSelection count={count} impulsion={impulsion} />
             </NavLink>
 
             <button

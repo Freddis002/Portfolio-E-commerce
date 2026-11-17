@@ -1,0 +1,41 @@
+/* Contenu du mini-panier (le panneau lui-même : PanneauLateral) */
+
+.mini-panier {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.mini-panier__element {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.mini-panier__vignette .image-emplacement__legende {
+  font-size: var(--text-mono-xs);
+}
+
+.mini-panier p {
+  margin: 0;
+}
+
+.mini-panier__titre {
+  margin-top: var(--space-1);
+  font-size: 20px;
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-h3);
+}
+
+.mini-panier__texte {
+  margin-top: var(--space-1);
+  font-size: var(--text-petit);
+  color: var(--color-texte-long);
+}
+
+.mini-panier__total {
+  padding-top: var(--space-4);
+  border-top: var(--bordure);
+  color: var(--color-texte);
+}

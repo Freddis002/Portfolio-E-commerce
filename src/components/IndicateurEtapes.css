@@ -38,3 +38,11 @@
 .etape a:hover {
   color: var(--color-orange-brule);
 }
+
+/* Mobile : libellés plus serrés, chaque étape tient sur une ligne */
+@media (max-width: 599px) {
+  .etape {
+    font-size: 10px;
+    letter-spacing: 0.04em;
+  }
+}

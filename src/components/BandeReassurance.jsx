@@ -16,17 +16,18 @@ const ARGUMENTS_DEFAUT = [
 export default function BandeReassurance({ items = ARGUMENTS_DEFAUT }) {
   return (
     <section className="reassurance" aria-label="En bref">
-      <ul className="reassurance__liste conteneur">
+      {/* Liste de définitions : chaque argument (dt) et son détail (dd) */}
+      <dl className="reassurance__liste conteneur">
         {items.map(({ icone: Icone, titre, texte }) => (
-          <li key={titre} className="reassurance__item">
-            <Icone size={24} strokeWidth={1.5} aria-hidden="true" className="reassurance__icone" />
-            <div>
-              <p className="reassurance__titre">{titre}</p>
-              <p className="reassurance__texte">{texte}</p>
-            </div>
-          </li>
+          <div key={titre} className="reassurance__item">
+            <dt className="reassurance__titre">
+              <Icone size={24} strokeWidth={1.5} aria-hidden="true" className="reassurance__icone" />
+              {titre}
+            </dt>
+            <dd className="reassurance__texte">{texte}</dd>
+          </div>
         ))}
-      </ul>
+      </dl>
     </section>
   );
 }

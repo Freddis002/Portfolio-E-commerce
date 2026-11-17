@@ -1,0 +1,355 @@
+/* Ma sélection — maquettes Selection.dc.html et SelectionMobile.dc.html */
+
+.selection__haut {
+  padding-top: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+}
+
+.selection__haut .etapes {
+  max-width: 640px;
+}
+
+.selection__entete {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.selection__entete .label-mono {
+  margin: 0;
+}
+
+.selection__titre {
+  margin: 0;
+  font-size: var(--text-h1);
+  font-weight: var(--weight-display);
+  font-variation-settings: "wdth" var(--wdth-display);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-h1);
+}
+
+/* Le titre reçoit le focus après un retrait : pas de contour sur un titre */
+.selection__titre:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* ---------- État vide ---------- */
+.selection__vide {
+  padding-top: var(--space-7);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.selection__vide p {
+  margin: 0;
+  max-width: 56ch;
+  font-size: var(--text-corps-l);
+  color: var(--color-texte-long);
+}
+
+.selection__vide-titre {
+  margin: 0;
+  font-size: var(--text-h2);
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-titre);
+  letter-spacing: var(--tracking-titre);
+}
+
+/* ---------- État rempli ---------- */
+.selection__corps {
+  padding-top: var(--space-7);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-7);
+}
+
+.selection__colonne {
+  flex: 999 1 560px;
+  min-width: 0;
+}
+
+.selection__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--bordure-forte);
+}
+
+.selection__element {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-5);
+  padding: 20px 0;
+  border-bottom: var(--bordure);
+}
+
+.selection__vignette {
+  align-self: start;
+}
+
+.selection__vignette .image-emplacement__legende {
+  font-size: var(--text-mono-xs);
+}
+
+.selection__infos p {
+  margin: 0;
+}
+
+.selection__nom {
+  margin: var(--space-1) 0;
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-h3);
+}
+
+.selection__accroche {
+  font-size: 15px;
+  color: var(--color-texte-long);
+}
+
+.selection__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.selection__voir {
+  font-size: var(--text-petit);
+  font-weight: var(--weight-bold);
+  text-underline-offset: 4px;
+  white-space: nowrap;
+}
+
+.selection__bas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding-top: var(--space-5);
+}
+
+.selection__continuer {
+  font-weight: var(--weight-bold);
+  font-size: 17px;
+  text-underline-offset: 4px;
+}
+
+.selection__confirmer {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* Boutons à l'allure de liens discrets (vider la sélection) */
+.selection__lien-bouton {
+  padding: var(--space-2) 0;
+  border: 0;
+  background: none;
+  color: var(--color-texte-secondaire);
+  font-family: var(--font-sans);
+  font-size: var(--text-petit);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.selection__lien-bouton:hover {
+  color: var(--color-texte);
+}
+
+.selection__lien-bouton--fort {
+  color: var(--color-erreur);
+  font-weight: var(--weight-bold);
+}
+
+.selection__lien-bouton--fort:hover {
+  color: var(--color-erreur);
+}
+
+/* ---------- Récapitulatif ---------- */
+.selection__recap {
+  flex: 1 1 340px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6) 28px;
+  border: var(--bordure-forte);
+}
+
+.selection__recap-titre {
+  margin: 0;
+  font-size: var(--text-h3);
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-titre);
+}
+
+.selection__comptes {
+  margin: 0;
+}
+
+.selection__compte {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 10px 0;
+  border-bottom: var(--bordure);
+}
+
+.selection__compte dd {
+  margin: 0;
+  font-family: var(--font-mono);
+}
+
+.selection__compte--total {
+  border-top: var(--bordure-forte);
+  border-bottom: 0;
+  margin-top: -1px;
+  font-size: 18px;
+  font-weight: var(--weight-bold);
+}
+
+.selection__compte--total dd {
+  font-weight: var(--weight-semibold);
+}
+
+/* Message discret : texte Noir Encre sur Orange Pâle (contraste 17:1) */
+.selection__variee {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-orange-pale);
+  font-size: var(--text-petit);
+}
+
+.selection__parlons {
+  width: 100%;
+  height: var(--hauteur-bouton-l);
+}
+
+.selection__garanties {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: 13px;
+  color: var(--color-texte-secondaire);
+}
+
+.selection__garanties li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---------- Vous aimerez aussi ---------- */
+.selection__suggestions {
+  padding-top: var(--space-9);
+  padding-bottom: var(--space-9);
+}
+
+.selection__cartes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-5);
+}
+
+.selection__cartes > li {
+  display: flex;
+}
+
+.selection__cartes .carte {
+  flex-grow: 1;
+}
+
+/* Barre mobile : masquée au-delà de 600 px */
+.selection__barre {
+  display: none;
+}
+
+/* ---------- Mobile : < 600 px ---------- */
+@media (max-width: 599px) {
+  .selection__haut {
+    padding-top: var(--space-4);
+    gap: var(--space-6);
+  }
+
+  .selection__element {
+    grid-template-columns: 72px minmax(0, 1fr) auto;
+    align-items: start;
+    gap: var(--space-3);
+    padding: var(--space-4) 0;
+  }
+
+  .selection__nom {
+    font-size: 18px;
+  }
+
+  /* Sur mobile, le titre mène à la fiche : « Voir » est masqué */
+  .selection__voir {
+    display: none;
+  }
+
+  .selection__recap {
+    padding: var(--space-5);
+  }
+
+  /* Le bouton orange passe dans la barre collée en bas */
+  .selection__parlons {
+    display: none;
+  }
+
+  .selection__suggestions {
+    padding-top: var(--space-7);
+  }
+
+  .selection__cartes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+
+  .selection__barre {
+    position: sticky;
+    bottom: 0;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-3) var(--space-5);
+    border-top: var(--bordure-forte);
+    background: var(--color-fond);
+  }
+
+  .selection__barre .bouton {
+    flex-grow: 1;
+    height: var(--hauteur-bouton-l);
+  }
+}
+
+/* Le titre de chaque élément mène à sa fiche */
+.selection__nom-lien {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+
+.selection__nom-lien:hover {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Réserve un écran de hauteur pour le contenu lu dans le navigateur */
+.selection__zone {
+  min-height: 100vh;
+}

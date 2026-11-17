@@ -1,0 +1,188 @@
+/* À propos — maquettes APropos.dc.html et AProposMobile.dc.html */
+
+.a-propos .banniere__titre {
+  font-size: clamp(44px, 6vw, 80px);
+  line-height: 0.95;
+}
+
+/* ---------- Infos pratiques ---------- */
+.a-propos__infos {
+  border-top: var(--bordure-forte);
+  border-bottom: var(--bordure);
+}
+
+.a-propos__infos-liste {
+  margin-block: 0;
+  padding-block: var(--space-5);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.a-propos__info dt {
+  font-size: var(--text-mono-xs);
+}
+
+.a-propos__info dd {
+  margin: var(--space-1) 0 0;
+  font-weight: var(--weight-bold);
+}
+
+/* ---------- Parcours ---------- */
+.a-propos__section {
+  padding-top: var(--space-9);
+}
+
+.parcours {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.parcours__etape {
+  display: grid;
+  grid-template-columns: 160px 120px minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--space-2) var(--space-5);
+  padding: var(--space-6) 0;
+  border-bottom: var(--bordure);
+}
+
+.parcours__etape:first-child {
+  padding-top: var(--space-3);
+}
+
+.parcours__periode,
+.parcours__type {
+  margin: 0;
+}
+
+.parcours__titre {
+  margin: 0;
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-h3);
+}
+
+.parcours__texte p {
+  margin: var(--space-1) 0 0;
+  color: var(--color-texte-long);
+}
+
+.a-propos__expertises {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-5);
+  padding-top: var(--space-7);
+}
+
+.a-propos__expertises-titre {
+  margin: 0;
+  font-weight: var(--weight-texte);
+}
+
+.a-propos__expertises-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* ---------- Valeurs ---------- */
+.a-propos__valeurs {
+  margin-top: var(--space-9);
+  padding-block: var(--space-9);
+  background: var(--color-surface);
+}
+
+.valeurs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+
+.valeurs__item {
+  padding-top: var(--space-5);
+  border-top: 2px solid var(--color-noir);
+}
+
+.valeurs__titre {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+}
+
+.valeurs__item p {
+  margin: 0;
+  color: var(--color-texte-long);
+}
+
+/* ---------- Envie d'échanger ? ---------- */
+.a-propos__echange {
+  padding-top: var(--space-9);
+  padding-bottom: var(--space-9);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.a-propos__echange-titre {
+  margin: 0;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: var(--weight-display);
+  font-variation-settings: "wdth" var(--wdth-display);
+  letter-spacing: var(--tracking-display);
+  line-height: 1;
+}
+
+/* ---------- Tablette ---------- */
+@media (max-width: 900px) {
+  .a-propos__infos-liste {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .valeurs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 599px) {
+  .a-propos__section {
+    padding-top: var(--space-7);
+  }
+
+  .parcours__etape {
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: var(--space-5) 0;
+  }
+
+  .parcours__texte {
+    grid-column: 1 / -1;
+  }
+
+  .parcours__titre {
+    font-size: 18px;
+  }
+
+  .a-propos__valeurs {
+    margin-top: var(--space-7);
+    padding-block: var(--space-7);
+  }
+
+  .a-propos__echange {
+    padding-block: var(--space-7);
+  }
+
+  .a-propos__echange .bouton {
+    width: 100%;
+  }
+}

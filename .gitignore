@@ -24,3 +24,13 @@ desktop.ini
 .idea/
 .vscode/*
 !.vscode/extensions.json
+
+# Photos originales : elles contiennent souvent la position GPS.
+# « npm run photos » publie dans public/photos/ des copies sans métadonnées.
+/photos-originales/*
+!/photos-originales/LISEZMOI.md
+
+# Formulaire de contact : la vraie configuration (adresse, secret) et les
+# compteurs d'envois ne sont jamais versionnés (modèle : config/contact.exemple.php)
+/config/contact.php
+/donnees-contact/
