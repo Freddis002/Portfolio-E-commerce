@@ -21,6 +21,7 @@ Captures pleine page, avec les polices Archivo et IBM Plex Mono.
 | 404 | [desktop/11-404.png](desktop/11-404.png) | [tablette/11-404.png](tablette/11-404.png) | [mobile/11-404.png](mobile/11-404.png) |
 | Bandeau cookies | [desktop/12-bandeau-cookies.png](desktop/12-bandeau-cookies.png) | — | [mobile/12-bandeau-cookies.png](mobile/12-bandeau-cookies.png) |
 | Carnet de route | [desktop/13-carnet-de-route.png](desktop/13-carnet-de-route.png) | [tablette/13-carnet-de-route.png](tablette/13-carnet-de-route.png) | [mobile/13-carnet-de-route.png](mobile/13-carnet-de-route.png) |
+| Accueil · section « À découvrir » (remplace les bannières Passions et À propos) | [desktop/14-accueil-decouvrir.png](desktop/14-accueil-decouvrir.png) (zone de 1120 px) | blocs empilés, 3D conservée | [mobile/14-accueil-decouvrir.png](mobile/14-accueil-decouvrir.png) |
 
 La tablette utilise les pages desktop, qui sont fluides : sous 1024 px, le menu passe en burger et les filtres du catalogue passent au-dessus des résultats.
 
@@ -38,6 +39,7 @@ La tablette utilise les pages desktop, qui sont fluides : sous 1024 px, le menu 
 - Contact : initial, erreurs (bordure et message Erreur #C8102E), envoyé.
 - Bandeau cookies : bandeau, panneau Personnaliser, confirmation.
 - Mobile : bouton « Ajouter à ma sélection » fixé en bas des fiches, sections dépliables, panneau de filtres.
+- Accueil, section « À découvrir » (`AccueilDecouvrir*.dc.html`) : en desktop, les 4 passions en cartes 3D disposées en éventail ; la carte survolée ou atteinte au clavier s'avance (Voyages par défaut, avec la carte du monde). À propos : une boîte produit en 3D, avec sur sa face avant le personnage 3D tiré de la photo du CV ; elle pivote au survol. En mobile, sans 3D : cartes passions empilées à la verticale. `personnage-3d-apercu.png` n'est qu'un aperçu basse définition : le fichier du site vient de `photos-originales/profil/` via `npm run photos`. Dans ces deux sources, `/_blob/f9c653…` désigne `monde.svg` et `/_blob/43ea22…` le personnage.
 - Carnet de route : 12 villes et Arras (départ), clic sur un repère (repère actif noir avec anneau orange), filtres France / Étranger, zoom Monde / Europe / France / Vietnam, fiche du lieu (panneau à droite en desktop, panneau bas en mobile), ajout à Ma sélection.
 
 Contenus en lorem ipsum et emplacements d'image hachurés (type de visuel + ratio) : à remplacer par les contenus réels.
