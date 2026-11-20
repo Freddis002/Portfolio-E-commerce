@@ -20,7 +20,7 @@ export const PORTRAIT = {
   src: profil.portrait.src,
   largeur: profil.portrait.largeur,
   hauteur: profil.portrait.hauteur,
-  alt: `Portrait 3D de ${NOM_USUEL}, chargé e-commerce et marketing digital à ${profil.ville}`,
+  alt: `Portrait 3D de ${NOM_USUEL}, e-commerce et marketing digital à ${profil.ville}`,
 };
 export const urlAbsolue = (chemin) => new URL(chemin, `${SITE}/`).href;
 

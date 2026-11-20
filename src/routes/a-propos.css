@@ -87,6 +87,33 @@
   color: var(--color-texte-long);
 }
 
+/* Missions : puces carrées Noir Encre (rayon 0, comme la charte) */
+.parcours__missions {
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--color-texte-long);
+}
+
+.parcours__missions li {
+  position: relative;
+  padding-left: var(--space-5);
+}
+
+.parcours__missions li + li {
+  margin-top: var(--space-1);
+}
+
+.parcours__missions li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  background: var(--color-noir);
+}
+
 /* Lien vers la fiche projet liée à une étape */
 .parcours__lien {
   display: inline-block;
@@ -196,8 +223,10 @@
     padding-top: var(--space-7);
   }
 
+  /* Une seule colonne : période, type, puis intitulé et missions */
   .parcours__etape {
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2);
     padding: var(--space-5) 0;
   }
 

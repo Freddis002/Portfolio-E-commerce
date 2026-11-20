@@ -105,7 +105,15 @@ export default function APropos() {
                 <h3 className="parcours__titre">
                   {etape.intitule} · {etape.structure}, {etape.ville}
                 </h3>
-                <p>{etape.texte}</p>
+                {etape.texte && <p>{etape.texte}</p>}
+                {/* Missions (facultatif) : liste à puces, comme sur un CV */}
+                {etape.missions && (
+                  <ul className="parcours__missions">
+                    {etape.missions.map((m) => (
+                      <li key={m}>{m}</li>
+                    ))}
+                  </ul>
+                )}
                 <LienProjet reference={etape.ref} />
               </div>
             </li>

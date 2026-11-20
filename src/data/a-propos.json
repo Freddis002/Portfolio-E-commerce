@@ -1,5 +1,5 @@
 {
-  "_commentaire": "Page À propos. À COMPLÉTER : accroche, présentation, valeurs, disponibilité et valeurs entre [crochets] du parcours. « ref » (facultatif) relie une étape à une fiche du catalogue (ex. P-03).",
+  "_commentaire": "Page À propos. À COMPLÉTER : accroche, présentation, valeurs et valeurs entre [crochets] du parcours. Étape : « texte » (phrase) et/ou « missions » (liste à puces, 3 à 4, verbe ou nom d'action) ; « ref » (facultatif) relie l'étape à une fiche du catalogue (ex. P-03).",
   "surtitre": "À propos · Basé à Arras",
   "accroche": "Lorem ipsum, accroche personnelle",
   "presentation": "Lorem ipsum dolor sit amet : parcours, motivations, ce que je recherche. Chargé e-commerce, marketing & communication ou chef de projet digital, en CDI dans les Hauts-de-France.",
@@ -18,26 +18,36 @@
     },
     {
       "label": "Disponibilité",
-      "valeur": "[À compléter]"
+      "valeur": "Immédiate"
     }
   ],
   "parcours": [
     {
-      "periode": "[AAAA — AAAA]",
+      "periode": "2025 — 2026",
       "type": "experience",
-      "intitule": "[Intitulé]",
-      "structure": "Green Ideas",
-      "ville": "[Ville]",
-      "texte": "[À compléter]",
+      "intitule": "Webmaster (CDI)",
+      "structure": "Green Ideas · Mon Kit Solaire",
+      "ville": "Lille",
+      "missions": [
+        "Intégration de pages web et de newsletters responsives",
+        "Optimisation SEO de plusieurs centaines de fiches produits",
+        "Amélioration continue du site e-commerce et correction des anomalies",
+        "Outils internes, suivi des KPI et documentation technique"
+      ],
       "ref": "P-01"
     },
     {
       "periode": "2022 — 2024",
       "type": "experience",
-      "intitule": "Chargé de communication et marketing digital",
-      "structure": "Market Shop",
+      "intitule": "Chargé de communication et marketing digital (alternance)",
+      "structure": "Market Shop · Mon Grossiste Auto",
       "ville": "Hénin-Beaumont",
-      "texte": "Sites e-commerce WordPress et PrestaShop, fiches produits optimisées SEO, contenus (blog, visuels, vidéos TikTok, Instagram, YouTube), campagnes Soldes, French Days et Black Friday, suivi des KPI.",
+      "missions": [
+        "Sites e-commerce WordPress et PrestaShop, fiches produits optimisées SEO",
+        "Contenus : blog, visuels, vidéos TikTok, Instagram, YouTube",
+        "Campagnes Soldes, French Days et Black Friday",
+        "Sites web en HTML, CSS, JavaScript et WordPress"
+      ],
       "ref": "P-02"
     },
     {
@@ -46,23 +56,26 @@
       "intitule": "Webmaster (alternance)",
       "structure": "Idées B Création",
       "ville": "Orchies",
-      "texte": "Campagnes Facebook, Instagram et emailing, optimisation SEO et SEA, gestion de sites e-commerce WordPress et PrestaShop, suivi des commandes et des performances."
-    },
-    {
-      "periode": "2020 — 2021",
-      "type": "experience",
-      "intitule": "Développeur web (stage)",
-      "structure": "Logiciel Bestt",
-      "ville": "Amiens",
-      "texte": "Requêtes back-end Symfony, formulaires interactifs ReactJS, templates WordPress sur mesure, tests fonctionnels en Python."
+      "missions": [
+        "Campagnes Facebook, Instagram et emailing",
+        "Optimisation SEO et SEA",
+        "Gestion de sites e-commerce WordPress et PrestaShop",
+        "Suivi des commandes et des performances"
+      ]
     },
     {
       "periode": "2018 — 2019",
       "type": "experience",
-      "intitule": "Fondateur et gérant",
+      "intitule": "Fondateur (CEO)",
       "structure": "Les Petits Paniers",
-      "ville": "[Ville]",
-      "texte": "Site e-commerce de fruits et légumes bio et de produits du terroir : campagnes digitales, site (fiches produits, SEO), commandes, livraisons et relation client, démarchage de producteurs, shootings produits.",
+      "ville": "Arras",
+      "texte": "Site e-commerce de fruits et légumes bio et de produits du terroir.",
+      "missions": [
+        "Campagnes digitales",
+        "Site : fiches produits, SEO, design",
+        "Commandes, livraisons et relation client",
+        "Démarchage de producteurs, shootings produits"
+      ],
       "ref": "P-03"
     },
     {
@@ -94,7 +107,7 @@
       "type": "formation",
       "intitule": "DUT Techniques de commercialisation",
       "structure": "Université Polytechnique Hauts-de-France",
-      "ville": "[Ville]",
+      "ville": "Cambrai",
       "texte": "[À compléter]"
     }
   ],
@@ -102,15 +115,20 @@
     "WordPress",
     "PrestaShop",
     "Google Analytics",
+    "Clarity",
     "Semrush",
     "Ubersuggest",
     "Brevo",
     "Stripo",
+    "Connectif",
     "Zapier",
     "Tally",
+    "Notion",
     "Canva",
+    "Figma",
     "Adobe XD",
     "ChatGPT",
+    "Claude",
     "Midjourney"
   ],
   "valeurs": [
