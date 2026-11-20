@@ -1,5 +1,8 @@
 import { Link } from "react-router";
+import AdresseEmail from "./AdresseEmail";
+import LienLinkedIn from "./LienLinkedIn";
 import Logo from "./Logo";
+import { NOM } from "../lib/seo";
 import "./Footer.css";
 
 /**
@@ -16,7 +19,7 @@ export default function Footer({ onGererCookies }) {
           <div className="pied__marque">
             <Logo lien={false} taille="l" />
             <p className="pied__accroche">
-              Lorem ipsum : positionnement en une ligne. Arras, Hauts-de-France.
+               Arras, Hauts-de-France.
             </p>
           </div>
 
@@ -33,12 +36,11 @@ export default function Footer({ onGererCookies }) {
           <div className="pied__colonne">
             <h2 className="pied__titre">Me trouver</h2>
             <ul className="pied__liste">
-              <li>[E-mail à compléter]</li>
               <li>
-                {/* Lien LinkedIn à compléter */}
-                <a href="#" rel="noopener noreferrer">
-                  [LinkedIn à compléter] <span aria-hidden="true">↗</span>
-                </a>
+                <AdresseEmail />
+              </li>
+              <li>
+                <LienLinkedIn />
               </li>
               <li>Arras (62), Hauts-de-France</li>
             </ul>
@@ -46,7 +48,7 @@ export default function Footer({ onGererCookies }) {
         </div>
 
         <div className="pied__bas">
-          <span>© {annee} NOM PRÉNOM</span>
+          <span>© {annee} {NOM}</span>
           <ul className="pied__legal">
             <li><Link to="/mentions-legales">Mentions légales</Link></li>
             <li><Link to="/confidentialite">Confidentialité</Link></li>

@@ -1,4 +1,5 @@
 import profil from "../data/profil.json";
+import aPropos from "../data/a-propos.json";
 import { elementsDe } from "../data/catalogue";
 
 /*
@@ -11,6 +12,16 @@ import { elementsDe } from "../data/catalogue";
 
 export const SITE = profil.siteUrl.replace(/\/$/, "");
 export const NOM = `${profil.nom} ${profil.prenom}`;
+// Forme usuelle pour les textes suivis (pages légales) : « Frédéric Dislaire »
+const majuscule = (mot) => mot.charAt(0) + mot.slice(1).toLocaleLowerCase("fr");
+export const NOM_USUEL = `${majuscule(profil.prenom)} ${majuscule(profil.nom)}`;
+// Personnage 3D des bannières (accueil, À propos) : props de <Banniere image>
+export const PORTRAIT = {
+  src: profil.portrait.src,
+  largeur: profil.portrait.largeur,
+  hauteur: profil.portrait.hauteur,
+  alt: `Portrait 3D de ${NOM_USUEL}, chargé e-commerce et marketing digital à ${profil.ville}`,
+};
 export const urlAbsolue = (chemin) => new URL(chemin, `${SITE}/`).href;
 
 // Limites recommandées (vérifiées à chaque build par scripts/fichiers-seo.mjs)
@@ -73,8 +84,26 @@ const CONTEXTE = "https://schema.org";
 export const ID_PERSONNE = `${SITE}/#personne`;
 const ID_SITE = `${SITE}/#site`;
 const estUrl = (v) => /^https?:\/\//.test(v ?? "");
+// Valeur réelle : ni vide ni encore entre [crochets] (les valeurs à compléter ne sont pas publiées)
+const reel = (v) => typeof v === "string" && v !== "" && !v.startsWith("[");
 
-// La personne : nom, postes visés, zone, expertises
+// Écoles et organismes de formation (parcours de la page À propos)
+const ECOLES = [
+  ...new Set(aPropos.parcours.filter((e) => e.type === "formation").map((e) => e.structure)),
+].filter(reel);
+
+// Domaines de compétence : les axes clés, puis les expertises du catalogue (sans doublon)
+const DOMAINES = [
+  ...new Set([
+    "E-commerce",
+    "SEO",
+    "Marketing digital",
+    "Gestion de projet digital",
+    ...elementsDe("expertise").map((e) => e.titre),
+  ]),
+];
+
+// La personne : nom, postes visés, zone, formations, domaines de compétence
 export function ldPersonne({ avecContexte = true } = {}) {
   return {
     ...(avecContexte && { "@context": CONTEXTE }),
@@ -93,7 +122,8 @@ export function ldPersonne({ avecContexte = true } = {}) {
     },
     // Profils externes (LinkedIn) : uniquement les vraies adresses
     ...(estUrl(profil.linkedin) && { sameAs: [profil.linkedin] }),
-    knowsAbout: elementsDe("expertise").map((e) => e.titre),
+    alumniOf: ECOLES.map((nom) => ({ "@type": "EducationalOrganization", name: nom })),
+    knowsAbout: DOMAINES,
   };
 }
 
@@ -141,8 +171,6 @@ export function ldFilAriane(items, chemin) {
 
 // Un projet : réalisation (CreativeWork) de la personne
 export function ldProjet(projet, chemin, expertises) {
-  // Les valeurs encore à compléter ([Outil 1], [AAAA]…) ne sont pas publiées
-  const reel = (v) => typeof v === "string" && v !== "" && !v.startsWith("[");
   return {
     "@context": CONTEXTE,
     "@type": "CreativeWork",

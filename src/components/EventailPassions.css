@@ -1,0 +1,316 @@
+/* « Au-delà du bureau » — maquettes AccueilDecouvrir.dc.html et AccueilDecouvrirMobile.dc.html */
+
+.eventail {
+  min-width: 0;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-5);
+  overflow: hidden; /* les cartes inclinées ne dépassent pas du bloc */
+  background: var(--color-surface);
+}
+
+/* ---------- En-tête ---------- */
+.eventail__entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.eventail__titre {
+  margin: 0;
+  font-size: 56px;
+  font-weight: var(--weight-display);
+  font-variation-settings: "wdth" var(--wdth-display);
+  letter-spacing: var(--tracking-display);
+  line-height: 0.98;
+}
+
+.eventail__collection {
+  font-size: 13px;
+  text-align: right;
+}
+
+/* ---------- Éventail de cartes (desktop et tablette) ---------- */
+.eventail__cartes {
+  position: relative;
+  width: 100%;
+  max-width: 538px; /* 4 cartes : 10 + 3 × 116 + 170 + 10 */
+  height: 270px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  perspective: 1100px;
+  perspective-origin: 50% 40%;
+}
+
+/* Les variables --gauche, --profondeur et --transformation viennent du composant */
+.eventail__place {
+  position: absolute;
+  top: 24px;
+  left: var(--gauche);
+  width: 170px;
+  height: 220px;
+  z-index: var(--profondeur);
+  transform-style: preserve-3d;
+  /* La place (boîte plate) laisse passer la souris : seule la carte inclinée réagit */
+  pointer-events: none;
+}
+
+.eventail__carte {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "ref fleche"
+    "visuel visuel"
+    "nom nom";
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: var(--bordure-forte);
+  background-color: var(--color-blanc);
+  color: var(--color-texte);
+  text-decoration: none;
+  transform: var(--transformation);
+  transform-origin: 50% 50%;
+  pointer-events: auto;
+  transition:
+    transform var(--transition),
+    background-color var(--transition);
+}
+
+.eventail__carte:hover {
+  color: var(--color-texte);
+}
+
+.eventail__carte--active {
+  background-color: var(--color-orange-pale);
+}
+
+.eventail__ref,
+.eventail__fleche {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  letter-spacing: var(--tracking-label);
+}
+
+.eventail__ref {
+  grid-area: ref;
+}
+
+.eventail__fleche {
+  grid-area: fleche;
+}
+
+.eventail__nom {
+  grid-area: nom;
+  font-size: 20px;
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-display);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* Visuel carré : photo, emplacement hachuré ou carte du monde */
+.eventail__visuel {
+  grid-area: visuel;
+  position: relative;
+  display: block;
+  min-height: 0;
+  overflow: hidden;
+  border: var(--bordure);
+  background: var(--color-blanc);
+}
+
+.eventail__visuel .image-emplacement {
+  height: 100%;
+  min-height: 0;
+  border: 0;
+}
+
+.eventail__visuel picture,
+.eventail__visuel img {
+  height: 100%;
+}
+
+/* Carte du monde recadrée sur l'Europe et l'Asie (40 % → 85 % de la largeur) */
+.eventail__monde {
+  position: absolute;
+  top: 0;
+  left: -90%;
+  width: 225%;
+  margin-top: -9.7%; /* % de la largeur : remonte légèrement le cadrage */
+  aspect-ratio: 1000 / 437.4;
+}
+
+.eventail__monde img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.eventail__repere {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--color-blanc);
+  border-radius: var(--radius-pastille);
+  background: var(--color-orange);
+}
+
+/* Départ (Arras) : carré Noir Encre, la forme ne repose pas sur la couleur seule */
+.eventail__repere--depart {
+  z-index: 1;
+  border-radius: 0;
+  background: var(--color-noir);
+}
+
+/* ---------- Pied : légende de la carte active + lien carnet ---------- */
+.eventail__pied {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-4);
+  padding-top: var(--space-4);
+  border-top: var(--bordure-forte);
+}
+
+.eventail__lien {
+  font-weight: var(--weight-bold);
+  color: var(--color-texte);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.eventail__lien:hover {
+  color: var(--color-lien-survol);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eventail__carte,
+  .eventail__lien {
+    transition: none;
+  }
+}
+
+/* ---------- Mobile : liste verticale, sans 3D ---------- */
+@media (max-width: 767px) {
+  .eventail {
+    padding: var(--space-5) 20px;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .eventail__entete {
+    flex-direction: column-reverse;
+    gap: var(--space-2);
+  }
+
+  .eventail__coupure {
+    display: none;
+  }
+
+  .eventail__titre {
+    font-size: 36px;
+    line-height: 1;
+  }
+
+  .eventail__collection {
+    font-size: var(--text-mono-s);
+    text-align: left;
+  }
+
+  .eventail__cartes {
+    height: auto;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    perspective: none;
+  }
+
+  .eventail__place {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+
+  .eventail__carte {
+    position: relative;
+    min-height: 80px;
+    grid-template-columns: 64px minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "visuel ref fleche"
+      "visuel nom fleche";
+    align-content: center;
+    gap: 2px 14px;
+    padding: var(--space-2) 14px var(--space-2) var(--space-2);
+    transform: none;
+  }
+
+  /* Comme la maquette mobile : Voyages en avant, quelle que soit la carte survolée */
+  .eventail__carte--active {
+    background-color: var(--color-blanc);
+  }
+
+  .eventail__carte--vedette {
+    background-color: var(--color-orange-pale);
+  }
+
+  .eventail__ref {
+    align-self: end;
+    color: var(--color-texte-secondaire);
+  }
+
+  .eventail__nom {
+    align-self: start;
+  }
+
+  .eventail__fleche {
+    align-self: center;
+    font-family: var(--font-sans);
+    font-size: 20px;
+  }
+
+  .eventail__visuel {
+    width: 64px;
+    height: 64px;
+  }
+
+  /* Vignette de 64 px : hachures seules, la légende n'y tiendrait pas */
+  .eventail__visuel .image-emplacement__legende {
+    display: none;
+  }
+
+  .eventail__repere {
+    width: 4px;
+    height: 4px;
+    border-width: 0;
+  }
+
+  .eventail__legende {
+    display: none;
+  }
+
+  .eventail__pied {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .eventail__lien {
+    min-height: var(--hauteur-bouton-s);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em; /* en flex, l'espace avant la flèche serait perdu */
+  }
+}

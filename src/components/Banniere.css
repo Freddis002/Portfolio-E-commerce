@@ -36,6 +36,10 @@
   overflow-wrap: anywhere;
 }
 
+.banniere__titre--majuscules {
+  text-transform: uppercase;
+}
+
 .banniere__sous-titre {
   margin: 0;
   font-family: var(--font-mono);
@@ -61,6 +65,26 @@
 .banniere__visuel {
   flex: 1 1 360px;
   min-width: 0;
+}
+
+/* Photo dans le cadre 4:5 (fond Surface le temps du chargement) */
+.banniere__cadre {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.banniere__photo,
+.banniere__photo img {
+  display: block;
+  height: 100%;
+}
+
+.banniere__cadre .banniere__reference {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
 }
 
 .banniere__reference {

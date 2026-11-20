@@ -1,0 +1,191 @@
+/* Pages légales — maquettes MentionsLegales.dc.html et Confidentialite.dc.html */
+
+.page-legale {
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-9);
+}
+
+.page-legale__corps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-6) var(--space-8);
+  padding-top: var(--space-6);
+}
+
+/* Sommaire collé en haut pendant la lecture */
+.page-legale__sommaire {
+  flex: 0 1 280px;
+  position: sticky;
+  top: var(--space-5);
+  border-top: var(--bordure-forte);
+  padding-top: var(--space-5);
+}
+
+.page-legale__sommaire .label-mono {
+  margin: 0 0 var(--space-3);
+}
+
+.page-legale__sommaire ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.page-legale__sommaire a {
+  color: var(--color-texte);
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+
+.page-legale__sommaire a:hover {
+  text-decoration: underline;
+}
+
+.page-legale__contenu {
+  flex: 999 1 560px;
+  min-width: 0;
+  max-width: 860px;
+}
+
+.page-legale__titre {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-h1);
+  font-weight: var(--weight-display);
+  font-variation-settings: "wdth" var(--wdth-display);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-h1);
+}
+
+.page-legale__contenu > .label-mono {
+  margin: 0;
+}
+
+.page-legale__section {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: var(--bordure);
+  scroll-margin-top: var(--space-5);
+}
+
+.page-legale__h2 {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-h3);
+}
+
+.page-legale__section p,
+.page-legale__section li {
+  color: var(--color-texte);
+}
+
+.page-legale__section p {
+  margin: 0 0 var(--space-3);
+}
+
+.page-legale__section ul {
+  margin: 0 0 var(--space-3);
+  padding-left: 20px;
+}
+
+/* Fiche d'identité (éditeur) : libellé / valeur */
+.page-legale__infos {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: var(--space-2) var(--space-4);
+}
+
+.page-legale__infos dt {
+  color: var(--color-texte-secondaire);
+}
+
+.page-legale__infos dd {
+  margin: 0;
+}
+
+/* « En résumé » : trois encadrés */
+.page-legale__section .page-legale__resume {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.page-legale__resume li {
+  padding: var(--space-4);
+  border: var(--bordure);
+}
+
+.page-legale__resume strong {
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+/* Tableau des traitements (défile horizontalement sur petit écran) */
+.page-legale__tableau {
+  overflow-x: auto;
+}
+
+.page-legale__tableau table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.page-legale__tableau th {
+  padding: var(--space-3) var(--space-3) var(--space-3) 0;
+  border-bottom: var(--bordure-forte);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  font-weight: var(--weight-texte);
+  letter-spacing: var(--tracking-label);
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--color-texte-secondaire);
+}
+
+.page-legale__tableau td {
+  padding: var(--space-3) var(--space-3) var(--space-3) 0;
+  border-bottom: var(--bordure);
+  vertical-align: top;
+}
+
+.page-legale__tableau th[scope="row"] {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: var(--weight-bold);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-texte);
+  border-bottom: var(--bordure);
+}
+
+@media (max-width: 1023px) {
+  .page-legale__sommaire {
+    position: static;
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 599px) {
+  .page-legale__infos {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .page-legale__infos dd {
+    margin-bottom: var(--space-3);
+  }
+
+  .page-legale__section .page-legale__resume {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

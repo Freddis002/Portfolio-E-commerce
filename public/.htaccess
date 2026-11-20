@@ -1,0 +1,85 @@
+# =====================================================================
+# Portfolio : configuration Apache (hébergement mutualisé OVH)
+# Copié tel quel à la racine du site (www/) par « npm run build ».
+# =====================================================================
+
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+# Pas de barre finale automatique : /catalogue est servi tel quel (URL canonique)
+DirectorySlash Off
+AddDefaultCharset utf-8
+# Données des pages pré-rendues, lues par le site lors de la navigation interne
+AddType text/x-script .data
+
+# Vraie page 404 (statut 404) pour toute adresse inconnue
+ErrorDocument 404 /404/index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # --- 1. Adresse canonique : https, sans www, en UNE seule redirection ---
+  # www.domaine.fr (http ou https) → https://domaine.fr
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L,NE]
+  # http → https (OVH : le proxy signale aussi le protocole d'origine)
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
+
+  # --- 2. Fichiers cachés interdits (.htaccess, .git…), sauf /.well-known ---
+  RewriteRule (^|/)\.(?!well-known/) - [F]
+
+  # --- 3. Dans /api/, seul le script du formulaire est appelable ---
+  RewriteCond %{REQUEST_URI} ^/api/
+  RewriteCond %{REQUEST_URI} !^/api/contact\.php$
+  RewriteRule ^ - [R=404,L]
+
+  # --- 4. Une seule forme d'adresse : /catalogue/ → /catalogue ---
+  RewriteCond %{REQUEST_URI} ^(.+)/$
+  RewriteRule ^ %1 [R=301,L]
+
+  # --- 5. Pages pré-rendues : /catalogue sert /catalogue/index.html ---
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.+)$ $1/index.html [L]
+</IfModule>
+
+# --- En-têtes de sécurité ---
+<IfModule mod_headers.c>
+  # Le site ne peut pas être affiché dans un cadre d'un autre site ; pas de
+  # plugin, pas de changement d'adresse de base, formulaires vers ce site seulement.
+  # (Le reste de la politique, propre à chaque page, est dans une balise <meta>.)
+  Header always set Content-Security-Policy "frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"
+  # Même protection pour les anciens navigateurs qui ignorent frame-ancestors
+  Header always set X-Frame-Options "DENY"
+  # HTTPS obligatoire pendant 1 an (ajouter "; includeSubDomains" quand
+  # tous les sous-domaines seront aussi en HTTPS)
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "accelerometer=(), autoplay=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always unset X-Powered-By
+  Header unset X-Powered-By
+</IfModule>
+
+# --- Cache ---
+<IfModule mod_headers.c>
+  # Pages et fichiers de référencement : toujours revérifiés (mises à jour visibles tout de suite)
+  <FilesMatch "\.(html|data|xml|txt)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # Fichiers publics non versionnés (CV, image de partage, carte, favicon) : 1 jour
+  <FilesMatch "\.(pdf|png|jpe?g|webp|avif|svg|ico)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+  # Fichiers versionnés (/assets/ : leur nom change à chaque modification) : 1 an
+  <If "%{REQUEST_URI} =~ m#^/assets/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+</IfModule>
+
+# --- Compression ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml text/javascript application/javascript application/json application/ld+json application/xml image/svg+xml text/x-script
+</IfModule>

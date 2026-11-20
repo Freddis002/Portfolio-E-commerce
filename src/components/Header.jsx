@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router";
 import { Menu, ShoppingBag, X } from "lucide-react";
+import profil from "../data/profil.json";
 import Logo from "./Logo";
 import "./Header.css";
 
@@ -12,7 +13,6 @@ const LIENS = [
 ];
 
 // Fichier à déposer dans public/ (étape contenus)
-const CV_URL = "/cv.pdf";
 
 /**
  * Compteur de « Ma sélection » : pastille neutre à 0, orange dès 1.
@@ -130,7 +130,7 @@ export default function Header({ count = 0, impulsion = 0 }) {
               </NavLink>
             </li>
             <li className="entete__menu-cv">
-              <a href={CV_URL} className="bouton bouton--contour bouton--m">
+              <a href={profil.cv.href} download={profil.cv.nomFichier} className="bouton bouton--contour bouton--m">
                 Télécharger le CV (PDF)
               </a>
             </li>

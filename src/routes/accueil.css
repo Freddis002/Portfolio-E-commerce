@@ -78,104 +78,32 @@
   border-top: var(--bordure);
 }
 
-/* ---------- Bannières secondaires ---------- */
+/* ---------- À découvrir : passions (7 col.) + À propos (5 col.) ---------- */
 .accueil__decouvrir {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-5);
 }
 
-.promo {
-  display: flex;
-  color: var(--color-texte);
-  text-decoration: none;
-  transition: border-color var(--transition);
+@media (min-width: 1024px) {
+  .accueil__decouvrir {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    min-height: 620px;
+  }
+
+  .accueil__decouvrir > :first-child {
+    grid-column: span 7;
+  }
+
+  .accueil__decouvrir > :last-child {
+    grid-column: span 5;
+  }
 }
 
-.promo:hover {
-  color: var(--color-texte);
-}
-
-.promo--passions {
-  flex-wrap: wrap;
-  background: var(--color-surface);
-}
-
-.promo--a-propos {
-  flex-direction: column;
-  justify-content: space-between;
-  gap: var(--space-6);
-  padding: 40px;
-  border: var(--bordure-forte);
-}
-
-.promo__texte {
-  flex: 1 1 220px;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: var(--space-5);
-}
-
-.promo__textes {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.promo__titre {
-  margin: 0;
-  font-size: clamp(24px, 2.6vw, 32px);
-  font-weight: var(--weight-titre);
-  font-variation-settings: "wdth" var(--wdth-titre);
-  letter-spacing: var(--tracking-titre);
-  line-height: 1.1;
-}
-
-.promo__corps {
-  margin: 0;
-  max-width: 44ch;
-  color: var(--color-texte-long);
-}
-
-.promo__cta {
-  font-weight: var(--weight-bold);
-  transition: color var(--transition);
-}
-
-/* Bannière entièrement cliquable (À propos) : le CTA réagit au survol du bloc */
-a.promo:hover .promo__cta,
-a.promo__cta:hover {
-  color: var(--color-orange-brule);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-/* Bannière Passions : deux liens distincts */
-a.promo__cta {
-  color: var(--color-texte);
-  text-decoration: none;
-}
-
-.promo__liens {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-2);
-}
-
-.promo__mosaique {
-  flex: 1 1 200px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-1);
-  padding: var(--space-1);
-}
-
-/* Petits carrés hachurés : la légende n'y tiendrait pas */
-.promo__mosaique .image-emplacement__legende {
-  display: none;
+@media (max-width: 767px) {
+  .accueil__decouvrir {
+    gap: var(--space-4);
+  }
 }
 
 /* ---------- Contact ---------- */
@@ -243,15 +171,6 @@ a.promo__cta {
 
   /* Seule la vitrine reste, comme sur la maquette mobile */
   .accueil__autres-projets {
-    display: none;
-  }
-
-  .promo__texte,
-  .promo--a-propos {
-    padding: var(--space-5);
-  }
-
-  .promo__mosaique {
     display: none;
   }
 

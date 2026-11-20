@@ -8,7 +8,10 @@ import { useEstMobile } from "../lib/fiche";
 import { useApresHydratation } from "../lib/hydratation";
 import { metaPage } from "../lib/seo";
 import { useSelection } from "../lib/selection";
+import { track } from "../lib/analytics";
+import AdresseEmail from "../components/AdresseEmail";
 import Bouton from "../components/Bouton";
+import LienLinkedIn from "../components/LienLinkedIn";
 import Champ from "../components/Champ";
 import IndicateurEtapes from "../components/IndicateurEtapes";
 import PointFinal from "../components/PointFinal";
@@ -91,6 +94,8 @@ export default function Contact() {
     setStatut("envoi");
     const reponse = await envoyerMessage({ ...champs, jeton: jeton.current });
     if (reponse.ok) {
+      // Mesure : l'envoi seulement, jamais le contenu du message
+      track("envoi_contact");
       vider();
       setStatut("envoye");
       return;
@@ -155,12 +160,11 @@ export default function Contact() {
 
           <div className="contact__direct">
             <p className="label-mono">Ou directement</p>
-            <p>[E-mail à compléter]</p>
             <p>
-              {/* Lien LinkedIn à compléter */}
-              <a href="#" rel="noopener noreferrer">
-                [LinkedIn à compléter] <span aria-hidden="true">↗</span>
-              </a>
+              <AdresseEmail />
+            </p>
+            <p>
+              <LienLinkedIn />
             </p>
             <p className="contact__lieu">
               Basé à {profil.ville} · {profil.region}
@@ -187,7 +191,7 @@ export default function Contact() {
                 <Bouton variante="secondaire" to="/catalogue">
                   Retour au catalogue
                 </Bouton>
-                <Bouton variante="contour" href="/cv.pdf" download>
+                <Bouton variante="contour" href={profil.cv.href} download={profil.cv.nomFichier}>
                   Télécharger le CV (PDF)
                 </Bouton>
               </div>

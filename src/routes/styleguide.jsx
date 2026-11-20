@@ -8,6 +8,7 @@ import { Badge, Pastilles } from "../components/Etiquettes";
 import CarteProduit from "../components/CarteProduit";
 import TuileCategorie from "../components/TuileCategorie";
 import Banniere from "../components/Banniere";
+import { PORTRAIT } from "../lib/seo";
 import BandeReassurance from "../components/BandeReassurance";
 import { CaseFiltre, GroupeFiltres } from "../components/Filtres";
 import SelecteurTri from "../components/SelecteurTri";
@@ -292,7 +293,7 @@ export default function Styleguide() {
 
       <div className="sg-pleine-largeur">
         <div className="conteneur">
-          <p className="sg-exemple__label">Bannière de campagne (titre en H2 ici ; H1 sur l'accueil)</p>
+          <p className="sg-exemple__label">Bannière de campagne avec portrait (prop image ; titre en H2 ici, H1 sur l'accueil et À propos)</p>
         </div>
         <Banniere
           niveau={2}
@@ -300,7 +301,8 @@ export default function Styleguide() {
           titre={<>NOM<br />PRÉNOM</>}
           sousTitre="Chargé e-commerce · Marketing & communication · Chef de projet digital"
           texte="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore, en Hauts-de-France."
-          reference="Réf. NP-2026"
+          reference="Réf. DF-2026"
+          image={PORTRAIT}
           actions={
             <>
               <Bouton to="/catalogue">Voir mes projets →</Bouton>

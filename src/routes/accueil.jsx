@@ -1,15 +1,17 @@
 import { Link } from "react-router";
 import { CalendarDays, FileDown, MapPin, Route } from "lucide-react";
 import profil from "../data/profil.json";
-import { CHEMIN_CARNET, categories, deuxChiffres, elements, elementsDe, trier } from "../data/catalogue";
+import aPropos from "../data/a-propos.json";
+import { categories, deuxChiffres, elements, elementsDe, trier } from "../data/catalogue";
 import { useSelection } from "../lib/selection";
-import { ldPersonne, ldSiteWeb, metaPage } from "../lib/seo";
+import { PORTRAIT, ldPersonne, ldSiteWeb, metaPage } from "../lib/seo";
 import Banniere from "../components/Banniere";
 import BandeReassurance from "../components/BandeReassurance";
+import BoiteAPropos from "../components/BoiteAPropos";
 import Bouton from "../components/Bouton";
 import CarteProduit from "../components/CarteProduit";
 import EnteteSection from "../components/EnteteSection";
-import ImageEmplacement from "../components/ImageEmplacement";
+import EventailPassions from "../components/EventailPassions";
 import PointFinal from "../components/PointFinal";
 import TuileCategorie from "../components/TuileCategorie";
 import "./accueil.css";
@@ -33,7 +35,10 @@ const ICONES = { lieu: MapPin, mobilite: Route, disponibilite: CalendarDays, cv:
 const nouveautes = elements.filter((e) => e.badges?.nouveau);
 const plusDemandees = trier(elementsDe("expertise"), "demandes");
 const [projetVedette, ...autresProjets] = trier(elementsDe("projet"), "pertinence");
-const passions = elementsDe("passion");
+// Carte À propos : bilan du parcours, compté depuis src/data/a-propos.json
+const nbEtapes = (type) => aPropos.parcours.filter((e) => e.type === type).length;
+// (espaces insécables \u00a0 : le chiffre ne reste jamais seul en fin de ligne)
+const bilanParcours = `${nbEtapes("experience")}\u00a0expériences, ${nbEtapes("formation")}\u00a0formations`;
 
 export default function Accueil() {
   const { contient, basculer, count } = useSelection();
@@ -62,13 +67,14 @@ export default function Accueil() {
         sousTitre={profil.postes.join(" · ")}
         texte={accueil.accroche}
         reference={accueil.referenceVisuel}
-        visuel="Portrait"
+        image={PORTRAIT}
+        majuscules
         actions={
           <>
             <Bouton to="/catalogue?cat=projets">
               Voir mes projets <span aria-hidden="true">→</span>
             </Bouton>
-            <Bouton variante="contour" href="/cv.pdf">
+            <Bouton variante="contour" href={profil.cv.href} download={profil.cv.nomFichier}>
               Télécharger le CV (PDF)
             </Bouton>
           </>
@@ -77,7 +83,12 @@ export default function Accueil() {
 
       {/* 2. Réassurance */}
       <BandeReassurance
-        items={accueil.reassurance.map((r) => ({ ...r, icone: ICONES[r.icone] }))}
+        items={accueil.reassurance.map((r) => ({
+          ...r,
+          icone: ICONES[r.icone],
+          // Lien vers le CV : enregistré sous son nom lisible
+          ...(r.href === profil.cv.href && { nomFichier: profil.cv.nomFichier }),
+        }))}
       />
 
       {/* 3. Catégories */}
@@ -165,46 +176,10 @@ export default function Accueil() {
         </div>
       </section>
 
-      {/* 7. Bannières secondaires */}
+      {/* 7. À découvrir : passions en éventail + À propos en boîte 3D */}
       <section className="accueil__section accueil__decouvrir conteneur" aria-label="À découvrir">
-        {/* Deux liens dans la bannière (un lien ne peut pas en contenir un autre) */}
-        <div className="promo promo--passions">
-          <div className="promo__texte">
-            <div className="promo__textes">
-              <span className="label-mono">
-                {passions[0].ref} → {passions.at(-1).ref} · Passions
-              </span>
-              <h2 className="promo__titre">{accueil.passions.titre}</h2>
-              <p className="promo__corps">
-                {passions.map((p) => p.titre).join(", ")}. {accueil.passions.texte}
-              </p>
-            </div>
-            <div className="promo__liens">
-              <Link to="/catalogue?cat=passions" className="promo__cta">
-                Découvrir les passions <span aria-hidden="true">→</span>
-              </Link>
-              <Link to={CHEMIN_CARNET} className="promo__cta">
-                Voir le carnet de route <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </div>
-          <div className="promo__mosaique" aria-hidden="true">
-            {passions.map((p) => (
-              <ImageEmplacement key={p.ref} type="Photo" ratio="1:1" decoratif />
-            ))}
-          </div>
-        </div>
-
-        <Link to="/a-propos" className="promo promo--a-propos">
-          <div className="promo__textes">
-            <span className="label-mono">À propos · Parcours</span>
-            <h2 className="promo__titre">{accueil.aPropos.titre}</h2>
-            <p className="promo__corps">{accueil.aPropos.texte}</p>
-          </div>
-          <span className="promo__cta">
-            Voir mon parcours <span aria-hidden="true">→</span>
-          </span>
-        </Link>
+        <EventailPassions />
+        <BoiteAPropos titre={bilanParcours} texte={accueil.aPropos.texte} />
       </section>
 
       {/* 8. Contact */}

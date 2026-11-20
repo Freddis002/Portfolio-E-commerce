@@ -11,18 +11,27 @@ const ARGUMENTS_DEFAUT = [
 
 /**
  * Bande de réassurance : 4 arguments courts avec icône Lucide (24 px, trait 1,5).
- * - items : [{ icone, titre, texte }]
+ * - items : [{ icone, titre, texte, href, nomFichier }]
+ * - href (facultatif) : le titre devient un lien de téléchargement, ex. "/cv.pdf"
+ *   (le clic est compté par la mesure d'audience : « telechargement_cv »)
+ * - nomFichier (facultatif) : nom du fichier enregistré chez le visiteur
  */
 export default function BandeReassurance({ items = ARGUMENTS_DEFAUT }) {
   return (
     <section className="reassurance" aria-label="En bref">
       {/* Liste de définitions : chaque argument (dt) et son détail (dd) */}
       <dl className="reassurance__liste conteneur">
-        {items.map(({ icone: Icone, titre, texte }) => (
+        {items.map(({ icone: Icone, titre, texte, href, nomFichier }) => (
           <div key={titre} className="reassurance__item">
             <dt className="reassurance__titre">
               <Icone size={24} strokeWidth={1.5} aria-hidden="true" className="reassurance__icone" />
-              {titre}
+              {href ? (
+                <a href={href} download={nomFichier ?? true} className="reassurance__lien">
+                  {titre}
+                </a>
+              ) : (
+                titre
+              )}
             </dt>
             <dd className="reassurance__texte">{texte}</dd>
           </div>

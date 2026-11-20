@@ -37,3 +37,13 @@
   line-height: 1.4;
   color: var(--color-texte-secondaire);
 }
+
+/* Titre cliquable (CV en PDF) : souligné pour signaler le lien */
+.reassurance__lien {
+  color: var(--color-texte);
+  text-underline-offset: 4px;
+}
+
+.reassurance__lien:hover {
+  color: var(--color-lien-survol);
+}

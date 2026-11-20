@@ -33,6 +33,24 @@
   padding-top: var(--space-9);
 }
 
+/* Filtres Expériences / Formations : en ligne, au-dessus de la timeline */
+.parcours__filtres .filtres-groupe {
+  padding-bottom: var(--space-3);
+}
+
+.parcours__filtres .filtres-groupe__options {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+}
+
+.parcours__vide {
+  margin: 0;
+  padding: var(--space-6) 0;
+  border-top: var(--bordure);
+  color: var(--color-texte-long);
+}
+
 .parcours {
   list-style: none;
   margin: 0;
@@ -69,12 +87,30 @@
   color: var(--color-texte-long);
 }
 
+/* Lien vers la fiche projet liée à une étape */
+.parcours__lien {
+  display: inline-block;
+  margin-top: var(--space-2);
+  font-weight: var(--weight-interface);
+  color: var(--color-texte);
+  text-underline-offset: 4px;
+}
+
+.parcours__lien:hover {
+  color: var(--color-lien-survol);
+}
+
 .a-propos__expertises {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-4) var(--space-5);
   padding-top: var(--space-7);
+}
+
+/* « Ma boîte à outils » juste sous « Mes expertises » */
+.a-propos__expertises + .a-propos__expertises {
+  padding-top: var(--space-5);
 }
 
 .a-propos__expertises-titre {

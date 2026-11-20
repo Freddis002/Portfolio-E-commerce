@@ -24,7 +24,7 @@ const html = `<!doctype html>
   body { width: 1200px; height: 630px; background: #F7F5F2; color: #111010; font-family: Archivo, sans-serif;
          display: flex; flex-direction: column; justify-content: space-between; padding: 72px 80px; }
   .haut { font: 400 22px Plex, monospace; letter-spacing: .08em; text-transform: uppercase; color: #C2410C; }
-  h1 { font-size: 116px; line-height: 1; font-weight: 850; font-variation-settings: "wdth" 112; letter-spacing: -.03em; }
+  h1 { font-size: 116px; line-height: 1; font-weight: 850; text-transform: uppercase; font-variation-settings: "wdth" 112; letter-spacing: -.03em; }
   h1 span { color: #FF5A1F; }
   .postes { margin-top: 28px; font: 400 26px Plex, monospace; letter-spacing: .02em; color: #2B2927; }
   .bas { display: flex; justify-content: space-between; align-items: center; border-top: 2px solid #111010; padding-top: 24px;

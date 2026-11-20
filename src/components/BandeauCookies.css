@@ -1,0 +1,216 @@
+/* Bandeau et réglages des cookies — maquettes Cookies.dc.html et CookiesMobile.dc.html */
+
+/* Bandeau en bas d'écran, non bloquant (la page reste utilisable) */
+.bandeau-cookies {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  background: var(--color-fond);
+  border-top: var(--bordure-forte);
+}
+
+.bandeau-cookies__interieur {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4) var(--space-6);
+  padding-block: var(--space-5);
+}
+
+.bandeau-cookies__texte {
+  flex: 1 1 420px;
+  max-width: 640px;
+}
+
+.bandeau-cookies__titre {
+  margin: 0 0 var(--space-2);
+  font-size: 20px;
+  font-weight: var(--weight-bold);
+}
+
+.bandeau-cookies__texte p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.bandeau-cookies__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Les deux choix ont exactement la même largeur */
+.bandeau-cookies__actions .bouton {
+  min-width: 160px;
+}
+
+.bandeau-cookies__personnaliser {
+  margin-right: var(--space-4);
+  padding: var(--space-2) 0;
+  border: 0;
+  background: none;
+  color: var(--color-texte);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: var(--weight-semibold);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.bandeau-cookies__duo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+/* ---------- Panneau « Personnaliser » ---------- */
+.reglages-cookies {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.reglages-cookies > p {
+  margin: 0;
+  font-size: var(--text-petit);
+  color: var(--color-texte-long);
+}
+
+.reglages-cookies__ligne {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: var(--bordure);
+}
+
+.reglages-cookies__ligne p {
+  margin: 0;
+}
+
+.reglages-cookies__nom {
+  font-weight: var(--weight-bold);
+}
+
+.reglages-cookies__detail {
+  margin-top: var(--space-1);
+  font-size: var(--text-petit);
+  color: var(--color-texte-long);
+}
+
+.reglages-cookies__etat {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+/* Interrupteur : position ET texte (l'état ne repose pas que sur la couleur) */
+.interrupteur {
+  flex: none;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-texte);
+  cursor: pointer;
+}
+
+.interrupteur__piste {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  border: var(--bordure-forte);
+  border-radius: var(--radius-pastille);
+  background: var(--color-surface);
+  transition: background-color var(--transition);
+}
+
+.interrupteur__piste::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-pastille);
+  background: var(--color-noir);
+  transition: transform var(--transition);
+}
+
+.interrupteur[aria-checked="true"] .interrupteur__piste {
+  background: var(--color-noir);
+}
+
+.interrupteur[aria-checked="true"] .interrupteur__piste::after {
+  background: var(--color-orange);
+  transform: translateX(22px);
+}
+
+.interrupteur__texte {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  letter-spacing: var(--tracking-pastille);
+  text-transform: uppercase;
+}
+
+/* ---------- Confirmation ---------- */
+.confirmation-cookies {
+  position: fixed;
+  left: 50%;
+  bottom: var(--space-5);
+  z-index: 9;
+  margin: 0;
+  transform: translateX(-50%);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-noir);
+  color: var(--color-blanc);
+  font-size: var(--text-petit);
+  font-weight: var(--weight-semibold);
+  white-space: nowrap;
+  visibility: hidden;
+}
+
+.confirmation-cookies--visible {
+  visibility: visible;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 599px) {
+  .bandeau-cookies__interieur {
+    padding-block: var(--space-4);
+  }
+
+  .bandeau-cookies__actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bandeau-cookies__actions .bouton {
+    min-width: 0;
+  }
+
+  .bandeau-cookies__personnaliser {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin: 0;
+  }
+
+  .confirmation-cookies {
+    white-space: normal;
+    width: calc(100% - 2 * var(--space-5));
+    text-align: center;
+  }
+}
