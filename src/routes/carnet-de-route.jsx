@@ -36,7 +36,7 @@ const FILTRES = [
 
 export function meta() {
   return metaPage({
-    titre: `Carnet de route : voyages au départ d'${profil.ville} · ${profil.nom} ${profil.prenom}`,
+    titre: `Carnet de route : voyages depuis ${profil.ville} · ${profil.nom} ${profil.prenom}`,
     description: `Carte des voyages et des lieux photographiés au départ d'${profil.ville} (${profil.region}) : France, Espagne, Irlande, Pays-Bas, Vietnam. Passion H-02 Voyages.`,
     chemin: CHEMIN_CARNET,
     // Données structurées : la liste des lieux (avec coordonnées) et le fil d'Ariane

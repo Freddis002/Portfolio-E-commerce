@@ -45,6 +45,7 @@ export function useSelection() {
 
   const retirer = (element) => {
     selection.retirer(element.ref);
+    track("retrait_selection", { id: element.ref });
     changer({
       dernierAjout: null,
       annonce: `${element.titre} retiré de votre sélection, ${nombre(refs.length - 1)}`,

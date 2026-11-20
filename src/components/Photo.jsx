@@ -8,8 +8,9 @@
  *   réserve la place avant le chargement, la page ne « saute » pas
  * - prioritaire : true pour l'image du haut de page (chargée tout de suite,
  *   en priorité) ; sinon chargement différé, quand on s'en approche
+ * - remplir : true pour remplir un cadre de taille fixe (recadrage centré, object-fit: cover)
  */
-export default function Photo({ src, alt, largeur, hauteur, prioritaire = false, className = "" }) {
+export default function Photo({ src, alt, largeur, hauteur, prioritaire = false, remplir = false, className = "" }) {
   return (
     <picture className={className}>
       <source srcSet={`${src}.avif`} type="image/avif" />
@@ -22,7 +23,7 @@ export default function Photo({ src, alt, largeur, hauteur, prioritaire = false,
         loading={prioritaire ? "eager" : "lazy"}
         decoding={prioritaire ? "sync" : "async"}
         fetchPriority={prioritaire ? "high" : "auto"}
-        style={{ width: "100%", height: "auto" }}
+        style={remplir ? { width: "100%", height: "100%", objectFit: "cover" } : { width: "100%", height: "auto" }}
       />
     </picture>
   );

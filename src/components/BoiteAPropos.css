@@ -1,0 +1,263 @@
+/* Bloc À propos en boîte 3D — maquettes AccueilDecouvrir.dc.html et AccueilDecouvrirMobile.dc.html */
+
+.boite-a-propos {
+  min-width: 0;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-5);
+  border: var(--bordure-forte);
+  background: var(--color-blanc);
+  color: var(--color-texte);
+  text-decoration: none;
+}
+
+.boite-a-propos:hover {
+  color: var(--color-texte);
+}
+
+/* ---------- Scène : quadrillage de 24 px (lignes nettes de 1 px) ---------- */
+.boite-a-propos__scene {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 280px;
+  perspective: 900px;
+  background-color: var(--color-surface);
+  background-image:
+    repeating-linear-gradient(0deg, var(--color-ligne) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(90deg, var(--color-ligne) 0 1px, transparent 1px 24px);
+}
+
+/* Boîte 160 × 200, profondeur 70 */
+.boite-a-propos__boite {
+  position: relative;
+  width: 160px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transform: rotateX(-16deg) rotateY(-32deg);
+  transition: transform var(--transition);
+}
+
+.boite-a-propos:hover .boite-a-propos__boite,
+.boite-a-propos:focus-visible .boite-a-propos__boite {
+  transform: rotateX(-10deg) rotateY(-12deg);
+}
+
+.boite-a-propos__face {
+  position: absolute;
+  border: var(--bordure-forte);
+}
+
+/* Face avant : le personnage, la référence en haut, le nom en bas */
+.boite-a-propos__face--avant {
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-2);
+  overflow: hidden;
+  background-color: var(--color-surface);
+  transform: translateZ(35px);
+}
+
+.boite-a-propos__portrait {
+  position: absolute;
+  inset: 0;
+}
+
+.boite-a-propos__portrait img {
+  height: 100%;
+}
+
+.boite-a-propos__reference,
+.boite-a-propos__nom {
+  position: relative; /* au-dessus de la photo */
+  border: var(--bordure-forte);
+}
+
+.boite-a-propos__reference {
+  align-self: flex-start;
+  padding: 2px 6px;
+  background: var(--color-blanc);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.boite-a-propos__nom {
+  align-self: stretch;
+  padding: var(--space-1) 6px;
+  background: var(--color-orange-pale);
+  font-size: 14px;
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-display);
+  line-height: 1.05;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Sur Orange Pâle, le point passe en Orange Brûlé (comme la maquette) */
+.boite-a-propos__nom .point-final {
+  color: var(--color-orange-brule);
+}
+
+/* Tranche droite : ville et région en texte vertical */
+.boite-a-propos__face--tranche {
+  top: 0;
+  left: 45px;
+  width: 70px;
+  height: 200px;
+  display: grid;
+  place-items: center;
+  background: var(--color-surface);
+  transform: rotateY(90deg) translateZ(80px);
+}
+
+.boite-a-propos__face--tranche span {
+  writing-mode: vertical-rl;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Dessus : « Collection 2026 », lisible à l'endroit */
+.boite-a-propos__face--dessus {
+  top: 65px;
+  left: 0;
+  width: 160px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  background: var(--color-blanc);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transform: rotateX(90deg) translateZ(100px) rotateZ(180deg);
+}
+
+/* ---------- Textes ---------- */
+.boite-a-propos__textes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.boite-a-propos__label {
+  font-size: 13px;
+}
+
+.boite-a-propos__titre {
+  margin: 0;
+  font-size: 32px;
+  font-weight: var(--weight-titre);
+  font-variation-settings: "wdth" var(--wdth-display);
+  letter-spacing: var(--tracking-titre);
+  line-height: 1.05;
+}
+
+.boite-a-propos__texte {
+  color: var(--color-texte-long);
+  line-height: 1.5;
+}
+
+/* Faux bouton contour : le bloc entier est déjà le lien */
+.boite-a-propos__cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: var(--hauteur-champ);
+  padding: 0 20px;
+  border: var(--bordure-forte);
+  font-weight: var(--weight-bold);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.boite-a-propos:hover .boite-a-propos__cta {
+  background-color: var(--color-noir);
+  color: var(--color-blanc);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boite-a-propos__boite,
+  .boite-a-propos__cta {
+    transition: none;
+  }
+}
+
+/* ---------- Mobile : carte compacte, personnage en vignette, sans 3D ---------- */
+@media (max-width: 767px) {
+  .boite-a-propos {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 104px minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-2) var(--space-4);
+  }
+
+  .boite-a-propos__scene {
+    grid-row: 1 / span 2;
+    height: auto;
+    perspective: none;
+    background: none;
+  }
+
+  .boite-a-propos__boite,
+  .boite-a-propos:hover .boite-a-propos__boite,
+  .boite-a-propos:focus-visible .boite-a-propos__boite {
+    width: 104px;
+    height: 130px;
+    transform: none;
+  }
+
+  .boite-a-propos__face--avant {
+    padding: 0;
+    transform: none;
+  }
+
+  .boite-a-propos__reference,
+  .boite-a-propos__nom,
+  .boite-a-propos__face--tranche,
+  .boite-a-propos__face--dessus,
+  .boite-a-propos__texte {
+    display: none;
+  }
+
+  .boite-a-propos__textes {
+    align-self: end;
+    gap: var(--space-2);
+  }
+
+  .boite-a-propos__label {
+    font-size: var(--text-mono-s);
+  }
+
+  .boite-a-propos__titre {
+    font-size: 22px;
+    line-height: 1.1;
+    letter-spacing: 0;
+  }
+
+  /* Le « bouton » devient un simple libellé fléché */
+  .boite-a-propos__cta,
+  .boite-a-propos:hover .boite-a-propos__cta {
+    align-self: start;
+    justify-content: flex-start;
+    gap: 0.3em;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--color-texte);
+  }
+
+  .boite-a-propos:hover .boite-a-propos__cta {
+    color: var(--color-lien-survol);
+  }
+}

@@ -29,7 +29,7 @@ import "./catalogue.css";
 export function meta() {
   // L'URL canonique ignore les filtres : /catalogue?cat=projets pointe vers /catalogue
   return metaPage({
-    titre: `Catalogue : projets, expertises et passions · ${profil.nom} ${profil.prenom}`,
+    titre: `Catalogue : projets et expertises · ${profil.nom} ${profil.prenom}`,
     description: `Projets e-commerce, expertises (SEO, marketing digital, data, web) et passions de ${profil.nom} ${profil.prenom}, basé à ${profil.ville}. Composez votre sélection.`,
     chemin: "/catalogue",
     jsonLd: [ldFilAriane(FIL_CATALOGUE, "/catalogue")],

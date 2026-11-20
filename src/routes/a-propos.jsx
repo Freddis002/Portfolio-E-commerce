@@ -1,11 +1,13 @@
+import { useState } from "react";
 import { Link } from "react-router";
 import profil from "../data/profil.json";
 import aPropos from "../data/a-propos.json";
-import { elementsDe, urlElement } from "../data/catalogue";
-import { ldPageProfil, metaPage } from "../lib/seo";
+import { elementsDe, trouverParRef, urlElement } from "../data/catalogue";
+import { PORTRAIT, ldPageProfil, metaPage } from "../lib/seo";
 import Banniere from "../components/Banniere";
 import Bouton from "../components/Bouton";
 import EnteteSection from "../components/EnteteSection";
+import { CaseFiltre, GroupeFiltres } from "../components/Filtres";
 import "../components/Etiquettes.css";
 import "./a-propos.css";
 
@@ -22,18 +24,28 @@ export function meta() {
 
 const TYPES = { experience: "Expérience", formation: "Formation" };
 
+// Filtres du parcours : libellé au pluriel et nombre d'étapes, calculé depuis les données
+const FILTRES = [
+  { type: "experience", label: "Expériences" },
+  { type: "formation", label: "Formations" },
+].map((f) => ({ ...f, nombre: aPropos.parcours.filter((e) => e.type === f.type).length }));
+
 export default function APropos() {
+  // Types affichés : tout est coché au départ (les 9 étapes sont dans le HTML pré-rendu)
+  const [affiches, setAffiches] = useState({ experience: true, formation: true });
+  const etapes = aPropos.parcours.filter((e) => affiches[e.type]);
+  const basculer = (type) => setAffiches((a) => ({ ...a, [type]: !a[type] }));
+
   return (
     <main id="contenu" className="a-propos">
       <Banniere
         surtitre={aPropos.surtitre}
         titre={aPropos.accroche}
         texte={aPropos.presentation}
-        visuel="Portrait"
+        image={PORTRAIT}
         actions={
           <>
-            {/* Fichier public/cv.pdf : version provisoire en attendant le vrai CV */}
-            <Bouton href="/cv.pdf" download>
+            <Bouton href={profil.cv.href} download={profil.cv.nomFichier}>
               Télécharger le CV (PDF) <span aria-hidden="true">↓</span>
             </Bouton>
             <Bouton variante="contour" to="/catalogue?cat=projets">
@@ -58,9 +70,33 @@ export default function APropos() {
       {/* Parcours en timeline */}
       <section className="a-propos__section conteneur" aria-labelledby="a-propos-parcours">
         <EnteteSection id="a-propos-parcours" titre="Parcours" />
-        <ol className="parcours">
-          {aPropos.parcours.map((etape, i) => (
-            <li key={i} className="parcours__etape">
+
+        {/* Filtres à cocher (mêmes composants que le catalogue) */}
+        <div className="parcours__filtres">
+          <GroupeFiltres legende="Afficher">
+            {FILTRES.map((f) => (
+              <CaseFiltre
+                key={f.type}
+                label={f.label}
+                nombre={f.nombre}
+                checked={affiches[f.type]}
+                onChange={() => basculer(f.type)}
+                aria-controls="parcours-liste"
+              />
+            ))}
+          </GroupeFiltres>
+          {/* Annonce du résultat aux lecteurs d'écran à chaque changement */}
+          <p className="visuellement-cache" role="status">
+            {etapes.length} étape{etapes.length > 1 ? "s" : ""} affichée{etapes.length > 1 ? "s" : ""}
+          </p>
+        </div>
+
+        {etapes.length === 0 && (
+          <p className="parcours__vide">Aucune étape affichée : cochez Expériences ou Formations.</p>
+        )}
+        <ol id="parcours-liste" className="parcours">
+          {etapes.map((etape) => (
+            <li key={`${etape.periode}-${etape.intitule}-${etape.structure}`} className="parcours__etape">
               <p className="parcours__periode label-mono">{etape.periode}</p>
               <p className="parcours__type">
                 <span className="pastille">{TYPES[etape.type]}</span>
@@ -70,6 +106,7 @@ export default function APropos() {
                   {etape.intitule} · {etape.structure}, {etape.ville}
                 </h3>
                 <p>{etape.texte}</p>
+                <LienProjet reference={etape.ref} />
               </div>
             </li>
           ))}
@@ -83,6 +120,20 @@ export default function APropos() {
                 <Link to={urlElement(e)} className="pastille-lien">
                   {e.ref} · {e.titre}
                 </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="a-propos__expertises">
+          <h3 id="a-propos-outils" className="a-propos__expertises-titre label-mono">
+            Ma boîte à outils
+          </h3>
+          {/* Même style que les outils des cartes projet (pastilles contour) */}
+          <ul className="pastilles" aria-labelledby="a-propos-outils">
+            {aPropos.outils.map((outil) => (
+              <li key={outil} className="pastille">
+                {outil}
               </li>
             ))}
           </ul>
@@ -114,5 +165,17 @@ export default function APropos() {
         </Bouton>
       </section>
     </main>
+  );
+}
+
+// Lien vers la fiche du catalogue liée à une étape (ex. ref "P-03")
+function LienProjet({ reference }) {
+  const element = reference && trouverParRef(reference);
+  if (!element) return null;
+  return (
+    <Link to={urlElement(element)} className="parcours__lien">
+      Voir le projet {element.ref}
+      <span className="visuellement-cache"> : {element.titre}</span> <span aria-hidden="true">→</span>
+    </Link>
   );
 }

@@ -1,0 +1,10 @@
+{
+  "_commentaire": "Mesure d'audience. Identifiants publics (visibles dans le navigateur, ce ne sont pas des secrets). Laissés vides : rien n'est chargé et le bandeau cookies n'apparaît pas. Ces adresses sont aussi ajoutées automatiquement à la Content-Security-Policy au build.",
+  "matomo": {
+    "url": "",
+    "siteId": ""
+  },
+  "clarity": {
+    "id": ""
+  }
+}

@@ -65,7 +65,12 @@ zoom Monde / Europe / France / Vietnam, fiche du lieu (panneau à droite, pannea
 liste « Tous les lieux » toujours dans le HTML, lieu partageable (?lieu=L-03), chaque lieu ajoutable à
 Ma sélection. Animations Motion sobres (LazyMotion + domAnimation), coupées si prefers-reduced-motion.
 Photos : originaux dans photos-originales/ (hors Git), « npm run photos » publie dans public/photos/
-des WebP/AVIF sans aucune métadonnée (ni EXIF ni GPS).
+des WebP/AVIF sans aucune métadonnée (ni EXIF ni GPS), et tient à jour src/data/photos.json (photos publiées
+et dimensions) : photoPubliee() de src/lib/photos.js affiche une photo dès qu'elle existe, sinon l'emplacement hachuré.
+Emplacements attendus : voir photos-originales/LISEZMOI.md.
+Accueil, section « À découvrir » (maquette 14) : EventailPassions (cartes de jeu en 3D, carte active au survol
+et au focus) + BoiteAPropos (boîte produit en CSS 3D, un seul lien) ; sous 768 px, versions simples sans 3D.
+Nom : prenom « Frédéric » dans profil.json, affiché en capitales par CSS (logo, H1 accueil, boîte, image de partage).
 Mobile : bouton « Ajouter à ma sélection » fixé en bas des fiches, sections longues dépliables.
 Interdits : recherche, méga-menu, prix, livraison, avis inventés.
 
@@ -96,7 +101,15 @@ grilles de cartes identiques sans hiérarchie, couleurs hors charte, images gén
 ## Sécurité et vie privée
 - Aucune clé ou secret dans le code client (les variables VITE_ sont publiques)
 - localStorage : uniquement les identifiants de la sélection et des fiches vues
-- Matomo sans cookies ; Clarity chargé seulement après consentement
+- Seul cookie posé par le site : « consentement » (choix du bandeau, 6 mois, exempté par la CNIL)
+- Matomo sans cookies ; Clarity chargé seulement après consentement (signal consentv2) ;
+  identifiants dans src/data/mesure.json (vides = rien n'est chargé, pas de bandeau) ; événements via
+  track() de src/lib/analytics.js : ajout_selection, retrait_selection, envoi_contact, telechargement_cv
+- Domaine canonique : https, SANS www (public/.htaccess). En-têtes de sécurité dans .htaccess ;
+  Content-Security-Policy par page en <meta> ajoutée au build par scripts/securite.mjs (empreintes sha256
+  des scripts en ligne, jamais 'unsafe-inline' pour les scripts ; Matomo et Clarity ajoutés d'après mesure.json)
+- E-mail jamais écrit en entier dans le HTML (composant AdresseEmail) ; liens externes en
+  rel="noopener noreferrer" ; nom et coordonnées lus dans src/data/profil.json, jamais écrits en dur
 
 ## Conventions
 - Composants dans src/components, pages dans src/routes, styles via variables de src/styles/tokens.css

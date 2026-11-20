@@ -4,6 +4,8 @@
   letter-spacing: var(--tracking-titre);
   line-height: 1;
   white-space: nowrap;
+  /* Logotype toujours en capitales, même si le prénom est écrit « Frédéric » */
+  text-transform: uppercase;
   text-decoration: none;
   color: inherit;
 }

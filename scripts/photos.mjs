@@ -8,6 +8,9 @@
  * - sharp n'écrit aucune métadonnée par défaut (EXIF, GPS, XMP, IPTC) :
  *   on applique seulement l'orientation de l'appareil avant de la retirer.
  * - Chaque fichier produit est relu pour vérifier qu'il ne contient plus rien.
+ * - Écrit src/data/photos.json : la liste des photos publiées et leurs dimensions.
+ *   Le site s'en sert pour afficher une photo dès qu'elle existe (sinon :
+ *   emplacement hachuré), sans rien changer dans le code.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -18,6 +21,7 @@ const SOURCE = path.join(racine, "photos-originales");
 const SORTIE = path.join(racine, "public/photos");
 const EXTENSIONS = /\.(jpe?g|png|webp|tiff?|avif|heic|heif)$/i;
 const LARGEUR_MAX = 2000;
+const LISTE = path.join(racine, "src/data/photos.json");
 
 function lister(dossier) {
   if (!fs.existsSync(dossier)) return [];
@@ -33,9 +37,23 @@ async function sansMetadonnees(fichier) {
   return !m.exif && !m.xmp && !m.iptc;
 }
 
+// Liste des photos publiées (public/photos/…webp) : { "/photos/x/y": { largeur, hauteur } }
+async function ecrireListe() {
+  const liste = {};
+  const webp = lister(SORTIE).filter((f) => f.endsWith(".webp")).sort();
+  for (const fichier of webp) {
+    const { width, height } = await sharp(fichier).metadata();
+    const src = "/" + path.relative(path.join(racine, "public"), fichier).replaceAll("\\", "/").replace(/\.webp$/, "");
+    liste[src] = { largeur: width, hauteur: height };
+  }
+  fs.writeFileSync(LISTE, JSON.stringify(liste, null, 2) + "\n");
+  console.log(`${webp.length} photo(s) publiée(s), liste écrite dans ${path.relative(racine, LISTE)}`);
+}
+
 const originaux = lister(SOURCE);
 if (originaux.length === 0) {
-  console.log(`Aucune photo dans ${path.relative(racine, SOURCE)}/ : rien à faire.`);
+  console.log(`Aucune photo dans ${path.relative(racine, SOURCE)}/ : rien à convertir.`);
+  await ecrireListe();
   process.exit(0);
 }
 
@@ -61,3 +79,4 @@ for (const original of originaux) {
 
 if (erreurs) process.exit(1);
 console.log(`${originaux.length} photo(s) prête(s), sans métadonnées EXIF ni GPS.`);
+await ecrireListe();

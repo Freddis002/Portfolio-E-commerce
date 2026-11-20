@@ -13,6 +13,9 @@ import BarreSelection from "./components/BarreSelection";
 import AnnonceSelection from "./components/AnnonceSelection";
 import MiniPanier from "./components/MiniPanier";
 import PageIntrouvable from "./components/PageIntrouvable";
+import BandeauCookies from "./components/BandeauCookies";
+import MesureAudience from "./components/MesureAudience";
+import { ouvrirPanneauCookies } from "./lib/consentement";
 import { useRetoursSelection, useSelection } from "./lib/selection";
 
 import "./styles/fonts.css";
@@ -56,10 +59,12 @@ export function Layout({ children }) {
         </a>
         <Entete />
         {children}
-        <Footer />
+        <Footer onGererCookies={ouvrirPanneauCookies} />
         <Barre />
         <MiniPanier />
         <AnnonceSelection />
+        <BandeauCookies />
+        <MesureAudience />
         <ScrollRestoration />
         <Scripts />
       </body>

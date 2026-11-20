@@ -1,28 +1,36 @@
+/* Page 404 — maquettes Erreur404.dc.html et Erreur404Mobile.dc.html */
+
 .introuvable {
   padding-top: var(--space-9);
   padding-bottom: var(--space-9);
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-7) var(--space-8);
 }
 
-.introuvable .label-mono {
-  margin: 0;
+.introuvable__texte {
+  flex: 999 1 560px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
 }
 
 .introuvable__titre {
   margin: 0;
-  font-size: var(--text-h1);
+  font-size: var(--text-display);
   font-weight: var(--weight-display);
   font-variation-settings: "wdth" var(--wdth-display);
   letter-spacing: var(--tracking-display);
-  line-height: var(--leading-h1);
+  line-height: var(--leading-display);
 }
 
-.introuvable__texte {
+.introuvable__chapo {
   margin: 0;
-  max-width: 52ch;
+  max-width: 48ch;
   font-size: var(--text-corps-l);
   color: var(--color-texte-long);
 }
@@ -31,5 +39,46 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
-  padding-top: var(--space-2);
+}
+
+.introuvable__suggestions {
+  flex: 1 1 280px;
+  max-width: 320px;
+  border-top: var(--bordure-forte);
+  padding-top: var(--space-4);
+}
+
+.introuvable__suggestions .label-mono {
+  margin: 0 0 var(--space-2);
+}
+
+.introuvable__suggestions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.introuvable__suggestions a {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-4) 0;
+  border-bottom: var(--bordure);
+  color: var(--color-texte);
+  font-weight: var(--weight-bold);
+  text-decoration: none;
+}
+
+.introuvable__suggestions a:hover {
+  color: var(--color-orange-brule);
+}
+
+@media (max-width: 599px) {
+  .introuvable {
+    padding-top: var(--space-7);
+    padding-bottom: var(--space-7);
+  }
+
+  .introuvable__suggestions {
+    max-width: none;
+  }
 }

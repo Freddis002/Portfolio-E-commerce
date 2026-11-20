@@ -1,51 +1,130 @@
 {
-  "_commentaire": "Page À propos. À COMPLÉTER : accroche, présentation, parcours réel, valeurs, disponibilité.",
+  "_commentaire": "Page À propos. À COMPLÉTER : accroche, présentation, valeurs, disponibilité et valeurs entre [crochets] du parcours. « ref » (facultatif) relie une étape à une fiche du catalogue (ex. P-03).",
   "surtitre": "À propos · Basé à Arras",
   "accroche": "Lorem ipsum, accroche personnelle",
   "presentation": "Lorem ipsum dolor sit amet : parcours, motivations, ce que je recherche. Chargé e-commerce, marketing & communication ou chef de projet digital, en CDI dans les Hauts-de-France.",
   "infos": [
-    { "label": "Localisation", "valeur": "Arras (62)" },
-    { "label": "Mobilité", "valeur": "Hauts-de-France" },
-    { "label": "Contrat recherché", "valeur": "CDI · temps plein" },
-    { "label": "Disponibilité", "valeur": "[À compléter]" }
+    {
+      "label": "Localisation",
+      "valeur": "Arras (62)"
+    },
+    {
+      "label": "Mobilité",
+      "valeur": "Hauts-de-France · permis B"
+    },
+    {
+      "label": "Contrat recherché",
+      "valeur": "CDI · temps plein"
+    },
+    {
+      "label": "Disponibilité",
+      "valeur": "[À compléter]"
+    }
   ],
   "parcours": [
     {
       "periode": "[AAAA — AAAA]",
       "type": "experience",
       "intitule": "[Intitulé]",
-      "structure": "[Structure]",
+      "structure": "Green Ideas",
       "ville": "[Ville]",
-      "texte": "Lorem ipsum dolor sit amet : rôle et réalisations en une ligne."
+      "texte": "[À compléter]",
+      "ref": "P-01"
     },
     {
-      "periode": "[AAAA — AAAA]",
+      "periode": "2022 — 2024",
       "type": "experience",
-      "intitule": "[Intitulé]",
-      "structure": "[Structure]",
-      "ville": "[Ville]",
-      "texte": "Lorem ipsum dolor sit amet : rôle et réalisations en une ligne."
+      "intitule": "Chargé de communication et marketing digital",
+      "structure": "Market Shop",
+      "ville": "Hénin-Beaumont",
+      "texte": "Sites e-commerce WordPress et PrestaShop, fiches produits optimisées SEO, contenus (blog, visuels, vidéos TikTok, Instagram, YouTube), campagnes Soldes, French Days et Black Friday, suivi des KPI.",
+      "ref": "P-02"
     },
     {
-      "periode": "[AAAA — AAAA]",
-      "type": "formation",
-      "intitule": "[Intitulé]",
-      "structure": "[Structure]",
-      "ville": "[Ville]",
-      "texte": "Lorem ipsum dolor sit amet : rôle et réalisations en une ligne."
+      "periode": "2021 — 2022",
+      "type": "experience",
+      "intitule": "Webmaster (alternance)",
+      "structure": "Idées B Création",
+      "ville": "Orchies",
+      "texte": "Campagnes Facebook, Instagram et emailing, optimisation SEO et SEA, gestion de sites e-commerce WordPress et PrestaShop, suivi des commandes et des performances."
     },
     {
-      "periode": "[AAAA — AAAA]",
-      "type": "formation",
-      "intitule": "[Intitulé]",
-      "structure": "[Structure]",
+      "periode": "2020 — 2021",
+      "type": "experience",
+      "intitule": "Développeur web (stage)",
+      "structure": "Logiciel Bestt",
+      "ville": "Amiens",
+      "texte": "Requêtes back-end Symfony, formulaires interactifs ReactJS, templates WordPress sur mesure, tests fonctionnels en Python."
+    },
+    {
+      "periode": "2018 — 2019",
+      "type": "experience",
+      "intitule": "Fondateur et gérant",
+      "structure": "Les Petits Paniers",
       "ville": "[Ville]",
-      "texte": "Lorem ipsum dolor sit amet : rôle et réalisations en une ligne."
+      "texte": "Site e-commerce de fruits et légumes bio et de produits du terroir : campagnes digitales, site (fiches produits, SEO), commandes, livraisons et relation client, démarchage de producteurs, shootings produits.",
+      "ref": "P-03"
+    },
+    {
+      "periode": "2022 — 2024",
+      "type": "formation",
+      "intitule": "Mastère Management de projet digital",
+      "structure": "EFFICOM",
+      "ville": "Lille",
+      "texte": "[À compléter]"
+    },
+    {
+      "periode": "2021 — 2022",
+      "type": "formation",
+      "intitule": "Licence pro Créaweb, métiers du numérique",
+      "structure": "IUT de Lens",
+      "ville": "Lens",
+      "texte": "Conception, rédaction et réalisation web."
+    },
+    {
+      "periode": "2020 — 2021",
+      "type": "formation",
+      "intitule": "Développeur web et web mobile (bac+2)",
+      "structure": "AFPA",
+      "ville": "Amiens",
+      "texte": "[À compléter]"
+    },
+    {
+      "periode": "2013 — 2015",
+      "type": "formation",
+      "intitule": "DUT Techniques de commercialisation",
+      "structure": "Université Polytechnique Hauts-de-France",
+      "ville": "[Ville]",
+      "texte": "[À compléter]"
     }
   ],
+  "outils": [
+    "WordPress",
+    "PrestaShop",
+    "Google Analytics",
+    "Semrush",
+    "Ubersuggest",
+    "Brevo",
+    "Stripo",
+    "Zapier",
+    "Tally",
+    "Canva",
+    "Adobe XD",
+    "ChatGPT",
+    "Midjourney"
+  ],
   "valeurs": [
-    { "titre": "[Valeur 1]", "texte": "Lorem ipsum dolor sit amet, en une phrase." },
-    { "titre": "[Valeur 2]", "texte": "Lorem ipsum dolor sit amet, en une phrase." },
-    { "titre": "[Valeur 3]", "texte": "Lorem ipsum dolor sit amet, en une phrase." }
+    {
+      "titre": "[Valeur 1]",
+      "texte": "Lorem ipsum dolor sit amet, en une phrase."
+    },
+    {
+      "titre": "[Valeur 2]",
+      "texte": "Lorem ipsum dolor sit amet, en une phrase."
+    },
+    {
+      "titre": "[Valeur 3]",
+      "texte": "Lorem ipsum dolor sit amet, en une phrase."
+    }
   ]
 }
