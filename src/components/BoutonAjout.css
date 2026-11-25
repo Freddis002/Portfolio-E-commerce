@@ -105,7 +105,7 @@
 
 /* Compact : sur mobile, symbole seul dans un carré de 44 px (texte lu
    par les lecteurs d'écran) — listes d'expertises */
-@media (max-width: 599px) {
+@media (max-width: 767px) {
   .bouton-ajout--compact {
     width: var(--hauteur-bouton-s);
     padding: 0;
@@ -129,7 +129,7 @@
   min-width: 108px;
 }
 
-@media (max-width: 599px) {
+@media (max-width: 767px) {
   /* Version compacte (symbole seul) : carré de 44 px */
   .bouton-ajout--compact.bouton-ajout--s {
     min-width: 0;

@@ -104,6 +104,84 @@
   line-height: 1.1;
 }
 
+/* « Toutes les expertises » en bas de liste : mobile seulement */
+.accueil__demandees-tout {
+  display: none;
+}
+
+/* ---------- Les plus demandées, mobile compact (< 768 px) ---------- */
+@media (max-width: 767px) {
+  .accueil__sombre {
+    padding-block: var(--space-6);
+  }
+
+  .accueil__sombre .entete-section__titre {
+    font-size: 28px;
+  }
+
+  .accueil__sombre .entete-section__surtitre {
+    font-size: var(--text-mono-s);
+  }
+
+  /* Doublon du bouton du bas */
+  .accueil__demandees-entete {
+    display: none;
+  }
+
+  .accueil__classement > li:nth-child(n + 4) {
+    display: none;
+  }
+
+  .accueil__classement .carte--ligne {
+    min-height: 64px;
+    padding: var(--space-2) 0;
+    align-items: center;
+  }
+
+  .accueil__classement .carte--ligne .carte__rang {
+    width: 30px;
+    font-size: 18px;
+  }
+
+  .accueil__classement .carte__titre {
+    font-size: 20px;
+  }
+
+  /* Titre-lien : zone cliquable d'au moins 48 px de haut */
+  .accueil__classement .carte__titre-lien {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+  }
+
+  .accueil__demandees-tout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3);
+    min-height: var(--hauteur-champ);
+    margin-top: var(--space-5);
+    padding: 0 20px;
+    border: 1px solid var(--color-blanc);
+    font-weight: var(--weight-bold);
+    color: var(--color-blanc);
+    text-decoration: none;
+    transition:
+      background-color var(--transition),
+      color var(--transition);
+  }
+
+  .accueil__demandees-tout:hover {
+    background: var(--color-blanc);
+    color: var(--color-noir);
+  }
+
+  .accueil__demandees-nombre {
+    font-family: var(--font-mono);
+    font-weight: var(--weight-interface);
+  }
+}
+
 /* ---------- Projets à la une ---------- */
 .accueil__projets {
   display: flex;
@@ -195,14 +273,8 @@
     gap: var(--space-3);
   }
 
-  /* Rail horizontal : on fait glisser les cartes */
   .accueil__sombre {
     margin-top: var(--space-7);
-    padding-block: var(--space-7);
-  }
-
-  .accueil__classement .carte--ligne {
-    padding: var(--space-4) 0;
   }
 
   /* Seule la vitrine reste, comme sur la maquette mobile */

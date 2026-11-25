@@ -49,7 +49,9 @@ export default function BoutonAjout({
   } else if (ajoute) {
     symbole = "✓";
     texte = long ? "Dans votre sélection" : "Ajouté";
-    complement = ` : ${titre} est dans votre sélection. Activer pour le retirer`;
+    // Le libellé décrit l'action : « Ajouté : retirer SEO de ma sélection »
+    // (« Ajouté » reste dans le nom : c'est le texte visible au-delà de 768 px)
+    complement = long ? ` : ${titre} est dans votre sélection. Activer pour le retirer` : ` : retirer ${titre} de ma sélection`;
   } else {
     symbole = "+";
     texte = long ? "Ajouter à ma sélection" : "Ajouter";

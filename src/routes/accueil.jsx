@@ -166,16 +166,27 @@ export default function Accueil() {
             surtitre="Expertises · Sélection du moment"
             titre="Les plus demandées"
             aside={
-              <Link to="/catalogue?cat=expertises&tri=demandes">
+              <Link to="/catalogue?cat=expertises&tri=demandes" className="accueil__demandees-entete">
                 Toutes les expertises <span aria-hidden="true">→</span>
               </Link>
             }
           />
+          {/* En mobile : 3 premières lignes (les autres restent dans le HTML) */}
           <ol className="accueil__classement">
             {plusDemandees.map((e, i) => (
               <li key={e.ref}>{carte(e, { variante: "ligne", sombre: true, rang: i + 1 })}</li>
             ))}
           </ol>
+          <Link to="/catalogue?cat=expertises&tri=demandes" className="accueil__demandees-tout">
+            Toutes les expertises
+            <span className="accueil__demandees-nombre" aria-hidden="true">
+              {deuxChiffres(plusDemandees.length)} →
+            </span>
+            <span className="visuellement-cache">
+              {" "}
+              ({plusDemandees.length} expertises)
+            </span>
+          </Link>
         </div>
       </section>
 
