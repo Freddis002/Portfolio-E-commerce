@@ -202,10 +202,35 @@
 .accueil__autres-projets {
   flex: 1 1 320px;
   min-width: 0;
+}
+
+/* Desktop : grande carte sur 7 colonnes, « Aussi dans la collection » sur 5 */
+@media (min-width: 1024px) {
+  .accueil__projets {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .accueil__vedette {
+    grid-column: span 7;
+  }
+
+  .accueil__autres-projets {
+    grid-column: span 5;
+  }
+}
+
+.accueil__autres-titre {
+  margin: 0;
+  padding-bottom: var(--space-3);
+  border-bottom: var(--bordure-forte);
+}
+
+.accueil__autres-liste {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: var(--bordure);
 }
 
 /* ---------- À découvrir : passions (7 col.) + À propos (5 col.) ---------- */

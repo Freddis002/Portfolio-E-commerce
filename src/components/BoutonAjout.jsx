@@ -8,6 +8,8 @@ import "./BoutonAjout.css";
  * - taille : "s" (cartes, 44 px) ou "l" (fiches, 56 px, pleine largeur)
  * - surNoir : version pour les fonds Noir Encre
  * - compact : sur mobile, symbole seul (listes)
+ * - symbole : symbole seul à toutes les tailles (carré 44 px) ; le libellé lu
+ *   décrit l'action : « Ajouter X à ma sélection » / « Retirer X de ma sélection »
  * - court : libellé court « Ajouter / Ajouté » même en taille l (panneau mobile du Carnet)
  * - titre : nom de l'élément, lu par les lecteurs d'écran
  *   (« Ajouter Mon Kit Solaire à ma sélection »)
@@ -22,6 +24,7 @@ export default function BoutonAjout({
   surNoir = false,
   titre,
   compact = false,
+  symbole: seul = false,
   court = false,
   className = "",
   ...reste
@@ -31,6 +34,7 @@ export default function BoutonAjout({
     "bouton-ajout",
     `bouton-ajout--${taille}`,
     compact && "bouton-ajout--compact",
+    seul && "bouton-ajout--symbole",
     retirer ? "bouton-ajout--retirer" : ajoute && "bouton-ajout--ajoute",
     surNoir && "bouton-ajout--sur-noir",
     className,
@@ -44,6 +48,11 @@ export default function BoutonAjout({
   let complement;
   if (retirer) {
     symbole = "×";
+    texte = "Retirer";
+    complement = ` ${titre} de ma sélection`;
+  } else if (ajoute && seul) {
+    // Aucun texte visible : le libellé peut décrire directement l'action
+    symbole = "✓";
     texte = "Retirer";
     complement = ` ${titre} de ma sélection`;
   } else if (ajoute) {

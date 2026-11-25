@@ -1,11 +1,14 @@
 import "../Illustration.css";
 
+// Cadrages : 16:9 (cartes) ou 1:1 (vignettes carrées) ; seul le viewBox change
+const CADRAGES = { "16:9": "0 0 400 225", "1:1": "92 18 216 216" };
+
 /** P-03 Les Petits Paniers : panier de produits frais. Décorative. */
-export default function IllustrationP03() {
+export default function IllustrationP03({ cadrage = "16:9" }) {
   return (
     <svg
       className="illustration"
-      viewBox="0 0 400 225"
+      viewBox={CADRAGES[cadrage]}
       aria-hidden="true"
       focusable="false"
       fill="none"

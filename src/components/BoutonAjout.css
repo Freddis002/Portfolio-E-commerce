@@ -123,6 +123,29 @@
   }
 }
 
+/* Symbole seul, à toutes les tailles : carré de 44 px (texte lu par les
+   lecteurs d'écran) — colonne « Aussi dans la collection » */
+.bouton-ajout--symbole {
+  width: var(--hauteur-bouton-s);
+  padding: 0;
+  font-size: var(--text-corps-l);
+}
+
+/* (même poids que la largeur minimale de 108 px ci-dessous, qu'elle doit annuler) */
+.bouton-ajout--s.bouton-ajout--symbole:not(.bouton-ajout--retirer) {
+  min-width: 0;
+}
+
+.bouton-ajout--symbole .bouton-ajout__texte {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 /* Largeur fixe : passer de « + Ajouter » à « ✓ Ajouté » ne fait pas bouger
    la carte (ni au chargement de la sélection, ni au clic) */
 .bouton-ajout--s:not(.bouton-ajout--retirer) {

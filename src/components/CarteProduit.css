@@ -196,34 +196,63 @@
 }
 
 /* ---------- Mini : vignette 1:1 + texte ---------- */
+/* Grille : vignette 112 px | texte (un lien) | bouton 44 px */
 .carte--mini {
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr) 44px;
   align-items: center;
   gap: var(--space-4);
-  padding: 20px 0;
+  padding: var(--space-4) 0;
   border: 0;
   border-bottom: var(--bordure);
   background: transparent;
 }
 
 .carte--mini .carte__vignette {
-  flex: none;
   width: 112px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: var(--bordure);
+  background: var(--color-surface);
 }
 
-.carte--mini .carte__corps {
-  padding: 0;
+.carte__mini-lien {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
   gap: var(--space-1);
+  color: var(--color-texte);
+  text-decoration: none;
 }
 
-.carte--mini .carte__actions {
-  justify-content: flex-start;
-  gap: var(--space-3);
-  padding-top: 6px;
+.carte__mini-lien:hover {
+  color: var(--color-texte);
 }
 
-.carte--mini .carte__voir {
-  font-size: var(--text-petit);
+.carte--mini .carte__titre {
+  font-size: 20px;
+  font-weight: var(--weight-bold);
+  text-underline-offset: 4px;
+}
+
+.carte__mini-lien:hover .carte__titre {
+  text-decoration: underline;
+}
+
+.carte__mini-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+  padding-top: var(--space-1);
+}
+
+.carte__mini-outils {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-xs);
+  letter-spacing: var(--tracking-pastille);
+  text-transform: uppercase;
+  color: var(--color-texte-secondaire);
 }
 
 /* ---------- Carré : passions, visuel 1:1 sans cadre ---------- */

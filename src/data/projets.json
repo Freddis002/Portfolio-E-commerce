@@ -7,13 +7,17 @@
     "categorie": "projet",
     "accroche": "SEO de centaines de fiches produits et amélioration continue d'un site PrestaShop, chez Green Ideas à Lille.",
     "role": "[Rôle]",
+    "roleCourt": "Webmaster",
+    "ville": "Lille",
     "outils": [
-      "[Outil 1]",
-      "[Outil 2]",
-      "[Outil 3]"
+      "PrestaShop",
+      "Brevo",
+      "Connectif",
+      "GA4",
+      "Clarity"
     ],
     "siteEnLigne": "https://www.monkitsolaire.fr/",
-    "annee": "[AAAA]",
+    "annee": "2025",
     "contexte": "professionnel",
     "duree": "[durée]",
     "recit": {
@@ -45,15 +49,22 @@
     "titre": "Mon Grossiste Auto",
     "entreprise": "Market Shop",
     "categorie": "projet",
-    "accroche": "Lorem ipsum dolor sit amet : problème → démarche → résultat.",
+    "accroche": "Un catalogue de plus de 10 000 références, des fiches produits optimisées SEO et une présence sur eBay, Cdiscount et ManoMano, chez Market Shop à Hénin-Beaumont.",
     "role": "[Rôle]",
+    "roleCourt": "Chargé com & marketing digital",
+    "ville": "Hénin-Beaumont",
     "outils": [
-      "[Outil 1]",
-      "[Outil 2]",
-      "[Outil 3]"
+      "PrestaShop",
+      "WordPress",
+      "eBay",
+      "Cdiscount",
+      "ManoMano",
+      "TikTok",
+      "Instagram",
+      "YouTube"
     ],
     "siteEnLigne": "[À COMPLÉTER]",
-    "annee": "[AAAA]",
+    "annee": "2022",
     "contexte": "professionnel",
     "duree": "[durée]",
     "recit": {
@@ -86,13 +97,17 @@
     "categorie": "projet",
     "accroche": "Site WooCommerce de produits bio et locaux à Arras : 150 clients, 300 commandes, 12 producteurs.",
     "role": "[Rôle]",
+    "roleCourt": "Fondateur",
+    "ville": "Arras",
     "outils": [
-      "[Outil 1]",
-      "[Outil 2]",
-      "[Outil 3]"
+      "WooCommerce",
+      "WordPress",
+      "Facebook",
+      "Instagram",
+      "Emailing"
     ],
     "siteEnLigne": "[À COMPLÉTER]",
-    "annee": "[AAAA]",
+    "annee": "2018",
     "contexte": "professionnel",
     "duree": "[durée]",
     "recit": {
@@ -124,13 +139,13 @@
     "categorie": "projet",
     "accroche": "Lorem ipsum dolor sit amet : problème → démarche → résultat.",
     "role": "[Rôle]",
+    "roleCourt": "Bureau · TD",
+    "ville": "Cambrai",
     "outils": [
-      "[Outil 1]",
-      "[Outil 2]",
-      "[Outil 3]"
+      "Facebook"
     ],
     "siteEnLigne": "[À COMPLÉTER]",
-    "annee": "[AAAA]",
+    "annee": "2016",
     "contexte": "personnel",
     "duree": "[durée]",
     "recit": {

@@ -1,11 +1,14 @@
 import "../Illustration.css";
 
+// Cadrages : 16:9 (cartes) ou 1:1 (vignettes carrées) ; seul le viewBox change
+const CADRAGES = { "16:9": "0 0 400 225", "1:1": "180 10 210 210" };
+
 /** P-01 Mon Kit Solaire : maison, soleil, panneau solaire. Décorative. */
-export default function IllustrationP01() {
+export default function IllustrationP01({ cadrage = "16:9" }) {
   return (
     <svg
       className="illustration"
-      viewBox="0 0 400 225"
+      viewBox={CADRAGES[cadrage]}
       aria-hidden="true"
       focusable="false"
       fill="none"

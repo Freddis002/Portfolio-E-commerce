@@ -204,11 +204,16 @@ export default function Accueil() {
         />
         <div className="accueil__projets">
           <div className="accueil__vedette">{carte(projetVedette, { variante: "vitrine" })}</div>
-          <ul className="accueil__autres-projets">
-            {autresProjets.map((e) => (
-              <li key={e.ref}>{carte(e, { variante: "mini" })}</li>
-            ))}
-          </ul>
+          <div className="accueil__autres-projets">
+            <p className="accueil__autres-titre label-mono">
+              Aussi dans la collection · {deuxChiffres(autresProjets.length)}
+            </p>
+            <ul className="accueil__autres-liste">
+              {autresProjets.map((e) => (
+                <li key={e.ref}>{carte(e, { variante: "mini" })}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 

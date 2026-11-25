@@ -183,6 +183,19 @@ export function ldProjet(projet, chemin, expertises) {
       sourceOrganization: { "@type": "Organization", name: projet.entreprise },
     }),
     ...(/^\d{4}$/.test(projet.annee ?? "") && { dateCreated: projet.annee }),
+    // Lieu de réalisation (GEO) : ville du projet, en Hauts-de-France
+    ...(reel(projet.ville) && {
+      locationCreated: {
+        "@type": "Place",
+        name: projet.ville,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: projet.ville,
+          addressRegion: profil.region,
+          addressCountry: "FR",
+        },
+      },
+    }),
     ...(expertises.length && { about: expertises.map((e) => e.titre) }),
     ...(projet.outils?.some(reel) && { keywords: projet.outils.filter(reel).join(", ") }),
   };

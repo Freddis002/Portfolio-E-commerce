@@ -41,6 +41,13 @@
   color: var(--color-blanc);
 }
 
+/* « +N » : outils supplémentaires, contour pointillé Pierre */
+.pastille--plus {
+  border-style: dashed;
+  border-color: var(--color-pierre);
+  color: var(--color-pierre);
+}
+
 .pastilles--s {
   gap: var(--space-1);
 }

@@ -1,11 +1,14 @@
 import "../Illustration.css";
 
+// Cadrages : 16:9 (cartes) ou 1:1 (vignettes carrées) ; seul le viewBox change
+const CADRAGES = { "16:9": "0 0 400 225", "1:1": "88 0 225 225" };
+
 /** E-04 Data & Analytics : tableau de bord, histogramme, anneau de progression. Décorative. */
-export default function IllustrationE04() {
+export default function IllustrationE04({ cadrage = "16:9" }) {
   return (
     <svg
       className="illustration"
-      viewBox="0 0 400 225"
+      viewBox={CADRAGES[cadrage]}
       aria-hidden="true"
       focusable="false"
       fill="none"

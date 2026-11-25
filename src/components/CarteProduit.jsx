@@ -39,7 +39,9 @@ export default function CarteProduit({
   const url = urlElement(element);
   const vitrine = variante === "vitrine";
   const estProjet = element.categorie === "projet";
-  const reference = [element.ref, cat.libelle, vitrine && element.annee].filter(Boolean).join(" · ");
+  // Vitrine : « P-02 · Projet · 2022 · Market Shop » (valeurs à compléter [..] ignorées)
+  const reel = (v) => typeof v === "string" && v !== "" && !v.startsWith("[");
+  const reference = [element.ref, cat.libelle, ...(vitrine ? [element.annee, element.entreprise].filter(reel) : [])].join(" · ");
   const libelleVoir = estProjet && vitrine ? "Voir le projet" : "Voir";
   const aDesBadges = element.badges?.top || element.badges?.nouveau;
 
@@ -76,7 +78,8 @@ export default function CarteProduit({
   );
 
   const pastilles = estProjet && avecPastilles && (
-    <Pastilles role={element.role} outils={element.outils} taille={variante === "mini" ? "s" : "m"} />
+    // Rôle court sur les cartes (le rôle complet est sur la fiche), 3 outils puis « +N »
+    <Pastilles role={element.roleCourt ?? element.role} outils={element.outils} max={3} />
   );
 
   if (ligne) {
@@ -104,15 +107,47 @@ export default function CarteProduit({
   }
 
   if (variante === "mini") {
+    // Vignette carrée : illustration en cadrage 1:1, sinon emplacement hachuré
+    const Vignette = ILLUSTRATIONS_ELEMENTS[element.ref];
+    const outils = element.outils ?? [];
+    const reste = outils.length - 2;
     return (
       <article className="carte carte--mini">
-        <ImageEmplacement type="" ratio="1:1" decoratif className="carte__vignette" />
-        <div className="carte__corps">
-          <span className="label-mono">{`${element.ref} · ${cat.libelle}`}</span>
-          <Titre className="carte__titre">{element.titre}</Titre>
-          {pastilles}
-          {actions}
+        <div className="carte__vignette" aria-hidden="true">
+          {Vignette ? <Vignette cadrage="1:1" /> : <ImageEmplacement type="" ratio="1:1" decoratif />}
         </div>
+        {/* Tout le bloc texte est un seul lien vers la fiche */}
+        <Link to={url} className="carte__mini-lien">
+          <span className="label-mono">{[element.ref, element.ville, element.annee].filter(Boolean).join(" · ")}</span>
+          <Titre className="carte__titre">{element.titre}</Titre>
+          <span className="carte__mini-meta">
+            {element.roleCourt && (
+              <span className="pastille pastille--role">
+                <span className="visuellement-cache">Rôle : </span>
+                {element.roleCourt}
+              </span>
+            )}
+            <span className="carte__mini-outils">
+              {element.contexte === "personnel" ? (
+                "Projet personnel"
+              ) : (
+                <>
+                  {outils.slice(0, 2).join(" · ")}
+                  {reste > 0 && (
+                    <>
+                      <span aria-hidden="true"> · +{reste}</span>
+                      <span className="visuellement-cache">
+                        {" "}
+                        et {reste} autre{reste > 1 ? "s" : ""} outil{reste > 1 ? "s" : ""}
+                      </span>
+                    </>
+                  )}
+                </>
+              )}
+            </span>
+          </span>
+        </Link>
+        <BoutonAjout ajoute={ajoute} onClick={onBasculer} titre={element.titre} symbole />
       </article>
     );
   }
