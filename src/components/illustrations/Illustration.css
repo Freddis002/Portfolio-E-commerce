@@ -1,0 +1,49 @@
+/*
+ * Illustrations des tuiles catégorie (accueil) : SVG au trait, couleurs de la charte.
+ * Les couleurs passent par des classes (et non par var() dans les attributs SVG,
+ * dont le support n'est pas garanti sur Safari).
+ */
+
+.illustration {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--color-surface);
+  transition: transform var(--transition);
+}
+
+/* Remplissages */
+.ill-blanc {
+  fill: var(--color-blanc);
+}
+
+.ill-pale {
+  fill: var(--color-orange-pale);
+}
+
+.ill-orange {
+  fill: var(--color-orange);
+}
+
+.ill-noir {
+  fill: var(--color-noir);
+}
+
+/* Traits colorés (le trait par défaut, Noir Encre, est posé sur le <svg>) */
+.ill-trait-pierre {
+  stroke: var(--color-pierre);
+}
+
+.ill-trait-blanc {
+  stroke: var(--color-blanc);
+}
+
+.ill-trait-ligne {
+  stroke: var(--color-ligne);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .illustration {
+    transition: none;
+  }
+}

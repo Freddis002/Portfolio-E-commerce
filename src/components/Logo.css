@@ -25,3 +25,10 @@ a.logo:hover {
 .logo--l {
   font-size: 28px;
 }
+
+/* Très petits écrans (< 360 px) : le grand logo (pied de page) tient dans 280 px */
+@media (max-width: 359px) {
+  .logo--l {
+    font-size: 22px;
+  }
+}

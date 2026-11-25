@@ -13,6 +13,26 @@
   border-color: var(--color-noir);
 }
 
+/* Zone de l'illustration : cadre 4:3 qui coupe le décalage au survol */
+.tuile__visuel {
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.tuile:hover .illustration,
+.tuile:focus-visible .illustration {
+  transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tuile:hover .illustration,
+  .tuile:focus-visible .illustration {
+    transform: none;
+  }
+}
+
 .tuile__pied {
   display: flex;
   justify-content: space-between;
@@ -66,7 +86,8 @@
     align-items: center;
   }
 
-  .tuile .image-emplacement {
+  .tuile .image-emplacement,
+  .tuile__visuel {
     flex: none;
     width: 96px;
     padding: 0;
@@ -85,5 +106,13 @@
 
   .tuile__titre {
     font-size: var(--text-h3);
+  }
+}
+
+/* Très petits écrans (< 360 px) : « Voir → » passe sous le titre */
+@media (max-width: 359px) {
+  .tuile__pied {
+    flex-wrap: wrap;
+    min-width: 0;
   }
 }

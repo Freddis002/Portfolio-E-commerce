@@ -14,7 +14,17 @@ import EnteteSection from "../components/EnteteSection";
 import EventailPassions from "../components/EventailPassions";
 import PointFinal from "../components/PointFinal";
 import TuileCategorie from "../components/TuileCategorie";
+import IllustrationExpertises from "../components/illustrations/IllustrationExpertises";
+import IllustrationPassions from "../components/illustrations/IllustrationPassions";
+import IllustrationProjets from "../components/illustrations/IllustrationProjets";
 import "./accueil.css";
+
+// Illustration de chaque tuile « Explorer par catégorie »
+const ILLUSTRATIONS = {
+  projet: IllustrationProjets,
+  expertise: IllustrationExpertises,
+  passion: IllustrationPassions,
+};
 
 const nomComplet = `${profil.nom} ${profil.prenom}`;
 
@@ -106,6 +116,7 @@ export default function Accueil() {
               code={c.code}
               nombre={elementsDe(cle).length}
               to={`/catalogue?cat=${c.chemin}`}
+              illustration={ILLUSTRATIONS[cle]}
             />
           ))}
         </div>

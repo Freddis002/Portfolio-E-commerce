@@ -7,6 +7,9 @@ import BoutonAjout from "../components/BoutonAjout";
 import { Badge, Pastilles } from "../components/Etiquettes";
 import CarteProduit from "../components/CarteProduit";
 import TuileCategorie from "../components/TuileCategorie";
+import IllustrationExpertises from "../components/illustrations/IllustrationExpertises";
+import IllustrationPassions from "../components/illustrations/IllustrationPassions";
+import IllustrationProjets from "../components/illustrations/IllustrationProjets";
 import Banniere from "../components/Banniere";
 import { PORTRAIT } from "../lib/seo";
 import BandeReassurance from "../components/BandeReassurance";
@@ -287,6 +290,12 @@ export default function Styleguide() {
             <TuileCategorie titre="Projets" code="P" nombre={nombre("projet")} to="/catalogue?cat=projets" />
             <TuileCategorie titre="Expertises" code="E" nombre={nombre("expertise")} to="/catalogue?cat=expertises" />
             <TuileCategorie titre="Passions" code="H" nombre={nombre("passion")} to="/catalogue?cat=passions" />
+          </div>
+          <p className="sg-exemple__label">Tuiles illustrées (prop illustration, comme sur l&apos;accueil)</p>
+          <div className="sg-cartes">
+            <TuileCategorie titre="Projets" code="P" nombre={nombre("projet")} to="/catalogue?cat=projets" illustration={IllustrationProjets} />
+            <TuileCategorie titre="Expertises" code="E" nombre={nombre("expertise")} to="/catalogue?cat=expertises" illustration={IllustrationExpertises} />
+            <TuileCategorie titre="Passions" code="H" nombre={nombre("passion")} to="/catalogue?cat=passions" illustration={IllustrationPassions} />
           </div>
         </Section>
       </div>
