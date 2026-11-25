@@ -13,6 +13,32 @@
   gap: var(--space-2);
 }
 
+/* Zone visuel illustrée (16:9) : fond Surface, badge en haut à gauche */
+.carte__visuel {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.carte__visuel .carte__badges {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+}
+
+/* Survol de la carte : l'illustration monte de 4 px (règle de Illustration.css
+   pour la transition, coupée si l'utilisateur limite les animations) */
+.carte:hover .illustration {
+  transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carte:hover .illustration {
+    transform: none;
+  }
+}
+
 .carte__corps {
   flex-grow: 1;
   display: flex;
@@ -163,7 +189,8 @@
 }
 
 /* Visuel qui occupe la hauteur libre (vitrine du catalogue) */
-.carte--image-remplie .image-emplacement {
+.carte--image-remplie .image-emplacement,
+.carte--image-remplie .carte__visuel {
   flex-grow: 1;
   height: auto;
 }

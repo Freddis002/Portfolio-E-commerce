@@ -128,6 +128,7 @@ export default function Accueil() {
           <EnteteSection
             id="acc-nouveautes"
             titre="Nouveautés"
+            intro="Mes projets et expertises les plus récents, en e-commerce et marketing digital, depuis Arras."
             aside={
               <Link to="/catalogue?tri=recents">
                 Tout voir <span aria-hidden="true">→</span>
@@ -135,12 +136,25 @@ export default function Accueil() {
             }
           />
         </div>
-        {/* Grille en desktop, rail défilant horizontalement sur mobile */}
-        <ul className="accueil__nouveautes conteneur">
-          {nouveautes.map((e) => (
-            <li key={e.ref}>{carte(e, { avecPastilles: false })}</li>
-          ))}
-        </ul>
+        {/* 4 colonnes en desktop, 2 en tablette ; en mobile, 2 cartes empilées
+            (les suivantes restent dans le HTML, masquées en CSS) + lien vers toutes */}
+        <div className="conteneur">
+          <ul className="accueil__nouveautes">
+            {nouveautes.map((e) => (
+              <li key={e.ref}>{carte(e, { avecPastilles: false })}</li>
+            ))}
+          </ul>
+          <Link to="/catalogue?tri=recents" className="accueil__nouveautes-tout">
+            Voir toutes les nouveautés
+            <span className="accueil__nouveautes-nombre" aria-hidden="true">
+              {deuxChiffres(nouveautes.length)} →
+            </span>
+            <span className="visuellement-cache">
+              {" "}
+              ({nouveautes.length} éléments)
+            </span>
+          </Link>
+        </div>
       </section>
 
       {/* 5. Les plus demandées */}

@@ -3,6 +3,7 @@ import { categories, urlElement } from "../data/catalogue";
 import BoutonAjout from "./BoutonAjout";
 import ImageEmplacement from "./ImageEmplacement";
 import { Badge, Pastilles } from "./Etiquettes";
+import { ILLUSTRATIONS_ELEMENTS } from "./illustrations/elements";
 import "./CarteProduit.css";
 
 /**
@@ -60,8 +61,9 @@ export default function CarteProduit({
         className="carte__voir"
         {...(ligne ? { tabIndex: -1, "aria-hidden": true } : {})}
       >
+        {/* Nom accessible unique : « Voir Mon Kit Solaire » */}
         {libelleVoir} <span aria-hidden="true">→</span>
-        <span className="visuellement-cache"> : {element.titre}</span>
+        <span className="visuellement-cache"> {element.titre}</span>
       </Link>
       <BoutonAjout
         ajoute={ajoute}
@@ -116,15 +118,24 @@ export default function CarteProduit({
   }
 
   const carre = variante === "carre";
+  // Illustration de l'élément (zone 16:9) ; sinon emplacement hachuré
+  const Illustration = !carre && ILLUSTRATIONS_ELEMENTS[element.ref];
   return (
     <article className={`carte carte--${variante} ${imageRemplie ? "carte--image-remplie" : ""}`}>
-      <ImageEmplacement
-        type={vitrine ? "Mockup écran sur fond Noir Encre" : carre ? "Photo personnelle" : cat.visuel}
-        ratio={carre ? "1:1" : "16:9"}
-        remplir={imageRemplie}
-      >
-        {aDesBadges && <span className="carte__badges">{badges}</span>}
-      </ImageEmplacement>
+      {Illustration ? (
+        <div className="carte__visuel">
+          <Illustration />
+          {aDesBadges && <span className="carte__badges">{badges}</span>}
+        </div>
+      ) : (
+        <ImageEmplacement
+          type={vitrine ? "Mockup écran sur fond Noir Encre" : carre ? "Photo personnelle" : cat.visuel}
+          ratio={carre ? "1:1" : "16:9"}
+          remplir={imageRemplie}
+        >
+          {aDesBadges && <span className="carte__badges">{badges}</span>}
+        </ImageEmplacement>
+      )}
       <div className="carte__corps">
         <span className="label-mono">{reference}</span>
         <Titre className="carte__titre">{element.titre}</Titre>

@@ -34,6 +34,16 @@
   line-height: var(--leading-h2);
 }
 
+.entete-section__intro {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--color-texte-long);
+}
+
+.entete-section--sombre .entete-section__intro {
+  color: var(--color-texte-secondaire-sur-noir);
+}
+
 .entete-section__aside a {
   font-size: 15px;
   font-weight: var(--weight-bold);

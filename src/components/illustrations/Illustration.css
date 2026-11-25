@@ -42,6 +42,10 @@
   stroke: var(--color-ligne);
 }
 
+.ill-trait-pale {
+  stroke: var(--color-orange-pale);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .illustration {
     transition: none;

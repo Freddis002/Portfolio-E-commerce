@@ -14,10 +14,62 @@
 /* ---------- Nouveautés ---------- */
 .accueil__nouveautes {
   list-style: none;
-  margin-block: 0;
+  margin: 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-5);
+}
+
+/* « Voir toutes les nouveautés » : mobile seulement (le « Tout voir → » suffit ailleurs) */
+.accueil__nouveautes-tout {
+  display: none;
+}
+
+/* Tablette : 2 colonnes, les cartes gardent une largeur confortable */
+@media (max-width: 1023px) {
+  .accueil__nouveautes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile : 2 cartes empilées, puis le lien-bouton vers toutes les nouveautés */
+@media (max-width: 767px) {
+  .accueil__nouveautes {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+
+  .accueil__nouveautes > li:nth-child(n + 3) {
+    display: none;
+  }
+
+  .accueil__nouveautes-tout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3);
+    min-height: var(--hauteur-champ);
+    margin-top: var(--space-4);
+    padding: 0 20px;
+    border: var(--bordure-forte);
+    font-weight: var(--weight-bold);
+    color: var(--color-texte);
+    text-decoration: none;
+    transition:
+      background-color var(--transition),
+      color var(--transition);
+  }
+
+  .accueil__nouveautes-tout:hover {
+    background: var(--color-noir);
+    color: var(--color-blanc);
+  }
+
+  .accueil__nouveautes-nombre {
+    font-family: var(--font-mono);
+    font-weight: var(--weight-interface);
+  }
 }
 
 .accueil__nouveautes > li {
@@ -144,22 +196,6 @@
   }
 
   /* Rail horizontal : on fait glisser les cartes */
-  .accueil__nouveautes {
-    /* relative : les textes cachés des cartes restent dans le rail */
-    position: relative;
-    display: flex;
-    gap: var(--space-4);
-    padding-bottom: var(--space-2);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
-
-  .accueil__nouveautes > li {
-    flex: 0 0 280px;
-    scroll-snap-align: start;
-  }
-
   .accueil__sombre {
     margin-top: var(--space-7);
     padding-block: var(--space-7);
